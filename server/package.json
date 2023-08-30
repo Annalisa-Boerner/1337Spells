@@ -4,7 +4,8 @@
   "description": "1337 spells project server",
   "main": "index.js",
   "scripts": {
-    "test": "run"
+    "test": "run",
+    "seed": "node ./db/seed.js"
   },
   "author": "",
   "license": "ISC",
