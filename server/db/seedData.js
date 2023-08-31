@@ -40,24 +40,12 @@ const characters = [
 const spellbooks = [
      {
           spellbook_id: 1,
-          level1_avail: 6,
-          cantrips_avail: 3,
-          spells_known: [],
-          cantrips_known: [],
      },
      {
           spellbook_id: 2,
-          level1_avail: 4,
-          cantrips_avail: 2,
-          spells_known: ["Sleep", "Magic Missile"],
-          cantrips_known: ["Mage Hand"],
      },
      {
           spellbook_id: 3,
-          level1_avail: 6,
-          cantrips_avail: 3,
-          spells_known: [],
-          cantrips_known: [],
      },
 ];
 
@@ -74,4 +62,27 @@ const cantrips = [
      { cantrip_id: 2, name: "Friends" },
      { cantrip_id: 3, name: "Gust" },
 ];
-module.exports = { arcaneRecovery, characters, spellbooks, spells, cantrips };
+
+//junction between spellbook and spells
+const spellbooks_spells = [
+     { spellbook_id: 1, spell_id: 1 },
+     { spellbook_id: 1, spell_id: 2 },
+     { spellbook_id: 1, spell_id: 3 },
+];
+
+//junction between spellbook and cantrips
+
+const spellbooks_cantrips = [
+     { spellbook_id: 3, cantrip_id: 1 },
+     { spellbook_id: 3, cantrip_id: 2 },
+     { spellbook_id: 3, cantrip_id: 1 },
+];
+module.exports = {
+     arcaneRecovery,
+     characters,
+     spellbooks,
+     spells,
+     cantrips,
+     spellbooks_spells,
+     spellbooks_cantrips,
+};

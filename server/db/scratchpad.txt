@@ -1,0 +1,18 @@
+what I want to do:
+
+the information stored in "spells known" is an array of spell_ids for l1 spells; the info stored in "cantrips known" is an array of cantrip_ids
+
+or maybe they're not arrays, maybe they need a through table:
+many spellbooks can contain the same spell
+many spells can belong to the same spellbook
+
+-created two through tables:
+    -spellbooks_spells
+    -spellbooks_cantrips
+
+1. make these tables in the seed.js createTables
+1a. adjust the spellbook to have nothing in it
+1b. make sure everything in plural
+2. make helper functions
+3. make and populate them in seedData
+    a. figure out how this interacts with the other seed data
