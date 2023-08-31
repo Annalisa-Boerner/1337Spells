@@ -1,39 +1,44 @@
 //this will reset the database - yes for student project, no for life
 
 //pulling in connection to local db
-const client = require("./client")
+const client = require("./client");
 //pull in dummy data arrays from the seed data
-const { characters, arcaneRecovery, spellbooks, spells  } = require('./seedData')
+const {
+     characters,
+     arcaneRecovery,
+     spellbooks,
+     spells,
+} = require("./seedData");
 
 //pull in helpers
-const {createCharacter, getAllCharacters} = require('./helpers/characters')
+const { createCharacter, getAllCharacters } = require("./helpers/characters");
+const { createSpellbooks } = require("./helpers/spellbooks");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
-    try {
-        //client.query: calling client connection to make a query to the db; write sequel here
-        console.log("starting to drop tables")
-        await client.query(`
+     try {
+          //client.query: calling client connection to make a query to the db; write sequel here
+          console.log("starting to drop tables");
+          await client.query(`
         DROP TABLE IF EXISTS arcaneRecovery;
         DROP TABLE IF EXISTS characters;
         DROP TABLE IF EXISTS spellbooks;
         DROP TABLE IF EXISTS spells;
-        `)
-        console.log("tables dropped!")
-    } catch (error) {
-        throw error
-    }
-   
-}
+        `);
+          console.log("tables dropped!");
+     } catch (error) {
+          throw error;
+     }
+};
 
 //Create tables - this is the official column order
 const createTables = async () => {
-    console.log('creating tables...')
-    await client.query(`
+     console.log("creating tables...");
+     await client.query(`
 
     CREATE TABLE spellbooks (
         spellbook_id SERIAL PRIMARY KEY,
-        level_avail INTEGER,
+        level1_avail INTEGER,
         cantrips_avail INTEGER,
         spells_known text[],
         cantrips_known text[]
@@ -61,65 +66,65 @@ const createTables = async () => {
         level INTEGER
     )
 
-    `)
-    //fks are integers:
-    //fk_id INTEGER REFERENCES tablename(columnName aka fk_id)
-    console.log('tables created!')
-}
+    `);
+     //fks are integers:
+     //fk_id INTEGER REFERENCES tablename(columnName aka fk_id)
+     console.log("tables created!");
+};
 //insert mock data from seedData
 
 //---------create characters-----------
 const createInitialCharacters = async () => {
+     try {
+          console.log("creating initial characters...");
+          //loop through the 'characters' array from teh seed data
+          for (const character of characters) {
+               //insert each character into the table using a sql query
+               await createCharacter(character);
+          }
+          console.log("characters created!");
+     } catch (error) {
+          //throwing halts execution of the file
+          throw error;
+     }
+};
 
-try {
-    console.log('creating initial characters')
-//loop through the 'characters' array from teh seed data
-for (const character of characters) {
-    //insert each character into the table using a sql query
-    await createCharacter(character);
-   
-}
-
-
-} catch (error) {
-    //throwing halts execution of the file
-    throw error
-}
-
-}
-
-
+const createInitialSpellbooks = async () => {
+     try {
+          console.log("creating initial spellbooks...");
+          console.log(spellbooks);
+          for (const spellbook of spellbooks) {
+               await createSpellbooks(spellbook);
+          }
+          console.log("spellbooks created!");
+     } catch (error) {
+          throw error;
+     }
+};
 //------------call all functions and build db-------------
 
 const rebuildDb = async () => {
+     try {
+          //ACTUALLY connect - client.query sets up a query; the connect actually sends it; client.js is where we established client
+          client.connect();
+          //run functions
 
-try {
-    //ACTUALLY connect - client.query sets up a query; the connect actually sends it; client.js is where we established client
-    client.connect()
-    //run functions
-    
-    await dropTables()
-    
+          await dropTables();
 
-    await createTables()
-    //generating start data
-//     await createInitialCharacters()
-   
-//    await getAllCharacters()
+          await createTables();
+          //generating start data
+          await createInitialSpellbooks();
+          await createInitialCharacters();
 
-   
-} catch (error) {
-    console.error(error)
-} finally {
-    console.log('closing connection')
-    //close connection
-    client.end()
-    console.log('is closed!')
-}
-
-
-
-
-}
+          //    await getAllCharacters()
+     } catch (error) {
+          console.error(error);
+     } finally {
+          console.log("closing connection...");
+          //close connection
+          client.end();
+          console.log("connection is closed!");
+     }
+};
 
 rebuildDb();
