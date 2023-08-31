@@ -60,8 +60,15 @@ const spellbooks = [
 
 //spells that exist
 const spells = [
-     { spell_id: 1, name: "Magic Missile", level: 1 },
-     { spell_id: 2, name: "Mage Hand", level: 0 },
-     { spell_id: 3, name: "Sleep", level: 1 },
+     { spell_id: 1, name: "Magic Missile" },
+     { spell_id: 2, name: "Sleep" },
+     { spell_id: 3, name: "Feather Fall" },
 ];
-module.exports = { arcaneRecovery, characters, spellbooks, spells };
+
+//cantrips that exist
+const cantrips = [
+     { cantrip_id: 1, name: "Mage Hand" },
+     { cantrip_id: 2, name: "Friends" },
+     { cantrip_id: 3, name: "Gust" },
+];
+module.exports = { arcaneRecovery, characters, spellbooks, spells, cantrips };

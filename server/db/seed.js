@@ -8,6 +8,7 @@ const {
      arcaneRecovery,
      spellbooks,
      spells,
+     cantrips,
 } = require("./seedData");
 
 //pull in helpers
@@ -15,6 +16,7 @@ const { createCharacter, getAllCharacters } = require("./helpers/characters");
 const { createSpellbooks } = require("./helpers/spellbooks");
 const { createSpells } = require("./helpers/spells");
 const { createArcaneRecovery } = require("./helpers/arcaneRecovery");
+const { createCantrips } = require("./helpers/cantrips");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -26,6 +28,7 @@ const dropTables = async () => {
         DROP TABLE IF EXISTS characters;
         DROP TABLE IF EXISTS spellbooks;
         DROP TABLE IF EXISTS spells;
+        DROP TABLE IF EXISTS cantrips;
         `);
           console.log("tables dropped!");
      } catch (error) {
@@ -40,7 +43,7 @@ const createTables = async () => {
 
     CREATE TABLE spellbooks (
         spellbook_id SERIAL PRIMARY KEY,
-        level1_avail INTEGER,
+        spells_avail INTEGER,
         cantrips_avail INTEGER,
         spells_known text[],
         cantrips_known text[]
@@ -64,9 +67,15 @@ const createTables = async () => {
 
     CREATE TABLE spells (
         spell_id SERIAL PRIMARY KEY,
-        name varchar(255) UNIQUE NOT NULL,
-        level INTEGER
-    )
+        name varchar(255) UNIQUE NOT NULL
+      
+    );
+
+    CREATE TABLE cantrips (
+        cantrip_id SERIAL PRIMARY KEY,
+        name varchar(255) UNIQUE NOT NULL
+      
+    );
 
     `);
      //fks are integers:
@@ -94,7 +103,7 @@ const createInitialCharacters = async () => {
 const createInitialSpellbooks = async () => {
      try {
           console.log("creating initial spellbooks...");
-          //   console.log(spellbooks);
+          // console.log(spellbooks);
           for (const spellbook of spellbooks) {
                await createSpellbooks(spellbook);
           }
@@ -111,6 +120,18 @@ const createInitialSpells = async () => {
                await createSpells(spell);
           }
           console.log("spells created!");
+     } catch (error) {
+          throw error;
+     }
+};
+
+const createInitialCantrips = async () => {
+     try {
+          console.log("creating initial cantrips...");
+          for (const cantrip of cantrips) {
+               await createCantrips(cantrip);
+          }
+          console.log("cantrips created!");
      } catch (error) {
           throw error;
      }
@@ -140,6 +161,7 @@ const rebuildDb = async () => {
           await createTables();
           //generating start data
           await createInitialSpells();
+          await createInitialCantrips();
           await createInitialSpellbooks();
           await createInitialCharacters();
           await createInitialArcaneRecovery();

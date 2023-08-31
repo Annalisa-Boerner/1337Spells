@@ -1,11 +1,3 @@
+what I want to do:
 
-    CREATE TABLE spellbooks (
-        spellbook_id SERIAL PRIMARY KEY,
-        level_avail INTEGER,
-        cantrips_avail INTEGER,
-        spells_known text[],
-        cantrips_known text[],
-    );
-
-
-s
+the information stored in "spells known" is an array of spell_ids for l1 spells; the info stored in "cantrips known" is an array of spell_ids for 

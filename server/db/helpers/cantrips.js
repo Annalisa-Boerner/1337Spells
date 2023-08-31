@@ -1,18 +1,18 @@
 const client = require("../client");
 
-const createSpells = async ({ spell_id, name }) => {
+const createCantrips = async ({ cantrip_id, name }) => {
      try {
           const {
-               rows: [spell],
+               rows: [cantrip],
           } = await client.query(
-               `INSERT INTO spells(spell_id, name)
+               `INSERT INTO cantrips(cantrip_id, name)
        VALUES ($1, $2)
        RETURNING *;`,
-               [spell_id, name]
+               [cantrip_id, name]
           );
      } catch (error) {
           throw error;
      }
 };
 
-module.exports = { createSpells };
+module.exports = { createCantrips };
