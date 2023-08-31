@@ -8,6 +8,7 @@ const createCharacter = async ({
      password,
      name,
      heritage,
+     image,
      spellbook_id,
 }) => {
      try {
@@ -16,11 +17,11 @@ const createCharacter = async ({
                rows: [character],
           } = await client.query(
                `
-            INSERT INTO characters(username, password, name, heritage, spellbook_id)
-            VALUES ($1, $2, $3, $4, $5)
+            INSERT INTO characters(username, password, name, heritage, image, spellbook_id)
+            VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING *;
         `,
-               [username, password, name, heritage, spellbook_id]
+               [username, password, name, heritage, image, spellbook_id]
           );
           return character;
      } catch (error) {
