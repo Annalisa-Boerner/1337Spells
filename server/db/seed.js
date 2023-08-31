@@ -6,7 +6,7 @@ const client = require("./client")
 const { characters, arcaneRecovery, spellbooks, spells  } = require('./seedData')
 
 //pull in helper
-const {createCharacter} = require('./helpers/characters')
+const {createCharacter, getAllCharacters} = require('./helpers/characters')
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -43,6 +43,7 @@ const createTables = async () => {
         spellbook_id INTEGER REFERENCES spellbooks(spellbook_id)
 
     );
+
     CREATE TABLE spellbooks (
         spellbook_id SERIAL PRIMARY KEY,
         level1_avail INTEGER,
@@ -50,10 +51,7 @@ const createTables = async () => {
         spells_known INTEGER,
         cantrips_known INTEGER,
     );
-    
-    CREATE TABLE spells (
-        
-    )
+
     `)
     //fks are integers:
     //fk_id INTEGER REFERENCES tablename(columnName aka fk_id)
@@ -70,6 +68,7 @@ try {
 for (const character of characters) {
     //insert each character into the table using a sql query
     await createCharacter(character);
+   
 }
 
 
@@ -96,6 +95,9 @@ try {
     await createTables()
     //generating start data
     await createInitialCharacters()
+   
+   await getAllCharacters()
+
    
 } catch (error) {
     console.error(error)

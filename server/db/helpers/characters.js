@@ -21,5 +21,19 @@ return character;
     }
 }
 
+//second function: a get all as a good starting point
 
-module.exports = {createCharacter}
+const getAllCharacters = async () => {
+try {
+    const {rows} = await client.query(`
+    SELECT * 
+    FROM characters;
+    `)
+    console.log('got all characters!')
+    return rows
+} catch (error) {
+    throw error
+}
+
+}
+module.exports = {createCharacter, getAllCharacters}

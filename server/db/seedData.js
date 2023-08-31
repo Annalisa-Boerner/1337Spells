@@ -3,18 +3,25 @@
 
 //arcane recovery toggles
 const arcaneRecovery = [
-    {usedToday: false}
+    {usedToday: false, char_id: 1},
+    {usedToday: true, char_id: 2},
+    {usedToday: false, char_id: 3}
 ]
 
 //characters
 const characters = [
-    {username: '', password: '', name: ""}
+    {username: 'Seven', password: 'asdffdsa', name: "Seven", heritage: "High Elf", spellbook_id: 1},
+    {username: 'Sadie', password: 'killkillkill', name: "Sadie Killmore", heritage: "High Elf", spellbook_id: 2},
+    {username: 'EyyBee', password: 'onesinglebee', name: "All the NPCs", heritage: "human", spellbook_id: 3},
+    
 ]
 
 
 //spellbooks
 const spellbooks = [
-{}
+{spellbook_id: 1, level1_avail: , cantrips_avail: ,spells_known: , cantrips_known: },
+{spellbook_id: 2, level1_avail: , cantrips_avail: ,spells_known: , cantrips_known: },
+{spellbook_id: 3, level1_avail: , cantrips_avail: ,spells_known: , cantrips_known: },
 ]
 
 //spells that exist
@@ -24,4 +31,4 @@ const spells = [
     {name: 'Sleep', level: 1}
 
 ]
-module.exports = { arcaneRecovery, characters, spellboks, spells }
+module.exports = { arcaneRecovery, characters, spellbooks, spells }
