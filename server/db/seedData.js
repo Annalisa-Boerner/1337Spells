@@ -3,9 +3,9 @@
 
 //arcane recovery toggles
 const arcaneRecovery = [
-    {usedToday: false, char_id: 1},
-    {usedToday: true, char_id: 2},
-    {usedToday: false, char_id: 3}
+    {usedToday: false, character_id: 1},
+    {usedToday: true, character_id: 2},
+    {usedToday: false, character_id: 3}
 ]
 
 //characters

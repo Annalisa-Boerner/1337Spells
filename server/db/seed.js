@@ -5,24 +5,25 @@ const client = require("./client")
 //pull in dummy data arrays from the seed data
 const { characters, arcaneRecovery, spellbooks, spells  } = require('./seedData')
 
-//pull in helper
+//pull in helpers
 const {createCharacter, getAllCharacters} = require('./helpers/characters')
 
 //Drop tables for cleanliness
 const dropTables = async () => {
     try {
         //client.query: calling client connection to make a query to the db; write sequel here
-        console.log("dropping tables")
+        console.log("stargin to drop tables")
         await client.query(`
         DROP TABLE IF EXISTS arcaneRecovery;
         DROP TABLE IF EXISTS characters;
         DROP TABLE IF EXISTS spellbooks;
         DROP TABLE IF EXISTS spells;
         `)
+        console.log("tables dropped!")
     } catch (error) {
         throw error
     }
-    console.log("dropped!")
+   
 }
 
 //Create tables - this is the official column order
@@ -31,6 +32,7 @@ const createTables = async () => {
     await client.query(`
     CREATE TABLE arcaneRecovery (
         usedToday BOOLEAN NOT NULL
+        character_id INTEGER REFERENCES characters(character_id)
     );
 
 
@@ -47,10 +49,16 @@ const createTables = async () => {
     CREATE TABLE spellbooks (
         spellbook_id SERIAL PRIMARY KEY,
         level1_avail INTEGER,
-        cantrip_avail INTEGER,
-        spells_known INTEGER,
-        cantrips_known INTEGER,
+        cantrips_avail INTEGER,
+        spells_known text[],
+        cantrips_known text[],
     );
+
+    CREATE TABLE spells (
+        spell_id SERIAL PRIMARY KEY,
+        name varchar(255) UNIQUE NOT NULL,
+        level INTEGER
+    )
 
     `)
     //fks are integers:
