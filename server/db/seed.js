@@ -13,6 +13,7 @@ const {
 //pull in helpers
 const { createCharacter, getAllCharacters } = require("./helpers/characters");
 const { createSpellbooks } = require("./helpers/spellbooks");
+const { createSpells } = require("./helpers/spells");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -92,11 +93,23 @@ const createInitialCharacters = async () => {
 const createInitialSpellbooks = async () => {
      try {
           console.log("creating initial spellbooks...");
-          console.log(spellbooks);
+          //   console.log(spellbooks);
           for (const spellbook of spellbooks) {
                await createSpellbooks(spellbook);
           }
           console.log("spellbooks created!");
+     } catch (error) {
+          throw error;
+     }
+};
+
+const createInitialSpells = async () => {
+     try {
+          console.log("creating initial spells...");
+          for (const spell of spells) {
+               await createSpells(spell);
+          }
+          console.log("spells created!");
      } catch (error) {
           throw error;
      }
@@ -113,6 +126,7 @@ const rebuildDb = async () => {
 
           await createTables();
           //generating start data
+          await createInitialSpells();
           await createInitialSpellbooks();
           await createInitialCharacters();
 
