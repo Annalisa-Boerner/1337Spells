@@ -14,6 +14,7 @@ const {
 const { createCharacter, getAllCharacters } = require("./helpers/characters");
 const { createSpellbooks } = require("./helpers/spellbooks");
 const { createSpells } = require("./helpers/spells");
+const { createArcaneRecovery } = require("./helpers/arcaneRecovery");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -114,6 +115,18 @@ const createInitialSpells = async () => {
           throw error;
      }
 };
+
+const createInitialArcaneRecovery = async () => {
+     try {
+          console.log("creating initial arcane recovery states...");
+          for (const boolean of arcaneRecovery) {
+               await createArcaneRecovery(boolean);
+          }
+          console.log("initial states created!");
+     } catch (error) {
+          throw error;
+     }
+};
 //------------call all functions and build db-------------
 
 const rebuildDb = async () => {
@@ -129,6 +142,7 @@ const rebuildDb = async () => {
           await createInitialSpells();
           await createInitialSpellbooks();
           await createInitialCharacters();
+          await createInitialArcaneRecovery();
 
           //    await getAllCharacters()
      } catch (error) {
