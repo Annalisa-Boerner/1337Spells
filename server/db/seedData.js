@@ -40,21 +40,21 @@ const characters = [
 const spellbooks = [
      {
           spellbook_id: 1,
-          level1_avail: 6,
+          spells_avail: 6,
           cantrips_avail: 3,
           spells_known: [],
           cantrips_known: [],
      },
      {
           spellbook_id: 2,
-          level1_avail: 4,
+          spells_avail: 4,
           cantrips_avail: 2,
-          spells_known: ["Sleep", "Magic Missile"],
-          cantrips_known: ["Mage Hand"],
+          spells_known: [1, 2],
+          cantrips_known: [1],
      },
      {
           spellbook_id: 3,
-          level1_avail: 6,
+          spells_avail: 6,
           cantrips_avail: 3,
           spells_known: [],
           cantrips_known: [],

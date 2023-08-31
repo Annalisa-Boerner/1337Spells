@@ -24,11 +24,13 @@ const dropTables = async () => {
           //client.query: calling client connection to make a query to the db; write sequel here
           console.log("starting to drop tables");
           await client.query(`
-        DROP TABLE IF EXISTS arcaneRecovery;
-        DROP TABLE IF EXISTS characters;
-        DROP TABLE IF EXISTS spellbooks;
-        DROP TABLE IF EXISTS spells;
-        DROP TABLE IF EXISTS cantrips;
+        DROP TABLE IF EXISTS arcaneRecovery CASCADE;
+        DROP TABLE IF EXISTS characters CASCADE;
+        DROP TABLE IF EXISTS spellbooks CASCADE;
+        DROP TABLE IF EXISTS spells CASCADE;
+        DROP TABLE IF EXISTS cantrips CASCADE;
+        DROP TABLE IF EXISTS spellbooks_spells CASCADE;
+        DROP TABLE IF EXISTS spellbooks_cantrips CASCADE;
         `);
           console.log("tables dropped!");
      } catch (error) {
@@ -41,13 +43,36 @@ const createTables = async () => {
      console.log("creating tables...");
      await client.query(`
 
+     CREATE TABLE spells (
+        spell_id SERIAL PRIMARY KEY,
+        name varchar(255) UNIQUE NOT NULL
+      
+    );
+
+    CREATE TABLE cantrips (
+        cantrip_id SERIAL PRIMARY KEY,
+        name varchar(255) UNIQUE NOT NULL
+      
+    );
     CREATE TABLE spellbooks (
         spellbook_id SERIAL PRIMARY KEY,
         spells_avail INTEGER,
-        cantrips_avail INTEGER,
-        spells_known text[],
-        cantrips_known text[]
+        cantrips_avail INTEGER
     );
+
+    CREATE TABLE spellbooks_spells (
+        spellbooks_spells_id SERIAL PRIMARY KEY,
+        spell_id INTEGER REFERENCES spells(spell_id) NOT NULL,
+        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id) NOT NULL
+    );
+
+    CREATE TABLE spellbooks_cantrips (
+        spellbooks_cantrips_id SERIAL PRIMARY KEY,
+        cantrip_id INTEGER REFERENCES cantrips(cantrip_id) NOT NULL,
+        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id) NOT NULL
+    );
+    
+
 
     CREATE TABLE characters (
         character_id SERIAL PRIMARY KEY,
@@ -66,17 +91,7 @@ const createTables = async () => {
         character_id INTEGER REFERENCES characters(character_id)
     );
 
-    CREATE TABLE spells (
-        spell_id SERIAL PRIMARY KEY,
-        name varchar(255) UNIQUE NOT NULL
-      
-    );
 
-    CREATE TABLE cantrips (
-        cantrip_id SERIAL PRIMARY KEY,
-        name varchar(255) UNIQUE NOT NULL
-      
-    );
 
     `);
      //fks are integers:
