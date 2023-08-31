@@ -7,10 +7,11 @@ many spellbooks can contain the same spell
 many spells can belong to the same spellbook
 
 -created two through tables:
-    -spellbook_spells
-    -spellbook_cantrips
+    -spellbooks_spells
+    -spellbooks_cantrips
 
 1. make these tables in the seed.js createTables
+1a. adjust the spellbook to have nothing in it
 2. make helper functions
 3. make and populate them in seedData
     a. figure out how this interacts with the other seed data

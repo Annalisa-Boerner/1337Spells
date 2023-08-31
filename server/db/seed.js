@@ -55,9 +55,7 @@ const createTables = async () => {
       
     );
     CREATE TABLE spellbooks (
-        spellbook_id SERIAL PRIMARY KEY,
-        spells_avail INTEGER,
-        cantrips_avail INTEGER
+        spellbook_id SERIAL PRIMARY KEY
     );
 
     CREATE TABLE spellbooks_spells (
