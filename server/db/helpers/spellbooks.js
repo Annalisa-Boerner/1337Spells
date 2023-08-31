@@ -6,7 +6,7 @@ const createSpellbooks = async ({ spellbook_id }) => {
                rows: [spellbook],
           } = await client.query(
                `
-    INSERT INTO spellbooks(spellbook_id       
+    INSERT INTO spellbooks(spellbook_id)      
         VALUES($1)
         RETURNING *;
        `,

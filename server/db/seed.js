@@ -9,6 +9,8 @@ const {
      spellbooks,
      spells,
      cantrips,
+     spellbooks_spells,
+     spellbooks_cantrips,
 } = require("./seedData");
 
 //pull in helpers
@@ -17,6 +19,8 @@ const { createSpellbooks } = require("./helpers/spellbooks");
 const { createSpells } = require("./helpers/spells");
 const { createArcaneRecovery } = require("./helpers/arcaneRecovery");
 const { createCantrips } = require("./helpers/cantrips");
+const { createSpellbooks_spells } = require("./helpers/spellbooks_spells");
+const { createSpellbooks_cantrips } = require("./helpers/spellbooks_cantrips");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -60,14 +64,14 @@ const createTables = async () => {
 
     CREATE TABLE spellbooks_spells (
         spellbooks_spells_id SERIAL PRIMARY KEY,
-        spell_id INTEGER REFERENCES spells(spell_id) NOT NULL,
-        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id) NOT NULL
+        spell_id INTEGER REFERENCES spells(spell_id),
+        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id)
     );
 
     CREATE TABLE spellbooks_cantrips (
         spellbooks_cantrips_id SERIAL PRIMARY KEY,
-        cantrip_id INTEGER REFERENCES cantrips(cantrip_id) NOT NULL,
-        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id) NOT NULL
+        cantrip_id INTEGER REFERENCES cantrips(cantrip_id),
+        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id)
     );
     
 
@@ -162,6 +166,32 @@ const createInitialArcaneRecovery = async () => {
           throw error;
      }
 };
+
+const createInitialSpellbooks_spells = async () => {
+     try {
+          console.log("creating spellbooks / spells junction...");
+          for (spellbook_spell of spellbooks_spells) {
+               await createSpellbooks_spells(spellbook_spell);
+          }
+          console.log(spellbook_spell);
+          console.log("spellbook/spells junction created");
+     } catch (error) {
+          throw error;
+     }
+};
+
+const createInitialSpellbooks_cantrips = async () => {
+     try {
+          console.log("creating spellbooks / cantrips junction...");
+          for (spellbooks_cantrip of spellbooks_cantrips) {
+               await createSpellbooks_cantrips(spellbooks_cantrip);
+          }
+          console.log(spellbooks_cantrips);
+          console.log("spellbook/cantrips junction created");
+     } catch (error) {
+          throw error;
+     }
+};
 //------------call all functions and build db-------------
 
 const rebuildDb = async () => {
@@ -179,6 +209,8 @@ const rebuildDb = async () => {
           await createInitialSpellbooks();
           await createInitialCharacters();
           await createInitialArcaneRecovery();
+          await createInitialSpellbooks_spells();
+          await createInitialSpellbooks_cantrips();
 
           //    await getAllCharacters()
      } catch (error) {
