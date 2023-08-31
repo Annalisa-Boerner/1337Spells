@@ -12,7 +12,7 @@ const {createCharacter, getAllCharacters} = require('./helpers/characters')
 const dropTables = async () => {
     try {
         //client.query: calling client connection to make a query to the db; write sequel here
-        console.log("stargin to drop tables")
+        console.log("starting to drop tables")
         await client.query(`
         DROP TABLE IF EXISTS arcaneRecovery;
         DROP TABLE IF EXISTS characters;
@@ -28,13 +28,16 @@ const dropTables = async () => {
 
 //Create tables - this is the official column order
 const createTables = async () => {
-    console.log('creating tables')
+    console.log('creating tables...')
     await client.query(`
-    CREATE TABLE arcaneRecovery (
-        usedToday BOOLEAN NOT NULL
-        character_id INTEGER REFERENCES characters(character_id)
-    );
 
+    CREATE TABLE spellbooks (
+        spellbook_id SERIAL PRIMARY KEY,
+        level_avail INTEGER,
+        cantrips_avail INTEGER,
+        spells_known text[],
+        cantrips_known text[]
+    );
 
     CREATE TABLE characters (
         character_id SERIAL PRIMARY KEY,
@@ -44,14 +47,12 @@ const createTables = async () => {
         heritage varchar(255),
         spellbook_id INTEGER REFERENCES spellbooks(spellbook_id)
 
+
     );
 
-    CREATE TABLE spellbooks (
-        spellbook_id SERIAL PRIMARY KEY,
-        level1_avail INTEGER,
-        cantrips_avail INTEGER,
-        spells_known text[],
-        cantrips_known text[],
+    CREATE TABLE arcaneRecovery (
+        usedToday BOOLEAN NOT NULL,
+        character_id INTEGER REFERENCES characters(character_id)
     );
 
     CREATE TABLE spells (
@@ -63,7 +64,7 @@ const createTables = async () => {
     `)
     //fks are integers:
     //fk_id INTEGER REFERENCES tablename(columnName aka fk_id)
-    console.log('created!')
+    console.log('tables created!')
 }
 //insert mock data from seedData
 
@@ -102,9 +103,9 @@ try {
 
     await createTables()
     //generating start data
-    await createInitialCharacters()
+//     await createInitialCharacters()
    
-   await getAllCharacters()
+//    await getAllCharacters()
 
    
 } catch (error) {

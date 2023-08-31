@@ -1,0 +1,11 @@
+
+    CREATE TABLE spellbooks (
+        spellbook_id SERIAL PRIMARY KEY,
+        level_avail INTEGER,
+        cantrips_avail INTEGER,
+        spells_known text[],
+        cantrips_known text[],
+    );
+
+
+s
