@@ -14,11 +14,23 @@ const {
 } = require("./seedData");
 
 //pull in helpers
-const { createCharacter, getAllCharacters } = require("./helpers/characters");
-const { createSpellbooks } = require("./helpers/spellbooks");
-const { createSpells } = require("./helpers/spells");
+const { createCharacter, getCharacterById } = require("./helpers/characters");
+const {
+     createSpellbooks,
+     getAllSpellbooks,
+     getSpellbookById,
+} = require("./helpers/spellbooks");
+const {
+     createSpells,
+     getAllSpells,
+     getSpellById,
+} = require("./helpers/spells");
 const { createArcaneRecovery } = require("./helpers/arcaneRecovery");
-const { createCantrips } = require("./helpers/cantrips");
+const {
+     createCantrips,
+     getAllCantrips,
+     getCantripById,
+} = require("./helpers/cantrips");
 const { createSpellbooks_spells } = require("./helpers/spellbooks_spells");
 const { createSpellbooks_cantrips } = require("./helpers/spellbooks_cantrips");
 

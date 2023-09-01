@@ -14,5 +14,27 @@ const createCantrips = async ({ cantrip_id, name }) => {
           throw error;
      }
 };
+const getAllCantrips = async () => {
+     try {
+          const { rows } = await client.query(`
+     SELECT *
+     FROM cantrips;
+     `);
+          return rows;
+     } catch (error) {
+          throw error;
+     }
+};
 
-module.exports = { createCantrips };
+const getCantripById = async (cantrip_id) => {
+     try {
+          const {
+               rows: [cantrip],
+          } = await client.query(`
+          SELECT *
+          FROM spells
+          WHERE spell_id=${cantrip_id};`);
+          return cantrip;
+     } catch (error) {}
+};
+module.exports = { createCantrips, getAllCantrips, getCantripById };

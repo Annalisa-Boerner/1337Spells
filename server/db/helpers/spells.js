@@ -15,4 +15,28 @@ const createSpells = async ({ spell_id, name }) => {
      }
 };
 
-module.exports = { createSpells };
+const getAllSpells = async () => {
+     try {
+          const { rows } = await client.query(`
+     SELECT *
+     FROM spells;
+     `);
+          return rows;
+     } catch (error) {
+          throw error;
+     }
+};
+
+const getSpellById = async (spell_id) => {
+     try {
+          const {
+               rows: [spell],
+          } = await client.query(`
+          SELECT *
+          FROM spells
+          WHERE spell_id=${spell_id};`);
+          return spell;
+     } catch (error) {}
+};
+
+module.exports = { createSpells, getAllSpells, getSpellById };
