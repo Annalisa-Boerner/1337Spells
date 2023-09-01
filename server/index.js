@@ -2,6 +2,11 @@ const express = require("express");
 const app = express();
 const PORT = 8080;
 
+const client = require("./db/client");
+
+//connect to client
+client.connect();
+
 //init morgan
 const morgan = require("morgan");
 app.use(morgan("dev"));
