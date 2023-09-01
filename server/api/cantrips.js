@@ -3,7 +3,7 @@ const router = express.Router();
 
 const { getAllCantrips, getCantripById } = require("../db/helpers/cantrips");
 
-//GET - /api/cantrips - get all spells
+//GET - /api/cantrips - get all cantrips
 router.get("/", async (req, res, next) => {
      try {
           console.log("line 9 from api/cantrips");

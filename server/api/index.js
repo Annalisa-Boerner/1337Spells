@@ -28,6 +28,8 @@ router.use("/characters", require("./characters"));
 //GET spells/cantrips to and from spellbook
 router.use("/spellbooks", require("./spellbooks"));
 
+router.use("/spellbooks_cantrips", require("./spellbooks_cantrips"));
+
 //GET spells that exist
 //POST and DELETE homebrew
 router.use("/spells", require("./spells"));
