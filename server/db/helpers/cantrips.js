@@ -34,8 +34,8 @@ const getCantripById = async (cantrip_id) => {
                rows: [cantrip],
           } = await client.query(`
           SELECT *
-          FROM spells
-          WHERE spell_id=${cantrip_id};`);
+          FROM cantrips
+          WHERE cantrip_id=${cantrip_id};`);
           return cantrip;
      } catch (error) {}
 };

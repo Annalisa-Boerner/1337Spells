@@ -17,7 +17,7 @@ router.get("/", async (req, res, next) => {
 // GET - /api/cantrips/:id - get spell by id
 router.get("/:id", async (req, res, next) => {
      try {
-          const spell = await getCantripById(req.params.id);
+          const cantrip = await getCantripById(req.params.id);
           res.send(cantrip);
      } catch (error) {
           next(error);
