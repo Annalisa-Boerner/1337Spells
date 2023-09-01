@@ -6,9 +6,7 @@ const { getAllSpells, getSpellById } = require("../db/helpers/spells");
 //GET - /api/spells - get all spells
 router.get("/", async (req, res, next) => {
      try {
-          console.log("API side entering getAllSpells");
           const spells = await getAllSpells();
-          console.log(spells);
           res.send(spells);
      } catch (error) {
           next(error);

@@ -10,6 +10,7 @@ const createSpells = async ({ spell_id, name }) => {
        RETURNING *;`,
                [spell_id, name]
           );
+          return spell;
      } catch (error) {
           throw error;
      }
@@ -17,7 +18,6 @@ const createSpells = async ({ spell_id, name }) => {
 
 const getAllSpells = async () => {
      try {
-          console.log("entering helper spells");
           const { rows } = await client.query(`
      SELECT *
      FROM spells;

@@ -10,12 +10,14 @@ const createCantrips = async ({ cantrip_id, name }) => {
        RETURNING *;`,
                [cantrip_id, name]
           );
+          return cantrip;
      } catch (error) {
           throw error;
      }
 };
 const getAllCantrips = async () => {
      try {
+          console.log("line 20 from getAllCantrips");
           const { rows } = await client.query(`
      SELECT *
      FROM cantrips;

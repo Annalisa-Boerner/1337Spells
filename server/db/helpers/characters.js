@@ -29,6 +29,16 @@ const createCharacter = async ({
      }
 };
 
+const getAllCharacters = async () => {
+     try {
+          const { rows } = await client.query(`
+          SELECT * FROM characters;
+          `);
+          return rows;
+     } catch (error) {
+          throw error;
+     }
+};
 const getCharacterById = async (character_id) => {
      try {
           const {
@@ -36,11 +46,11 @@ const getCharacterById = async (character_id) => {
           } = await client.query(`
           SELECT *
           FROM characters
-          WHERE chracter_id=${character_id};
+          WHERE character_id=${character_id};
           `);
           return character;
      } catch (error) {
           throw error;
      }
 };
-module.exports = { createCharacter, getCharacterById };
+module.exports = { createCharacter, getAllCharacters, getCharacterById };

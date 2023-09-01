@@ -1,17 +1,18 @@
 const client = require("../client");
 
-const createArcaneRecovery = async ({ character_id, usedToday }) => {
+const createArcaneRecovery = async ({ usedToday, character_id }) => {
      try {
           const {
-               rows: [boolean],
+               rows: [status],
           } = await client.query(
                `
-            INSERT INTO arcaneRecovery(character_id, usedToday)
+            INSERT INTO arcanerecovery(usedToday, character_id)
             VALUES ($1, $2)
             RETURNING *;
             `,
-               [character_id, usedToday]
+               [usedToday, character_id]
           );
+          return status;
      } catch (error) {
           throw error;
      }
@@ -19,10 +20,8 @@ const createArcaneRecovery = async ({ character_id, usedToday }) => {
 
 const getAllArcaneRecoveries = async () => {
      try {
-          const { rows } = client.query(`
-          
-          SELECT *
-          FROM "arcaneRecovery";
+          const { rows } = await client.query(`
+          SELECT * FROM arcanerecovery;
           `);
           return rows;
      } catch (error) {
@@ -33,11 +32,11 @@ const getAllArcaneRecoveries = async () => {
 const getArcaneRecoveryById = async (character_id) => {
      try {
           const {
-               rows: [arcaneRecovery],
+               rows: [arcanerecovery],
           } = await client.query(`
-          SELECT * FROM arcaneRecovery WHERE character_id=${character_id};
+          SELECT * FROM "arcanerecovery" WHERE character_id=${character_id};
           `);
-          return arcaneRecovery;
+          return arcanerecovery;
      } catch (error) {
           throw error;
      }

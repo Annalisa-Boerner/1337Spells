@@ -10,14 +10,14 @@ router.get("/health", (req, res, next) => {
 //First part of any endpoint is /api
 //In alpha order
 
-// //GET and POST- get current status, post a change
-// router.use("/arcaneRecovery", require("./arcaneRecovery"));
+//GET and POST- get current status, post a change
+router.use("/arcanerecoveries", require("./arcanerecovery"));
 
-// //GET cantrips that exist
-// router.use("/cantrips", require("./cantrips"));
+//GET cantrips that exist
+router.use("/cantrips", require("./cantrips"));
 
-// //GET characters that exist
-// router.use("/characters", require("./characters"));
+//GET characters that exist
+router.use("/characters", require("./characters"));
 
 // //Login stuff
 // router.use("/login", require("./login"));
@@ -25,10 +25,11 @@ router.get("/health", (req, res, next) => {
 // //Register stuff
 // router.use("/register", require("./register"));
 
-// //GET, POST, DELETE spells/cantrips to and from spellbook
-// router.use("/spellbook", require("./spellbook"));
+//GET spells/cantrips to and from spellbook
+router.use("/spellbook", require("./spellbook"));
 
 //GET spells that exist
+//POST and DELETE homebrew
 router.use("/spells", require("./spells"));
 
 module.exports = router;
