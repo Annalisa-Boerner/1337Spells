@@ -12,6 +12,7 @@ const createSpellbooks = async ({ spellbook_id }) => {
        `,
                [spellbook_id]
           );
+          return spellbook;
      } catch (error) {
           throw error;
      }

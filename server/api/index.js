@@ -26,7 +26,7 @@ router.use("/characters", require("./characters"));
 // router.use("/register", require("./register"));
 
 //GET spells/cantrips to and from spellbook
-router.use("/spellbook", require("./spellbook"));
+router.use("/spellbooks", require("./spellbooks"));
 
 //GET spells that exist
 //POST and DELETE homebrew

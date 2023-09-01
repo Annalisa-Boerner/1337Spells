@@ -7,7 +7,7 @@ const {
 } = require("../db/helpers/spellbooks");
 
 //GET - /api/spellbooks - get all spellbooks
-router.get("/spellbooks", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
      try {
           const spellbooks = await getAllSpellbooks();
           res.send(spellbooks);
@@ -17,9 +17,9 @@ router.get("/spellbooks", async (req, res, next) => {
 });
 
 // GET - /api/spellbooks/:id - get spell by id
-router.get("/spellbooks/:id", async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
      try {
-          const spell = await getSpellbookById(req.params.id);
+          const spellbook = await getSpellbookById(req.params.id);
           res.send(spellbook);
      } catch (error) {
           next(error);
