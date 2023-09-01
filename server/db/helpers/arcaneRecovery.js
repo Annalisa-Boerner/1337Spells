@@ -17,4 +17,33 @@ const createArcaneRecovery = async ({ character_id, usedToday }) => {
      }
 };
 
-module.exports = { createArcaneRecovery };
+const getAllArcaneRecoveries = async () => {
+     try {
+          const { rows } = client.query(`
+          
+          SELECT *
+          FROM "arcaneRecovery";
+          `);
+          return rows;
+     } catch (error) {
+          throw error;
+     }
+};
+
+const getArcaneRecoveryById = async (character_id) => {
+     try {
+          const {
+               rows: [arcaneRecovery],
+          } = await client.query(`
+          SELECT * FROM arcaneRecovery WHERE character_id=${character_id};
+          `);
+          return arcaneRecovery;
+     } catch (error) {
+          throw error;
+     }
+};
+module.exports = {
+     createArcaneRecovery,
+     getAllArcaneRecoveries,
+     getArcaneRecoveryById,
+};

@@ -37,7 +37,9 @@ const getSpellById = async (spell_id) => {
           FROM spells
           WHERE spell_id=${spell_id};`);
           return spell;
-     } catch (error) {}
+     } catch (error) {
+          throw error;
+     }
 };
 
 module.exports = { createSpells, getAllSpells, getSpellById };
