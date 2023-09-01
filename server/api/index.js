@@ -1,24 +1,32 @@
 const express = require("express");
 const router = express.Router();
 
+//GET /api/health
+router.get("/health", (req, res, next) => {
+     res.send("ok");
+});
+
 //ROUTER: /api/<xyz>
 //First part of any endpoint is /api
 //In alpha order
 
-//GET and POST- get current status, post a change
-router.use("/arcaneRecovery", require("./arcaneRecovery"));
+// //GET and POST- get current status, post a change
+// router.use("/arcaneRecovery", require("./arcaneRecovery"));
 
-//GET cantrips that exist
-router.use("/cantrips", require("./cantrips"));
+// //GET cantrips that exist
+// router.use("/cantrips", require("./cantrips"));
 
-//Login stuff
-router.use("/login", require("./login"));
+// //GET characters that exist
+// router.use("/characters", require("./characters"));
 
-//Register stuff
-router.use("/register", require("./register"));
+// //Login stuff
+// router.use("/login", require("./login"));
 
-//GET, POST, DELETE spells/cantrips to and from spellbook
-router.use("/spellbook", require("./spellbook"));
+// //Register stuff
+// router.use("/register", require("./register"));
+
+// //GET, POST, DELETE spells/cantrips to and from spellbook
+// router.use("/spellbook", require("./spellbook"));
 
 //GET spells that exist
 router.use("/spells", require("./spells"));
