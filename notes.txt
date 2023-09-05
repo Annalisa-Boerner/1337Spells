@@ -1,0 +1,16 @@
+-node index.js to run
+-using health endpoint takes out the logic and the db and gives a baseline sanity check
+-can also be used after any other endpoint?
+
+-routes live in api folder
+-sql lives in the db folder
+
+-postico for db viewing gui
+
+-when testing posting in TC, put quotse around the key as well as the value
+
+
+----make sure you’ve got a start script for nodemon in package.json and use it to start … it’ll restart the server for you each time you save a file
+
+
+-DB helper: doesn't need to pass in the value of x_id, which will mean it doesn't get passed in the post request (ex: for createSpells, we only pass in Name)
