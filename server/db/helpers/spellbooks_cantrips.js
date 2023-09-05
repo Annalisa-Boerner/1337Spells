@@ -1,6 +1,6 @@
 const client = require("../client");
 
-const createSpellbooks_cantrips = async ({ cantrip_id, spellbook_id }) => {
+const createSpellbooks_Cantrips = async ({ cantrip_id, spellbook_id }) => {
      try {
           const {
                rows: [Spellbooks_cantrips],
@@ -44,8 +44,21 @@ const getSpellbooks_CantripsById = async (spellbooks_cantrips_id) => {
      }
 };
 
+const deleteSpellbooks_Cantrips = async (spellbooks_cantrips_id) => {
+     try {
+          const { rows } = await client.query(`
+               DELETE FROM spellbooks_cantrips
+               WHERE spellbooks_cantrips_id=${spellbooks_cantrips_id}
+               RETURNING *;
+          `);
+     } catch (error) {
+          throw error;
+     }
+};
+
 module.exports = {
-     createSpellbooks_cantrips,
+     createSpellbooks_Cantrips,
      getAllSpellbooks_Cantrips,
      getSpellbooks_CantripsById,
+     deleteSpellbooks_Cantrips,
 };
