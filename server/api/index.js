@@ -30,8 +30,10 @@ router.use("/spellbooks", require("./spellbooks"));
 
 router.use("/spellbooks_cantrips", require("./spellbooks_cantrips"));
 
+router.use("/spellbooks_spells", require("./spellbooks_spells"));
+
 //GET spells that exist
-//POST and DELETE homebrew
+//POST, PUT, and DELETE homebrew
 router.use("/spells", require("./spells"));
 
 module.exports = router;
