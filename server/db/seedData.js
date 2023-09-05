@@ -2,7 +2,7 @@
 //itty bitty sample size
 
 //arcane recovery toggles
-const arcaneRecovery = [
+const arcanerecovery = [
      { usedToday: false, character_id: 1 },
      { usedToday: true, character_id: 2 },
      { usedToday: false, character_id: 3 },
@@ -78,7 +78,7 @@ const spellbooks_cantrips = [
      { spellbook_id: 3, cantrip_id: 1 },
 ];
 module.exports = {
-     arcaneRecovery,
+     arcanerecovery,
      characters,
      spellbooks,
      spells,

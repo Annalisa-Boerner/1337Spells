@@ -1,3 +1,6 @@
+NODE INDEX.JS TO RUN
+
+
 what I want to do:
 
 the information stored in "spells known" is an array of spell_ids for l1 spells; the info stored in "cantrips known" is an array of cantrip_ids

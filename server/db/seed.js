@@ -5,7 +5,7 @@ const client = require("./client");
 //pull in dummy data arrays from the seed data
 const {
      characters,
-     arcaneRecovery,
+     arcanerecovery,
      spellbooks,
      spells,
      cantrips,
@@ -14,11 +14,27 @@ const {
 } = require("./seedData");
 
 //pull in helpers
-const { createCharacter, getAllCharacters } = require("./helpers/characters");
-const { createSpellbooks } = require("./helpers/spellbooks");
-const { createSpells } = require("./helpers/spells");
-const { createArcaneRecovery } = require("./helpers/arcaneRecovery");
-const { createCantrips } = require("./helpers/cantrips");
+const { createCharacter, getCharacterById } = require("./helpers/characters");
+const {
+     createSpellbooks,
+     getAllSpellbooks,
+     getSpellbookById,
+} = require("./helpers/spellbooks");
+const {
+     createSpells,
+     getAllSpells,
+     getSpellById,
+} = require("./helpers/spells");
+const {
+     createArcaneRecovery,
+     getAllArcaneRecoveries,
+     getArcaneRecoveryById,
+} = require("./helpers/arcanerecovery");
+const {
+     createCantrips,
+     getAllCantrips,
+     getCantripById,
+} = require("./helpers/cantrips");
 const { createSpellbooks_spells } = require("./helpers/spellbooks_spells");
 const { createSpellbooks_cantrips } = require("./helpers/spellbooks_cantrips");
 
@@ -28,7 +44,7 @@ const dropTables = async () => {
           //client.query: calling client connection to make a query to the db; write sequel here
           console.log("starting to drop tables");
           await client.query(`
-        DROP TABLE IF EXISTS arcaneRecovery CASCADE;
+        DROP TABLE IF EXISTS arcanerecovery CASCADE;
         DROP TABLE IF EXISTS characters CASCADE;
         DROP TABLE IF EXISTS spellbooks CASCADE;
         DROP TABLE IF EXISTS spells CASCADE;
@@ -88,12 +104,10 @@ const createTables = async () => {
 
     );
 
-    CREATE TABLE arcaneRecovery (
+    CREATE TABLE arcanerecovery (
         usedToday BOOLEAN NOT NULL,
         character_id INTEGER REFERENCES characters(character_id)
     );
-
-
 
     `);
      //fks are integers:
@@ -158,8 +172,8 @@ const createInitialCantrips = async () => {
 const createInitialArcaneRecovery = async () => {
      try {
           console.log("creating initial arcane recovery states...");
-          for (const boolean of arcaneRecovery) {
-               await createArcaneRecovery(boolean);
+          for (const status of arcanerecovery) {
+               await createArcaneRecovery(status);
           }
           console.log("initial states created!");
      } catch (error) {
