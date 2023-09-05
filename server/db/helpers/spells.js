@@ -1,14 +1,14 @@
 const client = require("../client");
 
-const createSpells = async ({ spell_id, name }) => {
+const createSpells = async ({ name }) => {
      try {
           const {
                rows: [spell],
           } = await client.query(
-               `INSERT INTO spells(spell_id, name)
-       VALUES ($1, $2)
+               `INSERT INTO spells(name)
+       VALUES ($1)
        RETURNING *;`,
-               [spell_id, name]
+               [name]
           );
           return spell;
      } catch (error) {
@@ -42,4 +42,17 @@ const getSpellById = async (spell_id) => {
      }
 };
 
-module.exports = { createSpells, getAllSpells, getSpellById };
+const deleteSpells = async (spell_id) => {
+     try {
+          const { rows } = await client.query(`
+          DELETE
+          FROM spells
+          WHERE spell_id=${spell_id}
+          RETURNING *;
+          `);
+     } catch (error) {
+          throw error;
+     }
+};
+
+module.exports = { createSpells, getAllSpells, getSpellById, deleteSpells };
