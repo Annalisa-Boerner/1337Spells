@@ -55,4 +55,27 @@ const deleteSpells = async (spell_id) => {
      }
 };
 
-module.exports = { createSpells, getAllSpells, getSpellById, deleteSpells };
+const putSpells = async (spell_id, body) => {
+     console.log("line 59 " + spell_id + " " + body);
+     try {
+          const { rows } = await client.query(
+               `
+                    UPDATE spells
+                    SET name = '${body.name}'
+                    WHERE spell_id = ${spell_id}
+                    RETURNING *;
+     `
+          );
+
+          return rows;
+     } catch (error) {
+          throw error;
+     }
+};
+module.exports = {
+     createSpells,
+     getAllSpells,
+     getSpellById,
+     deleteSpells,
+     putSpells,
+};

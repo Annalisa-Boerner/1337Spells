@@ -6,6 +6,7 @@ const {
      getAllSpells,
      getSpellById,
      deleteSpells,
+     putSpells,
 } = require("../db/helpers/spells");
 
 //GET - /api/spells - get all spells
@@ -50,4 +51,15 @@ router.delete("/:id", async (req, res, next) => {
      }
 });
 
+//PUT
+
+router.put("/:id", async (req, res, next) => {
+     try {
+          const spell = await putSpells(req.params.id, req.body);
+          res.send(spell);
+          console.log("api side put spell " + spell);
+     } catch (error) {
+          next(error);
+     }
+});
 module.exports = router;
