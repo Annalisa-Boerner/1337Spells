@@ -43,8 +43,20 @@ const getSpellbooks_SpellsById = async (spellbooks_spells_id) => {
      }
 };
 
+const deleteSpellbooks_Spells = async (spellbooks_spells_id) => {
+     try {
+          const { rows } = await client.query(`
+               DELETE FROM spellbooks_spells
+               WHERE spellbooks_spells_id=${spellbooks_spells_id}
+               RETURNING *;
+          `);
+     } catch (error) {
+          throw error;
+     }
+};
 module.exports = {
      createSpellbooks_Spells,
      getAllSpellbooks_Spells,
      getSpellbooks_SpellsById,
+     deleteSpellbooks_Spells,
 };
