@@ -22,7 +22,7 @@ export default function AllSpells() {
           console.log("line 22, this is what's in allSpells: " + allSpells);
      }, []);
      return (
-          <div>
+          <div id="all-spells">
                {allSpells.map((spell) => {
                     return <p key={spell.spell_id}>{spell.name}</p>;
                })}

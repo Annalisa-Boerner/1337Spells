@@ -1,9 +1,7 @@
-// import { AllSpells } from "./allSpells";
-
-// export default function MySpellbook() {
-//      return (
-//           <div>
-//                <AllSpells />
-//           </div>
-//      );
-// }
+export default function MySpellbook() {
+     return (
+          <div id="myspellbook-container">
+               <p>My Spellbook</p>
+          </div>
+     );
+}
