@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllSpells } from "../helpers/spells";
 import AddToSpellbookForm from "./addToSpellbookForm";
-// import { Spell } from "./oneSpell";
 
 export default function AllSpells() {
      const [allSpells, setAllSpells] = useState([]);
@@ -10,7 +9,6 @@ export default function AllSpells() {
           async function getAllSpells() {
                const spells = await fetchAllSpells();
 
-               //    console.log(apiResponse);
                if (spells) {
                     setAllSpells(spells);
 
@@ -20,7 +18,7 @@ export default function AllSpells() {
                }
           }
           getAllSpells();
-          console.log("line 22, this is what's in allSpells: " + allSpells);
+          //   console.log("line 22, this is what's in allSpells: " + allSpells);
      }, []);
      return (
           <div id="all-spells">
