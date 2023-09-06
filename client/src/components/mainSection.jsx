@@ -1,5 +1,6 @@
 //handles routing; loads the main content
 
+import AllCantrips from "./allCantrips";
 import AllSpells from "./allSpells";
 
 // import { Routes, Route } from "react-router-dom";
@@ -14,11 +15,11 @@ export default function MainSection() {
           <div id="main-section">
                <h3>Main Section</h3>
                <AllSpells />
+               <AllCantrips />
                {/* <Routes>
                     <Route path="/home" element={<HomePage />} />
-                    <Route path="/homebrew" element={<Homebrew />} />
                     <Route path="/myspellbook" element={<MySpellbook />} />
-                    <Route path="/browsespells" element={<BrowseSpells />} />
+                    <Route path="/browsespells" element={<BrowseSpells />} /> 
                     <Route path="/login" element={<Login />} />
                </Routes> */}
           </div>

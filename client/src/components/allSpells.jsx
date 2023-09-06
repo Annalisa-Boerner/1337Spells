@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllSpells } from "../helpers/spells";
+import AddToSpellbookForm from "./addToSpellbookForm";
 // import { Spell } from "./oneSpell";
 
 export default function AllSpells() {
@@ -23,8 +24,14 @@ export default function AllSpells() {
      }, []);
      return (
           <div id="all-spells">
+               <h4>All Spells</h4>
                {allSpells.map((spell) => {
-                    return <p key={spell.spell_id}>{spell.name}</p>;
+                    return (
+                         <div>
+                              <p key={spell.spell_id}>{spell.name}</p>
+                              <AddToSpellbookForm key={spell.spell_id} />
+                         </div>
+                    );
                })}
           </div>
      );
