@@ -1,6 +1,7 @@
 //handles routing; loads the main content
 
 import AllCantrips from "./allCantrips";
+import AllSpellbooks_Cantrips from "./allSpellbooks_Cantrips";
 import AllSpellbooks_Spells from "./allSpellbooks_Spells";
 import AllSpells from "./allSpells";
 
@@ -16,6 +17,7 @@ export default function MainSection() {
                <h3>Main Section</h3>
                <AllSpellbooks_Spells />
                <AllSpells />
+               <AllSpellbooks_Cantrips />
                <AllCantrips />
                {/* <Routes>
                     <Route path="/home" element={<HomePage />} />
