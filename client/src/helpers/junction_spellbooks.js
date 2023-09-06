@@ -1,5 +1,11 @@
 const base_url = "http://localhost:8080/api";
 
+//needs post and delete routes to populate and depopulate
+
+//start with ugly version: a form linked from an allSpells or allCantrips button
+
+//then create automagic version where it submits the post
+
 export const fetchAllSpellbooks_Spells = async () => {
      try {
           const response = await fetch(`${base_url}/spellbooks_spells`);

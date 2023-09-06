@@ -4,6 +4,7 @@ import AddToSpellbookForm from "./addToSpellbookForm";
 
 export default function AllSpells() {
      const [allSpells, setAllSpells] = useState([]);
+     const [searchParam, setSearchParam] = useState("");
 
      useEffect(() => {
           async function getAllSpells() {
@@ -20,17 +21,41 @@ export default function AllSpells() {
           getAllSpells();
           //   console.log("line 22, this is what's in allSpells: " + allSpells);
      }, []);
+
+     const spellsToDisplay = searchParam
+          ? allSpells.filter((spell) =>
+                 spell.name.toLowerCase().includes(searchParam)
+            )
+          : allSpells;
+
      return (
-          <div id="all-spells">
-               <h4>All Spells</h4>
-               {allSpells.map((spell) => {
-                    return (
-                         <div>
-                              <p key={spell.spell_id}>{spell.name}</p>
-                              <AddToSpellbookForm key={spell.spell_id} />
-                         </div>
-                    );
-               })}
-          </div>
+          <section id="all-spells">
+               <div id="search-spells">
+                    <label>
+                         Search:{""}
+                         <input
+                              id="search-spells-bar"
+                              type="text"
+                              placeholder="Search spells by name"
+                              onChange={(event) =>
+                                   setSearchParam(
+                                        event.target.value.toLowerCase()
+                                   )
+                              }
+                         />
+                    </label>
+               </div>
+               <div>
+                    <h4>All Spells</h4>
+                    {spellsToDisplay.map((spell) => {
+                         return (
+                              <div>
+                                   <p key={spell.spell_id}>{spell.name}</p>
+                                   <AddToSpellbookForm />
+                              </div>
+                         );
+                    })}
+               </div>
+          </section>
      );
 }

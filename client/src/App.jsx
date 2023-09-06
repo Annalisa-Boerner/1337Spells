@@ -1,22 +1,17 @@
-import { useState, useEffect } from "react";
-import { fetchAllSpells } from "./helpers/spells";
 import "./App.css";
-// import { spellList } from "./components/spellList";
+
+import MainSection from "./components/mainSection";
+import Navbar from "./components/navBar";
 
 function App() {
-     const [allSpells, setAllSpells] = useState([]);
-
-     useEffect(() => {
-          async function fetchData() {
-               const spells = await fetchAllSpells();
-               setAllSpells(spells);
-               console.log(spells);
-               return spells;
-          }
-          fetchData();
-     }, []);
-
-     return <>Whats up danger</>;
+     return (
+          <>
+               <div id="app-container">
+                    <Navbar />
+                    <MainSection />
+               </div>
+          </>
+     );
 }
 
 export default App;

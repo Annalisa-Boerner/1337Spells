@@ -4,6 +4,7 @@ import AddToSpellbookForm from "./addToSpellbookForm";
 
 export default function AllCantrips() {
      const [allCantrips, setAllCantrips] = useState([]);
+     const [searchParam, setSearchParam] = useState([]);
 
      useEffect(() => {
           async function getAllCantrips() {
@@ -20,17 +21,44 @@ export default function AllCantrips() {
           }
           getAllCantrips();
      }, []);
+
+     const cantripsToDisplay = searchParam
+          ? allCantrips.filter((cantrip) =>
+                 cantrip.name.toLowerCase().includes(searchParam)
+            )
+          : allCantrips;
+
      return (
-          <div id="all-cantrips">
-               <h4>All Cantrips</h4>
-               {allCantrips.map((cantrip) => {
-                    return (
-                         <div>
-                              <p key={cantrip.cantrip_id}>{cantrip.name}</p>;
-                              <AddToSpellbookForm />
-                         </div>
-                    );
-               })}
-          </div>
+          <section id="all-cantrips">
+               <div id="search-cantrips">
+                    <label>
+                         Search:{""}
+                         <input
+                              id="search-cantrips-bar"
+                              type="text"
+                              placeholder="Search cantrips by name"
+                              onChange={(event) =>
+                                   setSearchParam(
+                                        event.target.value.toLowerCase()
+                                   )
+                              }
+                         />
+                    </label>
+               </div>
+               <div>
+                    <h4>All Cantrips</h4>
+                    {cantripsToDisplay.map((cantrip) => {
+                         return (
+                              <div>
+                                   <p key={cantrip.cantrip_id}>
+                                        {cantrip.name}
+                                   </p>
+                                   ;
+                                   <AddToSpellbookForm />
+                              </div>
+                         );
+                    })}
+               </div>
+          </section>
      );
 }
