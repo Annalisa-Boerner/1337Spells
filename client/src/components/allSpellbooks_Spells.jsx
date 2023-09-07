@@ -6,6 +6,8 @@ import {
 
 export default function AllSpellbooks_Spells() {
      const [allSpellbooks_Spells, setAllSpellbooks_Spells] = useState([]);
+     console.log("line 9 version: " + JSON.stringify(allSpellbooks_Spells[0]));
+     // let id = allSpellbooks_Spells.spellbooks_spells_id;
 
      useEffect(() => {
           async function getAllSpellbooks_Spells() {
@@ -22,8 +24,15 @@ export default function AllSpellbooks_Spells() {
           getAllSpellbooks_Spells();
      }, []);
 
-     function handleDelete() {
-          deleteSpellbook_Spell();
+     async function handleDelete(event) {
+          event.preventDefault();
+          console.log("line 28 of handleDelete id " + id);
+          try {
+               const result = await deleteSpellbook_Spell(id);
+               console.log(result);
+          } catch (error) {
+               console.error(error);
+          }
      }
      return (
           <div id="all-spellbooks-spells">
@@ -39,6 +48,8 @@ export default function AllSpellbooks_Spells() {
                                    <br />
                                    Spell ID: {spellbook_spells.spell_id}
                                    <br />
+                                   SBSid:
+                                   {spellbook_spells.spellbooks_spells_id}
                                    <button onClick={handleDelete}>
                                         Remove Spell
                                    </button>
