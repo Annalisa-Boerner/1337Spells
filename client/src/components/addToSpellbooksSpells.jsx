@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { createSpellbook_spell } from "../helpers/junction_spellbooks";
+import { useNavigate } from "react-router-dom";
 
 export default function AddToSpellbooksSpells() {
-     const [spell_id, setSpell_id] = useState(null);
-     const [spellbook_id, setSpellbook_id] = useState(null);
+     const [spell_id, setSpell_id] = useState("");
+     const [spellbook_id, setSpellbook_id] = useState("");
      const [spell_name, setSpell_name] = useState("");
+     const navigate = useNavigate();
 
      async function handleSubmit(event) {
           event.preventDefault();
@@ -15,6 +17,7 @@ export default function AddToSpellbooksSpells() {
                     spell_name
                );
                console.log("API data from handleSubmit: ", APIData);
+               navigate("/myspellbook");
                //reset the listed spells?
           } catch (error) {
                alert("There was an error adding this spell to your spellbook");
@@ -52,6 +55,9 @@ export default function AddToSpellbooksSpells() {
                          placeholder="Spell Name"
                          onChange={(event) => setSpell_name(event.target.value)}
                     />
+                    <br />
+                    <br />
+                    <button type="submit">Submit</button>
                </form>
           </section>
      );
