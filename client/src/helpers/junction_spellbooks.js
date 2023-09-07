@@ -6,7 +6,7 @@ const base_url = "http://localhost:8080/api";
 
 //then create automagic version where it submits the post
 
-//fetch all spells currently in all spellbooks
+//GET all spells currently in all spellbooks
 export const fetchAllSpellbooks_Spells = async () => {
      try {
           const response = await fetch(`${base_url}/spellbooks_spells`);
@@ -17,7 +17,7 @@ export const fetchAllSpellbooks_Spells = async () => {
      }
 };
 
-//fetch spells by just one book
+//GET spells by just one book
 export const fetchSingleSpellbook_Spells = async (id) => {
      try {
           const response = await fetch(`${base_url}/spellbooks_spells/${id}`);
@@ -65,7 +65,7 @@ export async function createSpellbook_spell(
           console.error(error);
      }
 }
-
+//GET ALL CANTRIPS IN ALL BOOKS
 export const fetchAllSpellbooks_Cantrips = async () => {
      try {
           const response = await fetch(`${base_url}/spellbooks_cantrips`);
@@ -75,7 +75,7 @@ export const fetchAllSpellbooks_Cantrips = async () => {
           console.error(error);
      }
 };
-
+//GET SINGLE BOOK'S CANTRIPS
 export const fetchSingleSpellbook_Cantrips = async (id) => {
      try {
           const response = await fetch(`${base_url}/spellbooks_cantrips/${id}`);
@@ -85,6 +85,31 @@ export const fetchSingleSpellbook_Cantrips = async (id) => {
           console.error(error);
      }
 };
+
+//POST A CANTRIP TO SPELLBOOKS_CANTRIPS
+export async function createSpellbook_cantrip(
+     cantrip_id,
+     spellbook_id,
+     cantrip_name
+) {
+     try {
+          const response = await fetch(`${base_url}/spellbooks_cantrips`, {
+               method: "POST",
+               headers: {
+                    "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                    cantrip_id,
+                    spellbook_id,
+                    cantrip_name,
+               }),
+          });
+          const result = await response.json();
+          return result;
+     } catch (error) {
+          console.error(error);
+     }
+}
 
 //delete a single cantrip from the spellbook
 

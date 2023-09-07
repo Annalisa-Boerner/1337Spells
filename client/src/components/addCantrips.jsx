@@ -1,34 +1,40 @@
 import { useState } from "react";
-import { createSpellbook_spell } from "../helpers/junction_spellbooks";
+import { createSpellbook_cantrip } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function AddToSpellbooksSpells() {
-     const [spell_id, setSpell_id] = useState("");
+export default function AddToSpellbooksCantrips() {
+     const [cantrip_id, setCantrip_id] = useState("");
      const [spellbook_id, setSpellbook_id] = useState("");
-     const [spell_name, setSpell_name] = useState("");
+     const [cantrip_name, setCantrip_name] = useState("");
      const navigate = useNavigate();
 
      async function handleSubmit(event) {
           event.preventDefault();
           try {
-               createSpellbook_spell(spell_id, spellbook_id, spell_name);
-
+               await createSpellbook_cantrip(
+                    cantrip_id,
+                    spellbook_id,
+                    cantrip_name
+               );
+               navigate(0);
                navigate("/myspellbook");
           } catch (error) {
-               alert("There was an error adding this spell to your spellbook");
+               alert(
+                    "There was an error adding this cantrip to your spellbook"
+               );
           }
      }
 
      return (
-          <section id="addSpell-container">
-               <h3>Add A Spell to My Spellbook</h3>
+          <section id="addCantrip-container">
+               <h3>Add A Cantrip to My Spellbook</h3>
                <form onSubmit={handleSubmit}>
                     <input
-                         value={spell_id}
+                         value={cantrip_id}
                          type="text"
-                         name="spell_id"
-                         placeholder="Spell ID - Integer by All Spells Listing"
-                         onChange={(event) => setSpell_id(event.target.value)}
+                         name="cantrip_id"
+                         placeholder="Cantrip ID - Integer by All Cantrips Listing"
+                         onChange={(event) => setCantrip_id(event.target.value)}
                     />
                     <br />
 
@@ -45,11 +51,13 @@ export default function AddToSpellbooksSpells() {
                     <br />
 
                     <input
-                         value={spell_name}
+                         value={cantrip_name}
                          type="text"
-                         name="spell_name"
-                         placeholder="Spell Name"
-                         onChange={(event) => setSpell_name(event.target.value)}
+                         name="cantrip_name"
+                         placeholder="Cantrip Name"
+                         onChange={(event) =>
+                              setCantrip_name(event.target.value)
+                         }
                     />
                     <br />
                     <br />

@@ -3,6 +3,7 @@ import AllSpellbooks_Spells from "./allSpellbooks_Spells";
 import AllSpells from "./allSpells";
 import AllCantrips from "./allCantrips";
 import AddToSpellbooksSpells from "./addSpells";
+import AddToSpellbooksCantrips from "./addCantrips";
 
 export default function MySpellbook() {
      return (
@@ -13,6 +14,7 @@ export default function MySpellbook() {
                <AddToSpellbooksSpells />
                <AllSpellbooks_Cantrips />
                <AllCantrips />
+               <AddToSpellbooksCantrips />
           </div>
      );
 }
