@@ -35,8 +35,8 @@ const {
      getAllCantrips,
      getCantripById,
 } = require("./helpers/cantrips");
-const { createSpellbooks_spells } = require("./helpers/spellbooks_spells");
-const { createSpellbooks_cantrips } = require("./helpers/spellbooks_cantrips");
+const { createSpellbooks_Spells } = require("./helpers/spellbooks_spells");
+const { createSpellbooks_Cantrips } = require("./helpers/spellbooks_cantrips");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -81,13 +81,15 @@ const createTables = async () => {
     CREATE TABLE spellbooks_spells (
         spellbooks_spells_id SERIAL PRIMARY KEY,
         spell_id INTEGER REFERENCES spells(spell_id),
-        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id)
+        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id),
+        spell_name varchar(255)
     );
 
     CREATE TABLE spellbooks_cantrips (
         spellbooks_cantrips_id SERIAL PRIMARY KEY,
         cantrip_id INTEGER REFERENCES cantrips(cantrip_id),
-        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id)
+        spellbook_id INTEGER REFERENCES spellbooks(spellbook_id),
+        cantrip_name varchar(255) 
     );
     
 
@@ -185,7 +187,7 @@ const createInitialSpellbooks_spells = async () => {
      try {
           console.log("creating spellbooks / spells junction...");
           for (spellbook_spell of spellbooks_spells) {
-               await createSpellbooks_spells(spellbook_spell);
+               await createSpellbooks_Spells(spellbook_spell);
           }
           console.log(spellbook_spell);
           console.log("spellbook/spells junction created");
@@ -198,7 +200,7 @@ const createInitialSpellbooks_cantrips = async () => {
      try {
           console.log("creating spellbooks / cantrips junction...");
           for (spellbooks_cantrip of spellbooks_cantrips) {
-               await createSpellbooks_cantrips(spellbooks_cantrip);
+               await createSpellbooks_Cantrips(spellbooks_cantrip);
           }
           console.log(spellbooks_cantrips);
           console.log("spellbook/cantrips junction created");

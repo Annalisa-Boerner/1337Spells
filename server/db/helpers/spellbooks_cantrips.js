@@ -1,16 +1,20 @@
 const client = require("../client");
 
-const createSpellbooks_Cantrips = async ({ cantrip_id, spellbook_id }) => {
+const createSpellbooks_Cantrips = async ({
+     cantrip_id,
+     spellbook_id,
+     cantrip_name,
+}) => {
      try {
           const {
                rows: [Spellbooks_cantrips],
           } = await client.query(
                `
-    INSERT INTO spellbooks_cantrips(cantrip_id, spellbook_id)       
-        VALUES($1, $2)
+    INSERT INTO spellbooks_cantrips(cantrip_id, spellbook_id, cantrip_name)       
+        VALUES($1, $2, $3)
         RETURNING *;
        `,
-               [cantrip_id, spellbook_id]
+               [cantrip_id, spellbook_id, cantrip_name]
           );
      } catch (error) {
           throw error;

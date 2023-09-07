@@ -65,17 +65,17 @@ const cantrips = [
 
 //junction between spellbook and spells
 const spellbooks_spells = [
-     { spellbook_id: 1, spell_id: 1 },
-     { spellbook_id: 1, spell_id: 2 },
-     { spellbook_id: 1, spell_id: 3 },
+     { spellbook_id: 1, spell_id: 1, spell_name: "Magic Missile" },
+     { spellbook_id: 1, spell_id: 2, spell_name: "Sleep" },
+     { spellbook_id: 1, spell_id: 3, spell_name: "Feather Fall" },
 ];
 
 //junction between spellbook and cantrips
 
 const spellbooks_cantrips = [
-     { spellbook_id: 3, cantrip_id: 1 },
-     { spellbook_id: 3, cantrip_id: 2 },
-     { spellbook_id: 3, cantrip_id: 1 },
+     { spellbook_id: 3, cantrip_id: 1, cantrip_name: "Mage Hand" },
+     { spellbook_id: 3, cantrip_id: 2, cantrip_name: "Sleep" },
+     { spellbook_id: 3, cantrip_id: 1, cantrip_name: "Mage Hand" },
 ];
 module.exports = {
      arcanerecovery,
