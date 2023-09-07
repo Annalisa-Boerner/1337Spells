@@ -1,3 +1,12 @@
 useEffect: gets data from an external source and then gets it ready to render on the app
 
 there's a delete api route in junction_spellbooks for one table row; now I need to connect it to where things rae rendering and add it to a button
+
+line 97: creates id
+line 119: passes in as props
+
+
+As far as cantrips and spells go for rendering: now the names appear, but they're not connected to the spells or cantrips tables. they don't reference anything. 
+    I wasn't sure how to get the spell_id that's common between the spells and the junction table to connect to the name on the spells table, so I entered them manually. that makes the existence of a spell_id on that table currently kind of useless
+
+    But also when someone is entering a spell, it's more useful to use the name anyway: no one on the front end will have access to an id

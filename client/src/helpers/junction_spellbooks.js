@@ -31,22 +31,40 @@ export const fetchSingleSpellbook_Spells = async (id) => {
 //delete a single spell from a single spellbook aka one table row
 export const deleteSpellbook_Spell = async (id) => {
      try {
-          console.log(id);
           const response = await fetch(`${base_url}/spellbooks_spells/${id}`, {
                method: "DELETE",
-               headers: {
-                    "Content-type": "application/json",
-               },
           });
-          console.log("the id attached to this process: " + id);
-          const result = await response.json();
-          return result;
      } catch (error) {
           alert(
                "We're sorry, there was an error during deletion. Please try again once we've fixed it."
           );
      }
 };
+
+//POST a spell to spellbooks_spells
+export async function createSpellbook_spell(
+     spell_id,
+     spellbook_id,
+     spell_name
+) {
+     try {
+          const response = await fetch(`${base_url}/spellbooks_spells`, {
+               method: "POST",
+               headers: {
+                    "Content-Type": "application/json",
+               },
+               body: JSON.stringify({
+                    spell_id,
+                    spellbook_id,
+                    spell_name,
+               }),
+          });
+          const result = await response.json();
+          return result;
+     } catch (error) {
+          console.error(error);
+     }
+}
 
 export const fetchAllSpellbooks_Cantrips = async () => {
      try {

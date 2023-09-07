@@ -1,6 +1,6 @@
 #main-section {
      border: 2px solid orange;
-     padding: 1rem;
+     padding: 3rem;
      display: flex;
      justify-content: space-between;
 }

@@ -31,7 +31,7 @@ export default function AllSpellbooks_Cantrips() {
                                    Spellbook ID:{" "}
                                    {spellbook_cantrips.spellbook_id}
                                    <br />
-                                   Cantrip ID: {spellbook_cantrips.cantrip_id}
+                                   Cantrip: {spellbook_cantrips.cantrip_name}
                                    <br />
                                    <br />
                               </p>
