@@ -49,8 +49,8 @@ export default function AllSpells() {
                     <h4>All Spells</h4>
                     {spellsToDisplay.map((spell) => {
                          return (
-                              <div>
-                                   <p key={spell.spell_id}>{spell.name}</p>
+                              <div key={spell.spell_id}>
+                                   <p>{spell.name}</p>
                                    <AddToSpellbookForm />
                               </div>
                          );

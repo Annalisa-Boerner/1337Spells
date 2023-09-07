@@ -17,9 +17,6 @@ export default function AllSpellbooks_Cantrips() {
                }
           }
           getAllSpellbooks_Cantrips();
-          console.log(
-               "line 22 + allSpellbooks_Cantrips: " + allSpellbooks_Cantrips
-          );
      }, []);
      return (
           <div id="all-spellbooks-cantrips">
@@ -29,12 +26,8 @@ export default function AllSpellbooks_Cantrips() {
                </h4>
                {allSpellbooks_Cantrips.map((spellbook_cantrips) => {
                     return (
-                         <div>
-                              <p
-                                   key={
-                                        spellbook_cantrips.spellbooks_cantrips_id
-                                   }
-                              >
+                         <div key={spellbook_cantrips.spellbooks_cantrips_id}>
+                              <p>
                                    Spellbook ID:{" "}
                                    {spellbook_cantrips.spellbook_id}
                                    <br />

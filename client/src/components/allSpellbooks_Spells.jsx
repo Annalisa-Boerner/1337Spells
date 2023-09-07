@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { fetchAllSpellbooks_Spells } from "../helpers/junction_spellbooks";
+import {
+     deleteSpellbook_Spell,
+     fetchAllSpellbooks_Spells,
+} from "../helpers/junction_spellbooks";
 
 export default function AllSpellbooks_Spells() {
      const [allSpellbooks_Spells, setAllSpellbooks_Spells] = useState([]);
@@ -17,10 +20,11 @@ export default function AllSpellbooks_Spells() {
                }
           }
           getAllSpellbooks_Spells();
-          console.log(
-               "line 22 + allSpellbooks_Spells: " + allSpellbooks_Spells
-          );
      }, []);
+
+     function handleDelete() {
+          deleteSpellbook_Spell();
+     }
      return (
           <div id="all-spellbooks-spells">
                <h4>
@@ -29,11 +33,15 @@ export default function AllSpellbooks_Spells() {
                </h4>
                {allSpellbooks_Spells.map((spellbook_spells) => {
                     return (
-                         <div>
-                              <p key={spellbook_spells.spellbooks_spells_id}>
+                         <div key={spellbook_spells.spellbooks_spells_id}>
+                              <p>
                                    Spellbook ID: {spellbook_spells.spellbook_id}
                                    <br />
                                    Spell ID: {spellbook_spells.spell_id}
+                                   <br />
+                                   <button onClick={handleDelete}>
+                                        Remove Spell
+                                   </button>
                                    <br />
                                    <br />
                               </p>

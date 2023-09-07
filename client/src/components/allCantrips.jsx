@@ -49,10 +49,8 @@ export default function AllCantrips() {
                     <h4>All Cantrips</h4>
                     {cantripsToDisplay.map((cantrip) => {
                          return (
-                              <div>
-                                   <p key={cantrip.cantrip_id}>
-                                        {cantrip.name}
-                                   </p>
+                              <div key={cantrip.cantrip_id}>
+                                   <p>{cantrip.name}</p>
                                    ;
                                    <AddToSpellbookForm />
                               </div>
