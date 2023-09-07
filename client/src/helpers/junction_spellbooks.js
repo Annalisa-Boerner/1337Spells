@@ -85,3 +85,17 @@ export const fetchSingleSpellbook_Cantrips = async (id) => {
           console.error(error);
      }
 };
+
+//delete a single cantrip from the spellbook
+
+export const deleteSpellbook_Cantrip = async (id) => {
+     try {
+          const response = await fetch(`${base_url}/spellbooks_cantrip/${id}`, {
+               method: "DELETE",
+          });
+     } catch (error) {
+          alert(
+               "We're sorry, there was an error during deletion. Please try again once we've fixed it."
+          );
+     }
+};

@@ -29,7 +29,7 @@ export default function AllSpellbooks_Spells() {
      async function handleDelete(event) {
           event.preventDefault();
           try {
-               const result = await deleteSpellbook_Spell(event.target.id);
+               await deleteSpellbook_Spell(event.target.id);
                navigate(0);
           } catch (error) {
                console.error(error);
@@ -49,8 +49,6 @@ export default function AllSpellbooks_Spells() {
                                    <br />
                                    Spell: {spellbook_spells.spell_name}
                                    <br />
-                                   SBSid:
-                                   {spellbook_spells.spellbooks_spells_id}
                                    <button
                                         onClick={handleDelete}
                                         id={

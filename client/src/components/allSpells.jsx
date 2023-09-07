@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllSpells } from "../helpers/spells";
-import AddToSpellbookForm from "./addToSpellbookForm";
+import { Link } from "react-router-dom";
 
 export default function AllSpells() {
      const [allSpells, setAllSpells] = useState([]);
@@ -50,8 +50,12 @@ export default function AllSpells() {
                     {spellsToDisplay.map((spell) => {
                          return (
                               <div key={spell.spell_id}>
-                                   <p>{spell.name}</p>
-                                   <AddToSpellbookForm />
+                                   <p>
+                                        {spell.name}, {spell.spell_id}
+                                   </p>
+                                   <Link to="/addToSpellbooksSpells">
+                                        Add to spellbook
+                                   </Link>
                               </div>
                          );
                     })}

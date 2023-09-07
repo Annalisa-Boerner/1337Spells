@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { fetchAllCantrips } from "../helpers/cantrips";
-import AddToSpellbookForm from "./addToSpellbookForm";
 
 export default function AllCantrips() {
      const [allCantrips, setAllCantrips] = useState([]);
@@ -50,9 +49,10 @@ export default function AllCantrips() {
                     {cantripsToDisplay.map((cantrip) => {
                          return (
                               <div key={cantrip.cantrip_id}>
-                                   <p>{cantrip.name}</p>
-                                   ;
-                                   <AddToSpellbookForm />
+                                   <p>
+                                        {cantrip.name}, {cantrip.cantrip_id}
+                                   </p>
+                                   ;{/* <AddToSpellbookForm /> */}
                               </div>
                          );
                     })}
