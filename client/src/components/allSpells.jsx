@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { fetchAllSpells } from "../helpers/spells";
-import { Link } from "react-router-dom";
 
 export default function AllSpells() {
      const [allSpells, setAllSpells] = useState([]);
@@ -32,7 +31,7 @@ export default function AllSpells() {
           <section id="all-spells">
                <div id="search-spells">
                     <label>
-                         Search:{""}
+                         Search Spells:{""}
                          <input
                               id="search-spells-bar"
                               type="text"
@@ -46,14 +45,13 @@ export default function AllSpells() {
                     </label>
                </div>
                <div>
-                    <h4>All Spells</h4>
+                    <h3>All Spells</h3>
                     {spellsToDisplay.map((spell) => {
                          return (
                               <div key={spell.spell_id}>
                                    <p>
                                         {spell.name}, {spell.spell_id}
                                    </p>
-                                   <Link to="/addspells">Add to spellbook</Link>
                               </div>
                          );
                     })}

@@ -24,6 +24,7 @@ export default function AddToSpellbooksSpells() {
                <h3>Add A Spell to My Spellbook</h3>
                <form onSubmit={handleSubmit}>
                     <input
+                         className="new-spell-form-bar"
                          value={spell_id}
                          type="text"
                          name="spell_id"
@@ -33,6 +34,7 @@ export default function AddToSpellbooksSpells() {
                     <br />
 
                     <input
+                         className="new-spell-form-bar"
                          value={spellbook_id}
                          type="text"
                          name="spellbook_id"
@@ -45,6 +47,7 @@ export default function AddToSpellbooksSpells() {
                     <br />
 
                     <input
+                         className="new-spell-form-bar"
                          value={spell_name}
                          type="text"
                          name="spell_name"

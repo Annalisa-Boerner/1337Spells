@@ -8,7 +8,7 @@ import AddToSpellbooksCantrips from "./addCantrips";
 export default function MySpellbook() {
      return (
           <div>
-               <p>My Spellbook</p>
+               <h2>My Spellbook</h2>
                <AllSpellbooks_Spells />
                <AllSpells />
                <AddToSpellbooksSpells />

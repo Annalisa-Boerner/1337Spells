@@ -20,10 +20,7 @@ export default function AllSpellbooks_Cantrips() {
      }, []);
      return (
           <div id="all-spellbooks-cantrips">
-               <h4>
-                    Spellbooks_Cantrips Thru Table aka All The SpellBooks and
-                    Their Cantrips
-               </h4>
+               <h4>Search to Display Your Cantrips</h4>
                {allSpellbooks_Cantrips.map((spellbook_cantrips) => {
                     return (
                          <div key={spellbook_cantrips.spellbooks_cantrips_id}>
