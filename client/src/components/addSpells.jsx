@@ -16,22 +16,22 @@ export default function AddToSpellbooksSpells() {
                     spellbook_id,
                     spell_name
                );
-               console.log("API data from handleSubmit: ", APIData);
+
                navigate("/myspellbook");
-               //reset the listed spells?
           } catch (error) {
                alert("There was an error adding this spell to your spellbook");
           }
      }
 
      return (
-          <section>
+          <section id="addSpell-container">
+               <h3>Add A Spell to My Spellbook</h3>
                <form onSubmit={handleSubmit}>
                     <input
                          value={spell_id}
                          type="text"
                          name="spell_id"
-                         placeholder="Spell ID"
+                         placeholder="Spell ID - Integer by All Spells"
                          onChange={(event) => setSpell_id(event.target.value)}
                     />
                     <br />
@@ -40,7 +40,7 @@ export default function AddToSpellbooksSpells() {
                          value={spellbook_id}
                          type="text"
                          name="spellbook_id"
-                         placeholder="Spellbook ID"
+                         placeholder="Spellbook ID - Your Book"
                          onChange={(event) =>
                               setSpellbook_id(event.target.value)
                          }

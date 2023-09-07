@@ -8,7 +8,7 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./homePage";
 import MySpellbook from "./mySpellbook";
-import AddToSpellbooksSpells from "./addToSpellbooksSpells";
+import AddToSpellbooksSpells from "./addSpells";
 // import { BrowseSpells } from "./browseSpells";
 // import { Login } from "./login";
 

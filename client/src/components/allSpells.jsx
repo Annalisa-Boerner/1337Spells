@@ -53,9 +53,7 @@ export default function AllSpells() {
                                    <p>
                                         {spell.name}, {spell.spell_id}
                                    </p>
-                                   <Link to="/addToSpellbooksSpells">
-                                        Add to spellbook
-                                   </Link>
+                                   <Link to="/addspells">Add to spellbook</Link>
                               </div>
                          );
                     })}

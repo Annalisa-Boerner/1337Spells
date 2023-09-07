@@ -18,6 +18,10 @@
      border: 2px dashed yellow;
 }
 
+#addSpell-container {
+     border: 2px dashed pink;
+}
+
 #all-cantrips,
 #all-spellbooks-cantrips {
      border: 2px dashed teal;
