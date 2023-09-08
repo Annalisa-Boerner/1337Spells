@@ -30,6 +30,7 @@ export default function AddToSpellbooksCantrips() {
                <h3>Add A Cantrip to My Spellbook</h3>
                <form onSubmit={handleSubmit}>
                     <input
+                         className="new-cantrip-form-bar"
                          value={cantrip_id}
                          type="text"
                          name="cantrip_id"
@@ -39,6 +40,7 @@ export default function AddToSpellbooksCantrips() {
                     <br />
 
                     <input
+                         className="new-cantrip-form-bar"
                          value={spellbook_id}
                          type="text"
                          name="spellbook_id"
@@ -51,6 +53,7 @@ export default function AddToSpellbooksCantrips() {
                     <br />
 
                     <input
+                         className="new-cantrip-form-bar"
                          value={cantrip_name}
                          type="text"
                          name="cantrip_name"

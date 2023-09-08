@@ -15,8 +15,6 @@ import AddToSpellbooksSpells from "./addSpells";
 export default function MainSection() {
      return (
           <div id="main-section">
-               <h3>Main Section</h3>
-
                <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/myspellbook" element={<MySpellbook />} />
