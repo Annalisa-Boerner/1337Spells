@@ -10,3 +10,6 @@ As far as cantrips and spells go for rendering: now the names appear, but they'r
     I wasn't sure how to get the spell_id that's common between the spells and the junction table to connect to the name on the spells table, so I entered them manually. that makes the existence of a spell_id on that table currently kind of useless
 
     But also when someone is entering a spell, it's more useful to use the name anyway: no one on the front end will have access to an id
+
+
+I want to drill down into the spellbooks_spells object enough to get spellbook_id off of it, I think

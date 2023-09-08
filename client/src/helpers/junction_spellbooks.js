@@ -1,10 +1,8 @@
 const base_url = "http://localhost:8080/api";
 
-//needs post and delete routes to populate and depopulate
-
+//Junction tables:
 //start with ugly version: a form linked from an allSpells or allCantrips button
-
-//then create automagic version where it submits the post
+//then create automagic version where a button under the spell/cantrip submits the post to the appropriate junction table
 
 //GET all spells currently in all spellbooks
 export const fetchAllSpellbooks_Spells = async () => {
@@ -31,7 +29,7 @@ export const fetchSingleSpellbook_Spells = async (id) => {
 //delete a single spell from a single spellbook aka one table row
 export const deleteSpellbook_Spell = async (id) => {
      try {
-          const response = await fetch(`${base_url}/spellbooks_spells/${id}`, {
+          await fetch(`${base_url}/spellbooks_spells/${id}`, {
                method: "DELETE",
           });
      } catch (error) {
@@ -115,7 +113,7 @@ export async function createSpellbook_cantrip(
 
 export const deleteSpellbook_Cantrip = async (id) => {
      try {
-          const response = await fetch(`${base_url}/spellbooks_cantrip/${id}`, {
+          await fetch(`${base_url}/spellbooks_cantrip/${id}`, {
                method: "DELETE",
           });
      } catch (error) {

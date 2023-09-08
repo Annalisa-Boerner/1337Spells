@@ -13,6 +13,7 @@ a:visited {
 a:hover {
      color: rgb(170, 178, 180);
      text-decoration: none;
+     margin: 2px;
 }
 
 #main-section {
@@ -80,6 +81,11 @@ a:hover {
 #search-spells-bar,
 #search-spellbooks-spells-bar {
      background-color: rgba(255, 255, 255, 0.644);
+}
+
+.remove-cantrip-button,
+.add-cantrip-button {
+     background-color: rgba(255, 255, 255, 0.87);
 }
 :root {
      background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");

@@ -5,6 +5,8 @@ import {
 } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
+//get all the spellbooks with their spells
+
 export default function AllSpellbooks_Spells() {
      const [allSpellbooks_Spells, setAllSpellbooks_Spells] = useState([]);
      const [searchParam, setSearchParam] = useState("");
@@ -26,6 +28,8 @@ export default function AllSpellbooks_Spells() {
           getAllSpellbooks_Spells();
      }, []);
 
+     //Delete a spell from a spellbook
+
      async function handleDelete(event) {
           event.preventDefault();
           try {
@@ -36,16 +40,18 @@ export default function AllSpellbooks_Spells() {
           }
      }
 
-     console.log("line 39 ", allSpellbooks_Spells[0]);
+     //Filter spellbooks to only show your own spells
 
      const spellbooksToDisplay = searchParam
           ? allSpellbooks_Spells.filter((spellbook) =>
-                 spellbook.spellbook_id.includes(searchParam)
+                 spellbook.spellbook_id.toString().includes(searchParam)
             )
           : allSpellbooks_Spells;
+
+     //Render the filter bar and spellbooks/spells
      return (
-          <section id="search-spellbooks-spells">
-               <div>
+          <section id="spell-side">
+               <div id="search-spellbooks-spells">
                     <label>
                          <h3>Please Enter Your Spellbook ID:{""}</h3>
                          <input
@@ -58,9 +64,10 @@ export default function AllSpellbooks_Spells() {
                          />
                     </label>
                </div>
+
                <div id="all-spellbooks-spells">
                     <br />
-                    <h4>Search to Display Your Spellbook</h4>
+                    <h4>Search to Display Your Spells</h4>
                     {spellbooksToDisplay.map((spellbook_spells) => {
                          return (
                               <div key={spellbook_spells.spellbooks_spells_id}>
@@ -71,6 +78,7 @@ export default function AllSpellbooks_Spells() {
                                         Spell: {spellbook_spells.spell_name}
                                         <br />
                                         <button
+                                             className="remove-spell-button"
                                              onClick={handleDelete}
                                              id={
                                                   spellbook_spells.spellbooks_spells_id
