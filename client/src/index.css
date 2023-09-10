@@ -1,12 +1,14 @@
-a:link {
+/* LINK AND NAV COLORING */
+a:link,
+#login-container {
      color: whitesmoke;
-     font-size: 1.5rem;
+     font-size: 1.3rem;
      text-decoration: none;
 }
 
 a:visited {
      color: whitesmoke;
-     font-size: 1.5rem;
+     font-size: 1.3rem;
      text-decoration: none;
 }
 
@@ -16,24 +18,29 @@ a:hover {
      margin: 2px;
 }
 
-#main-section {
-     border: 4px solid orange;
-     padding: 3rem;
-     width: 50vw;
+#navbar-container {
+     /* background-color: rgba(114, 141, 167, 0.726); */
+
      display: flex;
      justify-content: space-evenly;
-     background-color: rgba(252, 203, 163, 0.678);
+     padding: 3rem;
+     color: rgba(248, 216, 168, 0.678);
 }
 
-#navbar-container {
-     /* border: 4px solid rgb(33, 212, 212); */
-     background-color: rgba(114, 141, 167, 0.726);
-     width: 50vw;
+/*SPELLBOOK FORMATTING */
+
+#spellbookContainer {
      display: flex;
-     justify-content: space-evenly;
-     padding: 3rem;
-     color: white;
-     border: 4px solid white;
+     align-items: space-between;
+}
+
+#leftside {
+     display: flex;
+     width: 50vw;
+     height: 75vh;
+     float: left;
+     background-color: rgba(248, 216, 168, 0.678);
+     padding: 2rem;
 }
 
 #cantrip-side,
@@ -41,50 +48,48 @@ a:hover {
      display: flex;
 }
 
-#all-spells,
-#all-spellbooks-spells,
-#addSpell-container,
-#search-spellbooks-spells {
-     border: 4px dashed yellow;
-     background-color: rgba(134, 149, 163, 0.418);
+.spacebetween {
+     display: flex;
+     width: 3vw;
 }
 
-#search-spellbooks-spells,
-#addSpell-container {
-     border: 4px solid pink;
+#rightside {
+     display: flex;
+     width: 50vw;
+     height: 75vh;
+     float: right;
+     background-color: rgba(248, 216, 168, 0.678);
+     padding: 2rem;
 }
 
-#search-spellbooks-cantrips,
-#addCantrip-container {
-     background-color: rgba(255, 255, 255, 0.459);
-     border: 4px solid white;
+h2 {
+     color: rgba(248, 216, 168, 0.678);
+     font-size: 2em;
+     font-weight: 100;
 }
 
-#all-cantrips,
-#all-spellbooks-cantrips {
-     border: 4px dashed teal;
-     background-color: rgba(255, 255, 255, 0.459);
-     width: 25vw;
+h4 {
+     color: rgba(247, 234, 216, 0.822);
+     font-size: 1.5em;
+     font-weight: 100;
 }
-#login-container {
-     border: 4px solid white;
-     width: 10rem;
-     height: 2rem;
+.flex {
+     display: flex;
+     justify-content: center;
 }
 
-#browse-spells-container {
-     border: 4px solid pink;
-     width: 10rem;
-     height: 2rem;
+.flex-column {
+     display: flex;
+     flex-direction: column;
 }
 
-#homebrew-container,
-#myspellbook-container {
-     border: 4px dashed white;
-     width: 10rem;
-     height: 2rem;
+.flex-titles {
+     display: flex;
+     justify-content: space-evenly;
+     height: 3rem;
 }
 
+/* spell search bars */
 #search-spells-bar,
 #search-spellbooks-spells-bar,
 .new-spell-form-bar,
@@ -93,35 +98,28 @@ a:hover {
      background-color: rgba(255, 255, 255, 0.644);
 }
 
-.remove-cantrip-button,
-.add-cantrip-button {
-     background-color: rgba(255, 255, 255, 0.87);
-}
+/* ROOT */
 :root {
      background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
      background-attachment: fixed;
      background-size: 100%;
-     font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+     font-family: Georgia, "Times New Roman", Times, serif;
      line-height: 1.5;
      font-weight: 400;
 
-     /* color-scheme: light dark; */
      color: rgb(59, 24, 1);
      background-color: #242424;
-}
-
-body {
      margin: 0;
-     display: flex;
-     min-width: 320px;
-     min-height: 100vh;
+     padding: 0;
 }
 
+/* VITE STYLING */
 h1 {
      font-size: 3.2em;
      line-height: 1.1;
 }
 
+/* BUTTONS */
 button {
      border-radius: 8px;
      border: 1px solid transparent;
@@ -135,22 +133,9 @@ button {
      color: black;
 }
 button:hover {
-     border-color: #646cff;
+     background-color: rgba(114, 141, 167, 0.726);
 }
 button:focus,
 button:focus-visible {
      outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-     :root {
-          color: #213547;
-          background-color: #ffffff;
-     }
-     a:hover {
-          color: #747bff;
-     }
-     button {
-          background-color: #f9f9f9;
-     }
 }

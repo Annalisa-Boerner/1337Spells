@@ -30,6 +30,7 @@ export default function AllSpells() {
      return (
           <section id="all-spells">
                <div id="search-spells">
+                    <h3>All Spells</h3>
                     <label>
                          Search Spells:{""}
                          <input
@@ -45,7 +46,6 @@ export default function AllSpells() {
                     </label>
                </div>
                <div>
-                    <h3>All Spells</h3>
                     {spellsToDisplay.map((spell) => {
                          return (
                               <div key={spell.spell_id}>

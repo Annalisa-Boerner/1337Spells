@@ -12,7 +12,7 @@ export default function AddToSpellbooksSpells() {
           event.preventDefault();
           try {
                createSpellbook_spell(spell_id, spellbook_id, spell_name);
-
+               navigate(0);
                navigate("/myspellbook");
           } catch (error) {
                alert("There was an error adding this spell to your spellbook");

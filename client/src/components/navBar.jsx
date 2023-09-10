@@ -12,7 +12,7 @@ export default function Navbar() {
                <a href="https://shorturl.at/bjquF" target="_blank">
                     Browse Spells (External)
                </a>
-               <Login />
+               <Link to="/login">Login</Link>
           </div>
      );
 }

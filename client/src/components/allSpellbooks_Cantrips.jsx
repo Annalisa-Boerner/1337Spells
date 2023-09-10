@@ -50,52 +50,45 @@ export default function AllSpellbooks_Cantrips() {
 
      //Render the filter bar and spellbooks/cantrips
      return (
-          <section id="cantrip-side">
-               <div id="search-spellbooks-cantrips">
-                    <label>
-                         <h3>Please Enter Your Spellbook ID:{""}</h3>
-                         <input
-                              id="search-spellbooks-cantrips-bar"
-                              type="text"
-                              placeholder="Search spellbooks by number"
-                              onChange={(event) =>
-                                   setSearchParam(event.target.value)
-                              }
-                         />
-                    </label>
-               </div>
-
-               <div id="all-spellbooks-cantrips">
-                    <h4>Search to Display Your Cantrips</h4>
-                    {spellbooksToDisplay2.map((spellbook_cantrips) => {
-                         return (
-                              <div
-                                   key={
-                                        spellbook_cantrips.spellbooks_cantrips_id
-                                   }
-                              >
-                                   <p>
-                                        Spellbook ID:{" "}
-                                        {spellbook_cantrips.spellbook_id}
-                                        <br />
-                                        Cantrip:{" "}
-                                        {spellbook_cantrips.cantrip_name}
-                                        <br />
-                                        <button
-                                             className="remove-cantrip-button"
-                                             onClick={handleDelete}
-                                             id={
-                                                  spellbook_cantrips.spellbooks_cantrips_id
-                                             }
-                                        >
-                                             Remove Cantrip
-                                        </button>
-                                        <br />
-                                   </p>
-                              </div>
-                         );
-                    })}
-               </div>
+          <section id="cantrip-side" className="flex-column">
+               <label>
+                    <h3>Spellbook ID:{""}</h3>
+                    <br />
+                    <input
+                         id="search-spellbooks-cantrips-bar"
+                         type="text"
+                         placeholder="Search spellbooks by number"
+                         onChange={(event) =>
+                              setSearchParam(event.target.value)
+                         }
+                    />
+               </label>
+               {spellbooksToDisplay2.map((spellbook_cantrips) => {
+                    return (
+                         <div
+                              className="flex"
+                              key={spellbook_cantrips.spellbooks_cantrips_id}
+                         >
+                              <p>
+                                   Spellbook ID:{" "}
+                                   {spellbook_cantrips.spellbook_id}
+                                   <br />
+                                   Cantrip: {spellbook_cantrips.cantrip_name}
+                                   <br />
+                                   <button
+                                        className="remove-cantrip-button"
+                                        onClick={handleDelete}
+                                        id={
+                                             spellbook_cantrips.spellbooks_cantrips_id
+                                        }
+                                   >
+                                        Remove Cantrip
+                                   </button>
+                                   <br />
+                              </p>
+                         </div>
+                    );
+               })}
           </section>
      );
 }
