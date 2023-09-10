@@ -28,34 +28,29 @@ export default function AllCantrips() {
           : allCantrips;
 
      return (
-          <section id="all-cantrips">
-               <div id="search-cantrips">
-                    <label>
-                         Search:{""}
-                         <input
-                              id="search-cantrips-bar"
-                              type="text"
-                              placeholder="Search cantrips by name"
-                              onChange={(event) =>
-                                   setSearchParam(
-                                        event.target.value.toLowerCase()
-                                   )
-                              }
-                         />
-                    </label>
-               </div>
-               <div>
-                    <h3>All Cantrips</h3>
-                    {cantripsToDisplay.map((cantrip) => {
-                         return (
-                              <div key={cantrip.cantrip_id}>
-                                   <p>
-                                        {cantrip.name}, {cantrip.cantrip_id}
-                                   </p>
-                              </div>
-                         );
-                    })}
-               </div>
+          <section id="all-cantrips" className="flex-column">
+               <h3>All Cantrips</h3>
+               <label id="search-cantrips">
+                    Search:{""}
+                    <input
+                         id="search-cantrips-bar"
+                         type="text"
+                         placeholder="Search cantrips by name"
+                         onChange={(event) =>
+                              setSearchParam(event.target.value.toLowerCase())
+                         }
+                    />
+               </label>
+
+               {cantripsToDisplay.map((cantrip) => {
+                    return (
+                         <div key={cantrip.cantrip_id}>
+                              <p>
+                                   {cantrip.name}, {cantrip.cantrip_id}
+                              </p>
+                         </div>
+                    );
+               })}
           </section>
      );
 }

@@ -8,22 +8,16 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./homePage";
 import MySpellbook from "./mySpellbook";
-import AddToSpellbooksSpells from "./addSpells";
 // import { BrowseSpells } from "./browseSpells";
-// import { Login } from "./login";
+import Login from "./login";
 
 export default function MainSection() {
      return (
           <div id="main-section">
-               <h3>Main Section</h3>
-
                <Routes>
                     <Route path="/" element={<HomePage />} />
                     <Route path="/myspellbook" element={<MySpellbook />} />
-                    <Route
-                         path="/addspells"
-                         element={<AddToSpellbooksSpells />}
-                    />
+                    <Route path="/" element={<Login />} />
                </Routes>
           </div>
      );

@@ -61,7 +61,9 @@ export default function AddToSpellbooksCantrips() {
                     />
                     <br />
                     <br />
-                    <button type="submit">Submit</button>
+                    <button type="submit" className="add-cantrip-button">
+                         Submit
+                    </button>
                </form>
           </section>
      );

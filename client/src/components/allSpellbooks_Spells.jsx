@@ -53,7 +53,8 @@ export default function AllSpellbooks_Spells() {
           <section id="spell-side">
                <div id="search-spellbooks-spells">
                     <label>
-                         <h3>Please Enter Your Spellbook ID:{""}</h3>
+                         <h3>Spellbook ID:{""}</h3>
+                         <br />
                          <input
                               id="search-spellbooks-spells-bar"
                               type="text"
@@ -66,8 +67,6 @@ export default function AllSpellbooks_Spells() {
                </div>
 
                <div id="all-spellbooks-spells">
-                    <br />
-                    <h4>Search to Display Your Spells</h4>
                     {spellbooksToDisplay.map((spellbook_spells) => {
                          return (
                               <div key={spellbook_spells.spellbooks_spells_id}>
