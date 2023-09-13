@@ -13,7 +13,7 @@ a:visited {
 }
 
 a:hover {
-     color: rgb(170, 178, 180);
+     color: rgb(194, 181, 138);
      text-decoration: none;
      margin: 2px;
 }
@@ -41,6 +41,7 @@ a:hover {
      float: left;
      background-color: rgba(248, 216, 168, 0.678);
      padding: 2rem;
+     box-shadow: 10px 5px 5px white;
 }
 
 #cantrip-side,
@@ -60,6 +61,7 @@ a:hover {
      float: right;
      background-color: rgba(248, 216, 168, 0.678);
      padding: 2rem;
+     box-shadow: 10px 5px 5px white;
 }
 
 h2 {
@@ -103,7 +105,8 @@ h4 {
      background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
      background-attachment: fixed;
      background-size: 100%;
-     font-family: Georgia, "Times New Roman", Times, serif;
+     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+          sans-serif;
      line-height: 1.5;
      font-weight: 400;
 
@@ -127,13 +130,13 @@ button {
      font-size: 1em;
      font-weight: 500;
      font-family: inherit;
-     background-color: rgba(253, 218, 177, 0.5);
+     background-color: rgba(255, 251, 246, 0.5);
      cursor: pointer;
      transition: border-color 0.25s;
      color: black;
 }
 button:hover {
-     background-color: rgba(114, 141, 167, 0.726);
+     background-color: rgba(255, 255, 253, 0.726);
 }
 button:focus,
 button:focus-visible {

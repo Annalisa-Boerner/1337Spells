@@ -13,3 +13,16 @@ As far as cantrips and spells go for rendering: now the names appear, but they'r
 
 
 I want to drill down into the spellbooks_spells object enough to get spellbook_id off of it, I think
+
+
+CYPRESS TESTING
+
+-wrap individual components in browserRouter
+-import at the top; wrap inside the cy.mount()
+-cy.get('h1').should('have.value', 'Login')
+
+--Connecting Token to Front End--
+middleware functin: request.setHeader() to create the header on the object for token passing
+-create a function above our routing 
+(requireToken): it's a middleware function that takes req, res, and next
+-if the token is in the req.header, pull it from there: call the user object; set the value of req.user or whatever to be that user's data; call next, pass the request to the middleware function; call the middleware; pass it into the route handler as a callback function, and access it that way; the middleware function runs before the route. the data gets abstracted into the request so that it'll be in the response

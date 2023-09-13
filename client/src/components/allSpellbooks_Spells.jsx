@@ -50,48 +50,43 @@ export default function AllSpellbooks_Spells() {
 
      //Render the filter bar and spellbooks/spells
      return (
-          <section id="spell-side">
-               <div id="search-spellbooks-spells">
-                    <label>
-                         <h3>Spellbook ID:{""}</h3>
-                         <br />
-                         <input
-                              id="search-spellbooks-spells-bar"
-                              type="text"
-                              placeholder="Search spellbooks by number"
-                              onChange={(event) =>
-                                   setSearchParam(event.target.value)
-                              }
-                         />
-                    </label>
-               </div>
+          <section id="spell-side" className="flex-column">
+               <label>
+                    <h3>Spellbook ID:{""}</h3>
+                    <br />
+                    <input
+                         id="search-spellbooks-spells-bar"
+                         type="text"
+                         placeholder="Search spellbooks by number"
+                         onChange={(event) =>
+                              setSearchParam(event.target.value)
+                         }
+                    />
+               </label>
 
-               <div id="all-spellbooks-spells">
-                    {spellbooksToDisplay.map((spellbook_spells) => {
-                         return (
-                              <div key={spellbook_spells.spellbooks_spells_id}>
-                                   <p>
-                                        Spellbook ID:{" "}
-                                        {spellbook_spells.spellbook_id}
-                                        <br />
-                                        Spell: {spellbook_spells.spell_name}
-                                        <br />
-                                        <button
-                                             className="remove-spell-button"
-                                             onClick={handleDelete}
-                                             id={
-                                                  spellbook_spells.spellbooks_spells_id
-                                             }
-                                        >
-                                             Remove Spell
-                                        </button>
-                                        <br />
-                                        <br />
-                                   </p>
-                              </div>
-                         );
-                    })}
-               </div>
+               {spellbooksToDisplay.map((spellbook_spells) => {
+                    return (
+                         <div key={spellbook_spells.spellbooks_spells_id}>
+                              <p>
+                                   Spellbook ID: {spellbook_spells.spellbook_id}
+                                   <br />
+                                   Spell: {spellbook_spells.spell_name}
+                                   <br />
+                                   <button
+                                        className="remove-spell-button"
+                                        onClick={handleDelete}
+                                        id={
+                                             spellbook_spells.spellbooks_spells_id
+                                        }
+                                   >
+                                        Remove Spell
+                                   </button>
+                                   <br />
+                                   <br />
+                              </p>
+                         </div>
+                    );
+               })}
           </section>
      );
 }

@@ -76,7 +76,6 @@ export default function AllSpellbooks_Cantrips() {
                                    Cantrip: {spellbook_cantrips.cantrip_name}
                                    <br />
                                    <button
-                                        className="remove-cantrip-button"
                                         onClick={handleDelete}
                                         id={
                                              spellbook_cantrips.spellbooks_cantrips_id
