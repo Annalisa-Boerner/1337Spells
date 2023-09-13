@@ -19,6 +19,9 @@ router.use("/cantrips", require("./cantrips"));
 //GET characters that exist
 router.use("/characters", require("./characters"));
 
+//AUTH backend
+router.use("/auth", require("./auth"));
+
 // //Login stuff
 // router.use("/login", require("./login"));
 

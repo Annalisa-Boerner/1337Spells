@@ -98,7 +98,7 @@ const createTables = async () => {
         character_id SERIAL PRIMARY KEY,
         username varchar(255) UNIQUE NOT NULL,
         password varchar(255) NOT NULL,
-        name varchar(255) NOT NULL,
+        name varchar(255),
         heritage varchar(255),
         image varchar(255),
         spellbook_id INTEGER REFERENCES spellbooks(spellbook_id)
