@@ -1,7 +1,7 @@
 const bcrypt = require("bcrypt");
 const {
      createCharacter,
-     getCharacterById,
+     getCharacterByUsername,
 } = require("../db/helpers/characters");
 
 const router = require("express").Router();
@@ -18,16 +18,13 @@ router.get("/", async (req, res, next) => {
 
 router.post("/register", async (req, res, next) => {
      try {
-          console.log(req.body);
           const { username, password, name } = req.body;
           const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
-          console.log("hashed password ", hashedPassword);
           const character = await createCharacter({
                username,
                password: hashedPassword,
                name,
           });
-          console.log("character ", character);
           delete character.password;
 
           res.send({ character });
@@ -38,6 +35,17 @@ router.post("/register", async (req, res, next) => {
 
 router.post("/login", async (req, res, next) => {
      try {
+          const { username, password, name } = req.body;
+          console.log("req.body ", req.body);
+          const character = await getCharacterByUsername(username);
+          console.log("character ", character);
+          const validPassword = await bcrypt.compare(
+               password,
+               character.password
+          );
+          console.log("validPassword ", validPassword);
+          delete character.password;
+          res.send({ character });
      } catch (error) {
           next(error);
      }

@@ -14,7 +14,10 @@ const {
 } = require("./seedData");
 
 //pull in helpers
-const { createCharacter, getCharacterById } = require("./helpers/characters");
+const {
+     createCharacter,
+     getCharacterByUsername,
+} = require("./helpers/characters");
 const {
      createSpellbooks,
      getAllSpellbooks,

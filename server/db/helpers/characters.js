@@ -39,18 +39,26 @@ const getAllCharacters = async () => {
           throw error;
      }
 };
-const getCharacterById = async (character_id) => {
+const getCharacterByUsername = async (username) => {
      try {
+          console.log("entering getCharacterByUsername");
+          console.log("username ", username);
+
           const {
                rows: [character],
-          } = await client.query(`
+          } = await client.query(
+               `
           SELECT *
           FROM characters
-          WHERE character_id=${character_id};
-          `);
+          WHERE characters.username= $1
+          `,
+               [username]
+          );
+
+          console.log("character ", character);
           return character;
      } catch (error) {
           throw error;
      }
 };
-module.exports = { createCharacter, getAllCharacters, getCharacterById };
+module.exports = { createCharacter, getAllCharacters, getCharacterByUsername };
