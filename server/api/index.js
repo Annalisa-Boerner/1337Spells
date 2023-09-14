@@ -16,20 +16,8 @@ router.use("/arcanerecoveries", require("./arcanerecovery"));
 //GET cantrips that exist
 router.use("/cantrips", require("./cantrips"));
 
-//GET characters that exist
+//GET characters that exist; also auth through here
 router.use("/characters", require("./characters"));
-
-//AUTH backend
-// router.use("/auth", require("./"));
-
-// //Login
-// router.use("/login", require("./auth"));
-
-// //Logout
-// router.use("/logout", require("./auth"));
-
-// //Register
-// router.use("/register", require("./auth"));
 
 //GET spells/cantrips to and from spellbook
 router.use("/spellbooks", require("./spellbooks"));

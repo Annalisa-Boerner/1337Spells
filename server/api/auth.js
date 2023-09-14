@@ -21,6 +21,7 @@ router.get("/", async (req, res, next) => {
 router.post("/register", async (req, res, next) => {
      try {
           const { username, password, name } = req.body;
+          console.log("back end register req.body", req.body);
           const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);
           const character = await createCharacter({
                username,

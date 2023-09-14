@@ -9,10 +9,7 @@ const {
      getCharacterByUsername,
 } = require("../db/helpers/characters");
 
-const {
-     getCharacterById,
-     getAllCharacters,
-} = require("../db/helpers/characters");
+const { getAllCharacters } = require("../db/helpers/characters");
 
 //GET - /api/characters - get all characters
 router.get("/", async (req, res, next) => {
