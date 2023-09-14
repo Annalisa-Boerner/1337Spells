@@ -20,7 +20,7 @@ router.use("/cantrips", require("./cantrips"));
 router.use("/characters", require("./characters"));
 
 //AUTH backend
-router.use("/auth", require("./auth"));
+// router.use("/auth", require("./"));
 
 // //Login
 // router.use("/login", require("./auth"));
