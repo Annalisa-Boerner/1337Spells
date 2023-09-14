@@ -11,13 +11,21 @@ import MySpellbook from "./mySpellbook";
 // import { BrowseSpells } from "./browseSpells";
 import Login from "./login";
 
-export default function MainSection() {
+export default function MainSection({ token, setToken }) {
      return (
           <div id="main-section">
                <Routes>
-                    <Route path="/" element={<HomePage />} />
+                    <Route
+                         path="/"
+                         element={
+                              <HomePage token={token} setToken={setToken} />
+                         }
+                    />
                     <Route path="/myspellbook" element={<MySpellbook />} />
-                    <Route path="/" element={<Login />} />
+                    <Route
+                         path="/"
+                         element={<Login token={token} setToken={setToken} />}
+                    />
                </Routes>
           </div>
      );
