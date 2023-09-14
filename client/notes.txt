@@ -26,3 +26,22 @@ middleware functin: request.setHeader() to create the header on the object for t
 -create a function above our routing 
 (requireToken): it's a middleware function that takes req, res, and next
 -if the token is in the req.header, pull it from there: call the user object; set the value of req.user or whatever to be that user's data; call next, pass the request to the middleware function; call the middleware; pass it into the route handler as a callback function, and access it that way; the middleware function runs before the route. the data gets abstracted into the request so that it'll be in the response
+
+RENDERING INDIVIDUAL USER INFO
+-access current token
+-inside a useEffect:
+    async function getSpellbookId
+        const response = await getCharacterByUsername(username)
+        const result = await response.json();
+
+-I want to pull the spellbook_id ... but one isn't assigned at login? So maybe the char_id becomes the only key that's needed for spellbooks.
+
+New tables:
+Chars_spells junction table
+Chars_cantrips junction table
+
+Nix:
+-arcane recovery
+-spellbooks
+-spellbooks_spells
+-spellbooks_cantrips
