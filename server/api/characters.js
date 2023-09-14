@@ -61,7 +61,7 @@ router.post("/register", async (req, res, next) => {
                signed: true,
           });
 
-          res.send({ character });
+          res.send({ token, character });
      } catch (error) {
           next(error);
      }
@@ -89,7 +89,7 @@ router.post("/login", async (req, res, next) => {
                     signed: true,
                });
                delete character.password;
-               res.send({ character });
+               res.send({ token, character });
           }
      } catch (error) {
           next(error);
