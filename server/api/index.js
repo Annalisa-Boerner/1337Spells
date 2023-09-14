@@ -22,11 +22,14 @@ router.use("/characters", require("./characters"));
 //AUTH backend
 router.use("/auth", require("./auth"));
 
-// //Login stuff
-// router.use("/login", require("./login"));
+// //Login
+// router.use("/login", require("./auth"));
 
-// //Register stuff
-// router.use("/register", require("./register"));
+// //Logout
+// router.use("/logout", require("./auth"));
+
+// //Register
+// router.use("/register", require("./auth"));
 
 //GET spells/cantrips to and from spellbook
 router.use("/spellbooks", require("./spellbooks"));

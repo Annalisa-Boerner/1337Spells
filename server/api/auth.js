@@ -3,6 +3,8 @@ const {
      createCharacter,
      getCharacterByUsername,
 } = require("../db/helpers/characters");
+const { JWT_SECRET } = require("../secrets");
+const jwt = require("jsonwebtoken");
 
 const router = require("express").Router();
 
@@ -27,6 +29,14 @@ router.post("/register", async (req, res, next) => {
           });
           delete character.password;
 
+          const token = jwt.sign(character, JWT_SECRET);
+
+          res.cookie("token", token, {
+               sameSite: "strict",
+               httpOnly: true,
+               signed: true,
+          });
+
           res.send({ character });
      } catch (error) {
           next(error);
@@ -45,7 +55,18 @@ router.post("/login", async (req, res, next) => {
           );
           console.log("validPassword ", validPassword);
           delete character.password;
-          res.send({ character });
+
+          if (validPassword) {
+               const token = jwt.sign(character, JWT_SECRET);
+
+               res.cookie("token", token, {
+                    sameSite: "strict",
+                    httpOnly: true,
+                    signed: true,
+               });
+               delete character.password;
+               res.send({ character });
+          }
      } catch (error) {
           next(error);
      }
@@ -53,6 +74,15 @@ router.post("/login", async (req, res, next) => {
 
 router.post("/logout", async (req, res, next) => {
      try {
+          res.clearCookie("token", {
+               sameSite: "strict",
+               httpOnly: true,
+               signed: true,
+          });
+          res.send({
+               loggedIn: false,
+               message: "logged out",
+          });
      } catch (error) {
           next(error);
      }
