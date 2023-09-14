@@ -9,7 +9,7 @@ function App() {
      return (
           <>
                <div id="app-container">
-                    <Navbar />
+                    <Navbar token={token} setToken={setToken} />
                     <MainSection token={token} setToken={setToken} />
                </div>
           </>

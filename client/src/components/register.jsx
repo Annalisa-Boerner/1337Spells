@@ -10,21 +10,30 @@ export default function Register({ token, setToken }) {
 
      const handleSubmit = async (event) => {
           event.preventDefault();
-          console.log(username, password, name);
+          console.log("handle submit variables", username, password, name);
           const register = await registerCharacter(username, password, name);
-          setToken(register.token);
           console.log("register in the Register handleSubmit ", register);
+          setToken(register.token);
+
           setUsername("");
           setPassword("");
           setName("");
-          nav("/myspellbook");
+          if (register) {
+               nav("/myspellbook");
+          } else {
+               alert("registration probz");
+          }
      };
 
      return (
           <section>
-               <h1>Hi Register Here</h1>
+               <br />
+               <br />
+
+               <h2 id="register-here-text">Register Here</h2>
                <form onSubmit={handleSubmit}>
                     <input
+                         className="register-bar"
                          placeholder="Username"
                          value={username}
                          type="text"
@@ -33,6 +42,7 @@ export default function Register({ token, setToken }) {
                     <br />
 
                     <input
+                         className="register-bar"
                          placeholder="Password"
                          value={password}
                          type="password"
@@ -40,12 +50,17 @@ export default function Register({ token, setToken }) {
                     />
                     <br />
                     <input
+                         className="register-bar"
                          placeholder="Character Name"
                          value={name}
                          type="text"
                          onChange={(event) => setName(event.target.value)}
                     />
                     <br />
+                    <br />
+                    <button id="register-button" type="submit">
+                         Submit
+                    </button>
                </form>
           </section>
      );

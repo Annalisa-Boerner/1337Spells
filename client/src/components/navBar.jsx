@@ -2,9 +2,7 @@
 // import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import Login from "./login";
-
-export default function Navbar() {
+export default function Navbar({ token }) {
      return (
           <div id="navbar-container">
                <Link to="/">Home</Link>
@@ -12,7 +10,11 @@ export default function Navbar() {
                <a href="https://shorturl.at/bjquF" target="_blank">
                     Browse Spells (External)
                </a>
-               <Link to="/login">Login</Link>
+               {token ? (
+                    <Link to="/logout">Logout</Link>
+               ) : (
+                    <Link to="/login">Login</Link>
+               )}
           </div>
      );
 }

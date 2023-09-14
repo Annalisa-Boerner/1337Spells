@@ -65,7 +65,7 @@ a:hover {
 }
 
 h2 {
-     color: rgba(248, 216, 168, 0.678);
+     color: rgba(248, 216, 168, 0.801);
      font-size: 2em;
      font-weight: 100;
 }
@@ -96,7 +96,8 @@ h4 {
 #search-spellbooks-spells-bar,
 .new-spell-form-bar,
 .new-cantrip-form-bar,
-#search-spellbooks-cantrips-bar {
+#search-spellbooks-cantrips-bar,
+.register-bar {
      background-color: rgba(255, 255, 255, 0.644);
 }
 
@@ -122,6 +123,11 @@ h1 {
      line-height: 1.1;
 }
 
+/* MISC TEXT */
+#register-here-text {
+     font-size: 2rem;
+}
+
 /* BUTTONS */
 button {
      border-radius: 8px;
@@ -141,4 +147,8 @@ button:hover {
 button:focus,
 button:focus-visible {
      outline: 4px auto -webkit-focus-ring-color;
+}
+
+#register-button {
+     font-size: 0.75em;
 }

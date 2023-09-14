@@ -1,0 +1,9 @@
+Main contains app and browser router
+
+App imports all components; sets all routes
+    For this project, token/settoken in useState
+    Nav
+    Routes:
+        path ('/') element={component tokenStuff={tokenStuff}}
+
+API call file: make sure there's no slash at the end of your base_url so you don't double slash

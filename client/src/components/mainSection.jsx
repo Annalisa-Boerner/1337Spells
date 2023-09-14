@@ -10,6 +10,7 @@ import HomePage from "./homePage";
 import MySpellbook from "./mySpellbook";
 // import { BrowseSpells } from "./browseSpells";
 import Login from "./login";
+import Logout from "./logout";
 
 export default function MainSection({ token, setToken }) {
      return (
@@ -21,10 +22,17 @@ export default function MainSection({ token, setToken }) {
                               <HomePage token={token} setToken={setToken} />
                          }
                     />
-                    <Route path="/myspellbook" element={<MySpellbook />} />
                     <Route
-                         path="/"
+                         path="/myspellbook"
+                         element={<MySpellbook token={token} />}
+                    />
+                    <Route
+                         path="/login"
                          element={<Login token={token} setToken={setToken} />}
+                    />
+                    <Route
+                         path="/logout"
+                         element={<Logout token={token} setToken={setToken} />}
                     />
                </Routes>
           </div>
