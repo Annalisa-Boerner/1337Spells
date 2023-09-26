@@ -11,7 +11,7 @@ const {
 
 const { getAllCharacters } = require("../db/helpers/characters");
 
-//GET - /api/characters - get all characters
+// GET - /api/characters - get all characters
 router.get("/", async (req, res, next) => {
      try {
           const characters = await getAllCharacters();
@@ -50,6 +50,7 @@ router.post("/register", async (req, res, next) => {
           });
           delete character.password;
 
+          //validating that it's the correct secret
           const token = jwt.sign(character, JWT_SECRET);
 
           res.cookie("token", token, {
@@ -86,6 +87,7 @@ router.post("/login", async (req, res, next) => {
                     signed: true,
                });
                delete character.password;
+               //if we pass in token on the character object, then any time there's a getAll, they can see the token. it's split out this way so that it's associated but less accessible
                res.send({ token, character });
           }
      } catch (error) {
