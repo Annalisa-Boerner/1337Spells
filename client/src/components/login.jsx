@@ -2,7 +2,14 @@ import { useState } from "react";
 import { login } from "../fetching";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({ setToken, token, setUserId, userId }) {
+export default function Login({
+    setToken,
+    token,
+    setCharId,
+    charId,
+    charName,
+    setCharName,
+}) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
@@ -11,17 +18,27 @@ export default function Login({ setToken, token, setUserId, userId }) {
     const handleSubmit = async (event) => {
         event.preventDefault();
         console.log("handle submit variables", username, password, name);
-        const register = await login(username, password, name);
-        console.log("register in the Login handleSubmit ", register);
-        setToken(register.token);
 
-        setUsername("");
-        setPassword("");
-        setName("");
-        if (register) {
-            nav("/myspellbook");
-        } else {
-            alert("registration probz");
+        try {
+            const register = await login(username, password, name);
+            console.log("register in the Login handleSubmit ", register);
+            setToken(register.token);
+            setUserId(register.username);
+            setCharName(register.name);
+
+            localStorage.setItem("token", register.token);
+            localStorage.setItem("charId", register.character.character_id);
+            localStorage.setItem("token", register.character.name);
+
+            //why did this still navigate with this commented out?
+            //    if (register) {
+            //        nav("/myspellbook");
+
+            setUsername("");
+            setPassword("");
+            setName("");
+        } catch (error) {
+            console.error("error logging in", error);
         }
     };
 
