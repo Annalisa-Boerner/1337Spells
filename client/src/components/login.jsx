@@ -23,16 +23,12 @@ export default function Login({
             const register = await login(username, password, name);
             console.log("register in the Login handleSubmit ", register);
             setToken(register.token);
-            setUserId(register.username);
+            setCharId(register.username);
             setCharName(register.name);
 
             localStorage.setItem("token", register.token);
             localStorage.setItem("charId", register.character.character_id);
             localStorage.setItem("token", register.character.name);
-
-            //why did this still navigate with this commented out?
-            //    if (register) {
-            //        nav("/myspellbook");
 
             setUsername("");
             setPassword("");
