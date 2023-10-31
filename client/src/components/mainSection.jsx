@@ -12,29 +12,54 @@ import MySpellbook from "./mySpellbook";
 import Login from "./login";
 import Logout from "./logout";
 
-export default function MainSection({ token, setToken }) {
-     return (
-          <div id="main-section">
-               <Routes>
-                    <Route
-                         path="/"
-                         element={
-                              <HomePage token={token} setToken={setToken} />
-                         }
-                    />
-                    <Route
-                         path="/myspellbook"
-                         element={<MySpellbook token={token} />}
-                    />
-                    <Route
-                         path="/login"
-                         element={<Login token={token} setToken={setToken} />}
-                    />
-                    <Route
-                         path="/logout"
-                         element={<Logout token={token} setToken={setToken} />}
-                    />
-               </Routes>
-          </div>
-     );
+export default function MainSection({ token, setToken, userId, setUserId }) {
+    return (
+        <div id="main-section">
+            <Routes>
+                <Route
+                    path="/"
+                    element={
+                        <HomePage
+                            token={token}
+                            setToken={setToken}
+                            userId={userId}
+                            setUserId={setUserId}
+                        />
+                    }
+                />
+                <Route
+                    path="/myspellbook"
+                    element={
+                        <MySpellbook
+                            token={token}
+                            userId={userId}
+                            setUserId={setUserId}
+                        />
+                    }
+                />
+                <Route
+                    path="/login"
+                    element={
+                        <Login
+                            token={token}
+                            setToken={setToken}
+                            userId={userId}
+                            setUserId={setUserId}
+                        />
+                    }
+                />
+                <Route
+                    path="/logout"
+                    element={
+                        <Logout
+                            token={token}
+                            setToken={setToken}
+                            userId={userId}
+                            setUserId={setUserId}
+                        />
+                    }
+                />
+            </Routes>
+        </div>
+    );
 }
