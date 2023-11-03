@@ -12,7 +12,14 @@ import MySpellbook from "./mySpellbook";
 import Login from "./login";
 import Logout from "./logout";
 
-export default function MainSection({ token, setToken, userId, setUserId }) {
+export default function MainSection({
+    token,
+    setToken,
+    charId,
+    setCharId,
+    charName,
+    setCharName,
+}) {
     return (
         <div id="main-section">
             <Routes>
@@ -22,8 +29,10 @@ export default function MainSection({ token, setToken, userId, setUserId }) {
                         <HomePage
                             token={token}
                             setToken={setToken}
-                            userId={userId}
-                            setUserId={setUserId}
+                            charId={charId}
+                            setUserId={setCharId}
+                            charName={charName}
+                            setCharName={setCharName}
                         />
                     }
                 />
@@ -32,8 +41,8 @@ export default function MainSection({ token, setToken, userId, setUserId }) {
                     element={
                         <MySpellbook
                             token={token}
-                            userId={userId}
-                            setUserId={setUserId}
+                            charId={charId}
+                            charName={charName}
                         />
                     }
                 />
@@ -43,8 +52,10 @@ export default function MainSection({ token, setToken, userId, setUserId }) {
                         <Login
                             token={token}
                             setToken={setToken}
-                            userId={userId}
-                            setUserId={setUserId}
+                            charId={charId}
+                            setCharId={setCharId}
+                            charName={charName}
+                            setCharName={setCharName}
                         />
                     }
                 />
@@ -54,8 +65,10 @@ export default function MainSection({ token, setToken, userId, setUserId }) {
                         <Logout
                             token={token}
                             setToken={setToken}
-                            userId={userId}
-                            setUserId={setUserId}
+                            charId={charId}
+                            setCharId={setCharId}
+                            charName={charName}
+                            setCharName={setCharName}
                         />
                     }
                 />

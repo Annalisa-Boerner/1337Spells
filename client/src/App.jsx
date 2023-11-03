@@ -6,13 +6,13 @@ import Navbar from "./components/navBar";
 
 function App() {
     const [token, setToken] = useState(null);
-    const [userId, setUserId] = useState(null);
+    const [charId, setCharId] = useState(null);
     const [charName, setCharName] = useState(null);
 
     useEffect(() => {
         setToken(window.localStorage.getItem("token"));
-        setUserId(window.localStorage.getItem("userId"));
-        setCharName(window.localStorage.getIteam("charName"));
+        setCharId(window.localStorage.getItem("charId"));
+        setCharName(window.localStorage.getItem("charName"));
     }, []);
     return (
         <>
@@ -21,8 +21,8 @@ function App() {
                 <MainSection
                     token={token}
                     setToken={setToken}
-                    userId={userId}
-                    setUserId={setUserId}
+                    charId={charId}
+                    setCharId={setCharId}
                     charName={charName}
                     setCharName={setCharName}
                 />
