@@ -28,11 +28,15 @@ export default function Login({
 
             localStorage.setItem("token", register.token);
             localStorage.setItem("charId", register.character.character_id);
-            localStorage.setItem("token", register.character.name);
+            localStorage.setItem("charName", register.character.name);
 
             setUsername("");
             setPassword("");
             setName("");
+
+            if (login) {
+                nav("/myspellbook");
+            }
         } catch (error) {
             console.error("error logging in", error);
         }
