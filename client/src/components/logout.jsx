@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { logout } from "../fetching";
 import { useNavigate } from "react-router-dom";
 
-export default function Logout({ token, setToken }) {
+export default function Logout({ setToken }) {
     const nav = useNavigate();
 
     useEffect(() => {
