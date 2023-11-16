@@ -2,14 +2,7 @@ import { useState } from "react";
 import { login } from "../fetching";
 import { useNavigate } from "react-router-dom";
 
-export default function Login({
-    setToken,
-    token,
-    setCharId,
-    charId,
-    charName,
-    setCharName,
-}) {
+export default function Login({ setToken, setCharId, setCharName }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
