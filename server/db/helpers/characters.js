@@ -9,7 +9,6 @@ const createCharacter = async ({
     name,
     heritage,
     image,
-    spellbook_id,
 }) => {
     try {
         //INSERT sql query
@@ -17,11 +16,11 @@ const createCharacter = async ({
             rows: [character],
         } = await client.query(
             `
-            INSERT INTO characters(username, password, name, heritage, image, spellbook_id)
-            VALUES ($1, $2, $3, $4, $5, $6)
+            INSERT INTO characters(username, password, name, heritage, image)
+            VALUES ($1, $2, $3, $4, $5)
             RETURNING *;
         `,
-            [username, password, name, heritage, image, spellbook_id]
+            [username, password, name, heritage, image]
         );
         return character;
     } catch (error) {
@@ -59,4 +58,30 @@ WHERE character_id=${character_id};`
         throw error;
     }
 };
-module.exports = { createCharacter, getAllCharacters, getCharacterById };
+
+const getCharacterByUsername = async (username) => {
+    try {
+        console.log("entering getCharacterByUsername");
+        console.log(" username in helpers", username);
+
+        const {
+            rows: [character],
+        } = await client.query(
+            `
+          SELECT *
+          FROM characters
+WHERE username= '${username}';`
+        );
+
+        console.log("username in db helpers", username);
+        return character;
+    } catch (error) {
+        throw error;
+    }
+};
+module.exports = {
+    createCharacter,
+    getAllCharacters,
+    getCharacterById,
+    getCharacterByUsername,
+};

@@ -7,6 +7,7 @@ const SALT_ROUNDS = 10;
 const {
     createCharacter,
     getCharacterById,
+    getCharacterByUsername,
 } = require("../db/helpers/characters");
 
 const { getAllCharacters } = require("../db/helpers/characters");
