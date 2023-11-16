@@ -15,7 +15,7 @@ export const fetchSingleCharacter = async (id) => {
     try {
         const response = await fetch(`${base_url}/characters/${id}`);
         const result = await response.json();
-        console.log(result);
+        console.log("result in fetchSingleCharacter", result);
         return result;
     } catch (error) {
         console.error(error);
