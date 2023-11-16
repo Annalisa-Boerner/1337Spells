@@ -59,4 +59,30 @@ WHERE character_id=${character_id};`
         throw error;
     }
 };
-module.exports = { createCharacter, getAllCharacters, getCharacterById };
+
+const getCharacterByUsername = async (username) => {
+    try {
+        console.log("entering getCharacterByUsername");
+        console.log(" username in helpers", username);
+
+        const {
+            rows: [character],
+        } = await client.query(
+            `
+          SELECT *
+          FROM characters
+WHERE username= '${username}';`
+        );
+
+        console.log("username in db helpers", username);
+        return character;
+    } catch (error) {
+        throw error;
+    }
+};
+module.exports = {
+    createCharacter,
+    getAllCharacters,
+    getCharacterById,
+    getCharacterByUsername,
+};
