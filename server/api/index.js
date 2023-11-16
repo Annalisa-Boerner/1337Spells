@@ -3,7 +3,7 @@ const router = express.Router();
 
 //GET /api/health
 router.get("/health", (req, res, next) => {
-     res.send("ok");
+    res.send("ok");
 });
 
 //ROUTER: /api/<xyz>
@@ -20,11 +20,11 @@ router.use("/cantrips", require("./cantrips"));
 router.use("/characters", require("./characters"));
 
 //GET spells/cantrips to and from spellbook
-router.use("/spellbooks", require("./spellbooks"));
+// router.use("/spellbooks", require("./spellbooks"));
 
-router.use("/spellbooks_cantrips", require("./spellbooks_cantrips"));
+router.use("/characters_cantrips", require("./characters_cantrips"));
 
-router.use("/spellbooks_spells", require("./spellbooks_spells"));
+router.use("/characters_spells", require("./characters_spells"));
 
 //GET spells that exist
 //POST, PUT, and DELETE homebrew
