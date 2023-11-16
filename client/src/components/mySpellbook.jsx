@@ -17,16 +17,17 @@ export default function MySpellbook({ token, charId }) {
 
             try {
                 if (response) {
-                    setCharName(response.character.name);
+                    setCharName(response.name);
                 }
             } catch (error) {
                 console.error("can't get character info", error);
             }
+            console.log("response.name in line 25", response.name);
         }
         getCharacterProfile();
     }, [charId]);
 
-    console.log("charname in mySpellbook line 29", charName);
+    console.log("response in mySpellbook line 29", charName);
 
     // converts string to title case/sentence case for later display in rendering
     function titleCase(str) {
