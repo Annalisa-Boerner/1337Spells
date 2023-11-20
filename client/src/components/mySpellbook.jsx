@@ -1,5 +1,5 @@
-import AllSpellbooks_Cantrips from "./allSpellbooks_Cantrips";
-import AllSpellbooks_Spells from "./allSpellbooks_Spells";
+import AllSpellbooks_Cantrips from "./allCharacters_Cantrips";
+import AllSpellbooks_Spells from "./allCharacters_Spells";
 import AllSpells from "./allSpells";
 import AllCantrips from "./allCantrips";
 import AddToSpellbooksSpells from "./addSpells";
