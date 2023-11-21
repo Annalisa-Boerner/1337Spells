@@ -1,20 +1,16 @@
 const client = require("../client");
 
-const createCharacters_Cantrips = async ({
-    cantrip_id,
-    character_id,
-    cantrip_name,
-}) => {
+const createCharacter_Cantrip = async ({ cantrip_id, character_id }) => {
     try {
         const {
-            rows: [Characters_cantrips],
+            rows: [Character_cantrip],
         } = await client.query(
             `
-    INSERT INTO characters_cantrips(cantrip_id, character_id, cantrip_name)       
-        VALUES($1, $2, $3)
+    INSERT INTO characters_cantrips(cantrip_id, character_id)       
+        VALUES($1, $2)
         RETURNING *;
        `,
-            [cantrip_id, character_id, cantrip_name]
+            [cantrip_id, character_id]
         );
     } catch (error) {
         throw error;
@@ -33,22 +29,21 @@ const getAllCharacters_Cantrips = async () => {
     }
 };
 
-const getCharacters_CantripsById = async (characters_cantrips_id) => {
+const getCharacters_CantripsByCharacterId = async (character_id) => {
     try {
-        const {
-            rows: [characters_cantrips],
-        } = await client.query(`
+        console.log("entering character's cantrips by character id");
+        const { rows } = await client.query(`
      SELECT *
      FROM characters_cantrips
-     WHERE characters_cantrips_id=${characters_cantrips_id};
+     WHERE character_id=${character_id};
      `);
-        return characters_cantrips;
+        return rows;
     } catch (error) {
         throw error;
     }
 };
 
-const deleteCharacters_Cantrips = async (characters_cantrips_id) => {
+const deleteCharacters_Cantrip = async (characters_cantrips_id) => {
     try {
         const { rows } = await client.query(`
                DELETE FROM characters_cantrips
@@ -61,8 +56,8 @@ const deleteCharacters_Cantrips = async (characters_cantrips_id) => {
 };
 
 module.exports = {
-    createCharacters_Cantrips,
+    createCharacter_Cantrip,
     getAllCharacters_Cantrips,
-    getCharacters_CantripsById,
-    deleteCharacters_Cantrips,
+    getCharacters_CantripsByCharacterId,
+    deleteCharacters_Cantrip,
 };

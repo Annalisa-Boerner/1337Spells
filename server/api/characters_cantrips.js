@@ -3,15 +3,15 @@ const router = express.Router();
 
 const {
     getAllCharacters_Cantrips,
-    getCharacters_CantripsById,
-    createCharacters_Cantrips,
-    deleteCharacters_Cantrips,
+    getCharacters_CantripsByCharacterId,
+    createCharacter_Cantrip,
+    deleteCharacters_Cantrip,
 } = require("../db/helpers/characters_cantrips");
 
 //GET - /api/characters_cantrips - get all characters_cantrips
 router.get("/", async (req, res, next) => {
     try {
-        console.log("api line 12");
+        console.log("api getting all characters cantrips");
         const characters_cantrips = await getAllCharacters_Cantrips();
         res.send(characters_cantrips);
     } catch (error) {
@@ -19,13 +19,15 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-// GET - /api/spells/:id - get characters_cantrips by character id
-router.get("/:id", async (req, res, next) => {
+// GET - /api/characters_cantrips/:character_id - get characters_cantrips by character id
+router.get("/:character_id", async (req, res, next) => {
     try {
-        const character_cantrips = await getCharacters_CantripsById(
-            req.params.id
+        console.log("entering api/characters_cantrips/:character_id router");
+        console.log("param id", req.params.character_id);
+        const myCantrips = await getCharacters_CantripsByCharacterId(
+            req.params.character_id
         );
-        res.send(character_cantrips);
+        res.send(myCantrips);
     } catch (error) {
         next(error);
     }
@@ -35,21 +37,20 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
     try {
-        const characters_cantrip = await createCharacters_Cantrips(req.body);
-        res.send(characters_cantrip);
+        const charCantrip = await createCharacter_Cantrip(req.body);
+        res.send(charCantrip);
     } catch (error) {
         next(error);
     }
 });
 
-//DELETE
-
-router.delete("/:id", async (req, res, next) => {
+//DELETE - /api/characters_cantrips/:cantrip_id deletes cantrip from spellbook
+router.delete("/:cantrip_id", async (req, res, next) => {
     try {
-        const characters_cantrip = await deleteCharacters_Cantrips(
-            req.params.id
+        const charCantrip = await deleteCharacters_Cantrip(
+            req.params.cantrip_id
         );
-        res.send(characters_cantrip);
+        res.send(charCantrip);
     } catch (error) {
         next(error);
     }

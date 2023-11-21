@@ -43,7 +43,7 @@ const getCharacters_SpellsByCharacterId = async (character_id) => {
     }
 };
 
-const deleteCharacters_Spells = async (characters_spells_id) => {
+const deleteCharacters_Spell = async (characters_spells_id) => {
     try {
         const { rows } = await client.query(`
                DELETE FROM characters_spells
@@ -59,5 +59,5 @@ module.exports = {
     createCharacter_Spell,
     getAllCharacters_Spells,
     getCharacters_SpellsByCharacterId,
-    deleteCharacters_Spells,
+    deleteCharacters_Spell,
 };
