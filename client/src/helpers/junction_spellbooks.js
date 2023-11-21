@@ -9,29 +9,41 @@ export const fetchAllCharacters_Spells = async () => {
     try {
         const response = await fetch(`${base_url}/characters_spells`);
         const result = await response.json();
+        console.log("result from fetchAllCharacters_Spells", result);
         return result;
     } catch (error) {
-        console.error(error);
+        console.error(
+            "there was an error fetching all characters' spells",
+            error
+        );
     }
 };
 
-//GET spells by just one book
-export const fetchSingleCharacter_Spells = async (id) => {
+//GET spells by just one character
+export const fetchCharacters_SpellsByCharacterId = async (character_id) => {
     try {
-        const response = await fetch(`${base_url}/characters_spells/${id}`);
+        const response = await fetch(
+            `${base_url}/characters_spells/${character_id}`
+        );
         const result = await response.json();
+        console.log("result from fetchCharacters_SpellsByCharacterId", result);
         return result;
     } catch (error) {
-        console.error(error);
+        console.error(
+            "there was an error fetching this individual character's spells",
+            error
+        );
     }
 };
 
 //delete a single spell from a single spellbook aka one table row
-export const deleteCharacter_Spell = async (id) => {
+export const deleteCharacter_Spell = async (spell_id) => {
     try {
-        await fetch(`${base_url}/characters_spells/${id}`, {
+        console.log("removing spell");
+        await fetch(`${base_url}/characters_spells/${spell_id}`, {
             method: "DELETE",
         });
+        console.log("spell successfully deleted");
     } catch (error) {
         alert(
             "We're sorry, there was an error during deletion. Please try again once we've fixed it."
@@ -40,7 +52,7 @@ export const deleteCharacter_Spell = async (id) => {
 };
 
 //POST a spell to spellbooks_spells
-export async function createCharacter_spell(spell_id, char_id, spell_name) {
+export async function createCharacter_spell(spell_id, char_id) {
     try {
         const response = await fetch(`${base_url}/characters_spells`, {
             method: "POST",
@@ -50,7 +62,6 @@ export async function createCharacter_spell(spell_id, char_id, spell_name) {
             body: JSON.stringify({
                 spell_id,
                 char_id,
-                spell_name,
             }),
         });
         const result = await response.json();
