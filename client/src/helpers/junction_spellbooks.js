@@ -4,7 +4,7 @@ const base_url = "http://localhost:8080/api";
 //start with ugly version: a form linked from an allSpells or allCantrips button
 //then create automagic version where a button under the spell/cantrip submits the post to the appropriate junction table
 
-//GET all spells currently in all spellbooks
+//GET all spells of all characters
 export const fetchAllCharacters_Spells = async () => {
     try {
         const response = await fetch(`${base_url}/characters_spells`);
@@ -36,22 +36,7 @@ export const fetchCharacters_SpellsByCharacterId = async (character_id) => {
     }
 };
 
-//delete a single spell from a single spellbook aka one table row
-export const deleteCharacter_Spell = async (spell_id) => {
-    try {
-        console.log("removing spell");
-        await fetch(`${base_url}/characters_spells/${spell_id}`, {
-            method: "DELETE",
-        });
-        console.log("spell successfully deleted");
-    } catch (error) {
-        alert(
-            "We're sorry, there was an error during deletion. Please try again once we've fixed it."
-        );
-    }
-};
-
-//POST a spell to spellbooks_spells
+//POST a spell to characters_spells
 export async function createCharacter_spell(spell_id, char_id) {
     try {
         const response = await fetch(`${base_url}/characters_spells`, {
@@ -70,33 +55,53 @@ export async function createCharacter_spell(spell_id, char_id) {
         console.error(error);
     }
 }
-//GET ALL CANTRIPS IN ALL BOOKS
+
+//delete a single spell from a single spellbook aka one table row
+export const deleteCharacter_Spell = async (spell_id) => {
+    try {
+        console.log("removing spell");
+        await fetch(`${base_url}/characters_spells/${spell_id}`, {
+            method: "DELETE",
+        });
+        console.log("spell successfully deleted");
+    } catch (error) {
+        alert("We're sorry, there was an error during deletion.");
+    }
+};
+
+//GET all cantrips of all characters
 export const fetchAllCharacters_Cantrips = async () => {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`);
         const result = await response.json();
-        return result;
-    } catch (error) {
-        console.error(error);
-    }
-};
-//GET SINGLE BOOK'S CANTRIPS
-export const fetchSingleCharacter_Cantrips = async (id) => {
-    try {
-        const response = await fetch(`${base_url}/characters_cantrips/${id}`);
-        const result = await response.json();
+        console.log("result from fetchAllCharacters_Cantrips", result);
         return result;
     } catch (error) {
         console.error(error);
     }
 };
 
-//POST A CANTRIP TO SPELLBOOKS_CANTRIPS
-export async function createCharacter_cantrip(
-    cantrip_id,
-    char_id,
-    cantrip_name
-) {
+//GET cantrips for just one character
+export const fetchSingleCharacter_CantripsByCharacterId = async (
+    character_id
+) => {
+    try {
+        const response = await fetch(
+            `${base_url}/characters_cantrips/${character_id}`
+        );
+        const result = await response.json();
+        console.log(
+            "result from fetchCharacters_CantripsByCharacterId",
+            result
+        );
+        return result;
+    } catch (error) {
+        console.error(error);
+    }
+};
+
+//POST a cantrip to characters_cantrips
+export async function createCharacter_cantrip(cantrip_id, char_id) {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`, {
             method: "POST",
@@ -106,7 +111,6 @@ export async function createCharacter_cantrip(
             body: JSON.stringify({
                 cantrip_id,
                 char_id,
-                cantrip_name,
             }),
         });
         const result = await response.json();
@@ -116,16 +120,15 @@ export async function createCharacter_cantrip(
     }
 }
 
-//delete a single cantrip from the spellbook
+//delete a single cantrip from the character's spellbook
 
-export const deleteCharacter_Cantrip = async (id) => {
+export const deleteCharacter_Cantrip = async (spell_id) => {
     try {
-        await fetch(`${base_url}/characters_cantrip/${id}`, {
+        await fetch(`${base_url}/characters_cantrip/${spell_id}`, {
             method: "DELETE",
         });
+        console.log("spell successfully deleted");
     } catch (error) {
-        alert(
-            "We're sorry, there was an error during deletion. Please try again once we've fixed it."
-        );
+        alert("We're sorry, there was an error during deletion.");
     }
 };
