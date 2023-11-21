@@ -3,15 +3,15 @@ const router = express.Router();
 
 const {
     getAllCharacters_Spells,
-    getCharacters_SpellsById,
-    createCharacters_Spells,
-    deleteCharacters_Spells,
+    getCharacters_SpellsByCharacterId,
+    createCharacter_Spell,
+    deleteCharacters_Spell,
 } = require("../db/helpers/characters_spells");
 
-//GET - /api/characters_cantrips - get all characters_cantrips
+//GET - /api/characters_spells - get all characters_spells
 router.get("/", async (req, res, next) => {
     try {
-        console.log("api line 12");
+        console.log("entering get all characters_spells");
         const characters_spells = await getAllCharacters_Spells();
         res.send(characters_spells);
     } catch (error) {
@@ -19,11 +19,15 @@ router.get("/", async (req, res, next) => {
     }
 });
 
-// GET - /api/spells/:id - get characters_cantrips by character id
-router.get("/:id", async (req, res, next) => {
+// GET - /api/spells/:character_id - get characters_spells by character id
+router.get("/:character_id", async (req, res, next) => {
     try {
-        const character_spells = await getCharacters_SpellsById(req.params.id);
-        res.send(character_spells);
+        console.log("entering api/characters_spells/:character_id router");
+        console.log("param id", req.params.character_id);
+        const charSpells = await getCharacters_SpellsByCharacterId(
+            req.params.character_id
+        );
+        res.send(charSpells);
     } catch (error) {
         next(error);
     }
@@ -33,8 +37,8 @@ router.get("/:id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
     try {
-        const characters_spell = await createCharacters_Spells(req.body);
-        res.send(characters_spell);
+        const charSpell = await createCharacter_Spell(req.body);
+        res.send(charSpell);
     } catch (error) {
         next(error);
     }
@@ -42,10 +46,10 @@ router.post("/", async (req, res, next) => {
 
 //DELETE
 
-router.delete("/:id", async (req, res, next) => {
+router.delete("/:spell_id", async (req, res, next) => {
     try {
-        const characters_spell = await deleteCharacters_Spells(req.params.id);
-        res.send(characters_spell);
+        const charSpell = await deleteCharacters_Spells(req.params.spell_id);
+        res.send(charSpell);
     } catch (error) {
         next(error);
     }

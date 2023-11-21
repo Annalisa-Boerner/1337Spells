@@ -24,10 +24,10 @@ router.get("/:character_id", async (req, res, next) => {
     try {
         console.log("entering api/characters_cantrips/:character_id router");
         console.log("param id", req.params.character_id);
-        const myCantrips = await getCharacters_CantripsByCharacterId(
+        const charCantrips = await getCharacters_CantripsByCharacterId(
             req.params.character_id
         );
-        res.send(myCantrips);
+        res.send(charCantrips);
     } catch (error) {
         next(error);
     }
