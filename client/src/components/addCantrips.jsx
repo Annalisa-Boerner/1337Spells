@@ -13,6 +13,7 @@ export default function AddToCharactersCantrips({ charId }) {
         event.preventDefault();
         try {
             await createCharacter_cantrip(cantrip_id, charId);
+            console.log("create character cantrip charId", charId);
             navigate(0);
             navigate("/myspellbook");
         } catch (error) {
@@ -32,16 +33,16 @@ export default function AddToCharactersCantrips({ charId }) {
                     placeholder="Cantrip ID - Integer by All Cantrips Listing"
                     onChange={(event) => setCantrip_id(event.target.value)}
                 />
-                <br />
+                {/* <br />
 
                 <input
                     className="new-cantrip-form-bar"
-                    value={char_id}
+                    value={charId}
                     type="text"
                     name="char_id"
                     placeholder="My Character ID"
                     onChange={(event) => setChar_id(event.target.value)}
-                />
+                /> */}
 
                 <br />
 

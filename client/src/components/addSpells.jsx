@@ -33,7 +33,7 @@ export default function AddToCharactersSpells({ charId }) {
                 />
                 <br />
 
-                <input
+                {/* <input
                     className="new-spell-form-bar"
                     value={char_id}
                     type="text"
@@ -42,7 +42,7 @@ export default function AddToCharactersSpells({ charId }) {
                     onChange={(event) => setChar_id(event.target.value)}
                 />
 
-                <br />
+                <br /> */}
 
                 {/* <input
                     className="new-spell-form-bar"

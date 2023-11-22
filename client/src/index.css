@@ -1,94 +1,94 @@
 /* LINK AND NAV COLORING */
 a:link,
 #login-container {
-     color: whitesmoke;
-     font-size: 1.3rem;
-     text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.3rem;
+    text-decoration: none;
 }
 
 a:visited {
-     color: whitesmoke;
-     font-size: 1.3rem;
-     text-decoration: none;
+    color: whitesmoke;
+    font-size: 1.3rem;
+    text-decoration: none;
 }
 
 a:hover {
-     color: rgb(194, 181, 138);
-     text-decoration: none;
-     margin: 2px;
+    color: rgb(194, 181, 138);
+    text-decoration: none;
+    margin: 2px;
 }
 
 #navbar-container {
-     /* background-color: rgba(114, 141, 167, 0.726); */
+    /* background-color: rgba(114, 141, 167, 0.726); */
 
-     display: flex;
-     justify-content: space-evenly;
-     padding: 3rem;
-     color: rgba(248, 216, 168, 0.678);
+    display: flex;
+    justify-content: space-evenly;
+    padding: 3rem;
+    color: rgba(248, 216, 168, 0.678);
 }
 
 /*SPELLBOOK FORMATTING */
 
 #spellbookContainer {
-     display: flex;
-     align-items: space-between;
+    display: flex;
+    align-items: space-between;
 }
 
 #leftside {
-     display: flex;
-     width: 50vw;
-     height: 75vh;
-     float: left;
-     background-color: rgba(248, 216, 168, 0.678);
-     padding: 2rem;
-     box-shadow: 10px 5px 5px white;
+    display: flex;
+    width: 50vw;
+    height: 75vh;
+    float: left;
+    background-color: rgba(248, 216, 168, 0.678);
+    padding: 2rem;
+    box-shadow: 10px 5px 5px white;
 }
 
 #cantrip-side,
 #spell-side {
-     display: flex;
+    display: flex;
 }
 
 .spacebetween {
-     display: flex;
-     width: 3vw;
+    display: flex;
+    width: 3vw;
 }
 
 #rightside {
-     display: flex;
-     width: 50vw;
-     height: 75vh;
-     float: right;
-     background-color: rgba(248, 216, 168, 0.678);
-     padding: 2rem;
-     box-shadow: 10px 5px 5px white;
+    display: flex;
+    width: 50vw;
+    height: 75vh;
+    float: right;
+    background-color: rgba(248, 216, 168, 0.678);
+    padding: 2rem;
+    box-shadow: 10px 5px 5px white;
 }
 
 h2 {
-     color: rgba(248, 216, 168, 0.801);
-     font-size: 2em;
-     font-weight: 100;
+    color: rgba(248, 216, 168, 0.801);
+    font-size: 2em;
+    font-weight: 100;
 }
 
 h4 {
-     color: rgba(247, 234, 216, 0.822);
-     font-size: 1.5em;
-     font-weight: 100;
+    color: rgba(247, 234, 216, 0.822);
+    font-size: 1.5em;
+    font-weight: 100;
 }
 .flex {
-     display: flex;
-     justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .flex-column {
-     display: flex;
-     flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 .flex-titles {
-     display: flex;
-     justify-content: space-evenly;
-     height: 3rem;
+    display: flex;
+    justify-content: space-evenly;
+    height: 3rem;
 }
 
 /* spell search bars */
@@ -98,57 +98,57 @@ h4 {
 .new-cantrip-form-bar,
 #search-spellbooks-cantrips-bar,
 .register-bar {
-     background-color: rgba(255, 255, 255, 0.644);
+    background-color: rgba(255, 255, 255, 0.644);
 }
 
 /* ROOT */
 :root {
-     background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
-     background-attachment: fixed;
-     background-size: 100%;
-     font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
-     line-height: 1.5;
-     font-weight: 400;
+    background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
+    background-attachment: fixed;
+    background-size: 100%;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+        sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
 
-     color: rgb(59, 24, 1);
-     background-color: #242424;
-     margin: 0;
-     padding: 0;
+    color: rgb(59, 24, 1);
+    background-color: #242424;
+    margin: 0;
+    padding: 0;
 }
 
 /* VITE STYLING */
 h1 {
-     font-size: 3.2em;
-     line-height: 1.1;
+    font-size: 3.2em;
+    line-height: 1.1;
 }
 
 /* MISC TEXT */
 #register-here-text {
-     font-size: 2rem;
+    font-size: 2rem;
 }
 
 /* BUTTONS */
 button {
-     border-radius: 8px;
-     border: 1px solid transparent;
-     padding: 0.6em 1.2em;
-     font-size: 1em;
-     font-weight: 500;
-     font-family: inherit;
-     background-color: rgba(255, 251, 246, 0.5);
-     cursor: pointer;
-     transition: border-color 0.25s;
-     color: black;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: rgba(255, 251, 246, 0.5);
+    cursor: pointer;
+    transition: border-color 0.25s;
+    color: black;
 }
 button:hover {
-     background-color: rgba(255, 255, 253, 0.726);
+    background-color: rgba(255, 255, 253, 0.726);
 }
 button:focus,
 button:focus-visible {
-     outline: 4px auto -webkit-focus-ring-color;
+    outline: 4px auto -webkit-focus-ring-color;
 }
 
 #register-button {
-     font-size: 0.75em;
+    font-size: 0.75em;
 }
