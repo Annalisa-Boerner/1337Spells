@@ -6,6 +6,7 @@ import AddToCharactersSpells from "./addSpells";
 import AddToCharactersCantrips from "./addCantrips";
 import { fetchSingleCharacter } from "../helpers/characters";
 import { useEffect, useState } from "react";
+import CharSpells from "./charSpells";
 
 export default function MySpellbook({ token, charId }) {
     const [charName, setCharName] = useState("");
@@ -51,15 +52,16 @@ export default function MySpellbook({ token, charId }) {
                     <br />
                     <div id="spellbookContainer">
                         <div id="leftside">
-                            <AllCharacters_Spells />
+                            {/* <AllCharacters_Spells /> */}
+                            <CharSpells charId={charId} />
                             <AllSpells />
-                            <AddToCharactersSpells />
+                            <AddToCharactersSpells charId={charId} />
                         </div>
                         <div className="spacebetween"></div>
                         <div id="rightside">
                             <AllCharacters_Cantrips />
                             <AllCantrips />
-                            <AddToCharactersCantrips />
+                            <AddToCharactersCantrips charId={charId} />
                         </div>
                     </div>
                 </section>
