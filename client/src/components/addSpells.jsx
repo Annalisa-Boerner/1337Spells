@@ -44,7 +44,7 @@ export default function AddToCharactersSpells() {
 
                 <br />
 
-                <input
+                {/* <input
                     className="new-spell-form-bar"
                     value={spell_name}
                     type="text"
@@ -53,7 +53,7 @@ export default function AddToCharactersSpells() {
                     onChange={(event) => setSpell_name(event.target.value)}
                 />
                 <br />
-                <br />
+                <br /> */}
                 <button type="submit">Submit</button>
             </form>
         </section>

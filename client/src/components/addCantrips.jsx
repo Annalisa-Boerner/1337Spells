@@ -45,7 +45,7 @@ export default function AddToCharactersCantrips() {
 
                 <br />
 
-                <input
+                {/* <input
                     className="new-cantrip-form-bar"
                     value={cantrip_name}
                     type="text"
@@ -54,7 +54,7 @@ export default function AddToCharactersCantrips() {
                     onChange={(event) => setCantrip_name(event.target.value)}
                 />
                 <br />
-                <br />
+                <br /> */}
                 <button type="submit" className="add-cantrip-button">
                     Submit
                 </button>
