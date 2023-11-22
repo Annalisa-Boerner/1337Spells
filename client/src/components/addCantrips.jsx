@@ -2,17 +2,17 @@ import { useState } from "react";
 import { createCharacter_cantrip } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function AddToCharactersCantrips() {
+export default function AddToCharactersCantrips({ charId }) {
     const [cantrip_id, setCantrip_id] = useState("");
     //get this from localStorage instead of state
-    const [char_id, setChar_id] = useState("");
-    const [cantrip_name, setCantrip_name] = useState("");
+    // const [char_id, setChar_id] = useState("");
+    // const [cantrip_name, setCantrip_name] = useState("");
     const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await createCharacter_cantrip(cantrip_id, char_id, cantrip_name);
+            await createCharacter_cantrip(cantrip_id, charId);
             navigate(0);
             navigate("/myspellbook");
         } catch (error) {

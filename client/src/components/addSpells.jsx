@@ -2,16 +2,16 @@ import { useState } from "react";
 import { createCharacter_spell } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function AddToCharactersSpells() {
+export default function AddToCharactersSpells({ charId }) {
     const [spell_id, setSpell_id] = useState("");
-    const [char_id, setChar_id] = useState("");
-    const [spell_name, setSpell_name] = useState("");
+    // const [char_id, setChar_id] = useState("");
+    // const [spell_name, setSpell_name] = useState("");
     const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            createCharacter_spell(spell_id, char_id, spell_name);
+            createCharacter_spell(spell_id, charId);
             navigate(0);
             navigate("/myspellbook");
         } catch (error) {

@@ -53,13 +53,13 @@ export default function MySpellbook({ token, charId }) {
                         <div id="leftside">
                             <AllCharacters_Spells />
                             <AllSpells />
-                            <AddToCharactersSpells />
+                            <AddToCharactersSpells charId={charId} />
                         </div>
                         <div className="spacebetween"></div>
                         <div id="rightside">
                             <AllCharacters_Cantrips />
                             <AllCantrips />
-                            <AddToCharactersCantrips />
+                            <AddToCharactersCantrips charId={charId} />
                         </div>
                     </div>
                 </section>
