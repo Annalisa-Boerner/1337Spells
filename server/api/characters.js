@@ -26,6 +26,7 @@ router.get("/", async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
     try {
         const character = await getCharacterById(req.params.id);
+        console.log("req.params.id in api get", req.params.id);
         res.send(character);
     } catch (error) {
         next(error);

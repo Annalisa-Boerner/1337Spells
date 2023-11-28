@@ -3,7 +3,7 @@ const client = require("../client");
 const createCharacter_Spell = async ({ spell_id, character_id }) => {
     try {
         const {
-            rows: [Character_spell],
+            rows: [character_spell],
         } = await client.query(
             `
     INSERT INTO characters_spells(spell_id, character_id)       
@@ -12,6 +12,7 @@ const createCharacter_Spell = async ({ spell_id, character_id }) => {
        `,
             [spell_id, character_id]
         );
+        return character_spell;
     } catch (error) {
         throw error;
     }
