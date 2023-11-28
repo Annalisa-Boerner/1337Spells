@@ -1,7 +1,7 @@
 //RIGHT NOW THE CRAB POST DOESN'T WORK
 //WE NEED POST IN ORDER TO SEE ANYTHING
 
-
+//run the getCharacterId when the page navigates from login? because on a refresh it fetches the character
 
 
 
