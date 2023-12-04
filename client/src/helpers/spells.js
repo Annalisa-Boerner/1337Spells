@@ -25,12 +25,12 @@ export const fetchCharacterSpellsByCharacterId = async (character_id) => {
         const response = await fetch(
             `${base_url}/characters_spells/${character_id}`
         );
-        console.log(
-            "character_id in fetchCharacterSpellsByCharacterId",
-            character_id
-        );
+        // console.log(
+        //     "character_id in fetchCharacterSpellsByCharacterId",
+        //     character_id
+        // );
         const result = await response.json();
-        console.log("result from fetchCharacterSpellsByCharacterId", result);
+        // console.log("result from fetchCharacterSpellsByCharacterId", result);
         return result;
     } catch (error) {
         console.error(

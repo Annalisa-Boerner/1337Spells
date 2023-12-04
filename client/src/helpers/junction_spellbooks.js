@@ -39,17 +39,19 @@ export const fetchCharacters_SpellsByCharacterId = async (character_id) => {
 //POST a spell to characters_spells
 export async function createCharacter_spell(spell_id, char_id) {
     try {
+        console.log("char_id in front end helpers post", char_id);
         const response = await fetch(`${base_url}/characters_spells`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                spell_id,
-                char_id,
+                spell_id: spell_id,
+                character_id: char_id,
             }),
         });
         const result = await response.json();
+        console.log("result from front end createCharacter_spell", result);
         return result;
     } catch (error) {
         console.error(error);
@@ -74,7 +76,7 @@ export const fetchAllCharacters_Cantrips = async () => {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`);
         const result = await response.json();
-        console.log("result from fetchAllCharacters_Cantrips", result);
+        // console.log("result from fetchAllCharacters_Cantrips", result);
         return result;
     } catch (error) {
         console.error(error);
