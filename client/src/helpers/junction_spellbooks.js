@@ -47,7 +47,7 @@ export async function createCharacter_spell(spell_id, char_id) {
             },
             body: JSON.stringify({
                 spell_id: spell_id,
-                char_id: char_id,
+                character_id: char_id,
             }),
         });
         const result = await response.json();
