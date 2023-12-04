@@ -11,6 +11,8 @@ export default function AddToCharactersSpells({ charId }) {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
+            console.log("Button spell_id ", spell_id);
+            console.log("Button charId", charId);
             createCharacter_spell(spell_id, charId);
             navigate(0);
             navigate("/myspellbook");

@@ -11,14 +11,13 @@ export default function CharSpells({ charId }) {
 
             if (spells) {
                 setSpells(spells);
-                console.log("spells in charSpells", spells);
+                // console.log("spells in charSpells", spells);
                 return spells;
             } else {
                 console.error("there was an error fetching all spells");
             }
         }
         getCharacterSpells();
-        //   console.log("line 22, this is what's in allSpells: " + allSpells);
     }, []);
 
     // const spellsToDisplay = searchParam

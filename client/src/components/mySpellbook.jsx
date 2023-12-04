@@ -23,12 +23,12 @@ export default function MySpellbook({ token, charId }) {
             } catch (error) {
                 console.error("can't get character info", error);
             }
-            console.log("response.name in line 25", response.name);
+            // console.log("response.name in line 25", response.name);
         }
         getCharacterProfile();
     }, [charId]);
 
-    console.log("response in mySpellbook line 29", charName);
+    // console.log("response in mySpellbook line 29", charName);
 
     // converts string to title case/sentence case for later display in rendering
     function titleCase(str) {

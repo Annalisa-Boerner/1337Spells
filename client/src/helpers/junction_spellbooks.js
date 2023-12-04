@@ -76,7 +76,7 @@ export const fetchAllCharacters_Cantrips = async () => {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`);
         const result = await response.json();
-        console.log("result from fetchAllCharacters_Cantrips", result);
+        // console.log("result from fetchAllCharacters_Cantrips", result);
         return result;
     } catch (error) {
         console.error(error);
