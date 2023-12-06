@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createCharacter_cantrip } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function AddToCharactersCantrips({ charId }) {
+export default function AddCantripButton({ charId }) {
     const [cantrip_id, setCantrip_id] = useState("");
     //get this from localStorage instead of state
     // const [char_id, setChar_id] = useState("");
@@ -23,16 +23,16 @@ export default function AddToCharactersCantrips({ charId }) {
 
     return (
         <section id="addCantrip-container">
-            <h3>Add A Cantrip to My Spellbook</h3>
+            {/* <h3>Add A Cantrip to My Spellbook</h3> */}
             <form onSubmit={handleSubmit}>
-                <input
+                {/* <input
                     className="new-cantrip-form-bar"
                     value={cantrip_id}
                     type="text"
                     name="cantrip_id"
                     placeholder="Cantrip ID - Integer by All Cantrips Listing"
                     onChange={(event) => setCantrip_id(event.target.value)}
-                />
+                /> */}
                 {/* <br />
 
                 <input

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { fetchCharacterSpellsByCharacterId } from "../helpers/spells";
 
-export default function CharSpells({ charId }) {
+export default function SingleCharSpells({ charId }) {
     const [spells, setSpells] = useState([]);
     // const [searchParam, setSearchParam] = useState("");
 

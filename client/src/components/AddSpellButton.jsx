@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createCharacter_spell } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function AddToCharactersSpells({ charId }) {
+export default function AddSpellButton({ charId }) {
     const [spell_id, setSpell_id] = useState("");
     // const [char_id, setChar_id] = useState("");
     // const [spell_name, setSpell_name] = useState("");
@@ -24,9 +24,9 @@ export default function AddToCharactersSpells({ charId }) {
 
     return (
         <section id="addSpell-container">
-            <h3>Add A Spell to My Spellbook</h3>
+            {/* <h3>Add A Spell to My Spellbook</h3> */}
             <form onSubmit={handleSubmit}>
-                <input
+                {/* <input
                     className="new-spell-form-bar"
                     value={spell_id}
                     type="text"
@@ -34,7 +34,7 @@ export default function AddToCharactersSpells({ charId }) {
                     placeholder="Spell ID - Integer by All Spells Listing"
                     onChange={(event) => setSpell_id(event.target.value)}
                 />
-                <br />
+                <br /> */}
 
                 {/* <input
                     className="new-spell-form-bar"
