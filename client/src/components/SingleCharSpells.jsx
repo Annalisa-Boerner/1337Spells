@@ -2,29 +2,34 @@ import { useState, useEffect } from "react";
 import { fetchCharacterSpellsByCharacterId } from "../helpers/spells";
 
 export default function SingleCharSpells({ charId }) {
-    const [spells, setSpells] = useState([]);
-    // const [searchParam, setSearchParam] = useState("");
 
+    // const [searchParam, setSearchParam] = useState("");
+    const [charSpells, setCharSpells] = useState([])
+    const [allSpells, setAllSpells] = useState([]);
+
+//FETCH THE CHARACTER'S SPELLS
     useEffect(() => {
         async function getCharacterSpells() {
-            const spells = await fetchCharacterSpellsByCharacterId(charId);
+            const charSpells = await fetchCharacterSpellsByCharacterId(charId);
 
-            if (spells) {
-                setSpells(spells);
-                // console.log("spells in charSpells", spells);
-                return spells;
+            if (charSpells) {
+                setCharSpells(charSpells);
+                console.log("charSpells in SingleCharSpells", charSpells);
+                return charSpells;
             } else {
-                console.error("there was an error fetching all spells");
+                console.error("there was an error fetching this character's spells", error);
             }
         }
         getCharacterSpells();
     }, []);
 
-    // const spellsToDisplay = searchParam
-    //     ? allSpells.filter((spell) =>
-    //           spell.name.toLowerCase().includes(searchParam)
-    //       )
-    //     : allSpells;
+//FETCH ALL SPELLS
+
+useEffect(()=> {
+    async function getAllSpells() {
+        const 
+    }
+})
 
     return (
         <section id="char-spells">
@@ -47,9 +52,7 @@ export default function SingleCharSpells({ charId }) {
                 {spells.map((spell) => {
                     return (
                         <div key={spell.spell_id}>
-                            <p>
-                                {spell.name}, {spell.spell_id}
-                            </p>
+                            <p>{spell.spell_id}</p>
                         </div>
                     );
                 })}
