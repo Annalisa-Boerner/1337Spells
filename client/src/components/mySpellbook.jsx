@@ -1,6 +1,6 @@
 import AllCharacters_Cantrips from "./allCharacters_Cantrips";
-import AllSpells from "./allSpells";
-import AllCantrips from "./allCantrips";
+import AllSpells from "./AllSpells";
+import AllCantrips from "./AllCantrips";
 import AddSpellButton from "./AddSpellButton";
 import { fetchSingleCharacter } from "../helpers/characters";
 import { useEffect, useState } from "react";

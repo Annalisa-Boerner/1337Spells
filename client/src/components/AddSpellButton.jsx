@@ -57,7 +57,7 @@ export default function AddSpellButton({ charId }) {
                 />
                 <br />
                 <br /> */}
-                <button type="submit">Submit</button>
+                <button type="submit">Add to Spellbook</button>
             </form>
         </section>
     );
