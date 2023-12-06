@@ -1,5 +1,11 @@
-//crab POST 
-    //works from TC and displays its ugly self, no name rn 
+Character Spell names
+
+1. get the character spells listings that match
+2. get the spell ids off those listings
+3. get the Spells
+4. .filter through spells to get the ones that match the character spells then .map to displays
+
+REFACTOR: write a route that uses a backend join to accomplishes this
 
 
 //run the getCharacterId when the page navigates from login? because on a refresh it fetches the character

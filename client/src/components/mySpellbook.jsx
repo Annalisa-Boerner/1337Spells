@@ -1,7 +1,5 @@
-import AllCharacters_Cantrips from "./allCharacters_Cantrips";
 import AllSpells from "./AllSpells";
 import AllCantrips from "./AllCantrips";
-import AddSpellButton from "./AddSpellButton";
 import { fetchSingleCharacter } from "../helpers/characters";
 import { useEffect, useState } from "react";
 import SingleCharSpells from "./SingleCharSpells";
@@ -51,15 +49,12 @@ export default function MySpellbook({ token, charId }) {
                     <br />
                     <div id="spellbookContainer">
                         <div id="leftside">
-                            {/* <AllCharacters_Spells /> */}
                             <SingleCharSpells charId={charId} />
-                            <AllSpells />
-                            <AddSpellButton charId={charId} />
+                            <AllSpells charId={charId} />
                         </div>
                         <div className="spacebetween"></div>
                         <div id="rightside">
-                            <AllCharacters_Cantrips />
-                            <AllCantrips />
+                            <AllCantrips charId={charId} />
                             <AddCantripButton charId={charId} />
                         </div>
                     </div>

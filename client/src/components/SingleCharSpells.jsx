@@ -1,30 +1,64 @@
 import { useState, useEffect } from "react";
-import { fetchCharacterSpellsByCharacterId } from "../helpers/spells";
+import {
+    fetchAllSpells,
+    fetchCharacterSpellsByCharacterId,
+} from "../helpers/spells";
 
 export default function SingleCharSpells({ charId }) {
-    const [spells, setSpells] = useState([]);
     // const [searchParam, setSearchParam] = useState("");
+    const [charSpells, setCharSpells] = useState([]);
+    const [allSpells, setAllSpells] = useState([]);
 
+    //FETCH THE CHARACTER'S SPELLS
     useEffect(() => {
         async function getCharacterSpells() {
-            const spells = await fetchCharacterSpellsByCharacterId(charId);
+            const charSpells = await fetchCharacterSpellsByCharacterId(charId);
 
-            if (spells) {
-                setSpells(spells);
-                // console.log("spells in charSpells", spells);
-                return spells;
+            if (charSpells) {
+                setCharSpells(charSpells);
+                console.log("charSpells in SingleCharSpells", charSpells);
+                return charSpells;
             } else {
-                console.error("there was an error fetching all spells");
+                console.error(
+                    "there was an error fetching this character's spells"
+                );
             }
         }
         getCharacterSpells();
     }, []);
 
-    // const spellsToDisplay = searchParam
-    //     ? allSpells.filter((spell) =>
-    //           spell.name.toLowerCase().includes(searchParam)
-    //       )
-    //     : allSpells;
+    //FETCH ALL SPELLS
+
+    useEffect(() => {
+        async function getAllSpells() {
+            const allSpells = await fetchAllSpells();
+
+            if (allSpells) {
+                setAllSpells(allSpells);
+                console.log("allSpells in SingleCharSpells", allSpells);
+                return allSpells;
+            } else {
+                console.error("there was an error fetching all spells");
+            }
+        }
+        getAllSpells();
+    }, []);
+
+    //mapping through spells to match with the ones that are in char spells
+
+    const characterSpellIds = [];
+
+    charSpells.map((charSpell) => {
+        characterSpellIds.push(charSpell.spell_id);
+    });
+
+    //pushing the ids from the spells into an array
+
+    const spellIds = [];
+
+    allSpells.map((allSpell) => {
+        spellIds.push(allSpell.spell_id);
+    });
 
     return (
         <section id="char-spells">
@@ -44,15 +78,20 @@ export default function SingleCharSpells({ charId }) {
                 </label>
             </div> */}
             <div>
-                {spells.map((spell) => {
-                    return (
-                        <div key={spell.spell_id}>
-                            <p>
-                                {spell.name}, {spell.spell_id}
-                            </p>
-                        </div>
-                    );
-                })}
+                <p>placeholder</p>
+                <section id="character-spells-display">
+                    {allSpells
+                        .filter((spell) =>
+                            characterSpellIds.includes(spell.spell_id)
+                        )
+                        .map((spell) => {
+                            return (
+                                <div key={spell.spell_id}>
+                                    <p>{spell.name}</p>
+                                </div>
+                            );
+                        })}
+                </section>
             </div>
         </section>
     );
