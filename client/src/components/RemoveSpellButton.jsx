@@ -3,7 +3,7 @@
 import { deleteCharacter_Spell } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function RemoveSpell({ spell_id }) {
+export default function RemoveSpellButton({ spell_id }) {
     const nav = useNavigate();
     async function handleSubmit(event) {
         event.preventDefault();
