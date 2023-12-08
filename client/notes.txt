@@ -5,6 +5,8 @@ Character Spell names
 3. get the Spells
 4. .filter through spells to get the ones that match the character spells then .map to displays
 
+-currently crab has all the spells so I can't see if they're filtered
+
 REFACTOR: write a route that uses a backend join to accomplishes this
 
 

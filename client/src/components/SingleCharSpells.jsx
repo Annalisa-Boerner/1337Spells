@@ -3,6 +3,7 @@ import {
     fetchAllSpells,
     fetchCharacterSpellsByCharacterId,
 } from "../helpers/spells";
+import RemoveSpellButton from "./RemoveSpellButton";
 
 export default function SingleCharSpells({ charId }) {
     // const [searchParam, setSearchParam] = useState("");
@@ -52,6 +53,7 @@ export default function SingleCharSpells({ charId }) {
         characterSpellIds.push(charSpell.spell_id);
     });
 
+    console.log("character spell ids", characterSpellIds);
     //pushing the ids from the spells into an array
 
     const spellIds = [];
@@ -60,6 +62,7 @@ export default function SingleCharSpells({ charId }) {
         spellIds.push(allSpell.spell_id);
     });
 
+    console.log("spell ids", spellIds);
     return (
         <section id="char-spells">
             <h2>char spells here</h2>
@@ -86,9 +89,15 @@ export default function SingleCharSpells({ charId }) {
                         )
                         .map((spell) => {
                             return (
-                                <div key={spell.spell_id}>
-                                    <p>{spell.name}</p>
-                                </div>
+                                <>
+                                    <div key={spell.spell_id}>
+                                        <p>{spell.name}</p>
+                                    </div>
+                                    <div>
+                                        {/* needs the right props */}
+                                        <RemoveSpellButton />
+                                    </div>
+                                </>
                             );
                         })}
                 </section>

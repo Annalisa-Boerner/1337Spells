@@ -19,7 +19,6 @@ export default function AllSpells({ charId }) {
             }
         }
         getAllSpells();
-        //   console.log("line 22, this is what's in allSpells: " + allSpells);
     }, []);
 
     const spellsToDisplay = searchParam

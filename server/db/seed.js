@@ -38,8 +38,8 @@ const {
     getAllCantrips,
     getCantripById,
 } = require("./helpers/cantrips");
-const { createCharacters_Spells } = require("./helpers/characters_spells");
-const { createCharacters_Cantrips } = require("./helpers/characters_cantrips");
+const { createCharacter_Spell } = require("./helpers/characters_spells");
+const { createCharacter_Cantrip } = require("./helpers/characters_cantrips");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -191,7 +191,7 @@ const createInitialCharacters_spells = async () => {
     try {
         console.log("creating characters / spells junction...");
         for (character_spell of characters_spells) {
-            await createCharacters_Spells(character_spell);
+            await createCharacter_Spell(character_spell);
         }
         console.log(character_spell);
         console.log("spellbook/spells junction created");
@@ -204,7 +204,7 @@ const createInitialCharacters_cantrips = async () => {
     try {
         console.log("creating characters / cantrips junction...");
         for (character_cantrip of characters_cantrips) {
-            await createCharacters_Cantrips(character_cantrip);
+            await createCharacter_Cantrip(character_cantrip);
         }
         console.log(character_cantrip);
         console.log("character/cantrips junction created");
