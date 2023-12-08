@@ -5,7 +5,7 @@ const {
     getAllCharacters_Spells,
     getCharacters_SpellsByCharacterId,
     createCharacter_Spell,
-    deleteCharacters_Spell,
+    deleteCharacter_Spell,
 } = require("../db/helpers/characters_spells");
 
 //GET - /api/characters_spells - get all characters_spells
@@ -48,7 +48,7 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/:spell_id", async (req, res, next) => {
     try {
-        const charSpell = await deleteCharacters_Spells(req.params.spell_id);
+        const charSpell = await deleteCharacter_Spell(req.params.spell_id);
         res.send(charSpell);
     } catch (error) {
         next(error);

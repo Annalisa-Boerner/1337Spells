@@ -17,7 +17,7 @@ export default function SingleCharSpells({ charId }) {
 
             if (charSpells) {
                 setCharSpells(charSpells);
-                console.log("charSpells in SingleCharSpells", charSpells);
+                // console.log("charSpells in SingleCharSpells", charSpells);
                 return charSpells;
             } else {
                 console.error(
@@ -36,7 +36,7 @@ export default function SingleCharSpells({ charId }) {
 
             if (allSpells) {
                 setAllSpells(allSpells);
-                console.log("allSpells in SingleCharSpells", allSpells);
+                // console.log("allSpells in SingleCharSpells", allSpells);
                 return allSpells;
             } else {
                 console.error("there was an error fetching all spells");
@@ -53,7 +53,7 @@ export default function SingleCharSpells({ charId }) {
         characterSpellIds.push(charSpell.spell_id);
     });
 
-    console.log("character spell ids", characterSpellIds);
+    // console.log("character spell ids", characterSpellIds);
     //pushing the ids from the spells into an array
 
     const spellIds = [];
@@ -62,7 +62,7 @@ export default function SingleCharSpells({ charId }) {
         spellIds.push(allSpell.spell_id);
     });
 
-    console.log("spell ids", spellIds);
+    // console.log("spell ids", spellIds);
     return (
         <section id="char-spells">
             <h2>char spells here</h2>
@@ -94,8 +94,9 @@ export default function SingleCharSpells({ charId }) {
                                         <p>{spell.name}</p>
                                     </div>
                                     <div>
-                                        {/* needs the right props */}
-                                        <RemoveSpellButton />
+                                        <RemoveSpellButton
+                                            spell_id={spell.spell_id}
+                                        />
                                     </div>
                                 </>
                             );

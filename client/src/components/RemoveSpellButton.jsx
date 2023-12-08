@@ -17,7 +17,7 @@ export default function RemoveSpellButton({ spell_id }) {
     return (
         <div>
             <button onClick={handleSubmit} id="remove-spell-button">
-                Remove from Spellbook
+                Remove
             </button>
         </div>
     );
