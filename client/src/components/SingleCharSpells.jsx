@@ -52,6 +52,7 @@ export default function SingleCharSpells({ charId }) {
         characterSpellIds.push(charSpell.spell_id);
     });
 
+    console.log("character spell ids", characterSpellIds);
     //pushing the ids from the spells into an array
 
     const spellIds = [];
@@ -60,6 +61,7 @@ export default function SingleCharSpells({ charId }) {
         spellIds.push(allSpell.spell_id);
     });
 
+    console.log("spell ids", spellIds);
     return (
         <section id="char-spells">
             <h2>char spells here</h2>
