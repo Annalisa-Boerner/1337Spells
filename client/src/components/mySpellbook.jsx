@@ -4,6 +4,7 @@ import { fetchSingleCharacter } from "../helpers/characters";
 import { useEffect, useState } from "react";
 import SingleCharSpells from "./SingleCharSpells";
 import AddCantripButton from "./AddCantripButton";
+import SingleCharCantrips from "./SingleCharCantrips";
 
 export default function MySpellbook({ token, charId }) {
     const [charName, setCharName] = useState("");
@@ -51,6 +52,7 @@ export default function MySpellbook({ token, charId }) {
                         </div>
                         <div className="spacebetween"></div>
                         <div id="rightside">
+                            <SingleCharCantrips charId={charId} />
                             <AllCantrips charId={charId} />
                             <AddCantripButton charId={charId} />
                         </div>

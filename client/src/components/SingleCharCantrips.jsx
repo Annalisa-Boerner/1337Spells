@@ -3,71 +3,70 @@ import {
     fetchAllCantrips,
     fetchCharacterCantripsByCharacterId,
 } from "../helpers/cantrips";
-import RemoveSpellButton from "./RemoveSpellButton";
+// import RemoveCantripButton from "./RemoveCantripButton";
 
-export default function SingleCharSpells({ charId }) {
+export default function SingleCharCantrips({ charId }) {
     // const [searchParam, setSearchParam] = useState("");
-    const [charSpells, setCharSpells] = useState([]);
-    const [allSpells, setAllSpells] = useState([]);
+    const [charCantrips, setCharCantrips] = useState([]);
+    const [allCantrips, setAllCantrips] = useState([]);
 
-    //FETCH THE CHARACTER'S SPELLS
+    //FETCH THE CHARACTER'S CANTRIPS
     useEffect(() => {
-        async function getCharacterSpells() {
-            const charSpells = await fetchCharacterSpellsByCharacterId(charId);
+        async function getCharacterCantrips() {
+            const charCantrips = await fetchCharacterCantripsByCharacterId(
+                charId
+            );
 
-            if (charSpells) {
-                setCharSpells(charSpells);
-                // console.log("charSpells in SingleCharSpells", charSpells);
-                return charSpells;
+            if (charCantrips) {
+                setCharCantrips(charCantrips);
+                // console.log("charCantrips in SingleCharCantrips", charSpells);
+                return charCantrips;
             } else {
                 console.error(
-                    "there was an error fetching this character's spells"
+                    "there was an error fetching this character's cantrips"
                 );
             }
         }
-        getCharacterSpells();
+        getCharacterCantrips();
     }, []);
 
-    //FETCH ALL SPELLS
+    //FETCH ALL CANTRIPS
 
     useEffect(() => {
-        async function getAllSpells() {
-            const allSpells = await fetchAllSpells();
+        async function getAllCantrips() {
+            const allCantrips = await fetchAllCantrips();
 
-            if (allSpells) {
-                setAllSpells(allSpells);
-                // console.log("allSpells in SingleCharSpells", allSpells);
-                return allSpells;
+            if (allCantrips) {
+                setAllCantrips(allCantrips);
+                // console.log("allCantrips in SingleCharCantrips", allCantrips);
+                return allCantrips;
             } else {
-                console.error("there was an error fetching all spells");
+                console.error("there was an error fetching all cantrips");
             }
         }
-        getAllSpells();
+        getAllCantrips();
     }, []);
 
-    //mapping through spells to match with the ones that are in char spells
+    //mapping through cantrips to push the ones that are in char cantrips into an array for later filtering
 
-    const characterSpellIds = [];
+    const characterCantripIds = [];
 
-    charSpells.map((charSpell) => {
-        characterSpellIds.push(charSpell.spell_id);
+    charCantrips.map((charCantrip) => {
+        characterCantripIds.push(charCantrip.cantrip_id);
     });
 
-    // console.log("character spell ids", characterSpellIds);
-    //pushing the ids from the spells into an array
+    //pushing the ids from all cantrips into an array
 
-    const spellIds = [];
+    const cantripIds = [];
 
-    allSpells.map((allSpell) => {
-        spellIds.push(allSpell.spell_id);
+    allCantrips.map((cantrip) => {
+        cantripIds.push(cantrip.cantrip_id);
     });
 
-    // console.log("spell ids", spellIds);
     return (
-        <section id="char-spells">
-            <h2>char spells here</h2>
+        <section id="char-cantrips">
+            <h2>char cantrips here</h2>
             {/* <div id="search-spells">
-                <h3>All Spells</h3>
                 <label>
                     Search Spells:{""}
                     <input
@@ -82,21 +81,20 @@ export default function SingleCharSpells({ charId }) {
             </div> */}
             <div>
                 <p>placeholder</p>
-                <section id="character-spells-display">
-                    {allSpells
-                        .filter((spell) =>
-                            characterSpellIds.includes(spell.spell_id)
+                <section id="character-cantrips-display">
+                    {allCantrips
+                        .filter((cantrip) =>
+                            characterCantripIds.includes(cantrip.cantrip_id)
                         )
-                        .map((spell) => {
+                        .map((cantrip) => {
                             return (
                                 <>
-                                    <div key={spell.spell_id}>
-                                        <p>{spell.name}</p>
+                                    <div key={cantrip.cantrip_id}>
+                                        <p>{cantrip.name}</p>
                                     </div>
                                     <div>
-                                        {/* needs the right props */}
-                                        <RemoveSpellButton
-                                            spell_id={spell.spell_id}
+                                        <RemoveCantripButton
+                                            cantrip_id={cantrip.spell_id}
                                         />
                                     </div>
                                 </>

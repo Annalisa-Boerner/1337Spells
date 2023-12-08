@@ -66,6 +66,8 @@ export const deleteCharacter_Spell = async (spell_id) => {
     }
 };
 
+// ---CANTRIPS BELOW THIS LINE---
+
 //GET all cantrips of all characters
 export const fetchAllCharacters_Cantrips = async () => {
     try {
@@ -79,9 +81,7 @@ export const fetchAllCharacters_Cantrips = async () => {
 };
 
 //GET cantrips for just one character
-export const fetchSingleCharacter_CantripsByCharacterId = async (
-    character_id
-) => {
+export const fetchCharacters_CantripsByCharacterId = async (character_id) => {
     try {
         const response = await fetch(
             `${base_url}/characters_cantrips/${character_id}`
