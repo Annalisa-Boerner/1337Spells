@@ -48,7 +48,7 @@ router.post("/", async (req, res, next) => {
 
 router.delete("/:spell_id", async (req, res, next) => {
     try {
-        const charSpell = await deleteCharacter_Spells(req.params.spell_id);
+        const charSpell = await deleteCharacter_Spell(req.params.spell_id);
         res.send(charSpell);
     } catch (error) {
         next(error);

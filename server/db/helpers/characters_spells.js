@@ -46,6 +46,7 @@ const getCharacters_SpellsByCharacterId = async (character_id) => {
 
 const deleteCharacter_Spell = async (spell_id) => {
     try {
+        console.log('deleting character spell by spell id"');
         const { rows } = await client.query(`
                DELETE FROM characters_spells
                WHERE spell_id=${spell_id}

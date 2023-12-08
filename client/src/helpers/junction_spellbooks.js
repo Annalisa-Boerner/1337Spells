@@ -60,12 +60,13 @@ export async function createCharacter_spell(spell_id, char_id) {
 
 //DELETE a single spell from a single spellbook aka one table row
 export const deleteCharacter_Spell = async (spell_id) => {
+    console.log("spell_id in junction_spellbooks delete", spell_id);
     try {
         console.log("removing spell");
         await fetch(`${base_url}/characters_spells/${spell_id}`, {
             method: "DELETE",
         });
-        console.log("spell successfully deleted");
+        console.log("spell maybe deleted");
     } catch (error) {
         alert("We're sorry, there was an error during deletion.");
     }
@@ -124,12 +125,12 @@ export async function createCharacter_cantrip(cantrip_id, char_id) {
 
 //delete a single cantrip from the character's spellbook
 
-export const deleteCharacter_Cantrip = async (spell_id) => {
+export const deleteCharacter_Cantrip = async (cantrip_id) => {
     try {
-        await fetch(`${base_url}/characters_cantrip/${spell_id}`, {
+        await fetch(`${base_url}/characters_cantrip/${cantrip_id}`, {
             method: "DELETE",
         });
-        console.log("spell successfully deleted");
+        console.log("reached line 132 in junction_spellbooks front end");
     } catch (error) {
         alert("We're sorry, there was an error during deletion.");
     }
