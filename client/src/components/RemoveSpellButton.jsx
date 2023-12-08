@@ -9,7 +9,7 @@ export default function RemoveSpellButton({ spell_id }) {
         event.preventDefault();
         try {
             await deleteCharacter_Spell(spell_id);
-            // nav(0);
+            nav(0);
         } catch (error) {
             console.error("there was an error removing this spell", error);
         }

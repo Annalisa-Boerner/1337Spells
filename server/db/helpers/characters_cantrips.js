@@ -3,7 +3,7 @@ const client = require("../client");
 const createCharacter_Cantrip = async ({ cantrip_id, character_id }) => {
     try {
         const {
-            rows: [Character_cantrip],
+            rows: [character_cantrip],
         } = await client.query(
             `
     INSERT INTO characters_cantrips(cantrip_id, character_id)       
@@ -12,6 +12,7 @@ const createCharacter_Cantrip = async ({ cantrip_id, character_id }) => {
        `,
             [cantrip_id, character_id]
         );
+        return character_cantrip;
     } catch (error) {
         throw error;
     }
@@ -19,7 +20,6 @@ const createCharacter_Cantrip = async ({ cantrip_id, character_id }) => {
 
 const getAllCharacters_Cantrips = async () => {
     try {
-        console.log("helpers line 22");
         const { rows } = await client.query(`
           SELECT * FROM characters_cantrips;
           `);
@@ -43,13 +43,14 @@ const getCharacters_CantripsByCharacterId = async (character_id) => {
     }
 };
 
-const deleteCharacters_Cantrip = async (characters_cantrips_id) => {
+const deleteCharacter_Cantrip = async (cantrip_id) => {
     try {
         const { rows } = await client.query(`
                DELETE FROM characters_cantrips
-               WHERE characters_cantrips_id=${characters_cantrips_id}
+               WHERE cantrip_id=${cantrip_id}
                RETURNING *;
           `);
+        console.log("delete successful");
     } catch (error) {
         throw error;
     }
@@ -59,5 +60,5 @@ module.exports = {
     createCharacter_Cantrip,
     getAllCharacters_Cantrips,
     getCharacters_CantripsByCharacterId,
-    deleteCharacters_Cantrip,
+    deleteCharacter_Cantrip,
 };
