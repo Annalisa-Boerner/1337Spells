@@ -58,7 +58,7 @@ export async function createCharacter_spell(spell_id, char_id) {
     }
 }
 
-//delete a single spell from a single spellbook aka one table row
+//DELETE a single spell from a single spellbook aka one table row
 export const deleteCharacter_Spell = async (spell_id) => {
     try {
         console.log("removing spell");

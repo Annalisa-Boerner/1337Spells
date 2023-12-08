@@ -95,7 +95,9 @@ export default function SingleCharSpells({ charId }) {
                                     </div>
                                     <div>
                                         {/* needs the right props */}
-                                        <RemoveSpellButton />
+                                        <RemoveSpellButton
+                                            spell_id={spell.spell_id}
+                                        />
                                     </div>
                                 </>
                             );
