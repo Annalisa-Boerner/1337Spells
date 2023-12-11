@@ -1,31 +1,31 @@
 import { useState, useEffect } from "react";
 import {
-    deleteCharacter_Spell,
-    fetchAllCharacters_Spells,
+    deleteCharacterSpell,
+    fetchAllCharactersSpells,
 } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
 //get all the spellbooks with their spells
 
-export default function AllCharacters_Spells() {
-    const [allCharacters_Spells, setAllCharacters_Spells] = useState([]);
+export default function AllCharactersSpells() {
+    const [allCharactersSpells, setAllCharactersSpells] = useState([]);
     const [searchParam, setSearchParam] = useState("");
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        async function getAllCharacters_Spells() {
-            const characters_spells = await fetchAllCharacters_Spells();
-            if (characters_spells) {
-                setAllCharacters_Spells(characters_spells);
-                return characters_spells;
+        async function getAllCharactersSpells() {
+            const charactersSpells = await fetchAllCharactersSpells();
+            if (charactersSpells) {
+                setAllCharactersSpells(charactersSpells);
+                return charactersSpells;
             } else {
                 console.error(
                     "there was an error fetching all spellbooks' spell content"
                 );
             }
         }
-        getAllCharacters_Spells();
+        getAllCharactersSpells();
     }, []);
 
     //Delete a spell from a spellbook
@@ -33,7 +33,7 @@ export default function AllCharacters_Spells() {
     async function handleDelete(event) {
         event.preventDefault();
         try {
-            await deleteCharacter_Spell(event.target.id);
+            await deleteCharacterSpell(event.target.id);
             navigate(0);
         } catch (error) {
             console.error(error);
@@ -43,10 +43,10 @@ export default function AllCharacters_Spells() {
     //Filter spellbooks to only show your own spells
 
     const charactersToDisplay = searchParam
-        ? allCharacters_Spells.filter((character) =>
+        ? allCharactersSpells.filter((character) =>
               character.spellbook_id.toString().includes(searchParam)
           )
-        : allCharacters_Spells;
+        : allCharactersSpells;
 
     //Render the filter bar and spellbooks/spells
     return (
@@ -62,18 +62,18 @@ export default function AllCharacters_Spells() {
                 />
             </label>
 
-            {charactersToDisplay.map((character_spells) => {
+            {charactersToDisplay.map((characterSpells) => {
                 return (
-                    <div key={character_spells.characters_spells_id}>
+                    <div key={characterSpells.characters_spells_id}>
                         <p>
-                            character ID: {character_spells.character_id}
+                            character ID: {characterSpells.character_id}
                             <br />
-                            Spell: {character_spells.spell_name}
+                            Spell: {characterSpells.spell_name}
                             <br />
                             <button
                                 className="remove-spell-button"
                                 onClick={handleDelete}
-                                id={character_spells.characters_spells_id}
+                                id={characterSpells.characters_spells_id}
                             >
                                 Remove Spell
                             </button>
