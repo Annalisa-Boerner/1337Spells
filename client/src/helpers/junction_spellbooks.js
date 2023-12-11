@@ -1,7 +1,7 @@
 const base_url = "http://localhost:8080/api";
 
 //GET all spells of all characters
-export const fetchAllCharacters_Spells = async () => {
+export const fetchAllCharactersSpells = async () => {
     try {
         const response = await fetch(`${base_url}/characters_spells`);
         const result = await response.json();
@@ -16,7 +16,7 @@ export const fetchAllCharacters_Spells = async () => {
 };
 
 //GET spells by just one character
-export const fetchCharacters_SpellsByCharacterId = async (character_id) => {
+export const fetchCharactersSpellsByCharacterId = async (character_id) => {
     try {
         const response = await fetch(
             `${base_url}/characters_spells/${character_id}`
@@ -33,7 +33,7 @@ export const fetchCharacters_SpellsByCharacterId = async (character_id) => {
 };
 
 //POST a spell to characters_spells
-export async function createCharacter_spell(spell_id, char_id) {
+export async function createCharacterSpell(spell_id, char_id) {
     try {
         console.log("char_id in front end helpers post", char_id);
         const response = await fetch(`${base_url}/characters_spells`, {
@@ -55,7 +55,7 @@ export async function createCharacter_spell(spell_id, char_id) {
 }
 
 //DELETE a single spell from the character's spellbook
-export const deleteCharacter_Spell = async (spell_id) => {
+export const deleteCharacterSpell = async (spell_id) => {
     try {
         console.log("removing spell");
         await fetch(`${base_url}/characters_spells/${spell_id}`, {
@@ -69,7 +69,7 @@ export const deleteCharacter_Spell = async (spell_id) => {
 // ---CANTRIPS BELOW THIS LINE---
 
 //GET all cantrips of all characters
-export const fetchAllCharacters_Cantrips = async () => {
+export const fetchAllCharactersCantrips = async () => {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`);
         const result = await response.json();
@@ -81,7 +81,7 @@ export const fetchAllCharacters_Cantrips = async () => {
 };
 
 //GET cantrips for just one character
-export const fetchCharacters_CantripsByCharacterId = async (character_id) => {
+export const fetchCharactersCantripsByCharacterId = async (character_id) => {
     try {
         const response = await fetch(
             `${base_url}/characters_cantrips/${character_id}`
@@ -101,7 +101,7 @@ export const fetchCharacters_CantripsByCharacterId = async (character_id) => {
 };
 
 //POST a cantrip to characters_cantrips
-export async function createCharacter_cantrip(cantrip_id, char_id) {
+export async function createCharacterCantrip(cantrip_id, char_id) {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`, {
             method: "POST",
@@ -123,7 +123,7 @@ export async function createCharacter_cantrip(cantrip_id, char_id) {
 
 //DELETE a single cantrip from the character's spellbook
 
-export const deleteCharacter_Cantrip = async (cantrip_id) => {
+export const deleteCharacterCantrip = async (cantrip_id) => {
     try {
         console.log("removing cantrip");
         await fetch(`${base_url}/characters_cantrip/${cantrip_id}`, {

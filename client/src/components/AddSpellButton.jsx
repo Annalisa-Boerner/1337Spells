@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createCharacter_spell } from "../helpers/junction_spellbooks";
+import { createCharacterSpell } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
 export default function AddSpellButton({ charId, spell_id }) {
@@ -8,7 +8,7 @@ export default function AddSpellButton({ charId, spell_id }) {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            createCharacter_spell(spell_id, charId);
+            createCharacterSpell(spell_id, charId);
             navigate(0);
             navigate("/myspellbook");
         } catch (error) {

@@ -67,7 +67,6 @@ export default function SingleCharSpells({ charId }) {
         <section id="char-spells">
             <h2>char spells here</h2>
             {/* <div id="search-spells">
-                <h3>All Spells</h3>
                 <label>
                     Search Spells:{""}
                     <input
