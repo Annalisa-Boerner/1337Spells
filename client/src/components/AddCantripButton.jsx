@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createCharacter_cantrip } from "../helpers/junction_spellbooks";
+import { createCharacterCantrip } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
 export default function AddCantripButton({ charId }) {
@@ -12,7 +12,7 @@ export default function AddCantripButton({ charId }) {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await createCharacter_cantrip(cantrip_id, charId);
+            await createCharacterCantrip(cantrip_id, charId);
             console.log("create character cantrip charId", charId);
             navigate(0);
             navigate("/myspellbook");
