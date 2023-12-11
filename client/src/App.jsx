@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
-import MainSection from "./components/mainSection";
-import Navbar from "./components/navBar";
+import MainSection from "./components/MainSection";
+import Navbar from "./components/NavBar";
 // import { set } from "cypress/types/lodash";
 
 function App() {

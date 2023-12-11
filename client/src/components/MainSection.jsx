@@ -1,13 +1,11 @@
 //handles routing; loads the main content
 
-// import AllCantrips from "./allCantrips";
-// import AllSpellbooks_Cantrips from "./allSpellbooks_Cantrips";
-// import AllSpellbooks_Spells from "./allSpellbooks_Spells";
-// import AllSpells from "./allSpells";
+// import AllCantrips from "./AllCantrips";
+// import AllSpells from "./AllSpells";
 
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
-import MySpellbook from "./mySpellbook";
+import MySpellbook from "./MySpellbook";
 // import { BrowseSpells } from "./browseSpells";
 import Login from "./Login";
 import Logout from "./Logout";
