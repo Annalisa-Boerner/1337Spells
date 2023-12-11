@@ -6,7 +6,7 @@
 // import AllSpells from "./allSpells";
 
 import { Routes, Route } from "react-router-dom";
-import HomePage from "./homePage";
+import HomePage from "./HomePage";
 import MySpellbook from "./mySpellbook";
 // import { BrowseSpells } from "./browseSpells";
 import Login from "./login";
