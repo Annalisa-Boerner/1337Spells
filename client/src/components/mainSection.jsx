@@ -9,8 +9,8 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./HomePage";
 import MySpellbook from "./mySpellbook";
 // import { BrowseSpells } from "./browseSpells";
-import Login from "./login";
-import Logout from "./logout";
+import Login from "./Login";
+import Logout from "./Logout";
 
 export default function MainSection({
     token,
