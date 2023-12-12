@@ -31,7 +31,6 @@ a:hover {
 
 #spellbookContainer {
     display: flex;
-    align-items: space-between;
 }
 
 #leftside {
@@ -64,6 +63,11 @@ a:hover {
     box-shadow: 10px 5px 5px white;
 }
 
+#char-spells,
+#char-cantrips {
+    margin: 3rem;
+}
+
 h2 {
     color: rgba(248, 216, 168, 0.801);
     font-size: 2em;
@@ -93,9 +97,8 @@ h4 {
 
 /* spell search bars */
 #search-spells-bar,
+#search-cantrips-bar,
 #search-spellbooks-spells-bar,
-.new-spell-form-bar,
-.new-cantrip-form-bar,
 #search-spellbooks-cantrips-bar,
 .register-bar {
     background-color: rgba(255, 255, 255, 0.644);

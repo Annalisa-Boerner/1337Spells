@@ -32,7 +32,7 @@ export default function AllCantrips({ charId }) {
         <section id="all-cantrips" className="flex-column">
             <h3>All Cantrips</h3>
             <label id="search-cantrips">
-                Search:{""}
+                {""}
                 <input
                     id="search-cantrips-bar"
                     type="text"
@@ -46,9 +46,7 @@ export default function AllCantrips({ charId }) {
             {cantripsToDisplay.map((cantrip) => {
                 return (
                     <div key={cantrip.cantrip_id}>
-                        <p>
-                            {cantrip.name}, {cantrip.cantrip_id}
-                        </p>
+                        <p>{cantrip.name}</p>
                         <AddCantripButton
                             cantrip_id={cantrip.cantrip_id}
                             charId={charId}

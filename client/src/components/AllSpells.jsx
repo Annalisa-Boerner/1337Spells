@@ -32,7 +32,6 @@ export default function AllSpells({ charId }) {
             <div id="search-spells">
                 <h3>All Spells</h3>
                 <label>
-                    Search Spells:{""}
                     <input
                         id="search-spells-bar"
                         type="text"
@@ -47,9 +46,7 @@ export default function AllSpells({ charId }) {
                 {spellsToDisplay.map((spell) => {
                     return (
                         <div key={spell.spell_id}>
-                            <p>
-                                {spell.name}, {spell.spell_id}
-                            </p>
+                            <p>{spell.name}</p>
                             <AddSpellButton
                                 spell_id={spell.spell_id}
                                 charId={charId}
