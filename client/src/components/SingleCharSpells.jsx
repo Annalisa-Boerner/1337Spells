@@ -65,7 +65,7 @@ export default function SingleCharSpells({ charId }) {
     // console.log("spell ids", spellIds);
     return (
         <section id="char-spells">
-            <h2>char spells here</h2>
+            <h3>My Spells</h3>
             {/* <div id="search-spells">
                 <label>
                     Search Spells:{""}
@@ -88,8 +88,8 @@ export default function SingleCharSpells({ charId }) {
                         )
                         .map((spell) => {
                             return (
-                                <>
-                                    <div key={spell.spell_id}>
+                                <section key={spell.characters_spells_id}>
+                                    <div>
                                         <p>{spell.name}</p>
                                     </div>
                                     <div>
@@ -97,7 +97,7 @@ export default function SingleCharSpells({ charId }) {
                                             spell_id={spell.spell_id}
                                         />
                                     </div>
-                                </>
+                                </section>
                             );
                         })}
                 </section>

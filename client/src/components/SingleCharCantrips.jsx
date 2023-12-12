@@ -3,7 +3,7 @@ import {
     fetchAllCantrips,
     fetchCharacterCantripsByCharacterId,
 } from "../helpers/cantrips";
-// import RemoveCantripButton from "./RemoveCantripButton";
+import RemoveCantripButton from "./RemoveCantripButton";
 
 export default function SingleCharCantrips({ charId }) {
     // const [searchParam, setSearchParam] = useState("");
@@ -65,7 +65,7 @@ export default function SingleCharCantrips({ charId }) {
 
     return (
         <section id="char-cantrips">
-            <h2>char cantrips here</h2>
+            <h3>My Cantrips</h3>
             {/* <div id="search-spells">
                 <label>
                     Search Spells:{""}
@@ -89,12 +89,12 @@ export default function SingleCharCantrips({ charId }) {
                         .map((cantrip) => {
                             return (
                                 <>
-                                    <div key={cantrip.cantrip_id}>
+                                    <div key={cantrip.characters_cantrips_id}>
                                         <p>{cantrip.name}</p>
                                     </div>
                                     <div>
                                         <RemoveCantripButton
-                                            cantrip_id={cantrip.spell_id}
+                                            cantrip_id={cantrip.cantrip_id}
                                         />
                                     </div>
                                 </>
