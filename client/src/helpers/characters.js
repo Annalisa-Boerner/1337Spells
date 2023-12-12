@@ -20,7 +20,8 @@ export const fetchSingleCharacter = async (character_id) => {
         return result;
     } catch (error) {
         console.error(
-            "there has been an error fetching this character's profile"
+            "there has been an error fetching this character's profile",
+            error
         );
     }
 };

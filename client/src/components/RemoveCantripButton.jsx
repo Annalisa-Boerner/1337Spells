@@ -9,7 +9,7 @@ export default function RemoveCantripButton({ cantrip_id }) {
         event.preventDefault();
         try {
             await deleteCharacterCantrip(cantrip_id);
-            // nav(0);
+            nav(0);
         } catch (error) {
             console.error("there was an error removing this cantrip", error);
         }

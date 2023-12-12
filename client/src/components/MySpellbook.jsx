@@ -3,28 +3,9 @@ import AllCantrips from "./AllCantrips";
 import { fetchSingleCharacter } from "../helpers/characters";
 import { useEffect, useState } from "react";
 import SingleCharSpells from "./SingleCharSpells";
-import AddCantripButton from "./AddCantripButton";
 import SingleCharCantrips from "./SingleCharCantrips";
 
-export default function MySpellbook({ token, charId }) {
-    const [charName, setCharName] = useState("");
-
-    //grab character info (get character object by character id)
-    useEffect(() => {
-        async function getCharacterProfile() {
-            const response = await fetchSingleCharacter(charId);
-
-            try {
-                if (response) {
-                    setCharName(response.name);
-                }
-            } catch (error) {
-                console.error("can't get character info", error);
-            }
-        }
-        getCharacterProfile();
-    }, [charId]);
-
+export default function MySpellbook({ token, charId, charName }) {
     // converts string to title case/sentence case for later display in rendering
     function titleCase(str) {
         str = str.toLowerCase().split(" ");
@@ -54,7 +35,6 @@ export default function MySpellbook({ token, charId }) {
                         <div id="rightside">
                             <SingleCharCantrips charId={charId} />
                             <AllCantrips charId={charId} />
-                            <AddCantripButton charId={charId} />
                         </div>
                     </div>
                 </section>

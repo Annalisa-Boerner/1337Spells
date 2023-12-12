@@ -65,7 +65,7 @@ export default function SingleCharCantrips({ charId }) {
 
     return (
         <section id="char-cantrips">
-            <h2>char cantrips here</h2>
+            <h3>My Cantrips</h3>
             {/* <div id="search-spells">
                 <label>
                     Search Spells:{""}

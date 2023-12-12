@@ -65,7 +65,7 @@ export default function SingleCharSpells({ charId }) {
     // console.log("spell ids", spellIds);
     return (
         <section id="char-spells">
-            <h2>char spells here</h2>
+            <h3>My Spells</h3>
             {/* <div id="search-spells">
                 <label>
                     Search Spells:{""}

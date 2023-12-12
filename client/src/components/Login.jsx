@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { login } from "../fetching";
 import { useNavigate } from "react-router-dom";
+import { fetchSingleCharacter } from "../helpers/characters";
 
 export default function Login({ setToken, setCharId, setCharName }) {
     const [username, setUsername] = useState("");
