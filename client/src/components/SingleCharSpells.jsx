@@ -88,7 +88,7 @@ export default function SingleCharSpells({ charId }) {
                         )
                         .map((spell) => {
                             return (
-                                <>
+                                <section key={spell.characters_spells_id}>
                                     <div>
                                         <p>{spell.name}</p>
                                     </div>
@@ -97,7 +97,7 @@ export default function SingleCharSpells({ charId }) {
                                             spell_id={spell.spell_id}
                                         />
                                     </div>
-                                </>
+                                </section>
                             );
                         })}
                 </section>

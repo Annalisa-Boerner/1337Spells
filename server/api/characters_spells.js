@@ -22,8 +22,8 @@ router.get("/", async (req, res, next) => {
 // GET - /api/spells/:character_id - get characters_spells by character id
 router.get("/:character_id", async (req, res, next) => {
     try {
-        console.log("entering api/characters_spells/:character_id router");
-        console.log("param id", req.params.character_id);
+        // console.log("entering api/characters_spells/:character_id router");
+        // console.log("param id", req.params.character_id);
         const charSpells = await getCharacters_SpellsByCharacterId(
             req.params.character_id
         );

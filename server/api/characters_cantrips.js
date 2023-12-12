@@ -5,7 +5,7 @@ const {
     getAllCharacters_Cantrips,
     getCharacters_CantripsByCharacterId,
     createCharacter_Cantrip,
-    deleteCharacters_Cantrip,
+    deleteCharacter_Cantrip,
 } = require("../db/helpers/characters_cantrips");
 
 //GET - /api/characters_cantrips - get all characters_cantrips
@@ -47,7 +47,7 @@ router.post("/", async (req, res, next) => {
 //DELETE - /api/characters_cantrips/:cantrip_id deletes cantrip from spellbook
 router.delete("/:cantrip_id", async (req, res, next) => {
     try {
-        const charCantrip = await deleteCharacters_Cantrip(
+        const charCantrip = await deleteCharacter_Cantrip(
             req.params.cantrip_id
         );
         res.send(charCantrip);
