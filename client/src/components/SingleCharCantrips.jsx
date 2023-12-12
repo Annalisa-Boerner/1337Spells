@@ -80,7 +80,11 @@ export default function SingleCharCantrips({ charId }) {
                 </label>
             </div> */}
             <div>
-                <p>placeholder</p>
+                {characterCantripIds.length < 3 ? (
+                    <h3>Add up to three cantrips.</h3>
+                ) : (
+                    <h3>Cantrips are full.</h3>
+                )}
                 <section id="character-cantrips-display">
                     {allCantrips
                         .filter((cantrip) =>

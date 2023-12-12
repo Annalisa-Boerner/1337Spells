@@ -77,7 +77,11 @@ export default function SingleCharSpells({ charId }) {
                 </label>
             </div> */}
             <div>
-                <p>placeholder</p>
+                {characterSpellIds.length < 6 ? (
+                    <h3>Add up to six spells.</h3>
+                ) : (
+                    <h3>Spells are full.</h3>
+                )}
                 <section id="character-spells-display">
                     {allSpells
                         .filter((spell) =>
@@ -86,6 +90,11 @@ export default function SingleCharSpells({ charId }) {
                         .map((spell) => {
                             return (
                                 <section key={spell.characters_spells_id}>
+                                    {/* if charSpellIds.length === 0, then render <add spells>
+                                        if charSpellIds.length === 6, then render <spellbook full>
+                                    
+                                    */}
+
                                     <div>
                                         <p>{spell.name}</p>
                                     </div>
