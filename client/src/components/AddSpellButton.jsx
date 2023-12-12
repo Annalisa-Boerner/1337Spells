@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { createCharacterSpell } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
@@ -19,7 +18,9 @@ export default function AddSpellButton({ charId, spell_id }) {
     return (
         <section id="add-spell-button">
             <form onSubmit={handleSubmit}>
-                <button type="submit">Add to Spellbook</button>
+                <button type="submit" className="add-spell-button">
+                    Add to Spellbook
+                </button>
             </form>
         </section>
     );

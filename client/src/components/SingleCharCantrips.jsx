@@ -93,9 +93,9 @@ export default function SingleCharCantrips({ charId }) {
                                         <p>{cantrip.name}</p>
                                     </div>
                                     <div>
-                                        <RemoveCantripButton
-                                            cantrip_id={cantrip.spell_id}
-                                        />
+                                        {/* <RemoveCantripButton
+                                            cantrip_id={cantrip.cantrip_id}
+                                        /> */}
                                     </div>
                                 </>
                             );
