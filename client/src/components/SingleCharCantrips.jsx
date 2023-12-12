@@ -55,13 +55,15 @@ export default function SingleCharCantrips({ charId }) {
         characterCantripIds.push(charCantrip.cantrip_id);
     });
 
+    console.log("all cantrips in singleCharCantrips", allCantrips);
+
     //pushing the ids from all cantrips into an array
 
-    const cantripIds = [];
+    // const cantripIds = [];
 
-    allCantrips.map((cantrip) => {
-        cantripIds.push(cantrip.cantrip_id);
-    });
+    // allCantrips.map((cantrip) => {
+    //     cantripIds.push(cantrip.cantrip_id);
+    // });
 
     return (
         <section id="char-cantrips">
@@ -93,7 +95,7 @@ export default function SingleCharCantrips({ charId }) {
                         .map((cantrip) => {
                             return (
                                 <>
-                                    <div key={cantrip.characters_cantrips_id}>
+                                    <div key={cantrip.cantrip_id}>
                                         <p>{cantrip.name}</p>
                                     </div>
                                     <div>
