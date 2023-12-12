@@ -89,7 +89,7 @@ export default function SingleCharSpells({ charId }) {
                         .map((spell) => {
                             return (
                                 <>
-                                    <div key={spell.spell_id}>
+                                    <div>
                                         <p>{spell.name}</p>
                                     </div>
                                     <div>

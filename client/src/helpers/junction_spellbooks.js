@@ -126,7 +126,7 @@ export async function createCharacterCantrip(cantrip_id, char_id) {
 export const deleteCharacterCantrip = async (cantrip_id) => {
     try {
         console.log("removing cantrip");
-        await fetch(`${base_url}/characters_cantrip/${cantrip_id}`, {
+        await fetch(`${base_url}/characters_cantrips/${cantrip_id}`, {
             method: "DELETE",
         });
         console.log("reached line 132 in junction_spellbooks front end");
