@@ -4,9 +4,16 @@
 
 When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. Sometimes less is more in a rules-heavy game like D&D 5e. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I have embarked on creating a clear and attractive spellbook for the brand-new Wizard in all of us.
 
-Upon landing at the site, the user can either register a new account or log in (this flow has been secured with BCrypt). 1337 Spells then redirects to [Character]'s Spellbook (you have to register with a character name in addition to a username - this is D&D, after all, and each user could ostensibly register a variety of characters for a variety of games). 
+Some of my learning objectives for this project include:
++ Designing a full stack site from scratch, working from a concept through schema design through implementation
+  + Learning how to manage my scope (oh baby, I started WAY too big and pared down many times to the MVP you see today)
++ Completing an authorization flow and using local storage to maintain login during refreshes
++ Creating the clean flow that one expects from a site instead of using janky student workarounds
++ I'm not a designer (IANAD?), but I want it to look nice! Work in progress
 
-Take a look at the available spells and cantrips, and choose which you'd like your character to learn using the "Add to Spellbook" button. (For the uninitiated, a cantrip is the lowest-level type of spell in the game - they're useful but inconsequential tricks that even the newest wizard can pull off without expending any of their precious magical energy.) Made a mistake? The Remove button is there for you.
+Upon landing at the site, the user can either register a new account or log in (flow secured with BCrypt). 1337 Spells then redirects to [Character]'s Spellbook (you have to register with a character name in addition to a username - this is D&D, after all, and each user could ostensibly register a variety of characters for a variety of games). 
+
+Take a look at the available spells and cantrips, and choose which you'd like your character to learn using the "Add to Spellbook" button. (For the uninitiated, a cantrip is the lowest-level type of spell in the game - they're useful but inconsequential tricks that even the newest wizard can pull off without expending any of their precious magical energy.)
 
 Your spellbook informs you that you can add up to six spells and three cantrips, and will dyamically update to "Spellbook full" once your list is complete.  Frankly, I was excited to save myself from the endless cycle of googling "level 1 wizard how many spells how many cantrips 5e", and to do that for my users, as well.
 
