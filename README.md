@@ -4,7 +4,7 @@
 
 When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. Sometimes less is more in a rules-heavy game like D&D 5e. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I have embarked on creating a clear and attractive spellbook for the brand-new Wizard in all of us.
 
-Some of my learning objectives for this project include:
+Learning objectives for this project:
 + Designing a full stack site from scratch, working from a concept through schema design through implementation
   + Learning how to manage my scope (oh baby, I started WAY too big and pared down many times to the MVP you see today)
 + Completing an authorization flow and using local storage to maintain login during refreshes
