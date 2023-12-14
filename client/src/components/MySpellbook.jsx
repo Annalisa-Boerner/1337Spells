@@ -17,21 +17,18 @@ export default function MySpellbook({ token, charId, charName }) {
 
     return (
         <>
+            <h2>{titleCase(charName)}'s Spellbook</h2>
+            {/* <AllSpells charId={charId} />
+            <AllCantrips charId={charId} /> */}
             {token ? (
                 <section id="spellbookContainer">
-                    <h2>{titleCase(charName)}'s Spellbook</h2>
-                    <br />
-                    <div id="spellContainer">
-                        <div id="leftside">
-                            {" "}
-                            <SingleCharSpells charId={charId} />
-                            <AllSpells charId={charId} />
-                        </div>
-                        <div id="rightside">
-                            {" "}
-                            <SingleCharCantrips charId={charId} />
-                            <AllCantrips charId={charId} />
-                        </div>
+                    <div id="leftside">
+                        {" "}
+                        <SingleCharSpells charId={charId} />
+                    </div>
+                    <div id="rightside">
+                        {" "}
+                        <SingleCharCantrips charId={charId} />
                     </div>
                 </section>
             ) : (
