@@ -31,12 +31,16 @@ a:hover {
 
 #spellbookContainer {
     display: flex;
+    background-image: url("./assets/parchment-removebg-preview.png");
+    background-size: 60vw;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #leftside {
     display: flex;
-    width: 50vw;
-    height: 75vh;
+    /* width: 50vw;
+    height: 75vh; */
     float: left;
     background-color: rgba(248, 216, 168, 0.678);
     padding: 2rem;
@@ -55,8 +59,8 @@ a:hover {
 
 #rightside {
     display: flex;
-    width: 50vw;
-    height: 75vh;
+    /* width: 50vw;
+    height: 75vh; */
     float: right;
     background-color: rgba(248, 216, 168, 0.678);
     padding: 2rem;
@@ -109,8 +113,7 @@ h4 {
     background-image: url("https://images.unsplash.com/photo-1600181982553-ce7d36051c01?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80");
     background-attachment: fixed;
     background-size: 100%;
-    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-        sans-serif;
+    font-family: "EB Garamond";
     line-height: 1.5;
     font-weight: 400;
 
@@ -118,12 +121,6 @@ h4 {
     background-color: #242424;
     margin: 0;
     padding: 0;
-}
-
-/* VITE STYLING */
-h1 {
-    font-size: 3.2em;
-    line-height: 1.1;
 }
 
 /* MISC TEXT */
@@ -147,10 +144,10 @@ button {
 button:hover {
     background-color: rgba(255, 255, 253, 0.726);
 }
-button:focus,
+/* button:focus,
 button:focus-visible {
     outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 #register-button {
     font-size: 0.75em;

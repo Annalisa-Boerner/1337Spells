@@ -18,21 +18,17 @@ export default function MySpellbook({ token, charId, charName }) {
     return (
         <>
             {token ? (
-                <section>
+                <section id="spellbookContainer">
                     <h2>{titleCase(charName)}'s Spellbook</h2>
-                    <div className="flex-titles">
-                        <h4>My Spells (Limit 6)</h4>
-                        <div className="space-between"></div>
-                        <h4>My Cantrips (Limit 3)</h4>
-                    </div>
                     <br />
-                    <div id="spellbookContainer">
+                    <div id="spellContainer">
                         <div id="leftside">
+                            {" "}
                             <SingleCharSpells charId={charId} />
                             <AllSpells charId={charId} />
                         </div>
-                        <div className="spacebetween"></div>
                         <div id="rightside">
+                            {" "}
                             <SingleCharCantrips charId={charId} />
                             <AllCantrips charId={charId} />
                         </div>
