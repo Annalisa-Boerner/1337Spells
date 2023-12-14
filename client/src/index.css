@@ -37,7 +37,7 @@ a:hover {
 #spellbookContainer {
     display: flex;
     background-image: url("./assets/parchment-removebg-preview.png");
-    background-size: 70rem 70rem;
+    background-size: 100%;
     background-position: center;
     background-repeat: no-repeat;
     flex-direction: row;
@@ -65,10 +65,14 @@ a:hover {
 #allCantripsContainer {
     background-image: url("./assets/parchment-removebg-preview.png");
     background-repeat: no-repeat;
-    background-size: 20vw;
+    background-size: 20vw 100%;
     width: 20vw;
+    border: 1px dashed white;
 }
 
+.spellbookSpacer {
+    width: 3rem;
+}
 /* GENERAL FONTS */
 h2 {
     color: rgba(248, 216, 168, 0.801);

@@ -7,22 +7,23 @@ import SingleCharCantrips from "./SingleCharCantrips";
 
 export default function MySpellbook({ token, charId, charName }) {
     // converts string to title case/sentence case for later display in rendering
-    function titleCase(str) {
-        str = str.toLowerCase().split(" ");
-        for (let i = 0; i < str.length; i++) {
-            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
-        }
-        return str.join(" ");
-    }
+    // function titleCase(str) {
+    //     str = str.toLowerCase().split(" ");
+    //     for (let i = 0; i < str.length; i++) {
+    //         str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    //     }
+    //     return str.join(" ");
+    // }
 
     return (
         <>
-            <h2>{titleCase(charName)}'s Spellbook</h2>
+            <h2>{charName}'s Spellbook</h2>
             {token ? (
                 <div id="MySpellbookContent">
                     <section id="allSpellsContainer">
                         <AllSpells charId={charId} />
                     </section>
+                    <div className="spellbookSpacer"></div>
                     <section id="spellbookContainer">
                         <div id="mySpells">
                             {" "}
@@ -32,7 +33,8 @@ export default function MySpellbook({ token, charId, charName }) {
                             {" "}
                             <SingleCharCantrips charId={charId} />
                         </div>
-                    </section>
+                    </section>{" "}
+                    <div className="spellbookSpacer"></div>
                     <section id="allCantripsContainer">
                         <AllCantrips charId={charId} />
                     </section>
