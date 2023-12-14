@@ -29,23 +29,28 @@ a:hover {
 
 /*SPELLBOOK FORMATTING */
 
+#MySpellbookContent {
+    display: flex;
+    justify-content: space-between;
+}
+
 #spellbookContainer {
     display: flex;
     background-image: url("./assets/parchment-removebg-preview.png");
-    background-size: 70vw;
+    background-size: 70rem 70rem;
     background-position: center;
     background-repeat: no-repeat;
     flex-direction: row;
     justify-content: center;
 }
 
-#leftside {
+#mySpells {
     display: flex;
     border: 1px solid white;
     padding: 2rem;
 }
 
-#rightside {
+#myCantrips {
     display: flex;
     border: 1px solid white;
     padding: 2rem;
@@ -56,6 +61,15 @@ a:hover {
     margin: 3rem;
 }
 
+#allSpellsContainer,
+#allCantripsContainer {
+    background-image: url("./assets/parchment-removebg-preview.png");
+    background-repeat: no-repeat;
+    background-size: 20vw;
+    width: 20vw;
+}
+
+/* GENERAL FONTS */
 h2 {
     color: rgba(248, 216, 168, 0.801);
     font-size: 2em;
