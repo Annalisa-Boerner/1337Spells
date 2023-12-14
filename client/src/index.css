@@ -48,8 +48,15 @@ a:hover {
 #mySpells,
 #myCantrips {
     display: flex;
-    /* border: 1px solid white; */
-    padding: 2rem;
+    width: 18vw;
+}
+
+#mySpells {
+    padding: 2rem 0rem 2rem 2rem;
+}
+
+#myCantrips {
+    padding: 2rem 2rem 2rem 0rem;
 }
 
 #char-spells,
@@ -65,7 +72,7 @@ a:hover {
     opacity: 0.8;
     width: 20vw;
     padding: 2vw;
-    /* border: 1px dashed white; */
+    color: black;
 }
 
 .spellbookSpacer {
