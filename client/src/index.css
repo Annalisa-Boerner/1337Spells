@@ -87,8 +87,8 @@ a:hover {
 .spellbookSpacer {
     width: 10vw;
 }
-/* COLLAPSIBLE */
-.collapsible {
+/* COLLAPSIBLE W3 version */
+/* .collapsible {
     background-color: bisque;
     color: black;
     cursor: pointer;
@@ -108,7 +108,7 @@ a:hover {
     padding: 0 18px;
     overflow: auto;
     background-color: rgba(255, 255, 255, 0.466);
-}
+} */
 
 /* GENERAL FONTS */
 h2 {

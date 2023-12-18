@@ -29,6 +29,8 @@ export default function AllSpells({ charId }) {
           )
         : allSpells;
 
+    //W3 SCHOOLS ATTEMPT
+
     let coll = document.getElementsByClassName("collapsible");
     let i;
 
@@ -62,11 +64,8 @@ export default function AllSpells({ charId }) {
             <div id="allSpellNames">
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <div key={spell.url}>
-                            <button type="button" className="collapsible">
-                                {spell.name}
-                            </button>
-                            <p>text goes here</p>
+                        <div key={spell.url} className="collapse transparent">
+                            <p>{spell.name}</p>
                             <AddSpellButton
                                 spell_id={spell.spell_id}
                                 charId={charId}
