@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllSpells } from "../helpers/spells";
+import { fetchAllApiSpells } from "../helpers/dnd5eApi";
 import AddSpellButton from "./AddSpellButton";
 
 export default function AllSpells({ charId }) {
@@ -8,11 +9,10 @@ export default function AllSpells({ charId }) {
 
     useEffect(() => {
         async function getAllSpells() {
-            const spells = await fetchAllSpells();
+            const spells = await fetchAllApiSpells();
 
             if (spells) {
                 setAllSpells(spells);
-
                 return spells;
             } else {
                 console.error("there was an error fetching all spells");
@@ -20,6 +20,8 @@ export default function AllSpells({ charId }) {
         }
         getAllSpells();
     }, []);
+
+    console.log("allSpells in  AllSpells line 24", allSpells);
 
     const spellsToDisplay = searchParam
         ? allSpells.filter((spell) =>
