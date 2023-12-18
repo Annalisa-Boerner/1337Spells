@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchAllSpells } from "../helpers/spells";
+
 import { fetchAllApiSpells } from "../helpers/dnd5eApi";
 import AddSpellButton from "./AddSpellButton";
 
@@ -21,7 +21,7 @@ export default function AllSpells({ charId }) {
         getAllSpells();
     }, []);
 
-    console.log("allSpells in  AllSpells line 24", allSpells);
+    // console.log("allSpells in  AllSpells line 24", allSpells);
 
     const spellsToDisplay = searchParam
         ? allSpells.filter((spell) =>

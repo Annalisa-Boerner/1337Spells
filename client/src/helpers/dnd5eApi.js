@@ -12,3 +12,16 @@ export const fetchAllApiSpells = async () => {
         );
     }
 };
+
+export const fetchAllApiCantrips = async () => {
+    try {
+        const response = await fetch(`${base_url}/spells?level=0`);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(
+            "there was an error fetching all cantrips from the API",
+            error
+        );
+    }
+};
