@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { fetchAllCantrips } from "../helpers/cantrips";
+import { fetchAllApiCantrips } from "../helpers/dnd5eApi";
 import AddCantripButton from "./AddCantripButton";
 
 export default function AllCantrips({ charId }) {
@@ -8,11 +8,11 @@ export default function AllCantrips({ charId }) {
 
     useEffect(() => {
         async function getAllCantrips() {
-            const cantrips = await fetchAllCantrips();
+            const cantrips = await fetchAllApiCantrips();
 
             //    console.log(apiResponse);
             if (cantrips) {
-                setAllCantrips(cantrips);
+                setAllCantrips(cantrips.results);
 
                 return cantrips;
             } else {
@@ -28,11 +28,12 @@ export default function AllCantrips({ charId }) {
           )
         : allCantrips;
 
+    console.log("allCantrips in AllCantrips line 31", allCantrips);
     return (
         <section id="all-cantrips" className="flex-column">
             <h3>All Cantrips</h3>
             <label id="search-cantrips">
-                Search:{""}
+                {""}
                 <input
                     id="search-cantrips-bar"
                     type="text"
@@ -42,20 +43,19 @@ export default function AllCantrips({ charId }) {
                     }
                 />
             </label>
-
-            {cantripsToDisplay.map((cantrip) => {
-                return (
-                    <div key={cantrip.cantrip_id}>
-                        <p>
-                            {cantrip.name}, {cantrip.cantrip_id}
-                        </p>
-                        <AddCantripButton
-                            cantrip_id={cantrip.cantrip_id}
-                            charId={charId}
-                        />
-                    </div>
-                );
-            })}
+            <div id="allCantripNames">
+                {cantripsToDisplay.map((cantrip) => {
+                    return (
+                        <div key={cantrip.url}>
+                            <p>{cantrip.name}</p>
+                            <AddCantripButton
+                                cantrip_id={cantrip.cantrip_id}
+                                charId={charId}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
         </section>
     );
 }

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { fetchAllSpells } from "../helpers/spells";
+
+import { fetchAllApiSpells } from "../helpers/dnd5eApi";
 import AddSpellButton from "./AddSpellButton";
 
 export default function AllSpells({ charId }) {
@@ -8,11 +9,10 @@ export default function AllSpells({ charId }) {
 
     useEffect(() => {
         async function getAllSpells() {
-            const spells = await fetchAllSpells();
+            const spells = await fetchAllApiSpells();
 
             if (spells) {
-                setAllSpells(spells);
-
+                setAllSpells(spells.results);
                 return spells;
             } else {
                 console.error("there was an error fetching all spells");
@@ -20,6 +20,8 @@ export default function AllSpells({ charId }) {
         }
         getAllSpells();
     }, []);
+
+    // console.log("allSpells in  AllSpells line 24", allSpells);
 
     const spellsToDisplay = searchParam
         ? allSpells.filter((spell) =>
@@ -32,7 +34,6 @@ export default function AllSpells({ charId }) {
             <div id="search-spells">
                 <h3>All Spells</h3>
                 <label>
-                    Search Spells:{""}
                     <input
                         id="search-spells-bar"
                         type="text"
@@ -43,13 +44,11 @@ export default function AllSpells({ charId }) {
                     />
                 </label>
             </div>
-            <div>
+            <div id="allSpellNames">
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <div key={spell.spell_id}>
-                            <p>
-                                {spell.name}, {spell.spell_id}
-                            </p>
+                        <div key={spell.url}>
+                            <p>{spell.name}</p>
                             <AddSpellButton
                                 spell_id={spell.spell_id}
                                 charId={charId}

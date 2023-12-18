@@ -7,37 +7,38 @@ import SingleCharCantrips from "./SingleCharCantrips";
 
 export default function MySpellbook({ token, charId, charName }) {
     // converts string to title case/sentence case for later display in rendering
-    function titleCase(str) {
-        str = str.toLowerCase().split(" ");
-        for (let i = 0; i < str.length; i++) {
-            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
-        }
-        return str.join(" ");
-    }
+    // function titleCase(str) {
+    //     str = str.toLowerCase().split(" ");
+    //     for (let i = 0; i < str.length; i++) {
+    //         str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    //     }
+    //     return str.join(" ");
+    // }
 
     return (
         <>
+            <h2>{charName}'s Spellbook</h2>
             {token ? (
-                <section>
-                    <h2>{titleCase(charName)}'s Spellbook</h2>
-                    <div className="flex-titles">
-                        <h4>My Spells (Limit 6)</h4>
-                        <div className="space-between"></div>
-                        <h4>My Cantrips (Limit 3)</h4>
-                    </div>
-                    <br />
-                    <div id="spellbookContainer">
-                        <div id="leftside">
+                <div id="MySpellbookContent">
+                    <section id="allSpellsContainer">
+                        <AllSpells charId={charId} />
+                    </section>
+                    <div className="spellbookSpacer"></div>
+                    <section id="spellbookContainer">
+                        <div id="mySpells">
+                            {" "}
                             <SingleCharSpells charId={charId} />
-                            <AllSpells charId={charId} />
                         </div>
-                        <div className="spacebetween"></div>
-                        <div id="rightside">
+                        <div id="myCantrips">
+                            {" "}
                             <SingleCharCantrips charId={charId} />
-                            <AllCantrips charId={charId} />
                         </div>
-                    </div>
-                </section>
+                    </section>{" "}
+                    <div className="spellbookSpacer"></div>
+                    <section id="allCantripsContainer">
+                        <AllCantrips charId={charId} />
+                    </section>
+                </div>
             ) : (
                 <h2>Please log in using the link above.</h2>
             )}

@@ -6,7 +6,6 @@ import {
 import RemoveSpellButton from "./RemoveSpellButton";
 
 export default function SingleCharSpells({ charId }) {
-    // const [searchParam, setSearchParam] = useState("");
     const [charSpells, setCharSpells] = useState([]);
     const [allSpells, setAllSpells] = useState([]);
 
@@ -53,7 +52,6 @@ export default function SingleCharSpells({ charId }) {
         characterSpellIds.push(charSpell.spell_id);
     });
 
-    // console.log("character spell ids", characterSpellIds);
     //pushing the ids from the spells into an array
 
     const spellIds = [];
@@ -62,7 +60,6 @@ export default function SingleCharSpells({ charId }) {
         spellIds.push(allSpell.spell_id);
     });
 
-    // console.log("spell ids", spellIds);
     return (
         <section id="char-spells">
             <h3>My Spells</h3>
@@ -80,7 +77,11 @@ export default function SingleCharSpells({ charId }) {
                 </label>
             </div> */}
             <div>
-                <p>placeholder</p>
+                {characterSpellIds.length < 6 ? (
+                    <h3>Add up to six spells.</h3>
+                ) : (
+                    <h3>Spells are full.</h3>
+                )}
                 <section id="character-spells-display">
                     {allSpells
                         .filter((spell) =>
@@ -89,6 +90,11 @@ export default function SingleCharSpells({ charId }) {
                         .map((spell) => {
                             return (
                                 <section key={spell.characters_spells_id}>
+                                    {/* if charSpellIds.length === 0, then render <add spells>
+                                        if charSpellIds.length === 6, then render <spellbook full>
+                                    
+                                    */}
+
                                     <div>
                                         <p>{spell.name}</p>
                                     </div>

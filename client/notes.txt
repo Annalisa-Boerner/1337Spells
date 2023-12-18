@@ -1,3 +1,8 @@
+Character Spell connections w api
+
+
+
+
 Character Spell names
 
 1. get the character spells listings that match
