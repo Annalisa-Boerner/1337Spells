@@ -1,4 +1,5 @@
 Add/remove Active class on click
+https://www.youtube.com/watch?v=lhLh8N9YN7E&ab_channel=ByteGrad
 
 -example of a nav bar
 -create a css class called .active {}
