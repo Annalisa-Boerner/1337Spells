@@ -44,7 +44,7 @@ export default function AllSpells({ charId }) {
                     />
                 </label>
             </div>
-            <div>
+            <div id="allSpellNames">
                 {spellsToDisplay.map((spell) => {
                     return (
                         <div key={spell.url}>

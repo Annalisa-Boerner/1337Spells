@@ -43,18 +43,19 @@ export default function AllCantrips({ charId }) {
                     }
                 />
             </label>
-
-            {cantripsToDisplay.map((cantrip) => {
-                return (
-                    <div key={cantrip.url}>
-                        <p>{cantrip.name}</p>
-                        <AddCantripButton
-                            cantrip_id={cantrip.cantrip_id}
-                            charId={charId}
-                        />
-                    </div>
-                );
-            })}
+            <div id="allCantripNames">
+                {cantripsToDisplay.map((cantrip) => {
+                    return (
+                        <div key={cantrip.url}>
+                            <p>{cantrip.name}</p>
+                            <AddCantripButton
+                                cantrip_id={cantrip.cantrip_id}
+                                charId={charId}
+                            />
+                        </div>
+                    );
+                })}
+            </div>
         </section>
     );
 }
