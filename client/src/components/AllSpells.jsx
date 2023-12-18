@@ -12,7 +12,7 @@ export default function AllSpells({ charId }) {
             const spells = await fetchAllApiSpells();
 
             if (spells) {
-                setAllSpells(spells);
+                setAllSpells(spells.results);
                 return spells;
             } else {
                 console.error("there was an error fetching all spells");
@@ -47,7 +47,7 @@ export default function AllSpells({ charId }) {
             <div>
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <div key={spell.spell_id}>
+                        <div key={spell.url}>
                             <p>{spell.name}</p>
                             <AddSpellButton
                                 spell_id={spell.spell_id}

@@ -38,7 +38,6 @@ export default function SingleCharCantrips({ charId }) {
 
             if (allCantrips) {
                 setAllCantrips(allCantrips);
-                // console.log("allCantrips in SingleCharCantrips", allCantrips);
                 return allCantrips;
             } else {
                 console.error("there was an error fetching all cantrips");
@@ -55,7 +54,7 @@ export default function SingleCharCantrips({ charId }) {
         characterCantripIds.push(charCantrip.cantrip_id);
     });
 
-    console.log("all cantrips in singleCharCantrips", allCantrips);
+    // console.log("all cantrips in singleCharCantrips", allCantrips);
 
     //pushing the ids from all cantrips into an array
 
