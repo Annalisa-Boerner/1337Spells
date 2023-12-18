@@ -29,6 +29,21 @@ export default function AllSpells({ charId }) {
           )
         : allSpells;
 
+    let coll = document.getElementsByClassName("collapsible");
+    let i;
+
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            let content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
+    }
+
     return (
         <section id="all-spells">
             <div id="search-spells">
@@ -48,7 +63,10 @@ export default function AllSpells({ charId }) {
                 {spellsToDisplay.map((spell) => {
                     return (
                         <div key={spell.url}>
-                            <p>{spell.name}</p>
+                            <button type="button" className="collapsible">
+                                {spell.name}
+                            </button>
+                            <p>text goes here</p>
                             <AddSpellButton
                                 spell_id={spell.spell_id}
                                 charId={charId}
