@@ -33,7 +33,7 @@ export const fetchCharactersSpellsByCharacterId = async (character_id) => {
 };
 
 //POST a spell to characters_spells
-export async function createCharacterSpell(spell_id, char_id) {
+export async function createCharacterSpell(spell_index, char_id) {
     try {
         console.log("char_id in front end helpers post", char_id);
         const response = await fetch(`${base_url}/characters_spells`, {
@@ -42,7 +42,7 @@ export async function createCharacterSpell(spell_id, char_id) {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                spell_id: spell_id,
+                spell_index: spell_index,
                 character_id: char_id,
             }),
         });

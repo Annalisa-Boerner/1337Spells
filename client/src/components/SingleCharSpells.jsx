@@ -18,7 +18,7 @@ export default function SingleCharSpells({ charId }) {
 
             if (charSpells) {
                 setCharSpells(charSpells);
-                // console.log("charSpells in SingleCharSpells", charSpells);
+                console.log("charSpells in SingleCharSpells", charSpells);
                 return charSpells;
             } else {
                 console.error(
@@ -51,7 +51,7 @@ export default function SingleCharSpells({ charId }) {
     const characterSpellIds = [];
 
     charSpells.map((charSpell) => {
-        characterSpellIds.push(charSpell.spell_id);
+        characterSpellIds.push(charSpell.spell_index);
     });
 
     //pushing the ids from the spells into an array
@@ -59,7 +59,7 @@ export default function SingleCharSpells({ charId }) {
     const spellIds = [];
 
     allSpells.map((allSpell) => {
-        spellIds.push(allSpell.spell_id);
+        spellIds.push(allSpell.spell_index);
     });
 
     return (
