@@ -14,11 +14,6 @@ const {
 
 //pull in helpers
 const { createCharacter } = require("./helpers/characters");
-// const {
-//      createSpellbooks,
-//      getAllSpellbooks,
-//      getSpellbookById,
-// } = require("./helpers/spellbooks");
 const { createSpells } = require("./helpers/spells");
 const { createArcaneRecovery } = require("./helpers/arcanerecovery");
 const { createCantrips } = require("./helpers/cantrips");

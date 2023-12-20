@@ -69,7 +69,7 @@ const characters_spells = [
 
 const characters_cantrips = [
     { character_id: 3, cantrip_index: "mage-hand", cantrip_name: "Mage Hand" },
-    { character_id: 3, cantrip_index: "sleep", cantrip_name: "Sleep" },
+    { character_id: 3, cantrip_index: "friends", cantrip_name: "Friends" },
     { character_id: 3, cantrip_index: "mage-hand", cantrip_name: "Mage Hand" },
 ];
 module.exports = {
