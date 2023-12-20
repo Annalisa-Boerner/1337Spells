@@ -67,8 +67,8 @@ export default function SingleCharCantrips({ charId }) {
     // });
 
     return (
-        <section id="char-cantrips">
-            <h3>My Cantrips</h3>
+        <section id="myCantrips">
+            <h3 id="myCantripsTitle">My Cantrips</h3>
             {/* <div id="search-spells">
                 <label>
                     Search Spells:{""}
@@ -88,7 +88,7 @@ export default function SingleCharCantrips({ charId }) {
                 ) : (
                     <h3>Cantrips are full.</h3>
                 )}
-                <section id="character-cantrips-display">
+                <section id="myCantripsDisplay">
                     {allCantrips
                         .filter((cantrip) =>
                             characterCantripIds.includes(cantrip.cantrip_id)
