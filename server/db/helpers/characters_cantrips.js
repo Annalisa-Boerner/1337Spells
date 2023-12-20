@@ -1,17 +1,22 @@
 const client = require("../client");
 
-const createCharacter_Cantrip = async ({ cantrip_id, character_id }) => {
+const createCharacter_Cantrip = async ({
+    cantrip_index,
+    character_id,
+    cantrip_name,
+}) => {
     try {
         const {
             rows: [character_cantrip],
         } = await client.query(
             `
-    INSERT INTO characters_cantrips(cantrip_id, character_id)       
-        VALUES($1, $2)
+    INSERT INTO characters_cantrips(cantrip_index, character_id, cantrip_name)       
+        VALUES($1, $2, $3)
         RETURNING *;
        `,
-            [cantrip_id, character_id]
+            [cantrip_index, character_id, cantrip_name]
         );
+        console.log("character_cantrip output", character_cantrip);
         return character_cantrip;
     } catch (error) {
         throw error;

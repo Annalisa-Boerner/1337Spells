@@ -4,6 +4,7 @@ import {
     fetchCharacterCantripsByCharacterId,
 } from "../helpers/cantrips";
 import Collapsible from "react-collapsible";
+import DetailsButton from "./DetailsButton";
 import RemoveCantripButton from "./RemoveCantripButton";
 
 export default function SingleCharCantrips({ charId }) {
@@ -103,11 +104,11 @@ export default function SingleCharCantrips({ charId }) {
                                         key={cantrip.url}
                                         transitionTime={200}
                                     >
-                                        <p>cantrip details here</p>
                                         <RemoveCantripButton
                                             cantrip_id={cantrip.cantrip_id}
                                             charId={charId}
                                         />
+                                        <DetailsButton />
                                     </Collapsible>
                                     <br />
                                 </section>

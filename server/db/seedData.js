@@ -36,46 +36,41 @@ const characters = [
     },
 ];
 
-//spellbooks
-// const spellbooks = [
-//      {
-//           spellbook_id: 1,
-//      },
-//      {
-//           spellbook_id: 2,
-//      },
-//      {
-//           spellbook_id: 3,
-//      },
-// ];
-
 //spells that exist
 const spells = [
-    { spell_id: 1, name: "Magic Missile" },
-    { spell_id: 2, name: "Sleep" },
-    { spell_id: 3, name: "Feather Fall" },
+    { spell_index: "magic-missile", spell_name: "Magic Missile" },
+    { spell_index: "sleep", spell_name: "Sleep" },
+    { spell_index: "feather-fall", spell_name: "Feather Fall" },
 ];
 
 //cantrips that exist
 const cantrips = [
-    { cantrip_id: 1, name: "Mage Hand" },
-    { cantrip_id: 2, name: "Friends" },
-    { cantrip_id: 3, name: "Gust" },
+    { cantrip_index: "mage-hand", cantrip_name: "Mage Hand" },
+    { cantrip_index: "friends", cantrip_name: "Friends" },
+    { cantrip_index: "gust", cantrip_name: "Gust" },
 ];
 
 //junction between characters and spells
 const characters_spells = [
-    { character_id: 1, spell_id: 1, spell_name: "Magic Missile" },
-    { character_id: 1, spell_id: 2, spell_name: "Sleep" },
-    { character_id: 1, spell_id: 3, spell_name: "Feather Fall" },
+    {
+        character_id: 1,
+        spell_index: "magic-missile",
+        spell_name: "Magic Missile",
+    },
+    { character_id: 1, spell_index: "sleep", spell_name: "Sleep" },
+    {
+        character_id: 1,
+        spell_index: "feather-fall",
+        spell_name: "Feather Fall",
+    },
 ];
 
 //junction between characters and cantrips
 
 const characters_cantrips = [
-    { character_id: 3, cantrip_id: 1, cantrip_name: "Mage Hand" },
-    { character_id: 3, cantrip_id: 2, cantrip_name: "Sleep" },
-    { character_id: 3, cantrip_id: 1, cantrip_name: "Mage Hand" },
+    { character_id: 3, cantrip_index: "mage-hand", cantrip_name: "Mage Hand" },
+    { character_id: 3, cantrip_index: "sleep", cantrip_name: "Sleep" },
+    { character_id: 3, cantrip_index: "mage-hand", cantrip_name: "Mage Hand" },
 ];
 module.exports = {
     arcanerecovery,

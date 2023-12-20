@@ -4,6 +4,7 @@ import {
     fetchCharacterSpellsByCharacterId,
 } from "../helpers/spells";
 import Collapsible from "react-collapsible";
+import DetailsButton from "./DetailsButton";
 import RemoveSpellButton from "./RemoveSpellButton";
 
 export default function SingleCharSpells({ charId }) {
@@ -97,11 +98,11 @@ export default function SingleCharSpells({ charId }) {
                                         key={spell.url}
                                         transitionTime={200}
                                     >
-                                        <p>Spell details here</p>
                                         <RemoveSpellButton
                                             spell_id={spell.spell_id}
                                             charId={charId}
                                         />
+                                        <DetailsButton />
                                     </Collapsible>
                                     <br />
                                 </section>

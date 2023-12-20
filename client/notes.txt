@@ -1,3 +1,9 @@
+
+Character Spell connections w api
+1. for fetching details: there an index that's shared between the individual spell and the /spells endpoint objects
+2. for adding individual spells to spellbook: use the index, so make it not an id in the table, but rather an index
+3.  the INDEX IS THE API ENDPOINT 
+
 Add/remove Active class on click
 https://www.youtube.com/watch?v=lhLh8N9YN7E&ab_channel=ByteGrad
 
@@ -15,9 +21,6 @@ https://www.youtube.com/watch?v=lhLh8N9YN7E&ab_channel=ByteGrad
             navLinkEl.classList.add('active');
         })
     })
-
-
-Character Spell connections w api
 
 
 
