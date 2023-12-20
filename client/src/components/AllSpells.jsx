@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Collapsible from "react-collapsible";
 
 import { fetchAllApiSpells } from "../helpers/dnd5eApi";
 import AddSpellButton from "./AddSpellButton";
@@ -29,23 +30,6 @@ export default function AllSpells({ charId }) {
           )
         : allSpells;
 
-    //W3 SCHOOLS ATTEMPT
-
-    let coll = document.getElementsByClassName("collapsible");
-    let i;
-
-    for (i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            let content = this.nextElementSibling;
-            if (content.style.display === "block") {
-                content.style.display = "none";
-            } else {
-                content.style.display = "block";
-            }
-        });
-    }
-
     return (
         <section id="all-spells">
             <div id="search-spells">
@@ -64,13 +48,13 @@ export default function AllSpells({ charId }) {
             <div id="allSpellNames">
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <div key={spell.url} className="collapse transparent">
+                        <Collapsible trigger={spell.name} key={spell.url}>
                             <p>{spell.name}</p>
                             <AddSpellButton
                                 spell_id={spell.spell_id}
                                 charId={charId}
                             />
-                        </div>
+                        </Collapsible>
                     );
                 })}
             </div>
