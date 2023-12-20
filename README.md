@@ -7,9 +7,14 @@ When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard
 Learning objectives for this project:
 + Designing a full stack site from scratch, working from a concept through schema design through implementation
   + Learning how to manage my scope (oh baby, I started WAY too big and pared down many times to the MVP you see today)
++ Working with the [D&D 5e API](https://www.dnd5eapi.co/) to pull in spells and lazy load deets
 + Completing an authorization flow and using local storage to maintain login during refreshes
 + Creating the clean flow that one expects from a site instead of using janky student workarounds
 + I'm not a designer (IANAD?), but I want it to look nice! Work in progress
+
+Things I didn't mean to learn but did:
++ jQuery basics (on CodePen like, "what is going on in this gorgeous thing I'm looking at")
++ To add "React Component" to your google search if you're working in react ([oh baby, this collapse](https://github.com/glennflanagan/react-collapsible))
 
 Upon landing at the site, the user can either register a new account or log in (flow secured with BCrypt). 1337 Spells then redirects to [Character]'s Spellbook (you have to register with a character name in addition to a username - this is D&D, after all, and each user could ostensibly register a variety of characters for a variety of games). 
 
