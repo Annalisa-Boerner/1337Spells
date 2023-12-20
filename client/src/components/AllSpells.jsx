@@ -50,7 +50,8 @@ export default function AllSpells({ charId }) {
                     return (
                         <>
                             <Collapsible
-                                trigger={"+" + spell.name}
+                                trigger={"+" + " " + spell.name}
+                                triggerWhenOpen={"-" + " " + spell.name}
                                 key={spell.url}
                             >
                                 <p>Spell details here</p>
