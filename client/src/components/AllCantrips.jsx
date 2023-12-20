@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchAllApiCantrips } from "../helpers/dnd5eApi";
+import Collapsible from "react-collapsible";
 import AddCantripButton from "./AddCantripButton";
 
 export default function AllCantrips({ charId }) {
@@ -46,13 +47,21 @@ export default function AllCantrips({ charId }) {
             <div id="allCantripNames">
                 {cantripsToDisplay.map((cantrip) => {
                     return (
-                        <div key={cantrip.url}>
-                            <p>{cantrip.name}</p>
-                            <AddCantripButton
-                                cantrip_id={cantrip.cantrip_id}
-                                charId={charId}
-                            />
-                        </div>
+                        <>
+                            <Collapsible
+                                trigger={"+" + " " + cantrip.name}
+                                triggerWhenOpen={"—" + " " + cantrip.name}
+                                key={cantrip.url}
+                                transitionTime={200}
+                            >
+                                <p>cantrip details here</p>
+                                <AddCantripButton
+                                    cantrip_id={cantrip.spell_id}
+                                    charId={charId}
+                                />
+                            </Collapsible>
+                            <br />
+                        </>
                     );
                 })}
             </div>

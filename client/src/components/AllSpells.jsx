@@ -51,8 +51,9 @@ export default function AllSpells({ charId }) {
                         <>
                             <Collapsible
                                 trigger={"+" + " " + spell.name}
-                                triggerWhenOpen={"-" + " " + spell.name}
+                                triggerWhenOpen={"--" + " " + spell.name}
                                 key={spell.url}
+                                transitionTime={200}
                             >
                                 <p>Spell details here</p>
                                 <AddSpellButton
