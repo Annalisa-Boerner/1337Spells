@@ -63,8 +63,8 @@ export default function SingleCharSpells({ charId }) {
     });
 
     return (
-        <section id="char-spells">
-            <h3>My Spells</h3>
+        <section id="myCantrips">
+            <h3 id="mySpellsTitle">My Spells</h3>
             {/* <div id="search-spells">
                 <label>
                     Search Spells:{""}
@@ -84,7 +84,7 @@ export default function SingleCharSpells({ charId }) {
                 ) : (
                     <h3>Spells are full.</h3>
                 )}
-                <section id="character-spells-display">
+                <section id="mySpellsDisplay">
                     {allSpells
                         .filter((spell) =>
                             characterSpellIds.includes(spell.spell_id)
