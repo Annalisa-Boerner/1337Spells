@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import Collapsible from "react-collapsible";
 
 import { fetchAllApiSpells } from "../helpers/dnd5eApi";
 import AddSpellButton from "./AddSpellButton";
@@ -47,13 +48,20 @@ export default function AllSpells({ charId }) {
             <div id="allSpellNames">
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <div key={spell.url}>
-                            <p>{spell.name}</p>
-                            <AddSpellButton
-                                spell_id={spell.spell_id}
-                                charId={charId}
-                            />
-                        </div>
+                        <>
+                            <Collapsible
+                                trigger={"+" + " " + spell.name}
+                                triggerWhenOpen={"-" + " " + spell.name}
+                                key={spell.url}
+                            >
+                                <p>Spell details here</p>
+                                <AddSpellButton
+                                    spell_id={spell.spell_id}
+                                    charId={charId}
+                                />
+                            </Collapsible>
+                            <br />
+                        </>
                     );
                 })}
             </div>

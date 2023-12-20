@@ -35,6 +35,8 @@ a:hover {
     align-items: center;
 }
 
+/* MY SPELLS CENTER CONTAINERS */
+
 #spellbookContainer {
     display: flex;
     background-image: url("./assets/parchment-removebg-preview.png");
@@ -48,7 +50,7 @@ a:hover {
 #mySpells,
 #myCantrips {
     display: flex;
-    width: 18vw;
+    width: 10vw;
 }
 
 #mySpells {
@@ -56,7 +58,7 @@ a:hover {
 }
 
 #myCantrips {
-    padding: 2rem 2rem 2rem 0rem;
+    padding: 2rem 8rem 2rem 0rem;
 }
 
 #char-spells,
@@ -64,17 +66,18 @@ a:hover {
     margin: 0.5vw 5vw 15vw 5vw;
 }
 
+/* ALL SPELLS SIDE CONTAINERS */
 #allSpellsContainer,
 #allCantripsContainer {
     background-image: url("./assets/parchment-removebg-preview.png");
     background-repeat: no-repeat;
     background-size: 20vw 100%;
     opacity: 0.8;
-    width: 20vw;
+    width: 40vw;
     padding: 2vw 2vw 4vw 2vw;
     color: black;
     overflow: scroll;
-    height: 50vw;
+    height: 40vw;
 }
 
 #allSpellNames,
@@ -85,6 +88,7 @@ a:hover {
 .spellbookSpacer {
     width: 10vw;
 }
+
 /* GENERAL FONTS */
 h2 {
     color: rgba(248, 216, 168, 0.801);
@@ -156,7 +160,7 @@ button {
     color: black;
 }
 button:hover {
-    background-color: rgba(255, 255, 253, 0.726);
+    background-color: rgb(255, 255, 253);
 }
 /* button:focus,
 button:focus-visible {

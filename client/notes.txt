@@ -1,3 +1,22 @@
+Add/remove Active class on click
+https://www.youtube.com/watch?v=lhLh8N9YN7E&ab_channel=ByteGrad
+
+-example of a nav bar
+-create a css class called .active {}
+-select all of the nav link elements (class name was nav__link):
+    const navLinkEls = document.querySelectorAll('.nav__link');
+    -add event listeners
+    navLinkEls.forEach(navLinkEl => {
+        //in order to have only one active element at a time, remove from any old ones (question mark in case it doesn't exist yet):
+        document.querySelector('.active')?.classList.remove('active')
+
+        //now make the new one active
+        navLinkEl.addEventListener('click', () => {
+            navLinkEl.classList.add('active');
+        })
+    })
+
+
 Character Spell connections w api
 
 
