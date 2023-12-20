@@ -3,6 +3,8 @@ import {
     fetchAllSpells,
     fetchCharacterSpellsByCharacterId,
 } from "../helpers/spells";
+import Collapsible from "react-collapsible";
+import DetailsButton from "./DetailsButton";
 import RemoveSpellButton from "./RemoveSpellButton";
 
 export default function SingleCharSpells({ charId }) {
@@ -90,19 +92,19 @@ export default function SingleCharSpells({ charId }) {
                         .map((spell) => {
                             return (
                                 <section key={spell.characters_spells_id}>
-                                    {/* if charSpellIds.length === 0, then render <add spells>
-                                        if charSpellIds.length === 6, then render <spellbook full>
-                                    
-                                    */}
-
-                                    <div>
-                                        <p>{spell.name}</p>
-                                    </div>
-                                    <div>
+                                    <Collapsible
+                                        trigger={"+" + " " + spell.name}
+                                        triggerWhenOpen={"—" + " " + spell.name}
+                                        key={spell.url}
+                                        transitionTime={200}
+                                    >
                                         <RemoveSpellButton
                                             spell_id={spell.spell_id}
+                                            charId={charId}
                                         />
-                                    </div>
+                                        <DetailsButton />
+                                    </Collapsible>
+                                    <br />
                                 </section>
                             );
                         })}

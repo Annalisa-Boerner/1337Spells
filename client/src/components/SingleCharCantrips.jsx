@@ -3,6 +3,8 @@ import {
     fetchAllCantrips,
     fetchCharacterCantripsByCharacterId,
 } from "../helpers/cantrips";
+import Collapsible from "react-collapsible";
+import DetailsButton from "./DetailsButton";
 import RemoveCantripButton from "./RemoveCantripButton";
 
 export default function SingleCharCantrips({ charId }) {
@@ -93,16 +95,23 @@ export default function SingleCharCantrips({ charId }) {
                         )
                         .map((cantrip) => {
                             return (
-                                <>
-                                    <div key={cantrip.cantrip_id}>
-                                        <p>{cantrip.name}</p>
-                                    </div>
-                                    <div>
+                                <section key={cantrip.characters_cantrips_id}>
+                                    <Collapsible
+                                        trigger={"+" + " " + cantrip.name}
+                                        triggerWhenOpen={
+                                            "—" + " " + cantrip.name
+                                        }
+                                        key={cantrip.url}
+                                        transitionTime={200}
+                                    >
                                         <RemoveCantripButton
                                             cantrip_id={cantrip.cantrip_id}
+                                            charId={charId}
                                         />
-                                    </div>
-                                </>
+                                        <DetailsButton />
+                                    </Collapsible>
+                                    <br />
+                                </section>
                             );
                         })}
                 </section>

@@ -1,4 +1,4 @@
-/* LINK AND NAV COLORING */
+/* LINK AND NAV FORMATING */
 a:link,
 #login-container {
     color: whitesmoke;
@@ -27,7 +27,7 @@ a:hover {
     color: rgba(248, 216, 168, 0.678);
 }
 
-/*SPELLBOOK FORMATTING */
+/*---------SPELLBOOK FORMATTING-----------*/
 
 #MySpellbookContent {
     display: flex;
@@ -76,7 +76,7 @@ a:hover {
     width: 40vw;
     padding: 2vw 2vw 4vw 2vw;
     color: black;
-    overflow: scroll;
+    overflow: auto;
     height: 40vw;
 }
 
@@ -96,11 +96,28 @@ h2 {
     font-weight: 100;
 }
 
+h3 {
+    font-size: 1.5rem;
+}
+
 h4 {
     color: rgba(247, 234, 216, 0.822);
     font-size: 1.5em;
     font-weight: 100;
 }
+
+p {
+    font-size: 1.3rem;
+}
+
+.Collapsible {
+    font-size: 1.3rem;
+}
+
+.Collapsible__trigger {
+    font-weight: bold;
+}
+
 .flex {
     display: flex;
     justify-content: center;

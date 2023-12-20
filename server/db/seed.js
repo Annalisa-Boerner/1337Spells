@@ -6,7 +6,6 @@ const client = require("./client");
 const {
     characters,
     arcanerecovery,
-    spellbooks,
     spells,
     cantrips,
     characters_spells,
@@ -14,30 +13,10 @@ const {
 } = require("./seedData");
 
 //pull in helpers
-const {
-    createCharacter,
-    getCharacterByUsername,
-} = require("./helpers/characters");
-// const {
-//      createSpellbooks,
-//      getAllSpellbooks,
-//      getSpellbookById,
-// } = require("./helpers/spellbooks");
-const {
-    createSpells,
-    getAllSpells,
-    getSpellById,
-} = require("./helpers/spells");
-const {
-    createArcaneRecovery,
-    getAllArcaneRecoveries,
-    getArcaneRecoveryById,
-} = require("./helpers/arcanerecovery");
-const {
-    createCantrips,
-    getAllCantrips,
-    getCantripById,
-} = require("./helpers/cantrips");
+const { createCharacter } = require("./helpers/characters");
+const { createSpells } = require("./helpers/spells");
+const { createArcaneRecovery } = require("./helpers/arcanerecovery");
+const { createCantrips } = require("./helpers/cantrips");
 const { createCharacter_Spell } = require("./helpers/characters_spells");
 const { createCharacter_Cantrip } = require("./helpers/characters_cantrips");
 
@@ -49,7 +28,6 @@ const dropTables = async () => {
         await client.query(`
         DROP TABLE IF EXISTS arcanerecovery CASCADE;
         DROP TABLE IF EXISTS characters CASCADE;
-        DROP TABLE IF EXISTS spellbooks CASCADE;
         DROP TABLE IF EXISTS spells CASCADE;
         DROP TABLE IF EXISTS cantrips CASCADE;
         DROP TABLE IF EXISTS characters_spells CASCADE;
@@ -78,30 +56,27 @@ const createTables = async () => {
  );
     
     CREATE TABLE spells (
-        spell_id SERIAL PRIMARY KEY,
-        name varchar(255) UNIQUE NOT NULL
+        spell_index varchar(255) PRIMARY KEY,
+        spell_name varchar(255) UNIQUE NOT NULL
       
     );
 
     CREATE TABLE cantrips (
-        cantrip_id SERIAL PRIMARY KEY,
-        name varchar(255) UNIQUE NOT NULL
+        cantrip_index varchar(255) PRIMARY KEY,
+        cantrip_name varchar(255) UNIQUE NOT NULL
       
-    );
-    CREATE TABLE spellbooks (
-        spellbook_id SERIAL PRIMARY KEY
     );
 
     CREATE TABLE characters_spells (
         characters_spells_id SERIAL PRIMARY KEY,
-        spell_id INTEGER REFERENCES spells(spell_id),
+        spell_index  varchar(255) REFERENCES spells(spell_index),
         character_id INTEGER REFERENCES characters(character_id),
         spell_name varchar(255)
     );
 
     CREATE TABLE characters_cantrips (
         characters_cantrips_id SERIAL PRIMARY KEY,
-        cantrip_id INTEGER REFERENCES cantrips(cantrip_id),
+        cantrip_index varchar(255) REFERENCES cantrips(cantrip_index),
         character_id INTEGER REFERENCES characters(character_id),
         cantrip_name varchar(255) 
     );
@@ -137,19 +112,6 @@ const createInitialCharacters = async () => {
         throw error;
     }
 };
-
-// const createInitialSpellbooks = async () => {
-//      try {
-//           console.log("creating initial spellbooks...");
-//           // console.log(spellbooks);
-//           for (const spellbook of spellbooks) {
-//                await createSpellbooks(spellbook);
-//           }
-//           console.log("spellbooks created!");
-//      } catch (error) {
-//           throw error;
-//      }
-// };
 
 const createInitialSpells = async () => {
     try {
@@ -194,7 +156,7 @@ const createInitialCharacters_spells = async () => {
             await createCharacter_Spell(character_spell);
         }
         console.log(character_spell);
-        console.log("spellbook/spells junction created");
+        console.log("character/spells junction created");
     } catch (error) {
         throw error;
     }
