@@ -35,6 +35,8 @@ a:hover {
     align-items: center;
 }
 
+/* MY SPELLS CENTER CONTAINERS */
+
 #spellbookContainer {
     display: flex;
     background-image: url("./assets/parchment-removebg-preview.png");
@@ -45,11 +47,10 @@ a:hover {
     justify-content: center;
 }
 
-/* MY SPELLS CENTER CONTAINERS */
 #mySpells,
 #myCantrips {
     display: flex;
-    width: 18vw;
+    width: 15vw;
 }
 
 #mySpells {
@@ -72,11 +73,11 @@ a:hover {
     background-repeat: no-repeat;
     background-size: 20vw 100%;
     opacity: 0.8;
-    width: 20vw;
+    width: 30vw;
     padding: 2vw 2vw 4vw 2vw;
     color: black;
     overflow: scroll;
-    height: 50vw;
+    height: 40vw;
 }
 
 #allSpellNames,

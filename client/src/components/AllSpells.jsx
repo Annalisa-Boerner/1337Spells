@@ -48,13 +48,19 @@ export default function AllSpells({ charId }) {
             <div id="allSpellNames">
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <Collapsible trigger={spell.name} key={spell.url}>
-                            <p>{spell.name}</p>
-                            <AddSpellButton
-                                spell_id={spell.spell_id}
-                                charId={charId}
-                            />
-                        </Collapsible>
+                        <>
+                            <Collapsible
+                                trigger={"+" + spell.name}
+                                key={spell.url}
+                            >
+                                <p>Spell details here</p>
+                                <AddSpellButton
+                                    spell_id={spell.spell_id}
+                                    charId={charId}
+                                />
+                            </Collapsible>
+                            <br />
+                        </>
                     );
                 })}
             </div>
