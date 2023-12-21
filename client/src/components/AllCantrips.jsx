@@ -12,7 +12,6 @@ export default function AllCantrips({ charId }) {
         async function getAllCantrips() {
             const cantrips = await fetchAllApiCantrips();
 
-            //    console.log(apiResponse);
             if (cantrips) {
                 setAllCantrips(cantrips.results);
 
@@ -30,7 +29,6 @@ export default function AllCantrips({ charId }) {
           )
         : allCantrips;
 
-    console.log("allCantrips in AllCantrips line 31", allCantrips);
     return (
         <section id="all-cantrips" className="flex-column">
             <h3>All Cantrips</h3>

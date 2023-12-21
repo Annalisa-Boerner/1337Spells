@@ -36,6 +36,7 @@ export const fetchCharactersSpellsByCharacterId = async (character_id) => {
 export async function createCharacterSpell(spell_index, char_id) {
     try {
         console.log("char_id in front end helpers post", char_id);
+        console.log("spell_index in front end helpers post", spell_index);
         const response = await fetch(`${base_url}/characters_spells`, {
             method: "POST",
             headers: {

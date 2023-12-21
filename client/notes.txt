@@ -4,6 +4,8 @@ Character Spell connections w api
 2. for adding individual spells to spellbook: use the index, so make it not an id in the table, but rather an index
 3.  the INDEX IS THE API ENDPOINT 
 
+--back end: adjust seed so that junction tables don't have REFERENCES on the spells table, bc the spells table doesn't include api spells
+
 Add/remove Active class on click
 https://www.youtube.com/watch?v=lhLh8N9YN7E&ab_channel=ByteGrad
 

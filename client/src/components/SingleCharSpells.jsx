@@ -48,18 +48,18 @@ export default function SingleCharSpells({ charId }) {
 
     //mapping through spells to match with the ones that are in char spells
 
-    const characterSpellIds = [];
+    const characterSpellIndices = [];
 
     charSpells.map((charSpell) => {
-        characterSpellIds.push(charSpell.spell_index);
+        characterSpellIndices.push(charSpell.spell_index);
     });
 
     //pushing the ids from the spells into an array
 
-    const spellIds = [];
+    const spellIndices = [];
 
     allSpells.map((allSpell) => {
-        spellIds.push(allSpell.spell_index);
+        spellIndices.push(allSpell.spell_index);
     });
 
     return (
@@ -79,7 +79,7 @@ export default function SingleCharSpells({ charId }) {
                 </label>
             </div> */}
             <div>
-                {characterSpellIds.length < 6 ? (
+                {characterSpellIndices.length < 6 ? (
                     <h3>Add up to six spells.</h3>
                 ) : (
                     <h3>Spells are full.</h3>
@@ -87,14 +87,16 @@ export default function SingleCharSpells({ charId }) {
                 <section id="mySpellsDisplay">
                     {allSpells
                         .filter((spell) =>
-                            characterSpellIds.includes(spell.spell_id)
+                            characterSpellIndices.includes(spell.spell_index)
                         )
                         .map((spell) => {
                             return (
                                 <section key={spell.characters_spells_id}>
                                     <Collapsible
-                                        trigger={"+" + " " + spell.name}
-                                        triggerWhenOpen={"—" + " " + spell.name}
+                                        trigger={"+" + " " + spell.spell_index}
+                                        triggerWhenOpen={
+                                            "—" + " " + spell.spell_index
+                                        }
                                         key={spell.url}
                                         transitionTime={200}
                                     >

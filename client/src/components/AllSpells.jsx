@@ -61,6 +61,10 @@ export default function AllSpells({ charId }) {
                                     charId={charId}
                                 />
                                 <DetailsButton />
+                                {console.log(
+                                    "spell_index in the collapsible?",
+                                    spell.index
+                                )}
                             </Collapsible>
                             <br />
                         </>
