@@ -33,36 +33,36 @@ export default function SingleCharSpells({ charId }) {
 
     //FETCH ALL SPELLS
 
-    useEffect(() => {
-        async function getAllSpells() {
-            const allSpells = await fetchAllSpells();
+    // useEffect(() => {
+    //     async function getAllSpells() {
+    //         const allSpells = await fetchAllSpells();
 
-            if (allSpells) {
-                setAllSpells(allSpells);
-                // console.log("allSpells in SingleCharSpells", allSpells);
-                return allSpells;
-            } else {
-                console.error("there was an error fetching all spells");
-            }
-        }
-        getAllSpells();
-    }, []);
+    //         if (allSpells) {
+    //             setAllSpells(allSpells);
+    //             // console.log("allSpells in SingleCharSpells", allSpells);
+    //             return allSpells;
+    //         } else {
+    //             console.error("there was an error fetching all spells");
+    //         }
+    //     }
+    //     getAllSpells();
+    // }, []);
 
     //mapping through spells to match with the ones that are in char spells
 
-    const characterSpellIndices = [];
+    // const characterSpellIndices = [];
 
-    charSpells.map((charSpell) => {
-        characterSpellIndices.push(charSpell.spell_index);
-    });
+    // charSpells.map((charSpell) => {
+    //     characterSpellIndices.push(charSpell.spell_index);
+    // });
 
-    //pushing the ids from the spells into an array
+    // //pushing the ids from the spells into an array
 
-    const spellIndices = [];
+    // const spellIndices = [];
 
-    allSpells.map((allSpell) => {
-        spellIndices.push(allSpell.spell_index);
-    });
+    // allSpells.map((allSpell) => {
+    //     spellIndices.push(allSpell.spell_index);
+    // });
 
     return (
         <section id="myCantrips">
@@ -81,37 +81,33 @@ export default function SingleCharSpells({ charId }) {
                 </label>
             </div> */}
             <div>
-                {characterSpellIndices.length < 6 ? (
+                {charSpells.length < 6 ? (
                     <h3>Add up to six spells.</h3>
                 ) : (
                     <h3>Spells are full.</h3>
                 )}
                 <section id="mySpellsDisplay">
-                    {allSpells
-                        .filter((spell) =>
-                            characterSpellIndices.includes(spell.spell_index)
-                        )
-                        .map((spell) => {
-                            return (
-                                <section key={spell.characters_spells_id}>
-                                    <Collapsible
-                                        trigger={"+" + " " + spell.spell_index}
-                                        triggerWhenOpen={
-                                            "—" + " " + spell.spell_index
-                                        }
-                                        key={spell.url}
-                                        transitionTime={200}
-                                    >
-                                        <RemoveSpellButton
-                                            spell_id={spell.spell_id}
-                                            charId={charId}
-                                        />
-                                        <DetailsButton />
-                                    </Collapsible>
-                                    <br />
-                                </section>
-                            );
-                        })}
+                    {charSpells.map((spell) => {
+                        return (
+                            <section key={spell.characters_spells_id}>
+                                <Collapsible
+                                    trigger={"+" + " " + spell.spell_name}
+                                    triggerWhenOpen={
+                                        "—" + " " + spell.spell_index
+                                    }
+                                    key={spell.url}
+                                    transitionTime={200}
+                                >
+                                    <RemoveSpellButton
+                                        spell_id={spell.spell_id}
+                                        charId={charId}
+                                    />
+                                    <DetailsButton />
+                                </Collapsible>
+                                <br />
+                            </section>
+                        );
+                    })}
                 </section>
             </div>
         </section>
