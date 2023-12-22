@@ -69,20 +69,18 @@ const createTables = async () => {
 
     CREATE TABLE characters_spells (
         characters_spells_id SERIAL PRIMARY KEY,
-        spell_index  varchar(255) REFERENCES spells(spell_index),
+        spell_index  varchar(255),
         character_id INTEGER REFERENCES characters(character_id),
         spell_name varchar(255)
     );
 
     CREATE TABLE characters_cantrips (
         characters_cantrips_id SERIAL PRIMARY KEY,
-        cantrip_index varchar(255) REFERENCES cantrips(cantrip_index),
+        cantrip_index varchar(255),
         character_id INTEGER REFERENCES characters(character_id),
         cantrip_name varchar(255) 
     );
     
-
-
 
 
     CREATE TABLE arcanerecovery (

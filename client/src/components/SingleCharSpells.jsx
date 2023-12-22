@@ -18,7 +18,7 @@ export default function SingleCharSpells({ charId }) {
 
             if (charSpells) {
                 setCharSpells(charSpells);
-                // console.log("charSpells in SingleCharSpells", charSpells);
+                console.log("charSpells in SingleCharSpells", charSpells);
                 return charSpells;
             } else {
                 console.error(
@@ -29,38 +29,40 @@ export default function SingleCharSpells({ charId }) {
         getCharacterSpells();
     }, []);
 
+    //don't need allSpells any more, can just pass spell name in via the button
+
     //FETCH ALL SPELLS
 
-    useEffect(() => {
-        async function getAllSpells() {
-            const allSpells = await fetchAllSpells();
+    // useEffect(() => {
+    //     async function getAllSpells() {
+    //         const allSpells = await fetchAllSpells();
 
-            if (allSpells) {
-                setAllSpells(allSpells);
-                // console.log("allSpells in SingleCharSpells", allSpells);
-                return allSpells;
-            } else {
-                console.error("there was an error fetching all spells");
-            }
-        }
-        getAllSpells();
-    }, []);
+    //         if (allSpells) {
+    //             setAllSpells(allSpells);
+    //             // console.log("allSpells in SingleCharSpells", allSpells);
+    //             return allSpells;
+    //         } else {
+    //             console.error("there was an error fetching all spells");
+    //         }
+    //     }
+    //     getAllSpells();
+    // }, []);
 
     //mapping through spells to match with the ones that are in char spells
 
-    const characterSpellIds = [];
+    // const characterSpellIndices = [];
 
-    charSpells.map((charSpell) => {
-        characterSpellIds.push(charSpell.spell_id);
-    });
+    // charSpells.map((charSpell) => {
+    //     characterSpellIndices.push(charSpell.spell_index);
+    // });
 
-    //pushing the ids from the spells into an array
+    // //pushing the ids from the spells into an array
 
-    const spellIds = [];
+    // const spellIndices = [];
 
-    allSpells.map((allSpell) => {
-        spellIds.push(allSpell.spell_id);
-    });
+    // allSpells.map((allSpell) => {
+    //     spellIndices.push(allSpell.spell_index);
+    // });
 
     return (
         <section id="myCantrips">
@@ -79,35 +81,33 @@ export default function SingleCharSpells({ charId }) {
                 </label>
             </div> */}
             <div>
-                {characterSpellIds.length < 6 ? (
+                {charSpells.length < 6 ? (
                     <h3>Add up to six spells.</h3>
                 ) : (
                     <h3>Spells are full.</h3>
                 )}
                 <section id="mySpellsDisplay">
-                    {allSpells
-                        .filter((spell) =>
-                            characterSpellIds.includes(spell.spell_id)
-                        )
-                        .map((spell) => {
-                            return (
-                                <section key={spell.characters_spells_id}>
-                                    <Collapsible
-                                        trigger={"+" + " " + spell.name}
-                                        triggerWhenOpen={"—" + " " + spell.name}
-                                        key={spell.url}
-                                        transitionTime={200}
-                                    >
-                                        <RemoveSpellButton
-                                            spell_id={spell.spell_id}
-                                            charId={charId}
-                                        />
-                                        <DetailsButton />
-                                    </Collapsible>
-                                    <br />
-                                </section>
-                            );
-                        })}
+                    {charSpells.map((spell) => {
+                        return (
+                            <section key={spell.characters_spells_id}>
+                                <Collapsible
+                                    trigger={"+" + " " + spell.spell_name}
+                                    triggerWhenOpen={
+                                        "—" + " " + spell.spell_index
+                                    }
+                                    key={spell.url}
+                                    transitionTime={200}
+                                >
+                                    <RemoveSpellButton
+                                        spell_id={spell.spell_id}
+                                        charId={charId}
+                                    />
+                                    <DetailsButton />
+                                </Collapsible>
+                                <br />
+                            </section>
+                        );
+                    })}
                 </section>
             </div>
         </section>

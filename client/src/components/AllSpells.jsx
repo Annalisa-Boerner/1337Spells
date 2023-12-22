@@ -57,8 +57,9 @@ export default function AllSpells({ charId }) {
                                 transitionTime={200}
                             >
                                 <AddSpellButton
-                                    spell_id={spell.spell_id}
+                                    spell_index={spell.index}
                                     charId={charId}
+                                    spell_name={spell.name}
                                 />
                                 <DetailsButton />
                             </Collapsible>
