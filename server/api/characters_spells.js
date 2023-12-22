@@ -46,14 +46,19 @@ router.post("/", async (req, res, next) => {
 
 //DELETE a spell from the character's spellbook
 
-router.delete("/:spell_index", async (req, res, next) => {
-    try {
-        console.log("api characters_spells router.delete");
-        const charSpell = await deleteCharacterSpell(req.params.spell_index);
-        res.send(charSpell);
-    } catch (error) {
-        next(error);
+router.delete(
+    "/characters_spells/characters_spells/:spell_index",
+    async (req, res, next) => {
+        try {
+            console.log("api characters_spells router.delete");
+            const charSpell = await deleteCharacterSpell(
+                req.params.spell_index
+            );
+            res.send(charSpell);
+        } catch (error) {
+            next(error);
+        }
     }
-});
+);
 
 module.exports = router;

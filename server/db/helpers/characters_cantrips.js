@@ -1,6 +1,6 @@
 const client = require("../client");
 
-const createCharacter_Cantrip = async ({
+const createCharacterCantrip = async ({
     cantrip_index,
     character_id,
     cantrip_name,
@@ -62,7 +62,7 @@ const deleteCharacter_Cantrip = async (cantrip_id) => {
 };
 
 module.exports = {
-    createCharacter_Cantrip,
+    createCharacterCantrip,
     getAllCharacters_Cantrips,
     getCharacters_CantripsByCharacterId,
     deleteCharacter_Cantrip,

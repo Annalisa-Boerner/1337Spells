@@ -24,7 +24,7 @@ export default function SingleCharSpells({ charId }) {
         }
         getCharacterSpells();
     }, []);
-
+    console.log("character spells in SingleCharSpells component", charSpells);
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>
@@ -54,7 +54,7 @@ export default function SingleCharSpells({ charId }) {
                                 <Collapsible
                                     trigger={"+" + " " + spell.spell_name}
                                     triggerWhenOpen={
-                                        "—" + " " + spell.spell_index
+                                        "—" + " " + spell.spell_name
                                     }
                                     key={spell.url}
                                     transitionTime={200}
