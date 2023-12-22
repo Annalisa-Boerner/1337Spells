@@ -59,12 +59,9 @@ export default function AllSpells({ charId }) {
                                 <AddSpellButton
                                     spell_index={spell.index}
                                     charId={charId}
+                                    spell_name={spell.name}
                                 />
                                 <DetailsButton />
-                                {console.log(
-                                    "spell_index in the collapsible?",
-                                    spell.index
-                                )}
                             </Collapsible>
                             <br />
                         </>

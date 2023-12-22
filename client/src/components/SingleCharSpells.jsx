@@ -29,6 +29,8 @@ export default function SingleCharSpells({ charId }) {
         getCharacterSpells();
     }, []);
 
+    //don't need allSpells any more, can just pass spell name in via the button
+
     //FETCH ALL SPELLS
 
     useEffect(() => {
