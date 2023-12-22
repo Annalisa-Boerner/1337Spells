@@ -44,6 +44,7 @@ const getSpellById = async (spell_index) => {
 
 const deleteSpells = async (spell_index) => {
     try {
+        console.log("backend db helper deleteSpells");
         const { rows } = await client.query(`
           DELETE
           FROM spells

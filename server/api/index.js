@@ -19,11 +19,10 @@ router.use("/cantrips", require("./cantrips"));
 //GET characters that exist; also auth through here
 router.use("/characters", require("./characters"));
 
-//GET spells/cantrips to and from spellbook
-// router.use("/spellbooks", require("./spellbooks"));
-
+//ROUTER: /api/characters_cantrips
 router.use("/characters_cantrips", require("./characters_cantrips"));
 
+//ROUTER: /api/characters_spells
 router.use("/characters_spells", require("./characters_spells"));
 
 //GET spells that exist

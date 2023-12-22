@@ -6,6 +6,8 @@ Character Spell connections w api
 
 --back end: adjust seed so that junction tables don't have REFERENCES on the spells table, bc the spells table doesn't include api spells
 
+4. The characters_spells endpoints are currently character_ids, not spell_indices
+
 Add/remove Active class on click
 https://www.youtube.com/watch?v=lhLh8N9YN7E&ab_channel=ByteGrad
 
