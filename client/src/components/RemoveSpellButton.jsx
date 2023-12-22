@@ -3,13 +3,13 @@
 import { deleteCharacterSpell } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function RemoveSpellButton({ spell_id }) {
-    const nav = useNavigate();
+export default function RemoveSpellButton({ spell_index }) {
+    // const nav = useNavigate();
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await deleteCharacterSpell(spell_id);
-            nav(0);
+            await deleteCharacterSpell(spell_index);
+            // nav(0);
         } catch (error) {
             console.error("there was an error removing this spell", error);
         }

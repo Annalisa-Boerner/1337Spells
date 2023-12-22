@@ -1,6 +1,6 @@
 const client = require("../client");
 
-const createCharacter_Spell = async ({
+const createCharacterSpell = async ({
     spell_index,
     character_id,
     spell_name,
@@ -22,7 +22,7 @@ const createCharacter_Spell = async ({
     }
 };
 
-const getAllCharacters_Spells = async () => {
+const getAllCharactersSpells = async () => {
     try {
         const { rows } = await client.query(`
           SELECT * FROM characters_spells;
@@ -33,7 +33,7 @@ const getAllCharacters_Spells = async () => {
     }
 };
 
-const getCharacters_SpellsByCharacterId = async (character_id) => {
+const getCharactersSpellsByCharacterId = async (character_id) => {
     try {
         console.log("entering character's spells by character id");
         const { rows } = await client.query(`
@@ -48,12 +48,12 @@ const getCharacters_SpellsByCharacterId = async (character_id) => {
     }
 };
 
-const deleteCharacter_Spell = async (spell_id) => {
+const deleteCharacterSpell = async (spell_index) => {
     try {
-        console.log('deleting character spell by spell id"');
+        console.log('db helpers deleteCharacter_Spell"');
         const { rows } = await client.query(`
                DELETE FROM characters_spells
-               WHERE spell_id=${spell_id}
+               WHERE spell_index = ${spell_index}
                RETURNING *;
           `);
         console.log("Delete successful");
@@ -62,8 +62,8 @@ const deleteCharacter_Spell = async (spell_id) => {
     }
 };
 module.exports = {
-    createCharacter_Spell,
-    getAllCharacters_Spells,
-    getCharacters_SpellsByCharacterId,
-    deleteCharacter_Spell,
+    createCharacterSpell,
+    getAllCharactersSpells,
+    getCharactersSpellsByCharacterId,
+    deleteCharacterSpell,
 };

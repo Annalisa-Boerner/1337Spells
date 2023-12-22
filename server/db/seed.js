@@ -17,8 +17,8 @@ const { createCharacter } = require("./helpers/characters");
 const { createSpells } = require("./helpers/spells");
 const { createArcaneRecovery } = require("./helpers/arcanerecovery");
 const { createCantrips } = require("./helpers/cantrips");
-const { createCharacter_Spell } = require("./helpers/characters_spells");
-const { createCharacter_Cantrip } = require("./helpers/characters_cantrips");
+const { createCharacterSpell } = require("./helpers/characters_spells");
+const { createCharacterCantrip } = require("./helpers/characters_cantrips");
 
 //Drop tables for cleanliness
 const dropTables = async () => {
@@ -151,7 +151,7 @@ const createInitialCharacters_spells = async () => {
     try {
         console.log("creating characters / spells junction...");
         for (character_spell of characters_spells) {
-            await createCharacter_Spell(character_spell);
+            await createCharacterSpell(character_spell);
         }
         console.log(character_spell);
         console.log("character/spells junction created");
@@ -164,7 +164,7 @@ const createInitialCharacters_cantrips = async () => {
     try {
         console.log("creating characters / cantrips junction...");
         for (character_cantrip of characters_cantrips) {
-            await createCharacter_Cantrip(character_cantrip);
+            await createCharacterCantrip(character_cantrip);
         }
         console.log(character_cantrip);
         console.log("character/cantrips junction created");

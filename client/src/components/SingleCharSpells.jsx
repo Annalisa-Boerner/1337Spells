@@ -1,15 +1,11 @@
 import { useState, useEffect } from "react";
-import {
-    fetchAllSpells,
-    fetchCharacterSpellsByCharacterId,
-} from "../helpers/spells";
+import { fetchCharacterSpellsByCharacterId } from "../helpers/spells";
 import Collapsible from "react-collapsible";
 import DetailsButton from "./DetailsButton";
 import RemoveSpellButton from "./RemoveSpellButton";
 
 export default function SingleCharSpells({ charId }) {
     const [charSpells, setCharSpells] = useState([]);
-    const [allSpells, setAllSpells] = useState([]);
 
     //FETCH THE CHARACTER'S SPELLS
     useEffect(() => {
@@ -28,42 +24,7 @@ export default function SingleCharSpells({ charId }) {
         }
         getCharacterSpells();
     }, []);
-
-    //don't need allSpells any more, can just pass spell name in via the button
-
-    //FETCH ALL SPELLS
-
-    // useEffect(() => {
-    //     async function getAllSpells() {
-    //         const allSpells = await fetchAllSpells();
-
-    //         if (allSpells) {
-    //             setAllSpells(allSpells);
-    //             // console.log("allSpells in SingleCharSpells", allSpells);
-    //             return allSpells;
-    //         } else {
-    //             console.error("there was an error fetching all spells");
-    //         }
-    //     }
-    //     getAllSpells();
-    // }, []);
-
-    //mapping through spells to match with the ones that are in char spells
-
-    // const characterSpellIndices = [];
-
-    // charSpells.map((charSpell) => {
-    //     characterSpellIndices.push(charSpell.spell_index);
-    // });
-
-    // //pushing the ids from the spells into an array
-
-    // const spellIndices = [];
-
-    // allSpells.map((allSpell) => {
-    //     spellIndices.push(allSpell.spell_index);
-    // });
-
+    console.log("character spells in SingleCharSpells component", charSpells);
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>
@@ -93,13 +54,13 @@ export default function SingleCharSpells({ charId }) {
                                 <Collapsible
                                     trigger={"+" + " " + spell.spell_name}
                                     triggerWhenOpen={
-                                        "—" + " " + spell.spell_index
+                                        "—" + " " + spell.spell_name
                                     }
                                     key={spell.url}
                                     transitionTime={200}
                                 >
                                     <RemoveSpellButton
-                                        spell_id={spell.spell_id}
+                                        spell_index={spell.spell_index}
                                         charId={charId}
                                     />
                                     <DetailsButton />
