@@ -48,12 +48,29 @@ const getCharactersSpellsByCharacterId = async (character_id) => {
     }
 };
 
-const deleteCharacterSpell = async (spell_index) => {
+const getCharactersSpellsByCharactersSpellsId = async (
+    characters_spells_id
+) => {
+    try {
+        console.log("entering character's spells by characters_spells id");
+        const { rows } = await client.query(`
+     SELECT *
+     FROM characters_spells
+     WHERE characters_spells_id=${characters_spells_id};
+     `);
+        console.log("character's spells in get by characters_spells_id", rows);
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+};
+
+const deleteCharacterSpell = async (characters_spells_id) => {
     try {
         console.log('db helpers deleteCharacter_Spell"');
         const { rows } = await client.query(`
                DELETE FROM characters_spells
-               WHERE spell_index = ${spell_index}
+               WHERE characters_spells_id = ${characters_spells_id}
                RETURNING *;
           `);
         console.log("Delete successful");
@@ -66,4 +83,5 @@ module.exports = {
     getAllCharactersSpells,
     getCharactersSpellsByCharacterId,
     deleteCharacterSpell,
+    getCharactersSpellsByCharactersSpellsId,
 };

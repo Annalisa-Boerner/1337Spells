@@ -60,8 +60,9 @@ export default function SingleCharSpells({ charId }) {
                                     transitionTime={200}
                                 >
                                     <RemoveSpellButton
-                                        spell_index={spell.spell_index}
-                                        charId={charId}
+                                        characters_spells_id={
+                                            spell.characters_spells_id
+                                        }
                                     />
                                     <DetailsButton />
                                 </Collapsible>
