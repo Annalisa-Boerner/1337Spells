@@ -55,11 +55,14 @@ export async function createCharacterSpell(spell_index, char_id, spell_name) {
 }
 
 //DELETE a single spell from the character's spellbook
-export const deleteCharacterSpell = async (spell_index) => {
+export const deleteCharacterSpell = async (characters_spells_id) => {
     try {
-        console.log("deleteCharacterSpell in front end helper", spell_index);
+        console.log(
+            "deleteCharacterSpell in front end helper",
+            characters_spells_id
+        );
         await fetch(
-            `${base_url}/characters_spells/characters_spells/${spell_index}`,
+            `${base_url}/characters_spells/characters_spells/${characters_spells_id}`,
             {
                 method: "DELETE",
             }
