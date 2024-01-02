@@ -125,7 +125,6 @@ export async function createCharacterCantrip(
             }),
         });
         const result = await response.json();
-        console.log("result from front end createCharacter_cantrip", result);
         return result;
     } catch (error) {
         console.error(error);
@@ -134,12 +133,18 @@ export async function createCharacterCantrip(
 
 //DELETE a single cantrip from the character's spellbook
 
-export const deleteCharacterCantrip = async (cantrip_id) => {
+export const deleteCharacterCantrip = async (characters_cantrips_id) => {
     try {
-        console.log("removing cantrip");
-        await fetch(`${base_url}/characters_cantrips/${cantrip_id}`, {
-            method: "DELETE",
-        });
+        console.log(
+            "deleteCharacterSpell in front end helper: characters_cantrips_id",
+            characters_cantrips_id
+        );
+        await fetch(
+            `${base_url}/characters_cantrips/characters_cantrips/${characters_cantrips_id}`,
+            {
+                method: "DELETE",
+            }
+        );
         console.log("reached line 132 in junction_spellbooks front end");
     } catch (error) {
         alert("We're sorry, there was an error during deletion.");

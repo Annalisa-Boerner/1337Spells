@@ -48,11 +48,32 @@ const getCharactersCantripsByCharacterId = async (character_id) => {
     }
 };
 
-const deleteCharacterCantrip = async (cantrip_id) => {
+const getCharactersCantripsByCharactersCantripsId = async (
+    characters_cantrips_id
+) => {
     try {
+        console.log("entering character's cantrips by characters_cantrips id");
+        const { rows } = await client.query(`
+     SELECT *
+     FROM characters_cantrips
+     WHERE characters_cantrips_id=${characters_cantrips_id};
+     `);
+        console.log(
+            "character's cantrips in get by characters_cantrips_id",
+            rows
+        );
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+};
+
+const deleteCharacterCantrip = async (characters_cantrips_id) => {
+    try {
+        console.log("db helpers deleteCharacterCantrip");
         const { rows } = await client.query(`
                DELETE FROM characters_cantrips
-               WHERE cantrip_id=${cantrip_id}
+               WHERE characters_cantrips_id=${characters_cantrips_id}
                RETURNING *;
           `);
         console.log("delete successful");
@@ -65,5 +86,6 @@ module.exports = {
     createCharacterCantrip,
     getAllCharactersCantrips,
     getCharactersCantripsByCharacterId,
+    getCharactersCantripsByCharactersCantripsId,
     deleteCharacterCantrip,
 };
