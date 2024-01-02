@@ -55,8 +55,9 @@ export default function AllCantrips({ charId }) {
                                 transitionTime={200}
                             >
                                 <AddCantripButton
-                                    cantrip_id={cantrip.spell_id}
+                                    cantrip_index={cantrip.spell_index}
                                     charId={charId}
+                                    cantrip_name={cantrip.name}
                                 />
                                 <DetailsButton />
                             </Collapsible>

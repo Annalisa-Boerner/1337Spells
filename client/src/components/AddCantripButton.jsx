@@ -1,18 +1,22 @@
 import { createCharacterCantrip } from "../helpers/junction_spellbooks";
 import { useNavigate } from "react-router-dom";
 
-export default function AddCantripButton({ charId, cantrip_id }) {
+export default function AddCantripButton({
+    cantrip_index,
+    charId,
+    cantrip_name,
+}) {
     const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            await createCharacterCantrip(cantrip_id, charId);
-            console.log("create character cantrip charId", charId);
+            await createCharacterCantrip(cantrip_index, charId, cantrip_name);
             navigate(0);
             navigate("/myspellbook");
         } catch (error) {
             alert("There was an error adding this cantrip to your spellbook");
+            console.log(error);
         }
     }
 

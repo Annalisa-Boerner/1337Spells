@@ -23,7 +23,7 @@ const createCharacterCantrip = async ({
     }
 };
 
-const getAllCharacters_Cantrips = async () => {
+const getAllCharactersCantrips = async () => {
     try {
         const { rows } = await client.query(`
           SELECT * FROM characters_cantrips;
@@ -34,7 +34,7 @@ const getAllCharacters_Cantrips = async () => {
     }
 };
 
-const getCharacters_CantripsByCharacterId = async (character_id) => {
+const getCharactersCantripsByCharacterId = async (character_id) => {
     try {
         console.log("entering character's cantrips by character id");
         const { rows } = await client.query(`
@@ -48,11 +48,32 @@ const getCharacters_CantripsByCharacterId = async (character_id) => {
     }
 };
 
-const deleteCharacter_Cantrip = async (cantrip_id) => {
+const getCharactersCantripsByCharactersCantripsId = async (
+    characters_cantrips_id
+) => {
     try {
+        console.log("entering character's cantrips by characters_cantrips id");
+        const { rows } = await client.query(`
+     SELECT *
+     FROM characters_cantrips
+     WHERE characters_cantrips_id=${characters_cantrips_id};
+     `);
+        console.log(
+            "character's cantrips in get by characters_cantrips_id",
+            rows
+        );
+        return rows;
+    } catch (error) {
+        throw error;
+    }
+};
+
+const deleteCharacterCantrip = async (characters_cantrips_id) => {
+    try {
+        console.log("db helpers deleteCharacterCantrip");
         const { rows } = await client.query(`
                DELETE FROM characters_cantrips
-               WHERE cantrip_id=${cantrip_id}
+               WHERE characters_cantrips_id=${characters_cantrips_id}
                RETURNING *;
           `);
         console.log("delete successful");
@@ -63,7 +84,8 @@ const deleteCharacter_Cantrip = async (cantrip_id) => {
 
 module.exports = {
     createCharacterCantrip,
-    getAllCharacters_Cantrips,
-    getCharacters_CantripsByCharacterId,
-    deleteCharacter_Cantrip,
+    getAllCharactersCantrips,
+    getCharactersCantripsByCharacterId,
+    getCharactersCantripsByCharactersCantripsId,
+    deleteCharacterCantrip,
 };
