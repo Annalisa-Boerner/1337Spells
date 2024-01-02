@@ -57,10 +57,6 @@ export async function createCharacterSpell(spell_index, char_id, spell_name) {
 //DELETE a single spell from the character's spellbook
 export const deleteCharacterSpell = async (characters_spells_id) => {
     try {
-        console.log(
-            "deleteCharacterSpell in front end helper",
-            characters_spells_id
-        );
         await fetch(
             `${base_url}/characters_spells/characters_spells/${characters_spells_id}`,
             {
@@ -79,7 +75,6 @@ export const fetchAllCharactersCantrips = async () => {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`);
         const result = await response.json();
-        // console.log("result from fetchAllCharacters_Cantrips", result);
         return result;
     } catch (error) {
         console.error(error);
@@ -135,18 +130,14 @@ export async function createCharacterCantrip(
 
 export const deleteCharacterCantrip = async (characters_cantrips_id) => {
     try {
-        console.log(
-            "deleteCharacterSpell in front end helper: characters_cantrips_id",
-            characters_cantrips_id
-        );
         await fetch(
             `${base_url}/characters_cantrips/characters_cantrips/${characters_cantrips_id}`,
             {
                 method: "DELETE",
             }
         );
-        console.log("reached line 132 in junction_spellbooks front end");
     } catch (error) {
         alert("We're sorry, there was an error during deletion.");
+        console.log(error);
     }
 };

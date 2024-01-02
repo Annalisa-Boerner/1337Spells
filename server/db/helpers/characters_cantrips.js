@@ -70,7 +70,6 @@ const getCharactersCantripsByCharactersCantripsId = async (
 
 const deleteCharacterCantrip = async (characters_cantrips_id) => {
     try {
-        console.log("db helpers deleteCharacterCantrip");
         const { rows } = await client.query(`
                DELETE FROM characters_cantrips
                WHERE characters_cantrips_id=${characters_cantrips_id}

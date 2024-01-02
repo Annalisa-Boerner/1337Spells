@@ -14,7 +14,6 @@ export default function SingleCharSpells({ charId }) {
 
             if (charSpells) {
                 setCharSpells(charSpells);
-                console.log("charSpells in SingleCharSpells", charSpells);
                 return charSpells;
             } else {
                 console.error(
@@ -24,7 +23,6 @@ export default function SingleCharSpells({ charId }) {
         }
         getCharacterSpells();
     }, []);
-    console.log("character spells in SingleCharSpells component", charSpells);
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>

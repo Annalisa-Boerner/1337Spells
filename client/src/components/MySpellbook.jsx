@@ -5,7 +5,8 @@ import { useEffect, useState } from "react";
 import SingleCharSpells from "./SingleCharSpells";
 import SingleCharCantrips from "./SingleCharCantrips";
 
-export default function MySpellbook({ token, charId, charName }) {
+export default function MySpellbook({ token, charId }) {
+    const [charName, setCharName] = useState("");
     // converts string to title case/sentence case for later display in rendering
     // function titleCase(str) {
     //     str = str.toLowerCase().split(" ");
@@ -17,7 +18,23 @@ export default function MySpellbook({ token, charId, charName }) {
 
     //write a fetch to grab character name and ID from here - refer to studio drink profile
 
-    useEffect;
+    useEffect(() => {
+        async function getSingleCharacterProfile() {
+            const response = await fetchSingleCharacter(charId);
+
+            try {
+                if (response) {
+                    setCharName(response.charName);
+                    console.log("response", response);
+                }
+            } catch (error) {
+                console.error("can't get character info", error);
+            }
+        }
+        getSingleCharacterProfile;
+    }, [charId]);
+
+    console.log("charName", charName);
 
     return (
         <>
