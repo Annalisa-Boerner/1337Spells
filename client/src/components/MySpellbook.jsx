@@ -15,6 +15,10 @@ export default function MySpellbook({ token, charId, charName }) {
     //     return str.join(" ");
     // }
 
+    //write a fetch to grab character name and ID from here - refer to studio drink profile
+
+    useEffect;
+
     return (
         <>
             <h2>{charName}'s Spellbook</h2>

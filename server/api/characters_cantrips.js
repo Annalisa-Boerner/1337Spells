@@ -2,17 +2,17 @@ const express = require("express");
 const router = express.Router();
 
 const {
-    getAllCharacters_Cantrips,
-    getCharacters_CantripsByCharacterId,
-    createCharacter_Cantrip,
-    deleteCharacter_Cantrip,
+    getAllCharactersCantrips,
+    getCharactersCantripsByCharacterId,
+    createCharacterCantrip,
+    deleteCharacterCantrip,
 } = require("../db/helpers/characters_cantrips");
 
 //GET - /api/characters_cantrips - get all characters_cantrips
 router.get("/", async (req, res, next) => {
     try {
         console.log("api getting all characters cantrips");
-        const characters_cantrips = await getAllCharacters_Cantrips();
+        const characters_cantrips = await getAllCharactersCantrips();
         res.send(characters_cantrips);
     } catch (error) {
         next(error);
@@ -22,9 +22,7 @@ router.get("/", async (req, res, next) => {
 // GET - /api/characters_cantrips/:character_id - get characters_cantrips by character id
 router.get("/:character_id", async (req, res, next) => {
     try {
-        console.log("entering api/characters_cantrips/:character_id router");
-        console.log("param id", req.params.character_id);
-        const charCantrips = await getCharacters_CantripsByCharacterId(
+        const charCantrips = await getCharactersCantripsByCharacterId(
             req.params.character_id
         );
         res.send(charCantrips);
@@ -37,7 +35,7 @@ router.get("/:character_id", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
     try {
-        const charCantrip = await createCharacter_Cantrip(req.body);
+        const charCantrip = await createCharacterCantrip(req.body);
         res.send(charCantrip);
     } catch (error) {
         next(error);
@@ -47,9 +45,7 @@ router.post("/", async (req, res, next) => {
 //DELETE - /api/characters_cantrips/:cantrip_id deletes cantrip from spellbook
 router.delete("/:cantrip_id", async (req, res, next) => {
     try {
-        const charCantrip = await deleteCharacter_Cantrip(
-            req.params.cantrip_id
-        );
+        const charCantrip = await deleteCharacterCantrip(req.params.cantrip_id);
         res.send(charCantrip);
     } catch (error) {
         next(error);

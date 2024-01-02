@@ -1,3 +1,7 @@
+Loading character in MySpellbook immediately:
+-UE with an async function that awaits having the user profile info: write a route to pull directly from the character table rather than passing in via props
+-REFERENCE STUDIO DRINK PROFILE
+
 
 Character Spell connections w api
 1. for fetching details: there an index that's shared between the individual spell and the /spells endpoint objects
