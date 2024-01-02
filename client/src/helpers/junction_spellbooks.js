@@ -107,7 +107,11 @@ export const fetchCharactersCantripsByCharacterId = async (character_id) => {
 };
 
 //POST a cantrip to characters_cantrips
-export async function createCharacterCantrip(cantrip_id, char_id) {
+export async function createCharacterCantrip(
+    cantrip_id,
+    char_id,
+    cantrip_name
+) {
     try {
         const response = await fetch(`${base_url}/characters_cantrips`, {
             method: "POST",
@@ -117,6 +121,7 @@ export async function createCharacterCantrip(cantrip_id, char_id) {
             body: JSON.stringify({
                 cantrip_id: cantrip_id,
                 character_id: char_id,
+                cantrip_name: cantrip_name,
             }),
         });
         const result = await response.json();
