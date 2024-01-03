@@ -22,7 +22,7 @@ Take a look at the available spells and cantrips (thanks, D&D 5e API!), and choo
 
 Your spellbook informs you that you can add up to six spells and three cantrips, and will dyamically update to "Spellbook full" once your list is complete.  Frankly, I was excited to save myself from the endless cycle of googling "level 1 wizard how many spells how many cantrips 5e", and to do that for my users, as well.
 
-The Browse Spells link navigates to DND Beyond, where the spells are pre-filtered to include the ones that are avaiable to you. Soon, the site will be conntected to the [D&D 5e API](https://www.dnd5eapi.co/), and you'll be able to do all of your browsing internally.
+The Browse Spells link navigates to DND Beyond, where the spells are pre-filtered to include the ones that are avaiable to you. Soon, the Details button on each spell will be live, populating details and rendering this link obsolete.
 
 ---
 ## Installation
