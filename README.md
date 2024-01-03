@@ -10,8 +10,9 @@ Learning objectives for this project:
 + Working with the [D&D 5e API](https://www.dnd5eapi.co/) to pull in spells and lazy load deets
 + Completing an authorization flow and using local storage to maintain login during refreshes
 + Creating the clean flow that one expects from a site instead of using janky student workarounds
-+ I'm not a designer (IANAD?), but I want it to look nice! Work in progress
-
++ I'm not a designer (IANAD?), but I want it to look nice!
++ Continuing to organize myself via  my Jira Kanban board
+  
 Things I didn't mean to learn but did:
 + jQuery basics (on CodePen like, "what is going on in this gorgeous thing I'm looking at")
 + To add "React Component" to your google search if you're working in react ([oh baby, this collapse](https://github.com/glennflanagan/react-collapsible?tab=readme-ov-file#readme))
