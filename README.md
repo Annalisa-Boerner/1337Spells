@@ -11,7 +11,7 @@ Learning objectives for this project:
 + Completing an authorization flow and using local storage to maintain login during refreshes
 + Creating the clean flow that one expects from a site instead of using janky student workarounds
 + I'm not a designer (IANAD?), but I want it to look nice!
-+ Continuing to organize myself via  my Jira Kanban board
++ Continuing to organize myself via  my [Jira Kanban board](https://adventure-party.atlassian.net/jira/software/projects/APS/boards/2)
   
 Things I didn't mean to learn but did:
 + jQuery basics (on CodePen like, "what is going on in this gorgeous thing I'm looking at")
