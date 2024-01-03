@@ -4,13 +4,15 @@ import Collapsible from "react-collapsible";
 import DetailsButton from "./DetailsButton";
 import RemoveSpellButton from "./RemoveSpellButton";
 
-export default function SingleCharSpells({ charId }) {
+export default function SingleCharSpells({ charIdNum }) {
     const [charSpells, setCharSpells] = useState([]);
 
     //FETCH THE CHARACTER'S SPELLS
     useEffect(() => {
         async function getCharacterSpells() {
-            const charSpells = await fetchCharacterSpellsByCharacterId(charId);
+            const charSpells = await fetchCharacterSpellsByCharacterId(
+                charIdNum
+            );
 
             if (charSpells) {
                 setCharSpells(charSpells);
