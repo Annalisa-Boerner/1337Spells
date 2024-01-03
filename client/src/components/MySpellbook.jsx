@@ -7,6 +7,7 @@ import SingleCharCantrips from "./SingleCharCantrips";
 
 export default function MySpellbook({ token, charId }) {
     const [charName, setCharName] = useState("");
+    // const [charId, setCharId] = useState(null);
     // converts string to title case/sentence case for later display in rendering
     // function titleCase(str) {
     //     str = str.toLowerCase().split(" ");
@@ -18,23 +19,31 @@ export default function MySpellbook({ token, charId }) {
 
     //write a fetch to grab character name and ID from here - refer to studio drink profile
 
+    // useEffect(() => {
+    //     // setCharId(window.localStorage.getItem("charId"));
+    //     setCharName(window.localStorage.getItem("charName"));
+    // }, [charId]);
+
+    console.log("charId before the ue, aka via props", charId);
+
     useEffect(() => {
         async function getSingleCharacterProfile() {
+            console.log("charId in GSCP ue", charId);
+            console.log("response in GSCP ue", response);
             const response = await fetchSingleCharacter(charId);
-
-            try {
-                if (response) {
-                    setCharName(response.charName);
-                    console.log("response", response);
-                }
-            } catch (error) {
-                console.error("can't get character info", error);
-            }
+            // try {
+            //     if (response) {
+            //         setCharName(response.charName);
+            //         console.log("response", response);
+            //     }
+            // } catch (error) {
+            //     console.error("can't get character info", error);
+            // }
         }
         getSingleCharacterProfile;
     }, [charId]);
 
-    console.log("charName", charName);
+    // console.log("charName", charName);
 
     return (
         <>

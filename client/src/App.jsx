@@ -14,6 +14,8 @@ function App() {
         setCharId(window.localStorage.getItem("charId"));
         setCharName(window.localStorage.getItem("charName"));
     }, []);
+
+    console.log("charId in app", charId);
     return (
         <>
             <div id="app-container">
