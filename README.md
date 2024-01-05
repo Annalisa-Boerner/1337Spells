@@ -31,7 +31,16 @@ The Browse Spells link navigates to DND Beyond, where the spells are pre-filtere
 + Fork this repository
 + Clone down your forked repository
 + Install dependencies using "npm i"
-+ Create a PostgreSQL database for seed data: createdb 1337Spells
++ Create a PostgreSQL database for user info: createdb 1337Spells
++ Create your own secrets file to satisfy bcrypt requirements:
+  + Create a secrets.js file at the server level
+  + Copy and paste the following, and add your own secrets:
+    ```
+    const JWT_SECRET = "<your secret here>";
+    const COOKIE_SECRET = "<another secret here>";
+    
+    module.exports = { JWT_SECRET, COOKIE_SECRET };
+    ```
 + Run a localhost port on the back end:
   + CD into server, then run "npm run seed"
   + Start the back end with command "npm run start"
