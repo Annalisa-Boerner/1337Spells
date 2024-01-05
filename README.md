@@ -42,10 +42,9 @@ The Browse Spells link navigates to DND Beyond, where the spells are pre-filtere
     module.exports = { JWT_SECRET, COOKIE_SECRET };
     ```
 + Run a localhost port on the back end:
-  + CD into server, then run "npm run seed"
   + Start the back end with command "npm run start"
 + Run a localhost port on the front end:
-  + CD into client, then start with command "npm run dev"
+  + CD into client, then start the front end with command "npm run dev"
   + View on localhost:5173
 
   ---
