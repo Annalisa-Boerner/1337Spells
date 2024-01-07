@@ -32,7 +32,7 @@ a:hover {
 #MySpellbookContent {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
 }
 
 /* MY SPELLS CENTER CONTAINERS */

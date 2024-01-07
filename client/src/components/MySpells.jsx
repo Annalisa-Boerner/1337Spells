@@ -4,7 +4,7 @@ import Collapsible from "react-collapsible";
 import DetailsButton from "./DetailsButton";
 import RemoveSpellButton from "./RemoveSpellButton";
 
-export default function SingleCharSpells({ charIdNum }) {
+export default function MySpells({ charIdNum }) {
     const [charSpells, setCharSpells] = useState([]);
 
     //FETCH THE CHARACTER'S SPELLS
@@ -24,7 +24,7 @@ export default function SingleCharSpells({ charIdNum }) {
             }
         }
         getCharacterSpells();
-    }, []);
+    }, [charIdNum]);
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>
@@ -64,7 +64,9 @@ export default function SingleCharSpells({ charIdNum }) {
                                             spell.characters_spells_id
                                         }
                                     />
-                                    <DetailsButton />
+                                    <DetailsButton
+                                        spell_index={spell.spell_index}
+                                    />
                                 </Collapsible>
                                 <br />
                             </section>
