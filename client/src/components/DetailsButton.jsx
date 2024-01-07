@@ -1,22 +1,38 @@
-export default function DetailsButton() {
-    async function handleSubmit(event) {
+import { useState } from "react";
+import SpellDetails from "./SpellDetails";
+
+export default function DetailsButton({ spell_index }) {
+    const [isOpen, setIsOpen] = useState(false);
+    function handleClick() {
         event.preventDefault();
-        try {
-            //something with dnd5eapi
-        } catch (error) {
-            alert(
-                "There was an error fetching this spell or cantrip's details"
-            );
-        }
+        setIsOpen(!isOpen);
     }
 
     return (
         <section>
-            <form onSubmit={handleSubmit}>
-                <button type="submit" className="detailsButton">
-                    Details
+            <form onClick={handleClick}>
+                <button className="details-button" key={spell_index}>
+                    {!isOpen ? "Details" : "Close"}
                 </button>
+                <div>
+                    {isOpen && (
+                        <SpellDetails
+                            key={spell_index}
+                            spell_index={spell_index}
+                        />
+                    )}
+                </div>
             </form>
         </section>
     );
+}
+
+// Note: this is all up a level in MyCantrips/Spells; not certain that this property can be grabbed off this object
+// <DetailsButton
+// spell_index={spell.spell_index}
+// />
+{
+    /* <DetailsButton
+spell_index={cantrip.cantrip_index}
+/> */
 }

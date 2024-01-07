@@ -1,46 +1,51 @@
 import AllSpells from "./AllSpells";
 import AllCantrips from "./AllCantrips";
-import { fetchSingleCharacter } from "../helpers/characters";
 import { useEffect, useState } from "react";
-import SingleCharSpells from "./SingleCharSpells";
-import SingleCharCantrips from "./SingleCharCantrips";
+import MySpells from "./MySpells";
+import MyCantrips from "./MyCantrips";
 
-export default function MySpellbook({ token, charId, charName }) {
+export default function MySpellbook({ token }) {
+    const [charName, setCharName] = useState("");
+    const [charIdNum, setCharIdNum] = useState(null);
+
     // converts string to title case/sentence case for later display in rendering
-    // function titleCase(str) {
-    //     str = str.toLowerCase().split(" ");
-    //     for (let i = 0; i < str.length; i++) {
-    //         str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
-    //     }
-    //     return str.join(" ");
-    // }
+    function titleCase(str) {
+        str = str.toLowerCase().split(" ");
+        for (let i = 0; i < str.length; i++) {
+            str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+        }
+        return str.join(" ");
+    }
 
-    //write a fetch to grab character name and ID from here - refer to studio drink profile
+    //Grab single character info from localStorage so that props don't have to come all the way down from app to SingleChar components
 
-    useEffect;
+    useEffect(() => {
+        setCharIdNum(window.localStorage.getItem("charId"));
+        setCharName(window.localStorage.getItem("charName"));
+    }, []);
 
     return (
         <>
-            <h2>{charName}'s Spellbook</h2>
+            <h2>{titleCase(charName)}'s Spellbook</h2>
             {token ? (
                 <div id="MySpellbookContent">
                     <section id="allSpellsContainer">
-                        <AllSpells charId={charId} />
+                        <AllSpells charIdNum={charIdNum} />
                     </section>
                     <div className="spellbookSpacer"></div>
                     <section id="spellbookContainer">
                         <div id="mySpells">
                             {" "}
-                            <SingleCharSpells charId={charId} />
+                            <MySpells charIdNum={charIdNum} />
                         </div>
                         <div id="myCantrips">
                             {" "}
-                            <SingleCharCantrips charId={charId} />
+                            <MyCantrips charIdNum={charIdNum} />
                         </div>
                     </section>{" "}
                     <div className="spellbookSpacer"></div>
                     <section id="allCantripsContainer">
-                        <AllCantrips charId={charId} />
+                        <AllCantrips charIdNum={charIdNum} />
                     </section>
                 </div>
             ) : (

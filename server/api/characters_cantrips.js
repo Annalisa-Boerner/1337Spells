@@ -68,7 +68,6 @@ router.delete(
     "/characters_cantrips/:characters_cantrips_id",
     async (req, res, next) => {
         try {
-            console.log("router.delete in api");
             const charCantrip = await deleteCharacterCantrip(
                 req.params.characters_cantrips_id
             );

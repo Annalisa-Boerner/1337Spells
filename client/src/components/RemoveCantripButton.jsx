@@ -8,10 +8,6 @@ export default function RemoveCantripButton({ characters_cantrips_id }) {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            console.log(
-                "try catch in remove button and then id",
-                characters_cantrips_id
-            );
             await deleteCharacterCantrip(characters_cantrips_id);
             nav(0);
         } catch (error) {

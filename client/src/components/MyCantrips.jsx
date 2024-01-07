@@ -7,7 +7,7 @@ import Collapsible from "react-collapsible";
 import DetailsButton from "./DetailsButton";
 import RemoveCantripButton from "./RemoveCantripButton";
 
-export default function SingleCharCantrips({ charId }) {
+export default function MyCantrips({ charIdNum }) {
     // const [searchParam, setSearchParam] = useState("");
     const [charCantrips, setCharCantrips] = useState([]);
 
@@ -15,12 +15,11 @@ export default function SingleCharCantrips({ charId }) {
     useEffect(() => {
         async function getCharacterCantrips() {
             const charCantrips = await fetchCharacterCantripsByCharacterId(
-                charId
+                charIdNum
             );
 
             if (charCantrips) {
                 setCharCantrips(charCantrips);
-                // console.log("charCantrips in SingleCharCantrips", charSpells);
                 return charCantrips;
             } else {
                 console.error(
@@ -29,7 +28,7 @@ export default function SingleCharCantrips({ charId }) {
             }
         }
         getCharacterCantrips();
-    }, []);
+    }, [charIdNum]);
 
     return (
         <section id="myCantrips">
@@ -70,7 +69,9 @@ export default function SingleCharCantrips({ charId }) {
                                             cantrip.characters_cantrips_id
                                         }
                                     />
-                                    <DetailsButton />
+                                    <DetailsButton
+                                        spell_index={cantrip.cantrip_index}
+                                    />
                                 </Collapsible>
                                 <br />
                             </section>

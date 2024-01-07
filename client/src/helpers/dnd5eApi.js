@@ -25,3 +25,32 @@ export const fetchAllApiCantrips = async () => {
         );
     }
 };
+
+//grabs spell or cantrip details
+export const fetchSpellByIndex = async (spell_index) => {
+    try {
+        const response = await fetch(`${base_url}/spells/${spell_index}`);
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error(
+            "there was an error fetching these spell details from the API",
+            error
+        );
+    }
+};
+
+//may not be necessary due to all dnd5e api spells and cantrips having the same api endpoint
+
+// export const fetchCantripByIndex = async ({ cantrip_index }) => {
+//     try {
+//         const response = await fetch(`${base_url}/spells/${cantrip_index}`);
+//         const result = await response.json();
+//         return result;
+//     } catch (error) {
+//         console.error(
+//             "there was an error fetching these spell details from the API",
+//             error
+//         );
+//     }
+// };

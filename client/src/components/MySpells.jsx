@@ -4,17 +4,18 @@ import Collapsible from "react-collapsible";
 import DetailsButton from "./DetailsButton";
 import RemoveSpellButton from "./RemoveSpellButton";
 
-export default function SingleCharSpells({ charId }) {
+export default function MySpells({ charIdNum }) {
     const [charSpells, setCharSpells] = useState([]);
 
     //FETCH THE CHARACTER'S SPELLS
     useEffect(() => {
         async function getCharacterSpells() {
-            const charSpells = await fetchCharacterSpellsByCharacterId(charId);
+            const charSpells = await fetchCharacterSpellsByCharacterId(
+                charIdNum
+            );
 
             if (charSpells) {
                 setCharSpells(charSpells);
-                console.log("charSpells in SingleCharSpells", charSpells);
                 return charSpells;
             } else {
                 console.error(
@@ -23,8 +24,7 @@ export default function SingleCharSpells({ charId }) {
             }
         }
         getCharacterSpells();
-    }, []);
-    console.log("character spells in SingleCharSpells component", charSpells);
+    }, [charIdNum]);
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>
@@ -64,7 +64,9 @@ export default function SingleCharSpells({ charId }) {
                                             spell.characters_spells_id
                                         }
                                     />
-                                    <DetailsButton />
+                                    <DetailsButton
+                                        spell_index={spell.spell_index}
+                                    />
                                 </Collapsible>
                                 <br />
                             </section>

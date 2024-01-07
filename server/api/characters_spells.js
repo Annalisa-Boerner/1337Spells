@@ -70,7 +70,6 @@ router.delete(
     "/characters_spells/:characters_spells_id",
     async (req, res, next) => {
         try {
-            console.log("api characters_spells router.delete");
             const charSpell = await deleteCharacterSpell(
                 req.params.characters_spells_id
             );

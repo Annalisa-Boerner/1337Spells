@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { login } from "../fetching";
 import { useNavigate } from "react-router-dom";
-import { fetchSingleCharacter } from "../helpers/characters";
 
 export default function Login({ setToken, setCharId, setCharName }) {
     const [username, setUsername] = useState("");
@@ -11,13 +10,11 @@ export default function Login({ setToken, setCharId, setCharName }) {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log("handle submit variables", username, password, name);
 
         try {
             const register = await login(username, password, name);
-            console.log("register in the Login handleSubmit ", register);
             setToken(register.token);
-            setCharId(register.username);
+            setCharId(register.character_id);
             setCharName(register.name);
 
             localStorage.setItem("token", register.token);
