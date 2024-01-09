@@ -4,7 +4,7 @@ import DetailsButton from "./DetailsButton";
 import { fetchAllApiSpells } from "../helpers/dnd5eApi";
 import AddSpellButton from "./AddSpellButton";
 
-export default function AllSpells({ charId }) {
+export default function AllSpells({ charIdNum }) {
     const [allSpells, setAllSpells] = useState([]);
     const [searchParam, setSearchParam] = useState("");
 
@@ -58,10 +58,10 @@ export default function AllSpells({ charId }) {
                             >
                                 <AddSpellButton
                                     spell_index={spell.index}
-                                    charId={charId}
+                                    charId={charIdNum}
                                     spell_name={spell.name}
                                 />
-                                <DetailsButton />
+                                <DetailsButton spell_index={spell.index} />
                             </Collapsible>
                             <br />
                         </>

@@ -4,7 +4,7 @@ import Collapsible from "react-collapsible";
 import DetailsButton from "./DetailsButton";
 import AddCantripButton from "./AddCantripButton";
 
-export default function AllCantrips({ charId }) {
+export default function AllCantrips({ charIdNum }) {
     const [allCantrips, setAllCantrips] = useState([]);
     const [searchParam, setSearchParam] = useState([]);
 
@@ -55,11 +55,11 @@ export default function AllCantrips({ charId }) {
                                 transitionTime={200}
                             >
                                 <AddCantripButton
-                                    cantrip_index={cantrip.spell_index}
-                                    charId={charId}
+                                    cantrip_index={cantrip.index}
+                                    charId={charIdNum}
                                     cantrip_name={cantrip.name}
                                 />
-                                <DetailsButton />
+                                <DetailsButton spell_index={cantrip.index} />
                             </Collapsible>
                             <br />
                         </>
