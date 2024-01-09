@@ -10,19 +10,20 @@ Learning objectives for this project:
 + Working with the [D&D 5e API](https://www.dnd5eapi.co/) to pull in spells and lazy load deets
 + Completing an authorization flow and using local storage to maintain login during refreshes
 + Creating the clean flow that one expects from a site instead of using janky student workarounds
-+ I'm not a designer (IANAD?), but I want it to look nice! Work in progress
-
++ I'm not a designer (IANAD?), but I want it to look nice!
++ Continuing to organize myself via  my [Jira Kanban board](https://adventure-party.atlassian.net/jira/software/projects/APS/boards/2)
+  
 Things I didn't mean to learn but did:
 + jQuery basics (on CodePen like, "what is going on in this gorgeous thing I'm looking at")
-+ To add "React Component" to your google search if you're working in react ([oh baby, this collapse](https://www.npmjs.com/package/react-collapsible))
++ To add "React Component" to your google search if you're working in react ([oh baby, this collapse](https://github.com/glennflanagan/react-collapsible?tab=readme-ov-file#readme))
 
 Upon landing at the site, the user can either register a new account or log in (flow secured with BCrypt). 1337 Spells then redirects to [Character]'s Spellbook (you have to register with a character name in addition to a username - this is D&D, after all, and each user could ostensibly register a variety of characters for a variety of games). 
 
-Take a look at the available spells and cantrips, and choose which you'd like your character to learn using the "Add to Spellbook" button. (For the uninitiated, a cantrip is the lowest-level type of spell in the game - they're useful but inconsequential tricks that even the newest wizard can pull off without expending any of their precious magical energy.)
+Take a look at the available spells and cantrips (thanks, D&D 5e API!), and choose which you'd like your character to learn using the "Add to Spellbook" button. (For the uninitiated, a cantrip is the lowest-level type of spell in the game - they're useful but inconsequential tricks that even the newest wizard can pull off without expending any of their precious magical energy.)
 
 Your spellbook informs you that you can add up to six spells and three cantrips, and will dyamically update to "Spellbook full" once your list is complete.  Frankly, I was excited to save myself from the endless cycle of googling "level 1 wizard how many spells how many cantrips 5e", and to do that for my users, as well.
 
-The Browse Spells link navigates to DND Beyond, where the spells are pre-filtered to include the ones that are avaiable to you. Soon, the site will be conntected to the [D&D 5e API](https://www.dnd5eapi.co/), and you'll be able to do all of your browsing internally.
+The Browse Spells link navigates to DND Beyond, where the spells are pre-filtered to include the ones that are avaiable to you. Soon, the Details button on each spell will be live, populating details and rendering this link obsolete.
 
 ---
 ## Installation
@@ -30,12 +31,20 @@ The Browse Spells link navigates to DND Beyond, where the spells are pre-filtere
 + Fork this repository
 + Clone down your forked repository
 + Install dependencies using "npm i"
-+ Create a PostgreSQL database for seed data: createdb 1337Spells
++ Create a PostgreSQL database for user info: createdb 1337Spells
++ Create your own secrets file to satisfy bcrypt requirements:
+  + Create a secrets.js file at the server level
+  + Copy and paste the following, and add your own secrets:
+    ```
+    const JWT_SECRET = "<your secret here>";
+    const COOKIE_SECRET = "<another secret here>";
+    
+    module.exports = { JWT_SECRET, COOKIE_SECRET };
+    ```
 + Run a localhost port on the back end:
-  + CD into server, then run "npm run seed"
   + Start the back end with command "npm run start"
 + Run a localhost port on the front end:
-  + CD into client, then start with command "npm run dev"
+  + CD into client, then start the front end with command "npm run dev"
   + View on localhost:5173
 
   ---
