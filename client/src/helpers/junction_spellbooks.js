@@ -103,7 +103,7 @@ export const fetchCharactersCantripsByCharacterId = async (character_id) => {
 
 //POST a cantrip to characters_cantrips
 export async function createCharacterCantrip(
-    cantrip_id,
+    cantrip_index,
     char_id,
     cantrip_name
 ) {
@@ -114,7 +114,7 @@ export async function createCharacterCantrip(
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                cantrip_id: cantrip_id,
+                cantrip_index: cantrip_index,
                 character_id: char_id,
                 cantrip_name: cantrip_name,
             }),
