@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-    fetchAllCantrips,
-    fetchCharacterCantripsByCharacterId,
-} from "../helpers/cantrips";
+import { fetchCharacterCantripsByCharacterId } from "../helpers/cantrips";
 import Collapsible from "react-collapsible";
 import DetailsButton from "./DetailsButton";
 import RemoveCantripButton from "./RemoveCantripButton";
@@ -30,6 +27,7 @@ export default function MyCantrips({ charIdNum }) {
         getCharacterCantrips();
     }, [charIdNum]);
 
+    console.log("cantrips in MyCantrips component", charCantrips);
     return (
         <section id="myCantrips">
             <h3 id="myCantripsTitle">My Cantrips</h3>
@@ -70,7 +68,7 @@ export default function MyCantrips({ charIdNum }) {
                                         }
                                     />
                                     <DetailsButton
-                                        spell_index={cantrip.cantrip_index}
+                                        spell_index={cantrip.cantrkp_index}
                                     />
                                 </Collapsible>
                                 <br />
