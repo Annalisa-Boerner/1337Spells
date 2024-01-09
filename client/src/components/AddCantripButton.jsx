@@ -24,7 +24,7 @@ export default function AddCantripButton({
         <section id="addCantripContainer">
             <form onSubmit={handleSubmit}>
                 <button type="submit" className="addCantripButton">
-                    Add to Spellbook
+                    Add
                 </button>
             </form>
         </section>

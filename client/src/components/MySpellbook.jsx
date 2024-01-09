@@ -26,28 +26,30 @@ export default function MySpellbook({ token }) {
 
     return (
         <>
-            <h2>{titleCase(charName)}'s Spellbook</h2>
             {token ? (
-                <div id="MySpellbookContent">
-                    <section id="allSpellsContainer">
-                        <AllSpells charIdNum={charIdNum} />
-                    </section>
-                    <div className="spellbookSpacer"></div>
-                    <section id="spellbookContainer">
-                        <div id="mySpells">
-                            {" "}
-                            <MySpells charIdNum={charIdNum} />
-                        </div>
-                        <div id="myCantrips">
-                            {" "}
-                            <MyCantrips charIdNum={charIdNum} />
-                        </div>
-                    </section>{" "}
-                    <div className="spellbookSpacer"></div>
-                    <section id="allCantripsContainer">
-                        <AllCantrips charIdNum={charIdNum} />
-                    </section>
-                </div>
+                <section>
+                    <h2>{titleCase(charName)}'s Spellbook</h2>
+                    <div id="MySpellbookContent">
+                        <section id="allSpellsContainer">
+                            <AllSpells charIdNum={charIdNum} />
+                        </section>
+                        <div className="spellbookSpacer"></div>
+                        <section id="spellbookContainer">
+                            <div id="mySpells">
+                                {" "}
+                                <MySpells charIdNum={charIdNum} />
+                            </div>
+                            <div id="myCantrips">
+                                {" "}
+                                <MyCantrips charIdNum={charIdNum} />
+                            </div>
+                        </section>{" "}
+                        <div className="spellbookSpacer"></div>
+                        <section id="allCantripsContainer">
+                            <AllCantrips charIdNum={charIdNum} />
+                        </section>
+                    </div>
+                </section>
             ) : (
                 <h2>Please log in using the link above.</h2>
             )}
