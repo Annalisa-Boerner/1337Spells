@@ -68,7 +68,7 @@ export default function MyCantrips({ charIdNum }) {
                                         }
                                     />
                                     <DetailsButton
-                                        spell_index={cantrip.cantrkp_index}
+                                        spell_index={cantrip.cantrip_index}
                                     />
                                 </Collapsible>
                                 <br />

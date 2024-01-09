@@ -20,7 +20,7 @@ export default function AddSpellButton({ spell_index, charId, spell_name }) {
         <section id="addSpellContainer">
             <form onSubmit={handleSubmit}>
                 <button type="submit" className="addSpellButton">
-                    Add to Spellbook
+                    Add
                 </button>
             </form>
         </section>
