@@ -42,7 +42,9 @@
   "build": {
     "rollupOptions": {
       "external": [
-        "react-collapsible"
+        "react-collapsible",
+        "react",
+        "react-dom"
       ]
     }
   }
