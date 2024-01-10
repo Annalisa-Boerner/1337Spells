@@ -11,7 +11,7 @@
     "seed": "node ./db/seed.js",
     "cypress": "cypress open",
     "build:digitalocean": "npm install --production=false && npm run build && npm ci",
-    "start": "npm run dev"
+    "start": "react-scripts start"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
