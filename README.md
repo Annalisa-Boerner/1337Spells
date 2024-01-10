@@ -16,6 +16,7 @@ Learning objectives for this project:
 Things I didn't mean to learn but did:
 + jQuery basics (on CodePen like, "what is going on in this gorgeous thing I'm looking at")
 + To add "React Component" to your google search if you're working in react ([oh baby, this collapse](https://github.com/glennflanagan/react-collapsible?tab=readme-ov-file#readme))
++ Leave lots of time and headspace for deployment! Holy guacamole, what a process (ongoing as of this writing)
 
 Upon landing at the site, the user can either register a new account or log in (flow secured with BCrypt). 1337 Spells then redirects to [Character]'s Spellbook (you have to register with a character name in addition to a username - this is D&D, after all, and each user could ostensibly register a variety of characters for a variety of games). 
 
