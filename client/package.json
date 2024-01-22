@@ -11,7 +11,7 @@
     "seed": "node ./db/seed.js",
     "cypress": "cypress open",
     "build:digitalocean": "npm install --production=false && npm run build && npm ci",
-    "start": "npm run dev"
+    "start": "npm run dev; serve -s _static -l tcp://0.0.0.0:$PORT -n"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
