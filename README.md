@@ -4,7 +4,7 @@
 
 When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. Sometimes less is more in a rules-heavy game like D&D 5e. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I have embarked on creating a clear and attractive spellbook for the brand-new Wizard in all of us.
 
-Update: the frontend is deployed! Does it do anything without a functional backend and db? No! But it does appear beautifully: https://leet-spells-95b5i.ondigitalocean.app/
+*Update: the frontend is deployed! Does it do anything without a functional backend and db? No! But it does appear beautifully: https://leet-spells-95b5i.ondigitalocean.app/*
 
 Learning objectives for this project:
 + Designing a full stack site from scratch, working from a concept through schema design through implementation
@@ -14,11 +14,13 @@ Learning objectives for this project:
 + Creating the clean flow that one expects from a site instead of using janky student workarounds
 + I'm not a designer (IANAD?), but I want it to look nice!
 + Continuing to organize myself via  my [Jira Kanban board](https://adventure-party.atlassian.net/jira/software/projects/APS/boards/2)
++ Finding a deployment solution at a reasonable price that will have a 24/7 server so that my site doesn't look broken bc the server went to sleep
   
 Things I didn't mean to learn but did:
 + jQuery basics (on CodePen like, "what is going on in this gorgeous thing I'm looking at")
 + To add "React Component" to your google search if you're working in react ([oh baby, this collapse](https://github.com/glennflanagan/react-collapsible?tab=readme-ov-file#readme))
 + Leave lots of time and headspace for deployment! Holy guacamole, what a process (ongoing as of this writing)
++ How to write a much better support ticket to the lovely deployment support team
 
 Upon landing at the site, the user can either register a new account or log in (flow secured with BCrypt). 1337 Spells then redirects to [Character]'s Spellbook (you have to register with a character name in addition to a username - this is D&D, after all, and each user could ostensibly register a variety of characters for a variety of games). 
 
