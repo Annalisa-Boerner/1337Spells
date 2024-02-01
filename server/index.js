@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const PORT = 8080;
 
+const COOKIE_SECRET = process.env.COOKIE_SECRET;
+
 const client = require("./db/client");
 
 //connect to client
@@ -17,7 +19,7 @@ app.use(bodyParser.json());
 
 // init cookie parser
 const cookieParser = require("cookie-parser");
-const { COOKIE_SECRET } = require("./secrets");
+// const { COOKIE_SECRET } = require("./secrets");
 app.use(cookieParser(COOKIE_SECRET));
 
 // init cors
@@ -35,7 +37,3 @@ app.listen(PORT, () => {
 });
 
 //node index.js
-
-//
-// Static Content
-// app.use("/", express.static("./src/static"));
