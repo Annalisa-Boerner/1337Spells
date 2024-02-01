@@ -7,6 +7,6 @@ const db = process.env.DATABASE_URL;
 const spells = "1337spells";
 
 //new instance of Client with specific characterization (establish connection to db)
-const client = new Client({ db });
+const client = new Client(db);
 
 module.exports = client;
