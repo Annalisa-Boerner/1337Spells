@@ -3,10 +3,10 @@ const {
     createCharacter,
     getCharacterByUsername,
 } = require("../db/helpers/characters");
-// const { JWT_SECRET } = require("../secrets");
+const { JWT_SECRET } = require("../secrets");
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = process.env.JWT_SECRET;
+// const JWT_SECRET = process.env.JWT_SECRET;
 
 const router = require("express").Router();
 
