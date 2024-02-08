@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
+// const pool = require('./db/client.js')
 
 const COOKIE_SECRET = process.env.COOKIE_SECRET;
 
-const client = require("./db/client");
+// const client = require("./db/client");
 
 //connect to client
-// client.connect();
+client.connect();
 
 //init morgan
 const morgan = require("morgan");
@@ -37,3 +38,4 @@ app.listen(PORT, () => {
 });
 
 //node index.js
+
