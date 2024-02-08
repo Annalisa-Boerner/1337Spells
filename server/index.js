@@ -1,14 +1,11 @@
 const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8080;
-const pool = require('./db/client.js')
 
 const COOKIE_SECRET = process.env.COOKIE_SECRET;
 
 // const client = require("./db/client");
 
-//connect to client
-// pool.connect();
 
 //init morgan
 const morgan = require("morgan");
