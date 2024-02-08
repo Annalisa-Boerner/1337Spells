@@ -1,10 +1,10 @@
-const client = require("../client");
+const client = require("../pool");
 
 const createCantrips = async ({ cantrip_index, cantrip_name }) => {
     try {
         const {
             rows: [cantrip],
-        } = await client.query(
+        } = await pool.query(
             `INSERT INTO cantrips(cantrip_index, cantrip_name)
        VALUES ($1, $2)
        RETURNING *;`,
@@ -18,7 +18,7 @@ const createCantrips = async ({ cantrip_index, cantrip_name }) => {
 const getAllCantrips = async () => {
     try {
         console.log("line 20 from getAllCantrips");
-        const { rows } = await client.query(`
+        const { rows } = await pool.query(`
      SELECT *
      FROM cantrips;
      `);
@@ -32,11 +32,11 @@ const getCantripById = async (cantrip_index) => {
     try {
         const {
             rows: [cantrip],
-        } = await client.query(`
+        } = await pool.query(`
           SELECT *
           FROM cantrips
           WHERE cantrip_index=${cantrip_index};`);
         return cantrip;
-    } catch (error) {}
+    } catch (error) { }
 };
 module.exports = { createCantrips, getAllCantrips, getCantripById };
