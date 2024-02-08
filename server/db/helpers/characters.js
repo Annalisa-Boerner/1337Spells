@@ -1,6 +1,6 @@
 //I'm making a query, so I'm connecting to db with pool
 
-const pool = require("../pool");
+const { pool } = require("../client");
 
 //make sure destructured keys in next line are in the same order as the table so that they match up after the queries
 const createCharacter = async ({

@@ -1,4 +1,4 @@
-const client = require("../pool");
+const { pool } = require("../client");
 
 const createCantrips = async ({ cantrip_index, cantrip_name }) => {
     try {

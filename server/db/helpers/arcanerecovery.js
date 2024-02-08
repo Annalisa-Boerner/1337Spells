@@ -1,4 +1,4 @@
-const pool = require("../client");
+const { pool } = require("../client");
 
 const createArcaneRecovery = async ({ usedToday, character_id }) => {
      try {

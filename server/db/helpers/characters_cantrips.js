@@ -1,4 +1,4 @@
-const pool = require("../pool");
+const { pool } = require("../client");
 
 const createCharacterCantrip = async ({
     cantrip_index,

@@ -1,4 +1,4 @@
-const pool = require("../pool");
+const { pool } = require("../client");
 
 const createCharacterSpell = async ({
     spell_index,

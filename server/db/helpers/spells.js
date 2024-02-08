@@ -1,4 +1,4 @@
-const pool = require("../pool");
+const { pool } = require("../client");
 
 const createSpells = async ({ spell_index, spell_name }) => {
     try {

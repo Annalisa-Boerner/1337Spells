@@ -35,4 +35,4 @@ pool.query('SELECT NOW()', (err, res) => {
 });
 
 // Export the pool so it can be used by other modules
-module.exports = pool;
+module.exports = { pool }
