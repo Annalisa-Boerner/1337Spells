@@ -8,7 +8,7 @@ const COOKIE_SECRET = process.env.COOKIE_SECRET;
 // const client = require("./db/client");
 
 //connect to client
-pool.connect();
+// pool.connect();
 
 //init morgan
 const morgan = require("morgan");
