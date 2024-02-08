@@ -7,7 +7,7 @@ const COOKIE_SECRET = process.env.COOKIE_SECRET;
 const client = require("./db/client");
 
 //connect to client
-client.connect();
+// client.connect();
 
 //init morgan
 const morgan = require("morgan");
