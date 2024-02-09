@@ -10,14 +10,7 @@ const spells = "1337spells";
 
 //new instance of Client with specific characterization (establish connection to db)
 const client = new Client({
-    user: "db",
-    host: "app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com",
-    database: db,
-    password: password,
-    port: 8080,
-    ssl: {
-        rejectUnauthorized: false, // Required because DigitalOcean SSL is self-signed
-    },
+    db
 });
 
 module.exports = client;
