@@ -1,10 +1,10 @@
-const { pool } = require("../client");
+const { client } = require("../client");
 
 const createSpells = async ({ spell_index, spell_name }) => {
     try {
         const {
             rows: [spell],
-        } = await pool.query(
+        } = await client.query(
             `INSERT INTO spells(spell_index, spell_name)
        VALUES ($1, $2)
        RETURNING *;`,
@@ -18,7 +18,7 @@ const createSpells = async ({ spell_index, spell_name }) => {
 
 const getAllSpells = async () => {
     try {
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
      SELECT *
      FROM spells;
      `);
@@ -32,7 +32,7 @@ const getSpellById = async (spell_index) => {
     try {
         const {
             rows: [spell],
-        } = await pool.query(`
+        } = await client.query(`
           SELECT *
           FROM spells
           WHERE spell_index=${spell_index};`);
@@ -45,7 +45,7 @@ const getSpellById = async (spell_index) => {
 const deleteSpells = async (spell_index) => {
     try {
         console.log("backend db helper deleteSpells");
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
           DELETE
           FROM spells
           WHERE spell_index=${spell_index}
@@ -59,7 +59,7 @@ const deleteSpells = async (spell_index) => {
 const putSpells = async (spell_index, body) => {
     console.log("line 59 " + spell_index + " " + body);
     try {
-        const { rows } = await pool.query(
+        const { rows } = await client.query(
             `
                     UPDATE spells
                     SET name = '${body.name}'

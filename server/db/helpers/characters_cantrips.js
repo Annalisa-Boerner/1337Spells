@@ -1,4 +1,4 @@
-const { pool } = require("../client");
+const { client } = require("../client");
 
 const createCharacterCantrip = async ({
     cantrip_index,
@@ -8,7 +8,7 @@ const createCharacterCantrip = async ({
     try {
         const {
             rows: [character_cantrip],
-        } = await pool.query(
+        } = await client.query(
             `
     INSERT INTO characters_cantrips(cantrip_index, character_id, cantrip_name)       
         VALUES($1, $2, $3)
@@ -25,7 +25,7 @@ const createCharacterCantrip = async ({
 
 const getAllCharactersCantrips = async () => {
     try {
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
           SELECT * FROM characters_cantrips;
           `);
         return rows;
@@ -37,7 +37,7 @@ const getAllCharactersCantrips = async () => {
 const getCharactersCantripsByCharacterId = async (character_id) => {
     try {
         console.log("entering character's cantrips by character id");
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
      SELECT *
      FROM characters_cantrips
      WHERE character_id=${character_id};
@@ -53,7 +53,7 @@ const getCharactersCantripsByCharactersCantripsId = async (
 ) => {
     try {
         console.log("entering character's cantrips by characters_cantrips id");
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
      SELECT *
      FROM characters_cantrips
      WHERE characters_cantrips_id=${characters_cantrips_id};
@@ -70,7 +70,7 @@ const getCharactersCantripsByCharactersCantripsId = async (
 
 const deleteCharacterCantrip = async (characters_cantrips_id) => {
     try {
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
                DELETE FROM characters_cantrips
                WHERE characters_cantrips_id=${characters_cantrips_id}
                RETURNING *;

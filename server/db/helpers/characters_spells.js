@@ -1,4 +1,4 @@
-const { pool } = require("../client");
+const { client } = require("../client");
 
 const createCharacterSpell = async ({
     spell_index,
@@ -8,7 +8,7 @@ const createCharacterSpell = async ({
     try {
         const {
             rows: [character_spell],
-        } = await pool.query(
+        } = await client.query(
             `
     INSERT INTO characters_spells(spell_index, character_id, spell_name)       
         VALUES($1, $2, $3)
@@ -24,7 +24,7 @@ const createCharacterSpell = async ({
 
 const getAllCharactersSpells = async () => {
     try {
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
           SELECT * FROM characters_spells;
           `);
         return rows;
@@ -36,7 +36,7 @@ const getAllCharactersSpells = async () => {
 const getCharactersSpellsByCharacterId = async (character_id) => {
     try {
         console.log("entering character's spells by character id");
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
      SELECT *
      FROM characters_spells
      WHERE character_id=${character_id};
@@ -53,7 +53,7 @@ const getCharactersSpellsByCharactersSpellsId = async (
 ) => {
     try {
         console.log("entering character's spells by characters_spells id");
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
      SELECT *
      FROM characters_spells
      WHERE characters_spells_id=${characters_spells_id};
@@ -68,7 +68,7 @@ const getCharactersSpellsByCharactersSpellsId = async (
 const deleteCharacterSpell = async (characters_spells_id) => {
     try {
         console.log('db helpers deleteCharacter_Spell"');
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
                DELETE FROM characters_spells
                WHERE characters_spells_id = ${characters_spells_id}
                RETURNING *;

@@ -1,6 +1,6 @@
-//I'm making a query, so I'm connecting to db with pool
+//I'm making a query, so I'm connecting to db with client
 
-const { pool } = require("../client");
+const { client } = require("../client");
 
 //make sure destructured keys in next line are in the same order as the table so that they match up after the queries
 const createCharacter = async ({
@@ -14,7 +14,7 @@ const createCharacter = async ({
         //INSERT sql query
         const {
             rows: [character],
-        } = await pool.query(
+        } = await client.query(
             `
             INSERT INTO characters(username, password, name, heritage, image)
             VALUES ($1, $2, $3, $4, $5)
@@ -30,7 +30,7 @@ const createCharacter = async ({
 
 const getAllCharacters = async () => {
     try {
-        const { rows } = await pool.query(`
+        const { rows } = await client.query(`
           SELECT * FROM characters;
           `);
         return rows;
@@ -45,7 +45,7 @@ const getCharacterById = async (character_id) => {
 
         const {
             rows: [character],
-        } = await pool.query(
+        } = await client.query(
             `
           SELECT *
           FROM characters
@@ -66,7 +66,7 @@ const getCharacterByUsername = async (username) => {
 
         const {
             rows: [character],
-        } = await pool.query(
+        } = await client.query(
             `
           SELECT *
           FROM characters

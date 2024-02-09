@@ -1,10 +1,10 @@
-const { pool } = require("../client");
+const { client } = require("../client");
 
 const createArcaneRecovery = async ({ usedToday, character_id }) => {
      try {
           const {
                rows: [status],
-          } = await pool.query(
+          } = await client.query(
                `
             INSERT INTO arcanerecovery(usedToday, character_id)
             VALUES ($1, $2)
@@ -20,7 +20,7 @@ const createArcaneRecovery = async ({ usedToday, character_id }) => {
 
 const getAllArcaneRecoveries = async () => {
      try {
-          const { rows } = await pool.query(`
+          const { rows } = awaitclient.query(`
           SELECT * FROM arcanerecovery;
           `);
           return rows;
@@ -33,7 +33,7 @@ const getArcaneRecoveryById = async (character_id) => {
      try {
           const {
                rows: [arcanerecovery],
-          } = await pool.query(`
+          } = awaitclient.query(`
           SELECT * FROM "arcanerecovery" WHERE character_id=${character_id};
           `);
           return arcanerecovery;

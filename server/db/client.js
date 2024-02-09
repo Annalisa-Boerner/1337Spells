@@ -1,19 +1,14 @@
-// //we are making a postgres route
+//we are making a postgres route
 
-// const { Client } = require("pg");
-// const db = process.env.DATABASE_URL;
-// //name database by setting string to variable
+const { Client } = require("pg");
+const db = process.env.DATABASE_URL;
 
-// const spells = "1337spells";
+//name database by setting string to variable
 
-// //new instance of Client with specific characterization (establish connection to db)
-// const client = new Client({ db });
+const spells = "1337spells";
 
-// module.exports = client;
-const { Pool } = require("pg");
-const password = process.env.PASSWORD;
-
-const pool = new Pool({
+//new instance of Client with specific characterization (establish connection to db)
+const client = new Client({
     user: "db",
     host: "app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com",
     database: "db",
@@ -24,14 +19,29 @@ const pool = new Pool({
     },
 });
 
-// Test the connection
-pool.query("SELECT NOW()", (err, res) => {
-    if (err) {
-        console.error("Error connecting to PostgreSQL database:", err.stack);
-    } else {
-        console.log("Connected to PostgreSQL database at:", res.rows[0].now);
-    }
-});
+module.exports = client;
+// const { Pool } = require("pg");
+// const password = process.env.PASSWORD;
 
-// Export the pool so it can be used by other modules
-module.exports = { pool };
+// const pool = new Pool({
+//     user: "db",
+//     host: "app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com",
+//     database: "db",
+//     password: password,
+//     port: 8080,
+//     ssl: {
+//         rejectUnauthorized: false, // Required because DigitalOcean SSL is self-signed
+//     },
+// });
+
+// // Test the connection
+// pool.query("SELECT NOW()", (err, res) => {
+//     if (err) {
+//         console.error("Error connecting to PostgreSQL database:", err.stack);
+//     } else {
+//         console.log("Connected to PostgreSQL database at:", res.rows[0].now);
+//     }
+// });
+
+// // Export the pool so it can be used by other modules
+// module.exports = { pool };
