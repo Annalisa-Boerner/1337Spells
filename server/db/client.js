@@ -2,7 +2,7 @@
 
 const { Client } = require("pg");
 // const db = process.env.DATABASE_URL;
-const password = process.env.DATABASE_URL;
+const password = process.env.PASSWORD;
 
 //name database by setting string to variable
 
