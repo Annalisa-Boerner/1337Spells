@@ -44,6 +44,7 @@ router.get("/:id", async (req, res, next) => {
 // });
 
 router.post("/register", async (req, res, next) => {
+    console.log('before the try in api/characters/register')
     try {
         const { username, password, name } = req.body;
         const hashedPassword = await bcrypt.hash(password, SALT_ROUNDS);

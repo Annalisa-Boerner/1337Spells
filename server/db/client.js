@@ -6,7 +6,7 @@ const password = process.env.PASSWORD;
 
 //name database by setting string to variable
 
-const spells = "1337spells";
+// const spells = "1337spells";
 
 //new instance of Client with specific characterization (establish connection to db)
 const client = new Client({
