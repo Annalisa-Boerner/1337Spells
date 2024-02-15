@@ -1,4 +1,4 @@
-const api_url = `https://plankton-app-5feg7.ondigitalocean.app`;
+const api_url = `https://plankton-app-5feg7.ondigitalocean.app/api`;
 
 //REGISTER
 export const registerCharacter = async (username, password, name) => {
