@@ -1,4 +1,4 @@
-const base_url = "https://plankton-app-5feg7.ondigitalocean.app/";
+const base_url = "https://plankton-app-5feg7.ondigitalocean.app";
 
 export const fetchAllCharacters = async () => {
     try {
