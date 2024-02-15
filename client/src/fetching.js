@@ -1,4 +1,4 @@
-const api_url = `http://localhost:8080/api`;
+const api_url = `https://plankton-app-5feg7.ondigitalocean.app/`;
 
 //REGISTER
 export const registerCharacter = async (username, password, name) => {
