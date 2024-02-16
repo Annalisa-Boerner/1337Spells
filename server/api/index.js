@@ -31,4 +31,5 @@ router.use("/spells", require("./spells"));
 
 //
 
-module.exports = router;
+module.exports = { router };
+
