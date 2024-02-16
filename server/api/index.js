@@ -11,7 +11,7 @@ router.get("/health", (req, res, next) => {
 //In alpha order
 
 //GET and POST- get current status, post a change
-("/arcanerecoveries", require("./arcanerecovery"));
+router.use("/arcanerecoveries", require("./arcanerecovery"));
 
 //GET cantrips that exist
 router.use("/cantrips", require("./cantrips"));
@@ -31,5 +31,5 @@ router.use("/spells", require("./spells"));
 
 //
 
-module.exports = { router };
+module.exports = router;
 
