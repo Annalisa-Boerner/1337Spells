@@ -4,7 +4,7 @@ const PORT = process.env.PORT || 8080;
 
 const COOKIE_SECRET = process.env.COOKIE_SECRET;
 
-const client = require("./db/client");
+const { client } = require("./db/client");
 
 client.connect();
 //init morgan

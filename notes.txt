@@ -1,3 +1,17 @@
+/workspace/server/index.js:9
+[2024-02-15 20:49:38] client.connect();
+[2024-02-15 20:49:38]        ^
+[2024-02-15 20:49:38] 
+[2024-02-15 20:49:38] TypeError: client.connect is not a function
+[2024-02-15 20:49:38]     at Object.<anonymous> (/workspace/server/index.js:9:8)
+[2024-02-15 20:49:38]     at Module._compile (node:internal/modules/cjs/loader:1376:14)
+[2024-02-15 20:49:38]     at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
+[2024-02-15 20:49:38]     at Module.load (node:internal/modules/cjs/loader:1207:32)
+[2024-02-15 20:49:38]     at Module._load (node:internal/modules/cjs/loader:1023:12)
+[2024-02-15 20:49:38]     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)
+[2024-02-15 20:49:38]     at node:internal/main/run_main_module:28:49
+
+
 -node index.js to run
 -using health endpoint takes out the logic and the db and gives a baseline sanity check
 -can also be used after any other endpoint?
