@@ -112,7 +112,6 @@ p {
 
 .Collapsible {
     font-size: 1.3rem;
-    display: flex;
 }
 
 .Collapsible__trigger {

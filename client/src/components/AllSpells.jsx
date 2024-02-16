@@ -49,12 +49,13 @@ export default function AllSpells({ charIdNum }) {
             <div id="allSpellNames">
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <div id="all-spells-collapsible">
+                        <div className="flex">
                             <Collapsible
                                 trigger={"+" + " " + spell.name}
                                 triggerWhenOpen={"—" + " " + spell.name}
                                 key={spell.url}
                                 transitionTime={200}
+                                className="flex"
 
                             >
                                 <AddSpellButton
