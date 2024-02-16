@@ -12,8 +12,8 @@ export default function AddCantripButton({
         event.preventDefault();
         try {
             await createCharacterCantrip(cantrip_index, charId, cantrip_name);
-            // navigate(0);
-            // navigate("/myspellbook");
+            navigate(0);
+            navigate("/myspellbook");
         } catch (error) {
             alert("There was an error adding this cantrip to your spellbook");
             console.log(error);
