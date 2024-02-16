@@ -80,6 +80,10 @@ a:hover {
     text-align: left;
 }
 
+#all-spells-collapsible {
+    display: flex;
+}
+
 .spellbookSpacer {
     width: 10vw;
 }

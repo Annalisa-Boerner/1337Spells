@@ -26,8 +26,8 @@ export default function AllSpells({ charIdNum }) {
 
     const spellsToDisplay = searchParam
         ? allSpells.filter((spell) =>
-              spell.name.toLowerCase().includes(searchParam)
-          )
+            spell.name.toLowerCase().includes(searchParam)
+        )
         : allSpells;
 
     return (
@@ -55,6 +55,7 @@ export default function AllSpells({ charIdNum }) {
                                 triggerWhenOpen={"—" + " " + spell.name}
                                 key={spell.url}
                                 transitionTime={200}
+                                id="all-spells-collapsible"
                             >
                                 <AddSpellButton
                                     spell_index={spell.index}
