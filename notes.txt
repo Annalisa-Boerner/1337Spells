@@ -1,16 +1,6 @@
-/workspace/server/index.js:9
-[2024-02-15 20:49:38] client.connect();
-[2024-02-15 20:49:38]        ^
-[2024-02-15 20:49:38] 
-[2024-02-15 20:49:38] TypeError: client.connect is not a function
-[2024-02-15 20:49:38]     at Object.<anonymous> (/workspace/server/index.js:9:8)
-[2024-02-15 20:49:38]     at Module._compile (node:internal/modules/cjs/loader:1376:14)
-[2024-02-15 20:49:38]     at Module._extensions..js (node:internal/modules/cjs/loader:1435:10)
-[2024-02-15 20:49:38]     at Module.load (node:internal/modules/cjs/loader:1207:32)
-[2024-02-15 20:49:38]     at Module._load (node:internal/modules/cjs/loader:1023:12)
-[2024-02-15 20:49:38]     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:135:12)
-[2024-02-15 20:49:38]     at node:internal/main/run_main_module:28:49
+-psql -h app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com -p 25060 -d db -U db -W -c "application_name=management-agent"
 
+    AVNS_MQ86iaFh7WotWEFg4OR
 
 -node index.js to run
 -using health endpoint takes out the logic and the db and gives a baseline sanity check
