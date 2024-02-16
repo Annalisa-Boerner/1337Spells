@@ -17,7 +17,6 @@ export const fetchAllCharactersSpells = async () => {
 
 //GET spells by just one character
 export const fetchCharactersSpellsByCharacterId = async (character_id) => {
-    console.log('character_id above teh try in the fetchCharSpellsById', character_id)
     try {
         const response = await fetch(
             `${base_url}/characters_spells/${character_id}`
