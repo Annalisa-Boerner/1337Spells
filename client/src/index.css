@@ -80,7 +80,8 @@ a:hover {
     text-align: left;
 }
 
-#all-spells-collapsible {
+#all-spells-collapsible,
+#all-cantrips-collapsible {
     display: flex;
 }
 
