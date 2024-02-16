@@ -7,10 +7,9 @@ export default function AddSpellButton({ spell_index, charId, spell_name }) {
     async function handleSubmit(event) {
         event.preventDefault();
         try {
-            console.log("charId in add to spellbook button", charId);
+            console.log(' params in add spell', charId, spell_index, spell_name)
             createCharacterSpell(spell_index, charId, spell_name);
             // navigate(0);
-            console.log('other params in add spell', spell_index, spell_name)
             navigate("/myspellbook");
         } catch (error) {
             alert("There was an error adding this spell to your spellbook");

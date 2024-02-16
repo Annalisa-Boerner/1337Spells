@@ -35,6 +35,7 @@ export const fetchCharactersSpellsByCharacterId = async (character_id) => {
 //POST a spell to characters_spells
 export async function createCharacterSpell(spell_index, char_id, spell_name) {
     try {
+        console.log('entering try in createCharacterSpell')
         const response = await fetch(`${base_url}/characters_spells`, {
             method: "POST",
             headers: {
