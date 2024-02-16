@@ -10,7 +10,6 @@ export default function MySpells({ charIdNum }) {
     //FETCH THE CHARACTER'S SPELLS
     useEffect(() => {
         async function getCharacterSpells() {
-            console.log('charIdNum in getCharacterSpells', charIdNum)
             const charSpells = await fetchCharacterSpellsByCharacterId(
                 charIdNum
             );
@@ -25,6 +24,8 @@ export default function MySpells({ charIdNum }) {
         }
         getCharacterSpells();
     }, [charIdNum]);
+
+    console.log("spells in MySpells component", charSpells)
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>
