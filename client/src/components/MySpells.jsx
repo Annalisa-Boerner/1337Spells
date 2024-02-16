@@ -10,10 +10,10 @@ export default function MySpells({ charIdNum }) {
     //FETCH THE CHARACTER'S SPELLS
     useEffect(() => {
         async function getCharacterSpells() {
+            console.log('charIdNum in getCharacterSpells', charIdNum)
             const charSpells = await fetchCharacterSpellsByCharacterId(
                 charIdNum
             );
-
             if (charSpells) {
                 setCharSpells(charSpells);
                 return charSpells;

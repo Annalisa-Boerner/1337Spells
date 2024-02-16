@@ -18,6 +18,7 @@ export const fetchAllCharactersSpells = async () => {
 //GET spells by just one character
 export const fetchCharactersSpellsByCharacterId = async (character_id) => {
     try {
+        console.log('entering try in helpers/junction_spellbooks fetch spells by char ID', character_id)
         const response = await fetch(
             `${base_url}/characters_spells/${character_id}`
         );
