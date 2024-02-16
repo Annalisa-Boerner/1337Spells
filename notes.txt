@@ -1,3 +1,7 @@
+Because I haven't added any spells, get the spells by that character should be empty aka 404
+That's not true of the cantrips side though
+Route issue??
+
 -psql -h app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com -p 25060 -d db -U db "?sslmode=require" -W
 
 psql "postgresql://db:<MY_PASSWORD_HERE>@app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com:25060/db?sslmode=require"

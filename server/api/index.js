@@ -26,7 +26,7 @@ router.use("/characters", require("./characters"));
 router.use("/characters_cantrips", require("./characters_cantrips"));
 
 //ROUTER: /api/characters_spells
-// router.use("/characters_spells", require("./characters_spells"));
+router.use("/characters_spells", require("./characters_spells"));
 
 //GET spells that exist
 //POST, PUT, and DELETE homebrew
