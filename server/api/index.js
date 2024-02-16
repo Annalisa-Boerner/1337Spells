@@ -14,7 +14,7 @@ router.get("/health", (req, res, next) => {
 router.use("/arcanerecoveries", require("./arcanerecovery"));
 
 //GET cantrips that exist
-router.use("/cantrips", require("./cantrips"));
+// router.use("/cantrips", require("./cantrips"));
 
 //GET characters that exist; also auth through here
 router.use("/characters", require("./characters"));
@@ -23,11 +23,11 @@ router.use("/characters", require("./characters"));
 router.use("/characters_cantrips", require("./characters_cantrips"));
 
 //ROUTER: /api/characters_spells
-router.use("/characters_spells", require("./characters_spells"));
+// router.use("/characters_spells", require("./characters_spells"));
 
 //GET spells that exist
 //POST, PUT, and DELETE homebrew
-router.use("/spells", require("./spells"));
+// router.use("/spells", require("./spells"));
 
 //
 

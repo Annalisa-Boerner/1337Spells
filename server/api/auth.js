@@ -10,6 +10,7 @@ const JWT_SECRET = process.env.JWT_SECRET;
 
 const router = require("express").Router();
 
+
 const SALT_ROUNDS = 10;
 
 router.get("/", async (req, res, next) => {
