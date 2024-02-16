@@ -1,5 +1,5 @@
 const express = require("express");
-const router = express.Router();
+const { router } = express.Router();
 
 //GET /api/health
 router.get("/health", (req, res, next) => {
@@ -11,7 +11,7 @@ router.get("/health", (req, res, next) => {
 //In alpha order
 
 //GET and POST- get current status, post a change
-router.use("/arcanerecoveries", require("./arcanerecovery"));
+("/arcanerecoveries", require("./arcanerecovery"));
 
 //GET cantrips that exist
 router.use("/cantrips", require("./cantrips"));
