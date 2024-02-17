@@ -1,3 +1,21 @@
+Victor
+-LastPass popped outside the form bar in Register but not in Login
+-Login using signup credentials
+-Render text below the input field in a div that's only visible if there's an error message (hidden by default)
+-make it actually prevent adding too many spells and cantrips
+-close button hovers over the text on spells when details are open
+-Adding a spell: save in the DB, then put in a call to the character ID, update the state when there's an API response
+    -in addspell logic - instead of returing ok, return all the data so they can be on state
+    -same flow with remove button
+    -don't change the apis, just change the front end
+-MatUI frontend box for react for squishing UI
+
+Sam 
+-skinny text
+-can do the same spell or cantrip multiple times
+
+
+
 Loading character in MySpellbook immediately:
 -UE with an async function that awaits having the user profile info: write a route to pull directly from the character table rather than passing in via props
 -REFERENCE STUDIO DRINK PROFILE
