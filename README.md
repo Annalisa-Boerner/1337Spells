@@ -2,7 +2,7 @@
 
 ## Populate your spellbook with ease on 1337 Spells.
 
-When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. Sometimes less is more in a rules-heavy game like D&D 5e. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I have embarked on creating a clear and attractive spellbook for the brand-new Wizard in all of us.
+When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. Sometimes less is more in a rules-heavy game like D&D 5e. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I created a clear and attractive spellbook for the brand-new Wizard in all of us.
 
 **Update: We are fully deployed! Check it out at [tinyurl.com/1337spells](https://www.tinyurl.com/1337spells)!**
 Ok, we're not mobile-friendly. But that's my literal next step.
