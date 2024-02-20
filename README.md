@@ -4,7 +4,7 @@
 
 When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. Sometimes less is more in a rules-heavy game like D&D 5e. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I have embarked on creating a clear and attractive spellbook for the brand-new Wizard in all of us.
 
-**Update: the frontend is deployed! Does it do anything without a functional backend and db? No! But it does appear beautifully: https://leet-spells-95b5i.ondigitalocean.app/**
+**Update: We are fully deployed! Check it out at [tinyurl.com/1337spells](https://www.tinyurl.com/1337spells)!**
 
 Learning objectives for this project:
 + Designing a full stack site from scratch, working from a concept through schema design through implementation
