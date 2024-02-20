@@ -18,6 +18,7 @@ Learning objectives for this project:
   
 Things I didn't mean to learn but did:
 + jQuery basics (on CodePen like, "what is going on in this gorgeous thing I'm looking at")
++ That, depending on who you ask, jQuery is hopelessly out of style
 + To add "React Component" to your google search if you're working in react ([oh baby, this collapse](https://github.com/glennflanagan/react-collapsible?tab=readme-ov-file#readme))
 + Leave lots of time and headspace for deployment! Holy guacamole, what a process (ongoing as of this writing)
 + How to write a much better support ticket to the lovely deployment support team
