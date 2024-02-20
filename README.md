@@ -12,7 +12,6 @@ Learning objectives for this project:
   + Learning how to manage my scope (oh baby, I started WAY too big and pared down many times to the MVP you see today)
 + Working with the [D&D 5e API](https://www.dnd5eapi.co/) to pull in spells and lazy load deets
 + Completing an authorization flow and using local storage to maintain login during refreshes
-+ Creating the clean flow that one expects from a site instead of using janky student workarounds
 + I'm not a designer (IANAD?), but I want it to look nice!
 + Continuing to organize myself via  my [Jira Kanban board](https://adventure-party.atlassian.net/jira/software/projects/APS/boards/2)
 + Finding a deployment solution at a reasonable price that will have a 24/7 server so that my site doesn't look broken bc the server went to sleep
