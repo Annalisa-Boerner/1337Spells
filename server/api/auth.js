@@ -3,10 +3,10 @@ const {
     createCharacter,
     getCharacterByUsername,
 } = require("../db/helpers/characters");
-// const { JWT_SECRET } = require("../secrets");
+const { JWT_SECRET } = require("../secrets");
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = process.env.JWT_SECRET;
+// const JWT_SECRET = process.env.JWT_SECRET;
 
 const router = require("express").Router();
 
@@ -38,7 +38,7 @@ router.post("/register", async (req, res, next) => {
         res.cookie("token", token, {
             sameSite: "strict",
             httpOnly: true,
-            signed: true,
+            signed: false,
         });
 
         res.send({ character });

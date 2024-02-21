@@ -2,7 +2,7 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const COOKIE_SECRET = process.env.COOKIE_SECRET;
+// const COOKIE_SECRET = process.env.COOKIE_SECRET || require('./secrets');
 
 const { client } = require("./db/client");
 
@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 
 // init cookie parser
 const cookieParser = require("cookie-parser");
-// const { COOKIE_SECRET } = require("./secrets");
+const { COOKIE_SECRET } = require("./secrets");
 app.use(cookieParser(COOKIE_SECRET));
 
 // init cors
