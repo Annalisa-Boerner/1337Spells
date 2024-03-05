@@ -1,4 +1,4 @@
-const client = require("../client");
+const { client } = require("../client");
 
 const createCantrips = async ({ cantrip_index, cantrip_name }) => {
     try {
@@ -37,6 +37,6 @@ const getCantripById = async (cantrip_index) => {
           FROM cantrips
           WHERE cantrip_index=${cantrip_index};`);
         return cantrip;
-    } catch (error) {}
+    } catch (error) { }
 };
 module.exports = { createCantrips, getAllCantrips, getCantripById };

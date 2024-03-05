@@ -10,6 +10,7 @@ const jwt = require("jsonwebtoken");
 
 const router = require("express").Router();
 
+
 const SALT_ROUNDS = 10;
 
 router.get("/", async (req, res, next) => {
@@ -37,7 +38,7 @@ router.post("/register", async (req, res, next) => {
         res.cookie("token", token, {
             sameSite: "strict",
             httpOnly: true,
-            signed: true,
+            signed: false,
         });
 
         res.send({ character });
@@ -92,3 +93,4 @@ router.post("/logout", async (req, res, next) => {
 });
 
 module.exports = router;
+

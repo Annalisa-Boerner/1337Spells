@@ -1,15 +1,14 @@
 const express = require("express");
 const app = express();
-const PORT = 8080;
+const PORT = process.env.PORT || 8080;
 
-// const COOKIE_SECRET = process.env.COOKIE_SECRET;
-const COOKIE_SECRET = require("./secrets");
 
-const client = require("./db/client");
+// const COOKIE_SECRET = process.env.COOKIE_SECRET || require('./secrets');
 
-//connect to client
+
+const { client } = require("./db/client");
+
 client.connect();
-
 //init morgan
 const morgan = require("morgan");
 app.use(morgan("dev"));
@@ -20,7 +19,10 @@ app.use(bodyParser.json());
 
 // init cookie parser
 const cookieParser = require("cookie-parser");
-// app.use(cookieParser(COOKIE_SECRET));
+
+const { COOKIE_SECRET } = require("./secrets");
+app.use(cookieParser(COOKIE_SECRET));
+
 
 // init cors
 const cors = require("cors");
@@ -37,3 +39,4 @@ app.listen(PORT, () => {
 });
 
 //node index.js
+

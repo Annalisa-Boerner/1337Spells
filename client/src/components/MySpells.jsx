@@ -13,7 +13,6 @@ export default function MySpells({ charIdNum }) {
             const charSpells = await fetchCharacterSpellsByCharacterId(
                 charIdNum
             );
-
             if (charSpells) {
                 setCharSpells(charSpells);
                 return charSpells;
@@ -25,6 +24,8 @@ export default function MySpells({ charIdNum }) {
         }
         getCharacterSpells();
     }, [charIdNum]);
+
+    console.log("spells in MySpells component", charSpells)
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>
