@@ -7,6 +7,11 @@ When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard
 **Update: We are fully deployed! Check it out at [tinyurl.com/1337spells](https://www.tinyurl.com/1337spells)!**
 Ok, we're not mobile-friendly. But that's my literal next step.
 
+Next Steps:
++ Media queries -> mobile-friendly version
++ No refreshes when adding / removing spells (put 'em on state)
++ A guest spellbook so that the site can be used without login
+
 Learning objectives for this project:
 + Designing a full stack site from scratch, working from a concept through schema design through implementation
   + Learning how to manage my scope (oh baby, I started WAY too big and pared down many times to the MVP you see today)
