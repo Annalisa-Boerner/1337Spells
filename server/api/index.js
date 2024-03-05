@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
+const characterRouter = require('./characters')
+console.log(characterRouter)
+
 //GET /api/health
 router.get("/health", (req, res, next) => {
     res.send("ok");
@@ -14,7 +17,7 @@ router.get("/health", (req, res, next) => {
 router.use("/arcanerecoveries", require("./arcanerecovery"));
 
 //GET cantrips that exist
-router.use("/cantrips", require("./cantrips"));
+// router.use("/cantrips", require("./cantrips"));
 
 //GET characters that exist; also auth through here
 router.use("/characters", require("./characters"));
@@ -27,8 +30,9 @@ router.use("/characters_spells", require("./characters_spells"));
 
 //GET spells that exist
 //POST, PUT, and DELETE homebrew
-router.use("/spells", require("./spells"));
+// router.use("/spells", require("./spells"));
 
 //
 
 module.exports = router;
+

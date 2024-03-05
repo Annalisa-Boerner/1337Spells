@@ -1,4 +1,4 @@
-const client = require("../client");
+const { client } = require("../client");
 
 const createArcaneRecovery = async ({ usedToday, character_id }) => {
      try {
@@ -20,7 +20,7 @@ const createArcaneRecovery = async ({ usedToday, character_id }) => {
 
 const getAllArcaneRecoveries = async () => {
      try {
-          const { rows } = await client.query(`
+          const { rows } = awaitclient.query(`
           SELECT * FROM arcanerecovery;
           `);
           return rows;
@@ -33,7 +33,7 @@ const getArcaneRecoveryById = async (character_id) => {
      try {
           const {
                rows: [arcanerecovery],
-          } = await client.query(`
+          } = awaitclient.query(`
           SELECT * FROM "arcanerecovery" WHERE character_id=${character_id};
           `);
           return arcanerecovery;

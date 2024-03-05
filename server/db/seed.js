@@ -1,7 +1,7 @@
 //this will reset the database - yes for student project, no for life
 
 //pulling in connection to local db
-const client = require("./client");
+const { client } = require("./client");
 //pull in dummy data arrays from the seed data
 const {
     characters,

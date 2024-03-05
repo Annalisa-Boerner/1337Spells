@@ -1,4 +1,4 @@
-const client = require("../client");
+const { client } = require("../client");
 
 const createSpells = async ({ spell_index, spell_name }) => {
     try {

@@ -25,8 +25,8 @@ export default function AllCantrips({ charIdNum }) {
 
     const cantripsToDisplay = searchParam
         ? allCantrips.filter((cantrip) =>
-              cantrip.name.toLowerCase().includes(searchParam)
-          )
+            cantrip.name.toLowerCase().includes(searchParam)
+        )
         : allCantrips;
 
     return (
@@ -53,6 +53,7 @@ export default function AllCantrips({ charIdNum }) {
                                 triggerWhenOpen={"—" + " " + cantrip.name}
                                 key={cantrip.url}
                                 transitionTime={200}
+                                id="#all-cantrips-collapsible"
                             >
                                 <AddCantripButton
                                     cantrip_index={cantrip.index}
