@@ -9,7 +9,7 @@ psql "postgresql://db:<MY_PASSWORD_HERE>@app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb
 
 PGSSLMODE=require psql -h app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com -p 25060 -d db -U db -W
 
-psql "sslmode=require host=app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com port=25060 dbname=db user=db password=AVNS_MQ86iaFh7WotWEFg4OR"
+psql "sslmode=require host=app-8013a9f3-5dbf-41e2-a704-f4f6c7c55eb5-do-user-15565143-0.c.db.ondigitalocean.com port=25060 dbname=db user=db password=<MY_PASSWORD_HERE>"
 
 
 

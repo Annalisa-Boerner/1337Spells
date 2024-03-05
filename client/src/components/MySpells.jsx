@@ -25,7 +25,9 @@ export default function MySpells({ charIdNum }) {
         getCharacterSpells();
     }, [charIdNum]);
 
-    console.log("spells in MySpells component", charSpells)
+    //put a boolean on state to recognize when the api call goes, and then when that changes, update the state that renders the spells
+
+    console.log("spells in MySpells component", charSpells);
     return (
         <section id="myCantrips">
             <h3 id="mySpellsTitle">My Spells</h3>
