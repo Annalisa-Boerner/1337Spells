@@ -2,7 +2,7 @@
 
 ## Populate your spellbook with ease on 1337 Spells.
 
-When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. Sometimes less is more in a rules-heavy game like D&D 5e. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I created a clear and attractive spellbook for the brand-new Wizard in all of us.
+When I was a new D&D player, I needed an easy, breezy spellbook to get my Wizard character started. So, during the Grace Hopper Program at Fullstack Academy and since graduation, I created a clear and attractive spellbook for the brand-new Wizard in all of us.
 
 **Update: We are fully deployed! Check it out at [tinyurl.com/1337spells](https://www.tinyurl.com/1337spells)!**
 Ok, we're not mobile-friendly. But that's my literal next step.
@@ -10,7 +10,7 @@ Ok, we're not mobile-friendly. But that's my literal next step.
 Learning objectives for this project:
 + Designing a full stack site from scratch, working from a concept through schema design through implementation
   + Learning how to manage my scope (oh baby, I started WAY too big and pared down many times to the MVP you see today)
-+ Working with the [D&D 5e API](https://www.dnd5eapi.co/) to pull in spells and lazy load deets
++ Working with the [D&D 5e API](https://www.dnd5eapi.co/) to pull in spells and lazy load details
 + Completing an authorization flow and using local storage to maintain login during refreshes
 + I'm not a designer (IANAD?), but I want it to look nice!
 + Continuing to organize myself via  my [Jira Kanban board](https://adventure-party.atlassian.net/jira/software/projects/APS/boards/2)
@@ -34,6 +34,7 @@ Your spellbook informs you that you can add up to six spells and three cantrips,
 
 + Fork this repository
 + Clone down your forked repository
++ **Select the "local" branch**
 + Install dependencies using "npm i"
 + Create a PostgreSQL database for user info: createdb 1337Spells
 + Create your own secrets file to satisfy bcrypt requirements:
