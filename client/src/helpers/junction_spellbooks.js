@@ -1,6 +1,5 @@
-// const base_url = "https://plankton-app-5feg7.ondigitalocean.app/api";
-const base_url = "http://localhost:8080/api"
-
+const base_url = "https://plankton-app-5feg7.ondigitalocean.app/api";
+// const base_url = "http://localhost:8080/api"
 
 //GET all spells of all characters
 export const fetchAllCharactersSpells = async () => {
@@ -20,7 +19,10 @@ export const fetchAllCharactersSpells = async () => {
 //GET spells by just one character
 export const fetchCharactersSpellsByCharacterId = async (character_id) => {
     try {
-        console.log('entering try in helpers/junction_spellbooks fetch spells by char ID', character_id)
+        console.log(
+            "entering try in helpers/junction_spellbooks fetch spells by char ID",
+            character_id
+        );
         const response = await fetch(
             `${base_url}/characters_spells/${character_id}`
         );
@@ -38,7 +40,7 @@ export const fetchCharactersSpellsByCharacterId = async (character_id) => {
 //POST a spell to characters_spells
 export async function createCharacterSpell(spell_index, char_id, spell_name) {
     try {
-        console.log('entering try in createCharacterSpell')
+        console.log("entering try in createCharacterSpell");
         const response = await fetch(`${base_url}/characters_spells`, {
             method: "POST",
             headers: {
