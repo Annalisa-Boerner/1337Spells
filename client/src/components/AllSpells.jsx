@@ -28,6 +28,8 @@ export default function AllSpells({ charIdNum }) {
         ? allSpells.filter((spell) =>
               spell.name.toLowerCase().includes(searchParam)
           )
+              spell.name.toLowerCase().includes(searchParam)
+          )
         : allSpells;
 
     return (
@@ -46,10 +48,10 @@ export default function AllSpells({ charIdNum }) {
                 </label>
             </div>
             <br />
-            <div id="allSpellNames">
+            <div id="all-spell-names">
                 {spellsToDisplay.map((spell) => {
                     return (
-                        <div key={spell.url}>
+                        <div key={spell.index}>
                             <Collapsible
                                 trigger={"+" + " " + spell.name}
                                 triggerWhenOpen={"—" + " " + spell.name}
@@ -60,8 +62,12 @@ export default function AllSpells({ charIdNum }) {
                                     spell_index={spell.index}
                                     charId={charIdNum}
                                     spell_name={spell.name}
+                                    key={spell.index}
                                 />
-                                <DetailsButton spell_index={spell.index} />
+                                <DetailsButton
+                                    spell_index={spell.index}
+                                    key={spell.index}
+                                />
                             </Collapsible>
                             <br />
                         </div>

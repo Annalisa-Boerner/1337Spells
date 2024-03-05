@@ -1,4 +1,6 @@
-const base_url = "https://plankton-app-5feg7.ondigitalocean.app/api";
+// const base_url = "https://plankton-app-5feg7.ondigitalocean.app/api";
+const base_url = "http://localhost:8080/api"
+
 
 //GET all spells of all characters
 export const fetchAllCharactersSpells = async () => {

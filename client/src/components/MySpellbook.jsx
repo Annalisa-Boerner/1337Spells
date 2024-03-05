@@ -29,23 +29,23 @@ export default function MySpellbook({ token }) {
             {token ? (
                 <section>
                     <h2>{titleCase(charName)}'s Spellbook</h2>
-                    <div id="MySpellbookContent">
-                        <section id="allSpellsContainer">
+                    <div id="my-spellbook-content">
+                        <section id="all-spells-container">
                             <AllSpells charIdNum={charIdNum} />
                         </section>
-                        <div className="spellbookSpacer"></div>
-                        <section id="spellbookContainer">
-                            <div id="mySpells">
+                        <div id="spellbook-spacer-1"></div>
+                        <section id="spellbook-container">
+                            <div id="my-spells">
                                 {" "}
                                 <MySpells charIdNum={charIdNum} />
                             </div>
-                            <div id="myCantrips">
+                            <div id="my-cantrips">
                                 {" "}
                                 <MyCantrips charIdNum={charIdNum} />
                             </div>
                         </section>{" "}
-                        <div className="spellbookSpacer"></div>
-                        <section id="allCantripsContainer">
+                        <div id="spellbook-spacer-2"></div>
+                        <section id="all-cantrips-container">
                             <AllCantrips charIdNum={charIdNum} />
                         </section>
                     </div>
