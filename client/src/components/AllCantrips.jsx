@@ -25,8 +25,8 @@ export default function AllCantrips({ charIdNum }) {
 
     const cantripsToDisplay = searchParam
         ? allCantrips.filter((cantrip) =>
-            cantrip.name.toLowerCase().includes(searchParam)
-        )
+              cantrip.name.toLowerCase().includes(searchParam)
+          )
         : allCantrips;
 
     return (
@@ -44,7 +44,7 @@ export default function AllCantrips({ charIdNum }) {
                 />
             </label>
             <br />
-            <div id="allCantripNames">
+            <div id="all-cantrip-names">
                 {cantripsToDisplay.map((cantrip) => {
                     return (
                         <>

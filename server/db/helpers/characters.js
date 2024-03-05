@@ -2,7 +2,7 @@
 
 const { client } = require("../client");
 //make sure destructured keys in next line are in the same order as the table so that they match up after the queries
-console.log('type of client in db/helpers/characters.js', typeof (client))
+// console.log('type of client in db/helpers/characters.js', typeof (client))
 const createCharacter = async ({
     username,
     password,
