@@ -32,7 +32,7 @@ Upon landing at the site, the user can either register a new account or log in (
 
 Take a look at the available spells and cantrips (thanks, D&D 5e API!), and choose which you'd like your character to learn using the "Add" button. (For the uninitiated, a cantrip is the lowest-level type of spell in the game - they're useful but inconsequential tricks that even the newest wizard can pull off without expending any of their precious magical energy.) I chose to use a Details button that calls the individual spell's API endpoint rather than fully loading all of the spell info on initial load in order to improve performance on load.
 
-Your spellbook informs you that you can add up to six spells and three cantrips, and will dyamically update to "Spellbook full" once your list is complete.  Frankly, I was excited to save myself from the endless cycle of googling "level 1 wizard how many spells how many cantrips 5e", and to do that for my users, as well.
+Your spellbook informs you that you can add up to six spells and three cantrips, and will dynamically update to "Spellbook full" once your list is complete.  Frankly, I was excited to save myself from the endless cycle of googling "level 1 wizard how many spells how many cantrips 5e", and to do that for my users, as well.
 
 ---
 ## Installation
