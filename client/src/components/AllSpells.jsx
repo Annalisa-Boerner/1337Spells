@@ -28,8 +28,6 @@ export default function AllSpells({ charIdNum }) {
         ? allSpells.filter((spell) =>
               spell.name.toLowerCase().includes(searchParam)
           )
-              spell.name.toLowerCase().includes(searchParam)
-          )
         : allSpells;
 
     return (
