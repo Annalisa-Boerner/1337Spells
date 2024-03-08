@@ -9,6 +9,7 @@ export default function Register({ token, setToken }) {
     const [name, setName] = useState("");
     const [successMessage, setSuccessmessage] = useState(null);
     const [error, setError] = useState(null);
+    const [showPassword, setShowPassword] = useState(false);
 
     //Putting display message conditions on state
     const [characterExists, setCharacterExists] = useState(false);
@@ -32,7 +33,7 @@ export default function Register({ token, setToken }) {
                 ).length > 0
             ) {
                 setCharacterExists(true);
-            } else if (username.length <= 4) {
+            } else if (username.length < 4) {
                 setNameTooShort(true);
             } else {
                 console.log(
@@ -62,6 +63,11 @@ export default function Register({ token, setToken }) {
         }
     };
 
+    // Show password function
+    const handleCheckboxChange = () => {
+        setShowPassword(!showPassword);
+    };
+
     return (
         <section>
             <br />
@@ -82,9 +88,18 @@ export default function Register({ token, setToken }) {
                     className="register-bar"
                     placeholder="Password"
                     value={password}
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     onChange={(event) => setPassword(event.target.value)}
                 />
+                <br />
+                <label style={{ fontSize: "1rem" }}>
+                    Show Password
+                    <input
+                        type="checkbox"
+                        checked={showPassword}
+                        onChange={handleCheckboxChange}
+                    />
+                </label>
                 <br />
                 <input
                     className="register-bar"
@@ -95,6 +110,17 @@ export default function Register({ token, setToken }) {
                 />
                 <br />
                 <br />
+                {passwordTooShort && (
+                    <h3>Passwords must contain a minimum of 8 characters.</h3>
+                )}
+                {characterExists && (
+                    <h3>
+                        Username already exists. Please choose another username.
+                    </h3>
+                )}
+                {nameTooShort && (
+                    <h3>Usernames must contain a minimum of 4 characters.</h3>
+                )}
                 <button id="register-button" type="submit">
                     Submit
                 </button>
