@@ -24,6 +24,7 @@ export default function MySpellbook({ token }) {
         setCharName(window.localStorage.getItem("charName"));
     }, []);
 
+    //add ternary about whether charName is populated
     return (
         <>
             {token ? (

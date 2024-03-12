@@ -22,9 +22,13 @@ a:hover {
     /* background-color: rgba(114, 141, 167, 0.726); */
 
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 3rem;
     color: rgba(248, 216, 168, 0.678);
+}
+
+#logo {
+    height: 4rem;
 }
 
 /*---------SPELLBOOK FORMATTING-----------*/

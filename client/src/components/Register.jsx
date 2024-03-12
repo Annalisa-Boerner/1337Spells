@@ -32,8 +32,11 @@ export default function Register({ token, setToken }) {
                 ).length > 0
             ) {
                 setCharacterExists(true);
+                setPasswordTooShort(false)
             } else if (username.length < 4) {
                 setNameTooShort(true);
+                setCharacterExists(false)
+                setPasswordTooShort(false)
             } else {
                 console.log(
                     "handle submit variables",
