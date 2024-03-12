@@ -22,10 +22,10 @@ export default function Register({ token, setToken }) {
         event.preventDefault();
 
         //Fetch all characters to see if character's username already exsits
-
+        //reset the messages after they've been cleared; place message above
         try {
             const characterResponse = await fetchAllCharacters();
-            if (password.length <= 8) {
+            if (password.length < 8) {
                 setPasswordTooShort(true);
             } else if (
                 characterResponse.filter(
@@ -75,6 +75,17 @@ export default function Register({ token, setToken }) {
 
             <h2 id="register-here-text">Register Here</h2>
             <form onSubmit={handleSubmit}>
+                {passwordTooShort && (
+                    <h3>Passwords must contain a minimum of 8 characters.</h3>
+                )}
+                {characterExists && (
+                    <h3>
+                        Username already exists. Please choose another username.
+                    </h3>
+                )}
+                {nameTooShort && (
+                    <h3>Usernames must contain a minimum of 4 characters.</h3>
+                )}
                 <input
                     className="register-bar"
                     placeholder="Username"
@@ -110,17 +121,7 @@ export default function Register({ token, setToken }) {
                 />
                 <br />
                 <br />
-                {passwordTooShort && (
-                    <h3>Passwords must contain a minimum of 8 characters.</h3>
-                )}
-                {characterExists && (
-                    <h3>
-                        Username already exists. Please choose another username.
-                    </h3>
-                )}
-                {nameTooShort && (
-                    <h3>Usernames must contain a minimum of 4 characters.</h3>
-                )}
+
                 <button id="register-button" type="submit">
                     Submit
                 </button>
