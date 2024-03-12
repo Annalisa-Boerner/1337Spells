@@ -20,7 +20,6 @@ export default function Login({ setToken, setCharId, setCharName }) {
             localStorage.setItem("token", register.token);
             localStorage.setItem("charId", register.character.character_id);
             localStorage.setItem("charName", register.character.name);
-
             setUsername("");
             setPassword("");
             setName("");

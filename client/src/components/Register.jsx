@@ -53,9 +53,13 @@ export default function Register({ token, setToken }) {
                 setPassword("");
                 setName("");
                 if (register) {
-                    nav("/login");
+                    console.log("register object", register)
+                    localStorage.setItem("token", register.token);
+                    localStorage.setItem("charId", register.character.character_id);
+                    localStorage.setItem("charName", register.character.name);
+                    // nav("/myspellbook");
                 } else {
-                    alert("registration probz");
+                    alert("There was an error during registration.");
                 }
             }
         } catch (error) {
