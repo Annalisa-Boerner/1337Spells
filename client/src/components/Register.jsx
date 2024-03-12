@@ -7,7 +7,6 @@ export default function Register({ token, setToken }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
-    const [successMessage, setSuccessmessage] = useState(null);
     const [error, setError] = useState(null);
     const [showPassword, setShowPassword] = useState(false);
 
