@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
-const characterRouter = require('./characters')
-console.log(characterRouter)
+const characterRouter = require("./characters");
+// console.log(characterRouter)
 
 //GET /api/health
 router.get("/health", (req, res, next) => {
@@ -35,4 +35,3 @@ router.use("/characters_spells", require("./characters_spells"));
 //
 
 module.exports = router;
-

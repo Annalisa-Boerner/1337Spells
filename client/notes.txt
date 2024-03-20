@@ -1,6 +1,30 @@
+<<<<<<< HEAD
 sudo service postgresql start
 
 Pass register object into MySpellbook successfully; allow for variation in construction between register and login objects?
+=======
+Victor
+-LastPass popped outside the form bar in Register but not in Login
+-Login using signup credentials
+-Render text below the input field in a div that's only visible if there's an error message (hidden by default)
+-make it actually prevent adding too many spells and cantrips
+-close button hovers over the text on spells when details are open
+-Adding a spell: save in the DB, then put in a call to the character ID, update the state when there's an API response
+    -in addspell logic - instead of returing ok, return all the data so they can be on state
+    -same flow with remove button
+    -don't change the apis, just change the front end
+-MatUI frontend box for react for squishing UI
+you can change order in flex direction - it doesn’t have to be in the same order
+have the spellbook on top with order 2 on the sections (flex direction followed by property)
+-flex-grow: 1 - 2 - 1, for example - this works for expanding on the mobile version- https://css-tricks.com/snippets/css/a-guide-to-flexbox/
+
+Sam 
+-skinny text
+-can do the same spell or cantrip multiple times
+    -check the UI to see if it already exists - same as the search functionality - have the sorry you already have this MUI SNACKBAR 
+
+
+>>>>>>> main
 
 Loading character in MySpellbook immediately:
 -UE with an async function that awaits having the user profile info: write a route to pull directly from the character table rather than passing in via props

@@ -33,7 +33,7 @@ a:hover {
 
 /*---------SPELLBOOK FORMATTING-----------*/
 
-#MySpellbookContent {
+#my-spellbook-content {
     display: flex;
     justify-content: space-between;
     align-items: top;
@@ -41,7 +41,7 @@ a:hover {
 
 /* MY SPELLS CENTER CONTAINERS */
 
-#spellbookContainer {
+#spellbook-container {
     display: flex;
     background-image: url("./assets/parchment-removebg-preview.png");
     background-size: 100% 100%;
@@ -51,26 +51,26 @@ a:hover {
     justify-content: center;
 }
 
-#mySpells,
-#myCantrips {
+#my-spells,
+#my-cantrips {
     display: block;
     width: 12vw;
 }
 
-#mySpells {
+#my-spells {
     padding: 2rem 2rem 2rem 2rem;
 }
 
-#myCantrips {
-    padding: 2rem 8rem 2rem 2rem;
+#my-cantrips {
+    padding: 2rem 2rem 2rem 2rem;
 }
 
 /* ALL SPELLS SIDE CONTAINERS */
-#allSpellsContainer,
-#allCantripsContainer {
+#all-spells-container,
+#all-cantrips-container {
     background-image: url("./assets/parchment-removebg-preview.png");
     background-repeat: no-repeat;
-    background-size: 20vw 100%;
+    background-size: auto 100%;
     opacity: 0.8;
     width: 40vw;
     padding: 2vw 2vw 4vw 2vw;
@@ -79,8 +79,8 @@ a:hover {
     height: 40vw;
 }
 
-#allSpellNames,
-#allCantripNames {
+#all-spell-names,
+#all-cantrip-names {
     text-align: left;
 }
 
@@ -89,7 +89,8 @@ a:hover {
     display: flex;
 }
 
-.spellbookSpacer {
+#spellbook-spacer-1,
+#spellbook-spacer-2 {
     width: 10vw;
 }
 
@@ -172,7 +173,9 @@ button {
     border-radius: 8px;
     border: 1px solid transparent;
     padding: 0.6em 1.2em;
+
     font-size: .5em;
+
     font-weight: 500;
     font-family: inherit;
     background-color: rgba(255, 251, 246, 0.5);
@@ -192,4 +195,52 @@ button:focus-visible {
 
 #register-button {
     font-size: 0.6em;
+}
+
+/* MEDIA QUERIES */
+/* phones */
+@media screen and (max-width: 568px) {
+
+    /* REORDERING CONTENT */
+    #my-spellbook-content,
+    #spellbook-container {
+        flex-direction: column;
+        width: 80vw;
+    }
+
+    #my-spells {
+        order: 1;
+        /* flex-grow: 1; */
+        width: auto;
+    }
+
+    #my-cantrips {
+        order: 2;
+
+        width: auto;
+    }
+
+    #all-spells-container {
+        order: 4;
+        width: auto;
+        height: 40vh;
+    }
+
+    #all-cantrips-container {
+        order: 6;
+        width: auto;
+        height: 40vh;
+    }
+
+    #spellbook-spacer-1 {
+        order: 3;
+        width: auto;
+        height: 2rem;
+    }
+
+    #spellbook-spacer-2 {
+        order: 5;
+        width: auto;
+        height: 2rem;
+    }
 }
