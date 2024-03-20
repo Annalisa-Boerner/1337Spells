@@ -3,11 +3,7 @@
 const { Client } = require("pg");
 
 //COMMENT IN FOR DEPLOY
-<<<<<<< HEAD
-// const password = process.env.PASSWORD;
-=======
 const password = process.env.PASSWORD;
->>>>>>> main
 
 //name database by setting string to variable
 
