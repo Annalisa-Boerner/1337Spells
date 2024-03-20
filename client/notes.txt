@@ -1,3 +1,5 @@
+sudo service postgresql start
+
 Pass register object into MySpellbook successfully; allow for variation in construction between register and login objects?
 
 Loading character in MySpellbook immediately:
