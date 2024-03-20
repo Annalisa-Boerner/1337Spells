@@ -1,3 +1,5 @@
+React jobly has an error class
+
 Because I haven't added any spells, get the spells by that character should be empty aka 404
 That's not true of the cantrips side though
 Route issue??

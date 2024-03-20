@@ -6,7 +6,15 @@ export default function Login({ setToken, setCharId, setCharName }) {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
+
     const nav = useNavigate();
+
+    //Show password function
+    // Show password function
+    const handleCheckboxChange = () => {
+        setShowPassword(!showPassword);
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -20,7 +28,6 @@ export default function Login({ setToken, setCharId, setCharName }) {
             localStorage.setItem("token", register.token);
             localStorage.setItem("charId", register.character.character_id);
             localStorage.setItem("charName", register.character.name);
-
             setUsername("");
             setPassword("");
             setName("");
@@ -39,6 +46,7 @@ export default function Login({ setToken, setCharId, setCharName }) {
             <br />
             <form onSubmit={handleSubmit}>
                 <input
+                    className="register-bar"
                     id="username"
                     autoFocus
                     placeholder="Username"
@@ -47,13 +55,24 @@ export default function Login({ setToken, setCharId, setCharName }) {
                 />
                 <br />
                 <input
+                    className="register-bar"
                     placeholder="Password"
-                    type="password"
+                    type={showPassword ? "text" : "password"}
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <br />
+                <label style={{ fontSize: "1rem" }}>
+                    Show Password
+                    <input
+                        type="checkbox"
+                        checked={showPassword}
+                        onChange={handleCheckboxChange}
+                    />
+                </label>
+                < br />
                 <input
+                    className="register-bar"
                     placeholder="Character Name"
                     type="text"
                     value={name}

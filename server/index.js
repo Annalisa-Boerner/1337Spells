@@ -17,9 +17,13 @@ app.use(bodyParser.json());
 
 // init cookie parser
 const cookieParser = require("cookie-parser");
+<<<<<<< HEAD
+const { COOKIE_SECRET } = require("./secrets");
+=======
 
 const COOKIE_SECRET = process.env.COOKIE_SECRET;
 // const { COOKIE_SECRET } = require("./secrets");
+>>>>>>> main
 app.use(cookieParser(COOKIE_SECRET));
 
 // init cors
