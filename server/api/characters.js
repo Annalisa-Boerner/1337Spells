@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const { JWT_SECRET } = require("../secrets");
+// const { JWT_SECRET } = require("../secrets");
 
-// const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
