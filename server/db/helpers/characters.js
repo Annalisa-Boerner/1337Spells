@@ -40,8 +40,8 @@ const getAllCharacters = async () => {
 };
 const getCharacterById = async (character_id) => {
     try {
-        console.log("entering getCharacterById");
-        console.log(" character id in helpers", character_id);
+        // console.log("entering getCharacterById");
+        // console.log(" character id in helpers", character_id);
 
         const {
             rows: [character],
@@ -52,7 +52,7 @@ const getCharacterById = async (character_id) => {
 WHERE character_id=${character_id};`
         );
 
-        console.log("character in db helpers", character);
+        // console.log("character in db helpers", character);
         return character;
     } catch (error) {
         throw error;
@@ -61,8 +61,8 @@ WHERE character_id=${character_id};`
 
 const getCharacterByUsername = async (username) => {
     try {
-        console.log("entering getCharacterByUsername");
-        console.log(" username in helpers", username);
+        // console.log("entering getCharacterByUsername");
+        // console.log(" username in helpers", username);
 
         const {
             rows: [character],
@@ -73,7 +73,7 @@ const getCharacterByUsername = async (username) => {
 WHERE username= '${username}';`
         );
 
-        console.log("username in db helpers", username);
+        // console.log('flag before return in db/helpers/GetCharacterByUsername')
         return character;
     } catch (error) {
         throw error;

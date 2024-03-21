@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-// const { JWT_SECRET } = require("../secrets");
+const { JWT_SECRET } = require("../secrets");
 
-const JWT_SECRET = process.env.JWT_SECRET;
+// const JWT_SECRET = process.env.JWT_SECRET;
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const SALT_ROUNDS = 10;
@@ -76,7 +76,7 @@ router.post("/login", async (req, res, next) => {
         const { username, password, name } = req.body;
         console.log("req.body ", req.body);
         const character = await getCharacterByUsername(username);
-        console.log("character ", character);
+        console.log("character in api/characters/login ", character);
         const validPassword = await bcrypt.compare(
             password,
             character.password
@@ -84,7 +84,11 @@ router.post("/login", async (req, res, next) => {
         console.log("validPassword ", validPassword);
         delete character.password;
 
-        if (validPassword) {
+        if (!validPassword) {
+
+            // console.log("FLAG false validPassword")
+            res.send({ falsePassword: true })
+        } else {
             const token = jwt.sign(character, JWT_SECRET);
 
             res.cookie("token", token, {
@@ -96,6 +100,7 @@ router.post("/login", async (req, res, next) => {
             //if we pass in token on the character object, then any time there's a getAll, they can see the token. it's split out this way so that it's associated but less accessible
             res.send({ token, character });
         }
+
     } catch (error) {
         next(error);
     }

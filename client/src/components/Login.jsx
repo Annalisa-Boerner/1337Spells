@@ -8,6 +8,8 @@ export default function Login({ setToken, setCharId, setCharName }) {
     const [name, setName] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
+    const [incorrectPassword, setIncorrectPassword] = useState(false)
+
     const nav = useNavigate();
 
     //Show password function
@@ -20,19 +22,22 @@ export default function Login({ setToken, setCharId, setCharName }) {
         event.preventDefault();
 
         try {
-            const register = await login(username, password, name);
-            setToken(register.token);
-            setCharId(register.character_id);
-            setCharName(register.name);
+            const loginResponse = await login(username, password, name);
+            // console.log("loginResponse back in the login", loginResponse)
 
-            localStorage.setItem("token", register.token);
-            localStorage.setItem("charId", register.character.character_id);
-            localStorage.setItem("charName", register.character.name);
-            setUsername("");
-            setPassword("");
-            setName("");
+            if (loginResponse.redirected == false) {
+                setIncorrectPassword(true)
+            } else {
+                setToken(loginResponse.token);
+                setCharId(loginResponse.character_id);
+                setCharName(loginResponse.name);
 
-            if (login) {
+                localStorage.setItem("token", loginResponse.token);
+                localStorage.setItem("charId", loginResponse.character.character_id);
+                localStorage.setItem("charName", loginResponse.character.name);
+                setUsername("");
+                setPassword("");
+                setName("");
                 nav("/myspellbook");
             }
         } catch (error) {
@@ -78,6 +83,7 @@ export default function Login({ setToken, setCharId, setCharName }) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
+                {incorrectPassword && <div>Password and username do not match; please try again.</div>}
                 <br />
                 <button type="submit">Submit</button>
             </form>

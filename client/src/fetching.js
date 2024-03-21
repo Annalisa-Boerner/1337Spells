@@ -1,5 +1,5 @@
-const api_url = `https://plankton-app-5feg7.ondigitalocean.app/api`;
-// const api_url = "http://localhost:8080/api"
+// const api_url = `https://plankton-app-5feg7.ondigitalocean.app/api`;
+const api_url = "http://localhost:8080/api"
 
 //REGISTER
 export const registerCharacter = async (username, password, name) => {
@@ -16,9 +16,9 @@ export const registerCharacter = async (username, password, name) => {
                 name,
             }),
         });
-        console.log("response in fetching registerCharacter ", response);
+        // console.log("response in fetching registerCharacter ", response);
         const result = await response.json();
-        console.log("register character result ", result);
+        // console.log("register character result ", result);
         return result;
     } catch (error) {
         console.error(error);
@@ -40,11 +40,18 @@ export const login = async (username, password, name) => {
                 name,
             }),
         });
-        const result = await response.json();
-        console.log("login result from fetching ", result);
-        return result;
+        // console.log("fetching: response in the login pre json", response)
+        if (response.redirected === false) {
+            // console.log("if clause in login in fetching")
+            return response;
+        } else {
+            const result = await response.json();
+            // console.log("else clause: login result from fetching ", result);
+            return result
+        }
     } catch (error) {
         console.error(error);
+
     }
 };
 
